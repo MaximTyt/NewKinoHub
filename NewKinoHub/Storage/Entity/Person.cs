@@ -22,8 +22,7 @@ namespace NewKinoHub.Storage.Entity
         public string DateOfDeath { get; set; }        
         
         [DataType(DataType.MultilineText)]
-        public string Description { get; set; }
-        List<(RoleInFilm?, RoleInFilm?, RoleInFilm?)> Roles =  new List<(RoleInFilm?, RoleInFilm?, RoleInFilm?)>();
+        public string Description { get; set; }       
         public List<Cast> Casts { get; set; } = new List<Cast>();        
     }
 }
