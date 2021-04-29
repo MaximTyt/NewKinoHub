@@ -28,7 +28,7 @@ namespace NewKinoHub
         {
             services.AddDbContext<MvcFilmContext>(options => options.UseSqlServer(_confstring.GetConnectionString("DefaultConnection")));            
             services.AddMvc();
-            // óñòàíîâêà êîíôèãóðàöèè ïîäêëþ÷åíèÿ
+            // ÑƒÑÑ‚Ð°Ð½Ð¾Ð²ÐºÐ° ÐºÐ¾Ð½Ñ„Ð¸Ð³ÑƒÑ€Ð°Ñ†Ð¸Ð¸ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ñ
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => //CookieAuthenticationOptions
                 {
@@ -67,3 +67,4 @@ namespace NewKinoHub
         }
     }
 }
+
