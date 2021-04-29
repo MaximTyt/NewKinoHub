@@ -3,7 +3,7 @@ using NewKinoHub.Storage.Entity;
 
 namespace NewKinoHub.Storage
 {
-    public class MvcFilmContext:DbContext
+    public class MvcFilmContext : DbContext
     {
         public MvcFilmContext(DbContextOptions<MvcFilmContext> options) : base(options)
         { }
@@ -16,5 +16,9 @@ namespace NewKinoHub.Storage
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Favorites> Favorites { get; set; }
         public DbSet<Viewed> Vieweds { get; set; }
-    }
+
+
+    }          
+    
 }
+

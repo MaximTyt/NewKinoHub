@@ -19,6 +19,7 @@ namespace NewKinoHub.Storage.Entity
         public string Image { get; set; }
         [Range(0, 2)]
         public Role Role { get; set; }
+        public string DateOfBirthday { get; set; }
         public int? FavoritesId { get; set; }
         public Favorites Favorites { get; set; }
         public int? ViewedId { get; set; }

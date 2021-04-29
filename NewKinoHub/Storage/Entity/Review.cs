@@ -12,6 +12,8 @@ namespace NewKinoHub.Storage.Entity
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ReviewId { get; set; }
+
+        [NotMapped]
         public DateTime DateOfReview { get; set; }
 
         [DataType(DataType.MultilineText)]        

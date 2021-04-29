@@ -14,6 +14,7 @@ namespace NewKinoHub.Storage.Entity
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MediaID { get; set; }
         [Required]
+        [Range(0,1)]
         public MediaType MediaType { get; set; }
 
         [Required]
