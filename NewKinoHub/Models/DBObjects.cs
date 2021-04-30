@@ -42,12 +42,63 @@ namespace NewKinoHub.Models
                         " более могущественным противником.Бэтмен и Чудо - женщина набирают" +
                         " команду сверхлюдей для борьбы с пробудившейся угрозой.",
                         ScoreKP = "https://rating.kinopoisk.ru/1387021.gif",
-                        Genres = new List<Genre>() {Genres["Фантастика"], Genres["Боевик"], Genres["Боевик"], Genres["Фэнтези"] }
+                        Genres = new List<Genre>() { Genres["Фантастика"], Genres["Боевик"], Genres["Фэнтези"] },
+                        Casts = new List<Cast>()
+                        {
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Director,
+                            Person = Persons["Зак Снайдер"]
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Screenwriter,
+                                Person=Persons["Крис Террио"]                                
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Actor,
+                            Person = Persons["Бен Аффлек"],
+                            Character = "Batman / Bruce Wayne"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Actor,
+                            Person = Persons["Галь Гадот"],
+                            Character = "Wonder Woman / Diana Prince"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Actor,
+                            Person = Persons["Генри Кавилл"],
+                            Character = "Superman / Clark Kent"
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Actor,
+                                Person=Persons["Джейсон Момоа"],
+                                Character = "Aquaman / Arthur Curry"
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Actor,
+                                Person=Persons["Эзра Миллер"],
+                                Character = "The Flash / Barry Allen"
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Actor,
+                                Person=Persons["Рэй Фишер"],
+                                Character = "Cyborg / Victor Stone"
+                            }
+                        }
                     },
                     new Media
                     {
                         MediaType = MediaType.Serial,
                         Name = "Засланец из космоса",
+                        NumOfSeason = 1,
+                        NumOfEpisodes = 10,
                         Img = "https://imageup.ru/img234/3731988/residentalien.jpg",
                         Video = "https://www.youtube.com/embed/tP1A_dgKEd8",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1000",
@@ -88,9 +139,27 @@ namespace NewKinoHub.Models
                         ScoreKP = "https://rating.kinopoisk.ru/1347949.gif",
                         Genres = new List<Genre>() { Genres["Аниме"], Genres["Боевик"], Genres["Фэнтези"] }
                     }
-                    );
+                    ) ;
             }
-            content.SaveChanges();
+
+            if(!content.Users.Any())
+            {
+                content.AddRange(
+                    new Users
+                    {
+                        Login="admin",
+                        Email="admin@gmail.com",
+                        Password="123",
+                        Role=Role.Admin,
+                        DateOfBirthday="10/08/2001",
+                        Image= "https://imageup.ru/img161/3736570/pirate.jpg"
+                    }
+                    );
+            }    
+
+            if (!content.Persons.Any())
+                content.Persons.AddRange(Persons.Select(c => c.Value));
+            content.SaveChanges();            
         }
 
             private static Dictionary<string, Genre> genres;
@@ -104,19 +173,18 @@ namespace NewKinoHub.Models
                     {
                         new Genre { Genre_Name = "Аниме" },
                         new Genre { Genre_Name = "Боевик" },
-                        new Genre { Genre_Name = "Вестерн" },
                         new Genre { Genre_Name = "Детектив" },
                         new Genre { Genre_Name = "Драма" },
                         new Genre { Genre_Name = "Комедия" },
-                        new Genre { Genre_Name = "Мелодрама" },
+                        new Genre { Genre_Name = "Мелодрама"},
                         new Genre { Genre_Name = "Мультфильм" },
-                        new Genre { Genre_Name = "Мюзикл" },
+                        new Genre { Genre_Name = "Мюзикл"},
                         new Genre { Genre_Name = "Криминал" },
-                        new Genre { Genre_Name = "Приключения" },
-                        new Genre { Genre_Name = "Семейный" },                        
-                        new Genre { Genre_Name = "Ужасы" },
-                        new Genre { Genre_Name = "Фантастика" },
-                        new Genre { Genre_Name = "Фэнтези" }
+                        new Genre { Genre_Name = "Приключения"},
+                        new Genre { Genre_Name = "Семейный"},                        
+                        new Genre { Genre_Name = "Ужасы"},
+                        new Genre { Genre_Name = "Фантастика"},
+                        new Genre { Genre_Name = "Фэнтези"}
                     };
                     genres = new Dictionary<string, Genre>();
                     foreach (Genre el in list)
@@ -126,6 +194,170 @@ namespace NewKinoHub.Models
             }
         }
 
+
+        private static Dictionary<string, Person> persons;
+        public static Dictionary<string, Person> Persons
+        {
+            get
+            {
+                if (persons == null)
+                {
+                    var list = new Person[]
+                    {
+                        new Person{
+                            Name="Зак Снайдер",
+                            OriginalName="Zachary Edward Snyder",
+                            Height="1.7 м",
+                            DateOfBirthday="1/03/1966",
+                            RolesInMedia = new RoleInFilm[3]{RoleInFilm.Director, RoleInFilm.Screenwriter, RoleInFilm.Actor},
+                            Image="https://imageup.ru/img214/3736505/zack_snyder.jpg",
+                            Description="Место рождения: Грин Бэй, Висконсин, США\n" +
+                            "Супруга: Дебора Снайдер\n" +
+                            "В марте 2017 года дочь Снайдера Отем покончила с собой\n. " +
+                            "Зак с Деборой воспитывают семерых детей, двое из которых являются приемными.\n" +
+                            "Награды:\n" +
+                            "Сатурн, 2008 - Лучший режиссер («300 спартанцев»)"
+                        },
+                        new Person{
+                            Name="Бен Аффлек",
+                            OriginalName="Benjamin Geza Affleck-Boldt",
+                            Height="1.92 м",
+                            DateOfBirthday="15/08/1972",
+                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Actor,RoleInFilm.Director, RoleInFilm.Screenwriter},
+                            Image="https://imageup.ru/img208/3736572/benafflec.jpg",
+                            Description="Место рождения: Беркли, Калифорния, США\n" +
+                            "Супруга: Дженнифер Гарнер (развод)\n" +
+                            "Актёр Кейси Аффлек — младший брат Бена.\n. " +
+                            "Недолгое время учился в Вермонтском университете и Оксидентал-колледже.\n" +
+                            "Награды:\n" +
+                            "Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»)\n" +
+                            "Золотая малина, 2015 - Премия за восстановление репутации\n" +
+                            "Оскар, 2013 - Лучший фильм («Операция «Арго»»)\n" +
+                            "Золотой глобус, 2013 - Лучший режиссер («Операция «Арго»»)\n" +
+                            "Британская академия, 2013 - Лучший фильм («Операция «Арго»»), Лучший режиссер («Операция «Арго»»)\n" +
+                            "Сезар, 2013 - Лучший фильм на иностранном языке («Операция «Арго»»)\n" +
+                            "Премия Гильдии актеров, 2013 - Лучший актерский состав («Операция «Арго»»)\n" +
+                            "Сатурн, 2007 - Лучший актер второго плана («Смерть супермена»)\n" +
+                            "Венецианский кинофестиваль, 2006 - Кубок Вольпи за лучшую мужскую роль («Смерть супермена»)\n" +
+                            "Золотая малина, 2004 - Худшая мужская роль («Сорвиголова»)\n" +
+                            "Премия Гильдии актеров, 1999 - Лучший актерский состав («Влюбленный Шекспир»)\n" +
+                            "Оскар, 1998 - Лучший сценарий («Умница Уилл Хантинг»)\n" +
+                            "Золотой глобус, 1998 - Лучший сценарий («Умница Уилл Хантинг»)"
+                        },
+                        new Person
+                        {
+                            Name="Галь Гадот",
+                            OriginalName="Gal Gadot",
+                            Height="1.78 м",
+                            DateOfBirthday="30/04/1985",
+                            RolesInMedia = new RoleInFilm[2]{RoleInFilm.Actor, RoleInFilm.Screenwriter},
+                            Image="https://imageup.ru/img152/3736581/galgadot.jpg",
+                            Description="Место рождения: Петах-Тиква, Израиль\n" +
+                            "Супруг: Ярон Версано\n" +
+                            "Актриса и модель. Является победительницей конкурса" +
+                            " «Мисс Израиль 2004» и участницей конкурса «Мисс Вселенная 2004».\n. " +
+                            "В начале ноября 2011 года родила дочь от супруга Ярона Версано, которую назвали Альмой.\n" +
+                            "Два года прослужила в качестве спортивного тренера в армии Израиля." +
+                            "Награды:\n" +
+                            "Премия канала «MTV», 2018 - Лучшая драка («Чудо-женщина»)\n" +
+                            "Сатурн, 2018 - Лучшая актриса («Чудо-женщина»)"
+                        },
+                        new Person
+                        {
+                            Name="Генри Кавилл",
+                            OriginalName="Henry William Dalgliesh Cavill",
+                            Height="1.85 м",
+                            DateOfBirthday="5/05/1983",
+                            RolesInMedia = new RoleInFilm[1]{RoleInFilm.Actor},
+                            Image="https://imageup.ru/img10/3736585/henrycavill.jpg",
+                            Description="Место рождения: Сент-Сейвьер, Джерси, Нормандские острова\n" +
+                            "У актера есть четыре брата.\n" +
+                            "Генри Кавилл является представителем Фонда охраны дикой природы имени Даррелла.\n. " +
+                            "Свободно говорит по-французски, владеет итальянским и немецким языками.\n" +
+                            "Кавилл является заядлым геймером с самого детства. Однажды он пропустил" +
+                            " важный звонок с предложением играть Супермена из-за World of Warcraft." +
+                            " Любовь к игре Ведьмак побудила его сыграть Геральта в ее экранизации." +
+                            " Он также назвал серию стратегических игр Total War одной из своих любимых.\n" +
+                            "Он заядлый фанат клуба Канзас-Сити Чифс." +
+                            "Награды:\n" +
+                            "Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»)\n" +
+                            "Премия канала «MTV», 2014 - Лучший герой («Человек из стали»)"
+                        },
+                        new Person
+                        {
+                            Name="Джейсон Момоа",
+                            OriginalName="Joseph Jason Namakaeha Momoa",
+                            Height="1.93 м",
+                            DateOfBirthday="1/08/1979",
+                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Actor,RoleInFilm.Director, RoleInFilm.Screenwriter},
+                            Image="https://imageup.ru/img226/3736588/jasonmamoa.jpg",
+                            Description="Место рождения: Гонолулу, Гавайи, США\n" +
+                            "Супруга: Лиза Боне\n" +
+                            "У него есть двое детей от Лизы Боне — Лола Иолани (Lola Iolani) и Накоа Вульф Манакауапо Намакеаха Момоа.\n" +
+                            "Лицевой шрам - 15 ноября 2008 года мужчина ударил Момоа по лицу разбитым пивным стаканом во время ссоры" +
+                            " в кафе Birds Cafe, таверне в Голливуде, штат Калифорния.\n" +
+                            "В начале ноября 2011 года родила дочь от супруга Ярона Версано, которую назвали Альмой.\n" +
+                            "Два года прослужила в качестве спортивного тренера в армии Израиля." +
+                            "Награды:\n" +
+                            "CinemaCon, 2011 - Восходящая звезда"                            
+                        },
+                        new Person
+                        {
+                            Name="Эзра Миллер",
+                            OriginalName="Ezra Matthew Miller",
+                            Height="1.8 м",
+                            DateOfBirthday="30/09/1992",
+                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Actor,RoleInFilm.Director, RoleInFilm.Screenwriter},
+                            Image="https://imageup.ru/img148/3736601/ezramiller.jpg",
+                            Description="Место рождения: Хобокен, Нью-Джерси, США\n" +
+                            "Миллер описывает себя как квира, не идентифицируя свою личность с конкретным гендером и сексуальной ориентацией.\n" +
+                            "С 2016 года играет роли Криденса Бэрбоуна в серии фильмов «Фантастические твари»" +
+                            " по романам Джоан Роулинг и Барри Аллена в лентах супергеройской вселенной DC.\n" +
+                            "Помимо кино Миллер занимается музыкой — он барабанщик и вокалист в группе «Sons of an Illustrious Father».\n" +                            
+                            "Награды:\n" +
+                            "Каннский кинофестиваль, 2012 - Приз компании «Шопар» лучшему молодому актеру"
+                        },
+                        new Person
+                        {
+                            Name="Рэй Фишер",
+                            OriginalName="Ray Fisher",
+                            Height="1.91 м",
+                            DateOfBirthday="8/09/1987",
+                            RolesInMedia = new RoleInFilm[1]{RoleInFilm.Actor},
+                            Image="https://imageup.ru/img65/3736608/rayfisher.jpg",
+                            Description="Место рождения: Балтимор, Мэрилэнд, США\n" +
+                            "После средней школы Фишер учился в Американской музыкально-драматической академии в Нью-Йорке.\n" +
+                            "Получив роль Киборга, Фишер сказал: «Я не знал, в какой степени DC и WB планировали использовать" +
+                            " моего персонажа. Когда я подписал контракт, я просто хотел быть частью этого мира. Но эту конкретную" +
+                            " информацию я узнал только тогда и только там. Я не думал, что я получу свой собственный фильм." +
+                            " Я человек долгоиграющих перспектив и не думал, что подобное произойдет раньше, чем мне исполнится 40." +
+                            " Это огромная честь, но с ним приходит немного давления. Мой разум просто ошеломлён прямо сейчас»."
+                        },
+                         new Person
+                        {
+                            Name="Крис Террио",
+                            OriginalName="Chris Terrio",                            
+                            DateOfBirthday="31/12/1976",
+                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Screenwriter,RoleInFilm.Director,RoleInFilm.Actor},
+                            Image="https://imageup.ru/img11/3736631/christerrio.jpg",
+                            Description="Место рождения: Нью-Йорк, США\n" +
+                            "Крис Террио вырос на Статен-Айленде (Нью-Йорк), в католической" +
+                            " семье итальянского и ирландского происхождения. В 1997 году окончил" +
+                            " Гарвардский университет, где он изучал английскую и американскую литературу.\n" +
+                            "Награды:\n" +
+                            "Золотая малина, 2017 - Худший сценарий («Бэтмен против Супермена: На заре справедливости»)\n" +
+                            "Оскар, 2013 - Лучший адаптированный сценарий («Операция «Арго»»)"
+                        }
+                    };
+                    persons = new Dictionary<string, Person>();
+                    foreach (Person el in list)
+                        persons.Add(el.Name, el);
+                }
+                return persons;
+            }
+        }
+
+        
     }
 }
 

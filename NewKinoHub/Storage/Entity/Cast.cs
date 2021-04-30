@@ -8,14 +8,11 @@ namespace NewKinoHub.Storage.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public int MediaId { get; set; }
-        public List<Person> Persons { get; set; } = new List<Person>();
+        public int Id { get; set; }        
         public Media Media { get; set; }
-        [Range(0,2)]
+        public Person Person { get; set; }
         public RoleInFilm RoleInFilm { get; set; }
         public string Character { get; set; }
-
     }
     public enum RoleInFilm
     {
