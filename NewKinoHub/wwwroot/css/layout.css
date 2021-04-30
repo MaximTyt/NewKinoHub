@@ -1,0 +1,177 @@
+﻿/*---------------------------------------------окно с фильмами---------------------------------------------*/
+/*---------------------------------------------окно с фильмами---------------------------------------------*/
+/*---------------------------------------------окно с фильмами---------------------------------------------*/
+
+#filmform {
+    background: rgba(102, 102, 102, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    color:white;
+    z-index: 20;
+}
+
+    #filmform > a {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 21;
+    }
+
+        #filmform > a:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+    #filmform > div {
+        width: 1200px;
+        height: 600px;
+        text-align: center;
+        padding: 15px;
+        border: 3px solid rgb(247,151,30);
+        border-radius: 10px;
+        color: white;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background-color: black;
+        z-index: 22;
+    }
+
+    #filmform:target {
+        display: block;
+    }
+
+    #filmform > div > a {
+        background-color: bisque;
+        display: block;
+        padding: 9px 45px 0px 45px;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        color: black;
+        line-height: 1.3em;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        height: 36px;
+    }
+
+        #filmform > div > a:hover {
+            background-color: rgb(247,151,30);
+            color: black !important;
+        }
+
+
+    #filmform > div > table > tbody > tr > td > a > img {
+        border-radius: 20px;
+        position: center;
+        border: 3px solid rgb(247,151,30);
+        border-radius: 10px;
+        opacity: 75%;
+        display: block;
+    }
+
+        #filmform > div > table > tbody > tr > td > a > img:hover {
+            opacity:100%;
+        }
+
+
+/*---------------------------------------------окно с сериалами---------------------------------------------*/
+/*---------------------------------------------окно с сериалами---------------------------------------------*/
+/*---------------------------------------------окно с сериалами---------------------------------------------*/
+
+
+#serialform {
+    background: rgba(102, 102, 102, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    color: white;
+    z-index: 20;
+}
+
+    #serialform > a {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 21;
+    }
+
+        #serialform > a:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+    #serialform > div {
+        width: 1200px;
+        height: 600px;
+        text-align: center;
+        padding: 15px;
+        border: 3px solid rgb(247,151,30);
+        border-radius: 10px;
+        color: white;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background-color: black;
+        z-index: 22;
+    }
+
+    #serialform:target {
+        display: block;
+    }
+
+    #serialform > div > a {
+        background-color: bisque;
+        display: block;
+        padding: 9px 45px 0px 45px;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        color: black;
+        line-height: 1.3em;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        height: 36px;
+    }
+
+        #serialform > div > a:hover {
+            background-color: rgb(247,151,30);
+            color: black !important;
+        }
+
+
+    #serialform > div > table > tbody > tr > td > a > img {
+        border-radius: 20px;
+        position: center;
+        border: 3px solid rgb(247,151,30);
+        border-radius: 10px;
+        opacity: 75%;
+        display: block;
+    }
+
+        #serialform > div > table > tbody > tr > td > a > img:hover {
+            opacity: 100%;
+        }

@@ -1,0 +1,35 @@
+﻿@keyframes bg-сhange {
+    from {
+        background-image: url('../../lib/bg/bg_mult_serials/LoveDeathRobots.jpg');
+    }
+
+    20% {
+        background-image: url('../../lib/bg/bg_mult_serials/gravity_falls.jpg');
+    }
+
+    40% {
+        background-image: url('../../lib/bg/bg_mult_serials/gumballs.jpg');
+    }
+
+    60% {
+        background-image: url('../../lib/bg/bg_mult_serials/simpsony.jpg');
+    }
+
+    80% {
+        background-image: url('../../lib/bg/bg_mult_serials/LoveDeathRobots.png');
+    }
+
+    to {
+        background-image: url('../../lib/bg/bg_mult_serials/simpsony.jpg');
+    }
+
+}
+
+#bg {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    animation: bg-сhange 90s infinite;
+}
