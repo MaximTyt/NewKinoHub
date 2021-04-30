@@ -66,6 +66,27 @@ namespace NewKinoHub.Models
                         " начинает задаваться вопросами, стоят люди спасения или нет.",
                         ScoreKP = "https://rating.kinopoisk.ru/1200189.gif",
                         Genres = new List<Genre>() { Genres["Фантастика"], Genres["Драма"], Genres["Комедия"], Genres["Детектив"] }
+                    },
+                    new Media
+                    {
+                        MediaType = MediaType.Film,
+                        Name = "Истребитель демонов: Поезд «Бесконечный»",
+                        Img = "https://imageup.ru/img260/3733456/demonslayer.jpg",
+                        Video = "https://www.youtube.com/embed/__Nwefty3Y4",
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1026",
+                        Year = 2020,
+                        Country = "Япония",
+                        Age = 18,
+                        Score = 8.149,
+                        Release_Date = "16 октября 2020",
+                        Runtime = "01:57",
+                        ShortDescription = "Самый посещаемый японский фильм всех времен",
+                        Description = "Тандзиро с друзьями из отряда уничтожителей демонов" +
+                        " расследует серию загадочных исчезновений внутри мчащегося поезда." +
+                        " Но компания ещё не знает, что в составе находится один из двенадцати" +
+                        " Лунных демонов, и он приготовил для них ловушку.",
+                        ScoreKP = "https://rating.kinopoisk.ru/1347949.gif",
+                        Genres = new List<Genre>() { Genres["Аниме"], Genres["Боевик"], Genres["Фэнтези"] }
                     }
                     );
             }
