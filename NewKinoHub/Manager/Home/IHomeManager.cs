@@ -9,6 +9,6 @@ namespace NewKinoHub.Manager.Home
     public interface IHomeManager
     {
         (List<Media>,List<Media>) GetNewPopularFilms();
-        List<Media> Search(string Name);
+        (List<Media>, List<Media>) Search(string Name);
     }
 }

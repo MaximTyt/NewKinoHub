@@ -31,14 +31,16 @@ namespace NewKinoHub.Manager.Home
         }
 
         [HttpGet]
-        public List<Media> Search(string Name)
+        public (List<Media>, List<Media>) Search(string Name)
         {
-            var films = from x in _context.Media.Include(st => st.Genres) select x;            
+            var films = from x in _context.Media.Include(st => st.Genres) select x;
+            var serials = from x in _context.Media.Include(st => st.Genres) select x;
             if (!String.IsNullOrEmpty(Name))
             {
-                films = films.Where(x => x.Name.Contains(Name));                
+                films = films.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Film);
+                serials = serials.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Serial);
             }
-            List<Media> film = films.ToList();
+            (List<Media>, List<Media>) film = (films.ToList(), serials.ToList());
             return film;
         }
     }

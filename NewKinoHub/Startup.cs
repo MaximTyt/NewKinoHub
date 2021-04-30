@@ -1,3 +1,5 @@
+using KinoHab.Manager;
+using KinoHab.Manager.Serials;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +32,8 @@ namespace NewKinoHub
         {
             services.AddDbContext<MvcFilmContext>(options => options.UseSqlServer(_confstring.GetConnectionString("DefaultConnection")));
             services.AddTransient<IHomeManager, HomeManager>();
+            services.AddTransient<IFilmManager, FilmManager>();
+            services.AddTransient<ISerialManager, SerialManager>();
             services.AddMvc();
             // установка конфигурации подключения
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

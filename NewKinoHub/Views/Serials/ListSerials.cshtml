@@ -1,0 +1,128 @@
+﻿@model ICollection<NewKinoHub.Storage.Entity.Media>
+
+<html style="font-size: 16px;">
+<head>
+    <link rel="stylesheet" href="~/css/bg_css/bg_film_serials.css" media="screen"> @*не переносить в layout*@
+    <link rel="stylesheet" href="~/css/favorites.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/js/jquery.js" defer=""></script>
+</head>
+
+<body id="bg">
+   
+    <nav style="position: fixed; top: 143px; left:10px; width:160px;" id="menu1">
+        @*блок с жанрами*@
+        <ul>
+            <li style="left: 10px;">
+                <a>Жанры</a> @*слово жанры*@
+                <ul>
+                    <li>
+                        @*кнопки с жанрами*@
+                        <a href="#">Боевики</a>
+                    </li>
+                    <li>
+                        @*кнопки с жанрами*@
+                        <a href="#">Комедии</a>
+                    </li>
+                    <li>
+                        @*кнопки с жанрами*@
+                        <a href="#">Приключения</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <table style="margin-top:50px; margin-bottom:30px;">
+            <tbody style="width: 100%; max-width: 1125px; margin: 0 auto;">
+                <tr>
+                    <td style="        max-width: 100px !important; left:0%;">
+                        <h2 class="u-text u-text-1" style="color: white ">Фильмы</h2>
+                    </td>
+                    <td style="        max-width: 1000px !important; right:0%;">
+                        <nav id="menu1" style="margin-left:50px;">
+                            <ul>
+                                <li style="        max-width: 250px !important;">
+                                    <a style="background-color:black !important; color:white !important;">Сортировать: </a>@*кнопка*@
+                                </li>
+                                <li style="        max-width: 250px !important;">
+                                    <a>По дате выхода</a>
+                                    <ul>
+                                        @*что выпадает при наведении на кнопку дата выхода*@
+
+                                        <li>
+                                            <a href=@Url.Action("Sorting", "Serials", new { sort = "YearOld" })>Сначала старые</a>
+                                        </li>
+                                        <li>
+                                            <a href=@Url.Action("Sorting", "Serials", new { sort = "YearNew" })>Сначала новые</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li style="        max-width: 250px !important;">
+                                    <a href=@Url.Action("Sorting", "Serials", new { sort = "Score" })>По рейтингу</a>
+                                </li>
+                                <li style="max-width:250px !important;">
+                                    <a>По названию</a>
+                                    <ul>
+                                        @*что выпадает при наведении на кнопку дата выхода*@
+
+                                        <li>
+                                            <a href=@Url.Action("Sorting", "Serials", new { sort = "NameA" })>А-Я</a>
+                                        </li>
+                                        <li>
+                                            <a href=@Url.Action("Sorting", "Serials", new { sort = "NameZ" })>Я-А</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                @* здесь можно добавить еще кнопку как дата выхода*@
+                                @*если не работает, позвать меня*@
+
+
+                            </ul>
+                        </nav>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        @foreach (var serial in Model)
+        {
+            <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
+                <a href=@Url.Action("serial", "Serials", new { SerialId = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                    <img width="265" class="u-back-image u-expanded imagetitle" src=@serial.Img>
+                </a>
+                <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
+                    <table style="width: 700px;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 400px;">
+                                    <p style="font-weight: bold; right:100%; left:0%;"> @serial.Name </p>
+                                </td>
+                                <td style="width: 300px; float:left !important;">
+                                    <a href="#">
+                                        <img style="float:left !important;" src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Год: @serial.Year</p>
+
+                    <p>
+                        Жанр:@foreach (var genre in serial.Genres)
+                        {
+                            <a>@genre.Genre_Name </a>
+                        }
+                    </p>
+                    @*<p>Актёры: @serial.Actors</p>*@
+                    <p>Страна: @serial.Country</p>
+                    <p>Возраст: @serial.Age+</p>
+                    <a><img src=@serial.ScoreKP border='0'></a>
+                    <p>Краткое описание: @serial.ShortDescription</p>
+                </div>
+                <div style=" clear:both;"></div>
+            </div>
+        }
+    </div>
+
+</body>
+</html>
