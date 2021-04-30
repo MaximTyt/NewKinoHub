@@ -15,10 +15,7 @@ namespace NewKinoHub.Storage
         public DbSet<MediaImages> MediaImages { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Favorites> Favorites { get; set; }
-        public DbSet<Viewed> Vieweds { get; set; }
-
-
-    }          
-    
+        public DbSet<Viewed> Vieweds { get; set; }       
+    }  
 }
 

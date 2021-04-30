@@ -1,0 +1,33 @@
+﻿#toTop {
+    z-index: 10 !important;
+    width: 100px;
+    height:30px;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    background-color: black;
+    text-align: center;
+    padding: 5px;
+    position: fixed;
+    bottom: 46px; /* отступ кнопки от нижнего края страницы*/
+    right: 10px;
+    cursor: pointer;
+    display: none;
+    color: white;
+    font-family: verdana;
+    font-size: 11px;
+}
+
+    #toTop:hover {
+        background: rgb(247,151,30);
+        color: black;
+    }
+
+    /*bg*/
+.listfilm {
+    background-image: url('../lib/images/major_grom_bg.png');
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}

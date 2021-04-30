@@ -1,0 +1,35 @@
+﻿@keyframes bg-сhange {
+    from {
+        background-image: url('../../lib/bg/bg_mult/raua.jpeg');
+    }
+
+    20% {
+        background-image: url('../../lib/bg/bg_mult/mk.jpeg');
+    }
+
+    40% {
+        background-image: url('../../lib/bg/bg_mult/raua.jpeg');
+    }
+
+    60% {
+        background-image: url('../../lib/bg/bg_mult/raua1.jpg');
+    }
+
+    80% {
+        background-image: url('../../lib/bg/bg_mult/soul.jpg');
+    }
+
+    to {
+        background-image: url('../../lib/bg/bg_mult/mk.jpeg');
+    }
+
+}
+
+#bg {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    animation: bg-сhange 90s infinite;
+}

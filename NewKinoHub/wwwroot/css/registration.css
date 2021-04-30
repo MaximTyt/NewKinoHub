@@ -1,0 +1,76 @@
+﻿    /*регистрация*/
+
+#signform {
+    background: rgba(102, 102, 102, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    color:white;
+    z-index: 20;
+}
+
+    #signform > a {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 21;
+    }
+
+        #signform > a:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+    #signform > div {
+        width: 300px;
+        height: 300px;
+        text-align: center;
+        padding: 15px;
+        border: 3px solid rgb(247,151,30);
+        border-radius: 10px;
+        color: white;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background-color: black;
+        z-index: 22;
+    }
+
+    #signform:target {
+        display: block;
+    }
+
+    #signform > div > a {
+        background-color: bisque;
+        display: block;
+        padding: 9px 45px 0px 45px;
+        font-size: 14px;
+        font-family: Arial, sans-serif;
+        color: black;
+        line-height: 1.3em;
+        text-decoration: none;
+        font-weight: bold;
+        text-transform: uppercase;
+        height: 36px;
+    }
+
+        #signform > div > a:hover {
+            background-color: rgb(247,151,30);
+            color: black !important;
+        }
+
+
+
+
+
