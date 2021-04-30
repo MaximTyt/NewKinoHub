@@ -1,0 +1,35 @@
+﻿@keyframes bg-сhange {
+    from {
+        background-image: url('../../lib/bg/bg_anime/your_name1.jpg');
+    }
+
+    20% {
+        background-image: url('../../lib/bg/bg_anime/your_name1.jpg');
+    }
+
+    40% {
+        background-image: url('../../lib/bg/bg_anime/ditya_pogody.jpg');
+    }
+
+    60% {
+        background-image: url('../../lib/bg/bg_anime/your_name.jpg');
+    }
+
+    80% {
+        background-image: url('../../lib/bg/bg_anime/ditya_pogody.jpg');
+    }
+
+    to {
+        background-image: url('../../lib/bg/bg_anime/ditya_pogody.jpg');
+    }
+
+}
+
+#bg {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    animation: bg-сhange 90s infinite;
+}
