@@ -19,8 +19,9 @@ namespace NewKinoHub.Manager.Home
         public (List<Media>, List<Media>) GetNewPopularFilms()
         {
             var films = from x in _context.Media.Where(st => st.MediaType == MediaType.Film).Include(st => st.Genres) select x;
-            var serials = from x in _context.Media.Where(st =>st.MediaType==MediaType.Serial).Include(st => st.Genres) select x;
-            films = films.Where(x => x.Year == 2021 || x.Year == 2020);            
+            var serials = from x in _context.Media.Where(st =>st.MediaType == MediaType.Serial).Include(st => st.Genres) select x;
+            films = films.Where(x => x.Year == 2021 || x.Year == 2020);
+            serials = serials.Where(x => x.Year == 2021 || x.Year == 2020);
 
             films = films.OrderByDescending(st => st.Score);
             serials = serials.OrderByDescending(st => st.Score);

@@ -53,7 +53,8 @@ namespace NewKinoHub.Migrations
                     ShortDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NumOfSeason = table.Column<int>(type: "int", nullable: true),
-                    NumOfEpisodes = table.Column<int>(type: "int", nullable: true)
+                    NumOfEpisodes = table.Column<int>(type: "int", nullable: true),
+                    CastId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -90,27 +91,6 @@ namespace NewKinoHub.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Vieweds", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Casts",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MediaId = table.Column<int>(type: "int", nullable: false),
-                    RoleInFilm = table.Column<int>(type: "int", nullable: false),
-                    Character = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Casts", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Casts_Media_MediaId",
-                        column: x => x.MediaId,
-                        principalTable: "Media",
-                        principalColumn: "MediaID",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -182,6 +162,34 @@ namespace NewKinoHub.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Casts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MediaID = table.Column<int>(type: "int", nullable: true),
+                    PersonId = table.Column<int>(type: "int", nullable: true),
+                    RoleInFilm = table.Column<int>(type: "int", nullable: false),
+                    Character = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Casts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Casts_Media_MediaID",
+                        column: x => x.MediaID,
+                        principalTable: "Media",
+                        principalColumn: "MediaID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Casts_Persons_PersonId",
+                        column: x => x.PersonId,
+                        principalTable: "Persons",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "MediaViewed",
                 columns: table => new
                 {
@@ -238,30 +246,6 @@ namespace NewKinoHub.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CastPerson",
-                columns: table => new
-                {
-                    CastsId = table.Column<int>(type: "int", nullable: false),
-                    PersonsId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CastPerson", x => new { x.CastsId, x.PersonsId });
-                    table.ForeignKey(
-                        name: "FK_CastPerson_Casts_CastsId",
-                        column: x => x.CastsId,
-                        principalTable: "Casts",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_CastPerson_Persons_PersonsId",
-                        column: x => x.PersonsId,
-                        principalTable: "Persons",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Reviews",
                 columns: table => new
                 {
@@ -289,14 +273,14 @@ namespace NewKinoHub.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CastPerson_PersonsId",
-                table: "CastPerson",
-                column: "PersonsId");
+                name: "IX_Casts_MediaID",
+                table: "Casts",
+                column: "MediaID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Casts_MediaId",
+                name: "IX_Casts_PersonId",
                 table: "Casts",
-                column: "MediaId");
+                column: "PersonId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_FavoritesMedia_MediasMediaID",
@@ -342,7 +326,7 @@ namespace NewKinoHub.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CastPerson");
+                name: "Casts");
 
             migrationBuilder.DropTable(
                 name: "FavoritesMedia");
@@ -360,19 +344,16 @@ namespace NewKinoHub.Migrations
                 name: "Reviews");
 
             migrationBuilder.DropTable(
-                name: "Casts");
-
-            migrationBuilder.DropTable(
                 name: "Persons");
 
             migrationBuilder.DropTable(
                 name: "Genres");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Media");
 
             migrationBuilder.DropTable(
-                name: "Media");
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Favorites");
