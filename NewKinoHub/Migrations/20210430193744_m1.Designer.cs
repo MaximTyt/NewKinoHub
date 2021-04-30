@@ -10,7 +10,7 @@ using NewKinoHub.Storage;
 namespace NewKinoHub.Migrations
 {
     [DbContext(typeof(MvcFilmContext))]
-    [Migration("20210430125819_m1")]
+    [Migration("20210430193744_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,21 +20,6 @@ namespace NewKinoHub.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("CastPerson", b =>
-                {
-                    b.Property<int>("CastsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PersonsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CastsId", "PersonsId");
-
-                    b.HasIndex("PersonsId");
-
-                    b.ToTable("CastPerson");
-                });
 
             modelBuilder.Entity("FavoritesMedia", b =>
                 {
@@ -91,7 +76,10 @@ namespace NewKinoHub.Migrations
                     b.Property<string>("Character")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MediaId")
+                    b.Property<int?>("MediaID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PersonId")
                         .HasColumnType("int");
 
                     b.Property<int>("RoleInFilm")
@@ -99,7 +87,9 @@ namespace NewKinoHub.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MediaId");
+                    b.HasIndex("MediaID");
+
+                    b.HasIndex("PersonId");
 
                     b.ToTable("Casts");
                 });
@@ -143,6 +133,9 @@ namespace NewKinoHub.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CastId")
                         .HasColumnType("int");
 
                     b.Property<string>("Country")
@@ -341,21 +334,6 @@ namespace NewKinoHub.Migrations
                     b.ToTable("Vieweds");
                 });
 
-            modelBuilder.Entity("CastPerson", b =>
-                {
-                    b.HasOne("NewKinoHub.Storage.Entity.Cast", null)
-                        .WithMany()
-                        .HasForeignKey("CastsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NewKinoHub.Storage.Entity.Person", null)
-                        .WithMany()
-                        .HasForeignKey("PersonsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("FavoritesMedia", b =>
                 {
                     b.HasOne("NewKinoHub.Storage.Entity.Favorites", null)
@@ -405,11 +383,15 @@ namespace NewKinoHub.Migrations
                 {
                     b.HasOne("NewKinoHub.Storage.Entity.Media", "Media")
                         .WithMany("Casts")
-                        .HasForeignKey("MediaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MediaID");
+
+                    b.HasOne("NewKinoHub.Storage.Entity.Person", "Person")
+                        .WithMany("Casts")
+                        .HasForeignKey("PersonId");
 
                     b.Navigation("Media");
+
+                    b.Navigation("Person");
                 });
 
             modelBuilder.Entity("NewKinoHub.Storage.Entity.MediaImages", b =>
@@ -469,6 +451,11 @@ namespace NewKinoHub.Migrations
                     b.Navigation("Images");
 
                     b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("NewKinoHub.Storage.Entity.Person", b =>
+                {
+                    b.Navigation("Casts");
                 });
 
             modelBuilder.Entity("NewKinoHub.Storage.Entity.Users", b =>
