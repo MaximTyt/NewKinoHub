@@ -5,6 +5,66 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\css\bootStrap\bootstrap-grid.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap-grid.rtl.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap-grid.rtl.min.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap-reboot.rtl.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap-reboot.rtl.min.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap-utilities.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap-utilities.min.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap-utilities.rtl.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap-utilities.rtl.min.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap.min.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap.rtl.css.map" />
+    <None Include="wwwroot\css\bootStrap\bootstrap.rtl.min.css.map" />
+    <None Include="wwwroot\js\bootstrap\bootstrap.bundle.js" />
+    <None Include="wwwroot\js\bootstrap\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\js\bootstrap\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\js\bootstrap\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\js\bootstrap\bootstrap.esm.js" />
+    <None Include="wwwroot\js\bootstrap\bootstrap.esm.js.map" />
+    <None Include="wwwroot\js\bootstrap\bootstrap.esm.min.js" />
+    <None Include="wwwroot\js\bootstrap\bootstrap.esm.min.js.map" />
+    <None Include="wwwroot\js\bootstrap\bootstrap.js" />
+    <None Include="wwwroot\js\bootstrap\bootstrap.js.map" />
+    <None Include="wwwroot\js\bootstrap\bootstrap.min.js" />
+    <None Include="wwwroot\js\bootstrap\bootstrap.min.js.map" />
+    <None Include="wwwroot\js\script-menu-3.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\upbutton.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\lib\images\3.svg" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />

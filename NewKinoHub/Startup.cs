@@ -1,3 +1,5 @@
+using KinoHab.Manager;
+using KinoHab.Manager.Serials;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -5,6 +7,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NewKinoHub.Manager.Home;
+using NewKinoHub.Models;
 using NewKinoHub.Storage;
 using System;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
@@ -26,7 +30,10 @@ namespace NewKinoHub
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MvcFilmContext>(options => options.UseSqlServer(_confstring.GetConnectionString("DefaultConnection")));            
+            services.AddDbContext<MvcFilmContext>(options => options.UseSqlServer(_confstring.GetConnectionString("DefaultConnection")));
+            services.AddTransient<IHomeManager, HomeManager>();
+            services.AddTransient<IFilmManager, FilmManager>();
+            services.AddTransient<ISerialManager, SerialManager>();
             services.AddMvc();
             // установка конфигурации подключения
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -64,6 +71,13 @@ namespace NewKinoHub
                     pattern: "{controller=Home}/{action=Index}");
 
             });
+           
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                MvcFilmContext content = scope.ServiceProvider.GetRequiredService<MvcFilmContext>();
+                DBObjects.Initial(content);
+            }
+            
         }
     }
 }
