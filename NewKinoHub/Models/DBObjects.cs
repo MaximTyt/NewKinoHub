@@ -91,7 +91,27 @@ namespace NewKinoHub.Models
                                 Person=Persons["Рэй Фишер"],
                                 Character = "Cyborg / Victor Stone"
                             }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img128/3736799/liga-1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img191/3736801/liga-2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img156/3736802/liga-3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img13/3736803/liga-4.jpg"
+                            }
                         }
+                        
                     },
                     new Media
                     {
@@ -116,7 +136,28 @@ namespace NewKinoHub.Models
                         " возвращению домой и занять место убитого. Живя в новом теле, он постепенно" +
                         " начинает задаваться вопросами, стоят люди спасения или нет.",
                         ScoreKP = "https://rating.kinopoisk.ru/1200189.gif",
-                        Genres = new List<Genre>() { Genres["Фантастика"], Genres["Драма"], Genres["Комедия"], Genres["Детектив"] }
+                        Genres = new List<Genre>() { Genres["Фантастика"], Genres["Драма"], Genres["Комедия"], Genres["Детектив"] },
+                        Images = new List<MediaImages>
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img178/3736813/zsl1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img188/3736816/zsl2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img178/3736817/zsl3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img155/3736819/zsl4.jpg"
+                            }
+                        }
+                            
+
                     },
                     new Media
                     {
@@ -137,7 +178,26 @@ namespace NewKinoHub.Models
                         " Но компания ещё не знает, что в составе находится один из двенадцати" +
                         " Лунных демонов, и он приготовил для них ловушку.",
                         ScoreKP = "https://rating.kinopoisk.ru/1347949.gif",
-                        Genres = new List<Genre>() { Genres["Аниме"], Genres["Боевик"], Genres["Фэнтези"] }
+                        Genres = new List<Genre>() { Genres["Аниме"], Genres["Боевик"], Genres["Фэнтези"] },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img13/3736804/kl1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img144/3736805/kl2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img286/3736806/kl3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img184/3736807/kl4.jpg"
+                            }
+                        }
                     }
                     ) ;
             }
