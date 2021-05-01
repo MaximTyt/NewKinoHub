@@ -60,14 +60,26 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    margin: 0;
+    padding: 0;
 }
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 30px; /* Vertically center the text there */
+    flex: 0 0 auto;
+    line-height: 76px;
+    background-color: black !important;
+    color: white;
 }
 
