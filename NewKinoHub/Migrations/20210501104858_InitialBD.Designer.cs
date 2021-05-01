@@ -10,8 +10,8 @@ using NewKinoHub.Storage;
 namespace NewKinoHub.Migrations
 {
     [DbContext(typeof(MvcFilmContext))]
-    [Migration("20210430193744_m1")]
-    partial class m1
+    [Migration("20210501104858_InitialBD")]
+    partial class InitialBD
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -133,9 +133,6 @@ namespace NewKinoHub.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CastId")
                         .HasColumnType("int");
 
                     b.Property<string>("Country")

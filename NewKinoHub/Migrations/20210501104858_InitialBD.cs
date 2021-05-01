@@ -2,7 +2,7 @@
 
 namespace NewKinoHub.Migrations
 {
-    public partial class m1 : Migration
+    public partial class InitialBD : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,8 +53,7 @@ namespace NewKinoHub.Migrations
                     ShortDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NumOfSeason = table.Column<int>(type: "int", nullable: true),
-                    NumOfEpisodes = table.Column<int>(type: "int", nullable: true),
-                    CastId = table.Column<int>(type: "int", nullable: false)
+                    NumOfEpisodes = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
