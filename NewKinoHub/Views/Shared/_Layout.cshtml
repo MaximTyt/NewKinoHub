@@ -3,32 +3,32 @@
 
 ﻿<!DOCTYPE html>
 
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - NewKinoHub</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link rel="stylesheet" href="/css/headerlist2.css" />                      @*кнопки главного меню*@
-    <link rel="stylesheet" href="~/css/upbutton.css" />                        @*кнопка наверх*@
-    <link rel="stylesheet" href="~/css/searchbutton.css" />                    @*форма поиска*@
-    <link rel="stylesheet" href="~/css/favorites.css" media="screen">          @*добавление в избранное*@
-    <link rel="stylesheet" href="~/css/registration.css" media="screen" />     @*форма регистрации/входа*@
-    <link rel="stylesheet" href="~/css/layout.css" media="screen" />           @*форма фильмов/сериалов*@
-    <style>
-        @@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&display=swap');
-    </style>
-</head>
-<body style="background-color:#1A1917; font-family: 'Arimo', sans-serif; min-height:100%;">
-    @*начало блока с регистрацией/входом*@
-    <div id="signform">
-        <a href="#"></a>
-        <div>
-            Форма для регистрации<br />
+ <html lang="en">
+ <head>
+     <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>@ViewData["Title"] - NewKinoHub</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+     <link rel="stylesheet" href="~/css/site.css" />
+     <link rel="stylesheet" href="/css/headerlist2.css" />                      @*кнопки главного меню*@
+     <link rel="stylesheet" href="~/css/upbutton.css" />                        @*кнопка наверх*@
+     <link rel="stylesheet" href="~/css/searchbutton.css" />                    @*форма поиска*@
+     <link rel="stylesheet" href="~/css/favorites.css" media="screen">          @*добавление в избранное*@
+     <link rel="stylesheet" href="~/css/registration.css" media="screen" />     @*форма регистрации/входа*@
+     <link rel="stylesheet" href="~/css/layout.css" media="screen" />           @*форма фильмов/сериалов*@
+     <style>
+         @@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&display=swap');
+     </style>
+ </head>
+ <body style="font-family: 'Arimo', sans-serif;" class="bodybg">
+     @*начало блока с регистрацией/входом*@
+     <div id="signform">
+         <a href="#"></a>
+         <div>
+             Форма для регистрации<br />
 
-            @*<form asp-action="Register" asp-controller="Account" asp-anti-forgery="true">
+             @*<form asp-action="Register" asp-controller="Account" asp-anti-forgery="true">
                     <div class="validation" asp-validation-summary="ModelOnly"></div>
                     <div>
                         <div>
@@ -57,262 +57,262 @@
                     </div>
                 </form>*@
 
-            <a href="#">Закрыть</a>
-        </div>
-    </div>
-    @*конец блока с регистрацией/входом*@
-    @*начало блока с фильмами*@
-    <div id="filmform">
-        <a href="#"></a>
-        <div>
-            <table style="width:1200px; position:center;">
-                <tbody>
-                    <tr style="">
-                        @*первая строчка жанров*@
-                        <td>
-                            <a asp-area="" asp-controller="Films" asp-action="ListFilms">
-                                <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">Films</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="Films" asp-action="Films">
-                                <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">Anime</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
-                                <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">Mult</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
-                                <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">Mult</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
-                                <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">Mult</h5>
-                        </td>
-                    </tr>
-                    <tr style="margin-top:20px;">
-                        @*вторая строчка жанров*@
-                        <td>
-                            <a asp-area="" asp-controller="Films" asp-action="ListFilms">
-                                <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">Films</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="Films" asp-action="Films">
-                                <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">Anime</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
-                                <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">Mult</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
-                                <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">Mult</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
-                                <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">Mult</h5>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <br />
-            @*<a href="#">Закрыть</a>*@
-        </div>
-    </div>
-    @*конец блока с фильмами*@
-    @*начало блока с сериалами*@
-    <div id="serialform">
-        <a href="#"></a>
-        <div>
-            <table style="width:1200px; position:center;">
-                <tbody>
-                    <tr>
-                        <td>
-                            @*первая строчка*@
-                            <a asp-area="" asp-controller="Serials" asp-action="ListSerials">
-                                <img src="~/lib/images/Films/JohnWick.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">Serials</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="Serials" asp-action="ListSerial">
-                                <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">AnimeSerials</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="MultSerials" asp-action="ListMultSerials">
-                                <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">MultSerials</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="Serials" asp-action="ListSerial">
-                                <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">AnimeSerials</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="MultSerials" asp-action="ListMultSerials">
-                                <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">MultSerials</h5>
-                        </td>
-                    </tr>
-                    <tr>
-                        @*вторая строчка*@
-                        <td>
-                            <a asp-area="" asp-controller="Serials" asp-action="ListSerials">
-                                <img src="~/lib/images/Films/JohnWick.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">Serials</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="Serials" asp-action="ListSerial">
-                                <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">AnimeSerials</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="MultSerials" asp-action="ListMultSerials">
-                                <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">MultSerials</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="Serials" asp-action="ListSerial">
-                                <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">AnimeSerials</h5>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="MultSerials" asp-action="ListMultSerials">
-                                <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
-                            </a>
-                            <h5 style="color:white;">MultSerials</h5>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <br />
-        </div>
-    </div>
-    @*конец блока с сериалами*@
-    @*max-width: 1125px;*@
-    <header style="background-color:#CA752E; max-height:93px; width: 100%;  position:absolute; top:0;">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
-            <div class="container">
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <table style="width: 100%; max-width: 1240px; margin: 0 auto; position:center;">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                                        <img src="~/lib/images/logo.jpg" style="border-radius : 8px; width : 200px !important; position:static;" />
-                                    </a>
-                                </td>
-                                <td style="width: 100%; max-width: 420px !important;">
-                                    <nav id="menu1">
-                                        <ul>
-                                            @*id menu - для выплывающего меню*@
-                                            <li style="width: 100%; max-width: 120px !important;">
-                                                @*фильмы*@
-                                                <a asp-area="" asp-controller="Films" asp-action="ListFilms">Films</a>
-                                                <ul>
-                                                    <li>
-                                                        <a href="#filmform">Genres</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li style="width: 100%; max-width: 130px !important;">
-                                                @*сериалы*@
-                                                <a asp-area="" asp-controller="Films" asp-action="ListSerials">Serials</a>
-                                                <ul>
-                                                    <li>
-                                                        <a href="#serialform">Genres</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li style="width: 100%; max-width: 140px !important;">
-                                                <a href="#">О нас</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </td>
-                                <td style="width: 100%; width: 150px !important;">
-                                    <form method="get" asp-controller="Home" asp-action="Search" style="width:250px !important;">
-                                        @*Блок поиска по сайту*@
-                                        <input type="search" placeholder="Search title..." value="@ViewData["Getemployeedetails"]" name="Name">       @*Блок поиска по сайту*@
-                                        <button type="submit" value="Search" class="button" />                        @*Блок поиска по сайту*@
-                                    </form>
-                                </td>
-                                <td style="width: 100%; max-width: 260px !important;">
-                                    <nav id="menu1">
-                                        <ul>
-                                            <li style="width: 100%; max-width: 250px !important;">
-                                                <a asp-area="" asp-controller="Account" asp-action="Register">Sign</a> @* не трогать строчку*@
-                                            </li>
-                                        </ul>
-                                        <ul>
-                                            @if (1 == 1)
-                                            {
-                                                <li style="width: 100%; max-width: 250px !important;">
-                                                    <a asp-area="" asp-controller="Users" asp-action="Profil"> Profile</a>
-                                                </li>
-                                            }
-                                            else
-                                            {
-                                                <li style="width: 100%; max-width: 250px !important;">
-                                                    <a style="background-color:black !important; color: white !important;">Profile</a>
-                                                </li>
-                                            }
-                                        </ul>
-                                    </nav>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container" style="margin-top:100px;">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+             <a href="#">Закрыть</a>
+         </div>
+     </div>
+     @*конец блока с регистрацией/входом*@
+     @*начало блока с фильмами*@
+     <div id="filmform">
+         <a href="#"></a>
+         <div>
+             <table style="width:1200px; position:center;">
+                 <tbody>
+                     <tr style="">
+                         @*первая строчка жанров*@
+                         <td>
+                             <a asp-area="" asp-controller="Films" asp-action="ListFilms">
+                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">Films</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="Films" asp-action="Films">
+                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">Anime</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
+                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">Mult</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
+                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">Mult</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
+                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">Mult</h5>
+                         </td>
+                     </tr>
+                     <tr style="margin-top:20px;">
+                         @*вторая строчка жанров*@
+                         <td>
+                             <a asp-area="" asp-controller="Films" asp-action="ListFilms">
+                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">Films</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="Films" asp-action="Films">
+                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">Anime</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
+                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">Mult</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
+                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">Mult</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
+                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">Mult</h5>
+                         </td>
+                     </tr>
+                 </tbody>
+             </table>
+             <br />
+             @*<a href="#">Закрыть</a>*@
+         </div>
+     </div>
+     @*конец блока с фильмами*@
+     @*начало блока с сериалами*@
+     <div id="serialform">
+         <a href="#"></a>
+         <div>
+             <table style="width:1200px; position:center;">
+                 <tbody>
+                     <tr>
+                         <td>
+                             @*первая строчка*@
+                             <a asp-area="" asp-controller="Serials" asp-action="ListSerials">
+                                 <img src="~/lib/images/Films/JohnWick.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">Serials</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="Serials" asp-action="ListSerial">
+                                 <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">AnimeSerials</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="MultSerials" asp-action="ListMultSerials">
+                                 <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">MultSerials</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="Serials" asp-action="ListSerial">
+                                 <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">AnimeSerials</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="MultSerials" asp-action="ListMultSerials">
+                                 <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">MultSerials</h5>
+                         </td>
+                     </tr>
+                     <tr>
+                         @*вторая строчка*@
+                         <td>
+                             <a asp-area="" asp-controller="Serials" asp-action="ListSerials">
+                                 <img src="~/lib/images/Films/JohnWick.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">Serials</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="Serials" asp-action="ListSerial">
+                                 <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">AnimeSerials</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="MultSerials" asp-action="ListMultSerials">
+                                 <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">MultSerials</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="Serials" asp-action="ListSerial">
+                                 <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">AnimeSerials</h5>
+                         </td>
+                         <td>
+                             <a asp-area="" asp-controller="MultSerials" asp-action="ListMultSerials">
+                                 <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
+                             </a>
+                             <h5 style="color:white;">MultSerials</h5>
+                         </td>
+                     </tr>
+                 </tbody>
+             </table>
+             <br />
+         </div>
+     </div>
+     @*конец блока с сериалами*@
+     @*max-width: 1125px;*@
+     <header style="height: 10% !important; width: 100%; position: absolute; top: 0; " class="border-bottom headerbg">
+         <center>
+             <div class="container">
+                 <div style="margin-top:1% !important;">
+                     <table style="width: 100%; max-width: 1100px; margin: 0 auto; position:center;">
+                         <tbody>
+                             <tr>
+                                 <td>
+                                     <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                                         <img src="~/lib/images/logo.jpg" style="border-radius : 8px; width : 200px !important; position:static;" />
+                                     </a>
+                                 </td>
+                                 <td style="width: 100%; max-width: 420px !important;">
+                                     <nav id="menu1">
+                                         <ul>
+                                             @*id menu - для выплывающего меню*@
+                                             <li style="width: 100%; max-width: 120px !important;">
+                                                 @*фильмы*@
+                                                 <a asp-area="" asp-controller="Films" asp-action="ListFilms">Films</a>
+                                                 <ul>
+                                                     <li style="width: 100%; max-width: 120px !important;">
+                                                         <a href="#filmform">Genres</a>
+                                                     </li>
+                                                 </ul>
+                                             </li>
+                                             <li style="width: 100%; max-width: 130px !important;">
+                                                 @*сериалы*@
+                                                 <a asp-area="" asp-controller="Serials" asp-action="ListSerials">Serials</a>
+                                                 <ul>
+                                                     <li style="width: 100%; max-width: 130px !important;">
+                                                         <a href="#serialform">Genres</a>
+                                                     </li>
+                                                 </ul>
+                                             </li>
+                                             <li style="width: 100%; max-width: 140px !important;">
+                                                 <a href="#">О нас</a>
+                                             </li>
+                                         </ul>
+                                     </nav>
+                                 </td>
+                                 <td style="width: 100%; width: 150px !important;">
+                                     <form method="get" asp-controller="Home" asp-action="Search" style="width:250px !important;">
+                                         @*Блок поиска по сайту*@
+                                         <input type="search" placeholder="Search title..." value="@ViewData["Getemployeedetails"]" name="Name">       @*Блок поиска по сайту*@
+                                         <button type="submit" value="Search" class="button" />                        @*Блок поиска по сайту*@
+                                     </form>
+                                 </td>
+                                 <td style="width: 100%; max-width: 260px !important;">
+                                     <nav id="menu1">
+                                         <ul>
+                                             <li style="width: 100%; max-width: 250px !important;">
+                                                 <a asp-area="" asp-controller="Account" asp-action="Register">Sign</a> @* не трогать строчку*@
+                                             </li>
+                                         </ul>
+                                         <ul>
+                                             @if (1 == 1)
+                                             {
+                                                 <li style="width: 100%; max-width: 250px !important;">
+                                                     <a asp-area="" asp-controller="Users" asp-action="Profil"> Profile</a>
+                                                 </li>
+                                             }
+                                             else
+                                             {
+                                                 <li style="width: 100%; max-width: 250px !important;">
+                                                     <a style="background-color:black !important; color: white !important;">Profile</a>
+                                                 </li>
+                                             }
+                                         </ul>
+                                     </nav>
+                                 </td>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
+             </div>
+         </center>
+     </header>
+     <div class="container" style="margin-top:100px;">
+         <main role="main" class="pb-3">
+             @RenderBody()
+         </main>
+     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - KinoHab - Все права защищены
-        </div>
-    </footer>
+     <footer class="border-top footer text-muted">
+         <div class="container" style="margin-top:1%;">
+             &copy; 2021 - <a style="text-decoration: none;" class="text-muted" asp-controller="Home" asp-action="Index">KinoHab</a> - Все права защищены
+         </div>
+     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script class="u-script" type="text/javascript" src="~/js/upbutton.js" defer=""></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-    <div ID="toTop"> ^ Наверх </div>
-</body>
-</html>
+     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+     <script class="u-script" type="text/javascript" src="~/js/upbutton.js" defer=""></script>
+     <script src="~/js/site.js" asp-append-version="true"></script>
+     @await RenderSectionAsync("Scripts", required: false)
+     <div ID="toTop"> ^ Наверх </div>
+ </body>
+ </html>

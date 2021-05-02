@@ -24,7 +24,7 @@
 
 <body id="bg">
   
-    <div class="u-clearfix u-sheet u-sheet-1">
+    <div class="u-clearfix u-sheet u-sheet-1 wrapper">
         <div style="margin-top:50px; margin-bottom:30px;">
             <div style="width: 100%; max-width: 1125px; margin: 0 auto; color:white;">
 
@@ -109,7 +109,7 @@
                 <a href=@Url.Action("serial", "Films", new { SerialId = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
                     <img width="265" class="u-back-image u-expanded imagetitle" src=@serial.Img>
                 </a>
-                <div style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
+                <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
                     <table style="width: 700px;">
                         <tbody>
                             <tr>
