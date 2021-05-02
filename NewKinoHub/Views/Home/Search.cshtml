@@ -28,7 +28,7 @@
         <div style="margin-top:50px; margin-bottom:30px;">
             <div style="width: 100%; max-width: 1125px; margin: 0 auto; color:white;">
 
-                @if (Model.Item1.Count == 0 && Model.Item2.Count == 0)
+                @if (Model.Item1 == null && Model.Item2 == null || Model.Item1.Count == 0 && Model.Item2.Count == 0)
                 {   /*выводится, если тайтл не нашелся*/
                     <div style="left:50% !important; right:50% !important;">
                         <center>
@@ -51,96 +51,97 @@
                         <h3 style="padding-bottom:3px; left:100%;">Вот, что нашлось по результатам поиска :</h3>
                         <h3 style="padding-bottom:3px; left:100%;">"@ViewData["Getemployeedetails"]"</h3>
                     </div>
+
+                    @if (Model.Item1.Count != 0)
+                    {<div style="color:white; background-color:black; width:150px; height:30px; padding-bottom:3px !important;">
+                            <h3>Фильмы:</h3>
+                        </div>
+                    }
+                    @foreach (var film in Model.Item1)
+                    {
+                        <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
+                            <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                                <img width="265" class="u-back-image u-expanded imagetitle" src=@film.Img>
+                            </a>
+                            <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
+                                <table style="width: 700px;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 400px;">
+                                                <p style="font-weight: bold; right:100%; left:0%;"> @film.Name </p>
+                                            </td>
+                                            <td style="width: 300px; float:left !important;">
+                                                <a href="#">
+                                                    <img style="float:left !important;" src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>Год: @film.Year</p>
+
+                                <p>
+                                    Жанр:@foreach (var genre in film.Genres)
+                                    {
+                                        <a>@genre.Genre_Name </a>
+                                    }
+                                </p>
+                                @*<p>Актёры: @film.Actors</p>*@
+                                <p>Страна: @film.Country</p>
+                                <p>Возраст: @film.Age+</p>
+                                <a><img src=@film.ScoreKP border='0'></a>
+                                <p>Краткое описание: @film.ShortDescription</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    }
+                    @if (Model.Item2.Count != 0)
+                    {
+                        <div style="color:white; background-color:black; width:150px; height:30px; padding-bottom:3px !important;">
+                            <h3>Сериалы:</h3>
+                        </div>
+                    }
+                    @foreach (var serial in Model.Item2)
+                    {
+                        <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
+                            <a href=@Url.Action("serial", "Films", new { SerialId = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                                <img width="265" class="u-back-image u-expanded imagetitle" src=@serial.Img>
+                            </a>
+                            <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
+                                <table style="width: 700px;">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width: 400px;">
+                                                <p style="font-weight: bold; right:100%; left:0%;"> @serial.Name </p>
+                                            </td>
+                                            <td style="width: 300px; float:left !important;">
+                                                <a href="#">
+                                                    <img style="float:left !important;" src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p>Год: @serial.Year</p>
+
+                                <p>
+                                    Жанр:@foreach (var genre in serial.Genres)
+                                    {
+                                        <a>@genre.Genre_Name </a>
+                                    }
+                                </p>
+                                @*<p>Актёры: @serial.Actors</p>*@
+                                <p>Страна: @serial.Country</p>
+                                <p>Возраст: @serial.Age+</p>
+                                <a><img src=@serial.ScoreKP border='0'></a>
+                                <p>Краткое описание: @serial.ShortDescription</p>
+                            </div>
+                            <div style=" clear:both;"></div>
+                        </div>
+                    }
                 }
             </div>
         </div>
-        @if (Model.Item1.Count != 0)
-        {<div style="color:white; background-color:black; width:150px; height:30px; padding-bottom:3px !important;">
-                <h3>Фильмы:</h3>
-            </div>
-        }
-        @foreach (var film in Model.Item1)
-        {
-            <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
-                    <img width="265" class="u-back-image u-expanded imagetitle" src=@film.Img>
-                </a>
-                <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
-                    <table style="width: 700px;">
-                        <tbody>
-                            <tr>
-                                <td style="width: 400px;">
-                                    <p style="font-weight: bold; right:100%; left:0%;"> @film.Name </p>
-                                </td>
-                                <td style="width: 300px; float:left !important;">
-                                    <a href="#">
-                                        <img style="float:left !important;" src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p>Год: @film.Year</p>
-
-                    <p>
-                        Жанр:@foreach (var genre in film.Genres)
-                        {
-                            <a>@genre.Genre_Name </a>
-                        }
-                    </p>
-                    @*<p>Актёры: @film.Actors</p>*@
-                    <p>Страна: @film.Country</p>
-                    <p>Возраст: @film.Age+</p>
-                    <a><img src=@film.ScoreKP border='0'></a>
-                    <p>Краткое описание: @film.ShortDescription</p>
-                </div>
-                <div style=" clear:both;"></div>
-            </div>
-        }
-        @if (Model.Item2.Count != 0)
-        {
-            <div style="color:white; background-color:black; width:150px; height:30px; padding-bottom:3px !important;">
-                <h3>Сериалы:</h3>
-            </div>
-        }
-        @foreach (var serial in Model.Item2)
-        {
-            <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                <a href=@Url.Action("serial", "Films", new { SerialId = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
-                    <img width="265" class="u-back-image u-expanded imagetitle" src=@serial.Img>
-                </a>
-                <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
-                    <table style="width: 700px;">
-                        <tbody>
-                            <tr>
-                                <td style="width: 400px;">
-                                    <p style="font-weight: bold; right:100%; left:0%;"> @serial.Name </p>
-                                </td>
-                                <td style="width: 300px; float:left !important;">
-                                    <a href="#">
-                                        <img style="float:left !important;" src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p>Год: @serial.Year</p>
-
-                    <p>
-                        Жанр:@foreach (var genre in serial.Genres)
-                        {
-                            <a>@genre.Genre_Name </a>
-                        }
-                    </p>
-                    @*<p>Актёры: @serial.Actors</p>*@
-                    <p>Страна: @serial.Country</p>
-                    <p>Возраст: @serial.Age+</p>
-                    <a><img src=@serial.ScoreKP border='0'></a>
-                    <p>Краткое описание: @serial.ShortDescription</p>
-                </div>
-                <div style=" clear:both;"></div>
-            </div>
-        }
     </div>
 </body>
 </html>
