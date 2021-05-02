@@ -1,14 +1,14 @@
 ﻿#toTop {
     z-index: 10 !important;
     width: 100px;
-    height:30px;
+    height:3%;
     border-left: 1px solid white;
     border-right: 1px solid white;
     background-color: black;
     text-align: center;
     padding: 5px;
     position: fixed;
-    bottom: 46px; /* отступ кнопки от нижнего края страницы*/
+    bottom: 7%; /* отступ кнопки от нижнего края страницы*/
     right: 10px;
     cursor: pointer;
     display: none;
