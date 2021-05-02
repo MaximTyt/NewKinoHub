@@ -13,10 +13,13 @@ namespace NewKinoHub.Models
     {
 
         public static void Initial(MvcFilmContext content)
-        {                            
+        {
 
             if (!content.Genres.Any())
                 content.Genres.AddRange(Genres.Select(c => c.Value));
+
+            if (!content.Persons.Any())
+                content.Persons.AddRange(Persons.Select(c => c.Value));
 
             if (!content.Media.Any())
             {
@@ -53,7 +56,7 @@ namespace NewKinoHub.Models
                             new Cast
                             {
                                 RoleInFilm=RoleInFilm.Screenwriter,
-                                Person=Persons["Крис Террио"]                                
+                                Person=Persons["Крис Террио"]
                             },
                             new Cast
                             {
@@ -111,7 +114,7 @@ namespace NewKinoHub.Models
                                 ImagesUrl ="https://imageup.ru/img13/3736803/liga-4.jpg"
                             }
                         }
-                        
+
                     },
                     new Media
                     {
@@ -156,7 +159,7 @@ namespace NewKinoHub.Models
                                 ImagesUrl ="https://imageup.ru/img155/3736819/zsl4.jpg"
                             }
                         }
-                            
+
 
                     },
                     new Media
@@ -257,32 +260,29 @@ namespace NewKinoHub.Models
                     ) ;
             }
 
-            if(!content.Users.Any())
+            if (!content.Users.Any())
             {
                 content.AddRange(
                     new Users
                     {
-                        Login="admin",
-                        Email="admin@gmail.com",
-                        Password="123",
-                        Role=Role.Admin,
-                        DateOfBirthday="10/08/2001",
-                        Image= "https://imageup.ru/img161/3736570/pirate.jpg"
+                        Login = "admin",
+                        Email = "admin@gmail.com",
+                        Password = "123",
+                        Role = Role.Admin,
+                        DateOfBirthday = "10/08/2001",
+                        Image = "https://imageup.ru/img161/3736570/pirate.jpg"
                     }
                     );
-            }    
-
-            if (!content.Persons.Any())
-                content.Persons.AddRange(Persons.Select(c => c.Value));
-            content.SaveChanges();            
+            }
+            content.SaveChanges();
         }
 
-            private static Dictionary<string, Genre> genres;
-            public static Dictionary<string,Genre> Genres
+        private static Dictionary<string, Genre> genres;
+        public static Dictionary<string, Genre> Genres
         {
             get
             {
-                if(genres == null)
+                if (genres == null)
                 {
                     var list = new Genre[]
                     {
@@ -296,15 +296,15 @@ namespace NewKinoHub.Models
                         new Genre { Genre_Name = "Мюзикл"},
                         new Genre { Genre_Name = "Криминал" },
                         new Genre { Genre_Name = "Приключения"},
-                        new Genre { Genre_Name = "Семейный"},                        
+                        new Genre { Genre_Name = "Семейный"},
                         new Genre { Genre_Name = "Ужасы"},
                         new Genre { Genre_Name = "Фантастика"},
                         new Genre { Genre_Name = "Фэнтези"}
                     };
                     genres = new Dictionary<string, Genre>();
                     foreach (Genre el in list)
-                        genres.Add(el.Genre_Name, el);                    
-            }
+                        genres.Add(el.Genre_Name, el);
+                }
                 return genres;
             }
         }
@@ -412,7 +412,7 @@ namespace NewKinoHub.Models
                             "Лицевой шрам - 15 ноября 2008 года мужчина ударил Момоа по лицу разбитым пивным стаканом во время ссоры" +
                             " в кафе Birds Cafe, таверне в Голливуде, штат Калифорния.\n" +                            
                             "Награды:\n" +
-                            "CinemaCon, 2011 - Восходящая звезда"                            
+                            "CinemaCon, 2011 - Восходящая звезда"
                         },
                         new Person
                         {
@@ -426,7 +426,7 @@ namespace NewKinoHub.Models
                             "Миллер описывает себя как квира, не идентифицируя свою личность с конкретным гендером и сексуальной ориентацией.\n" +
                             "С 2016 года играет роли Криденса Бэрбоуна в серии фильмов «Фантастические твари»" +
                             " по романам Джоан Роулинг и Барри Аллена в лентах супергеройской вселенной DC.\n" +
-                            "Помимо кино Миллер занимается музыкой — он барабанщик и вокалист в группе «Sons of an Illustrious Father».\n" +                            
+                            "Помимо кино Миллер занимается музыкой — он барабанщик и вокалист в группе «Sons of an Illustrious Father».\n" +
                             "Награды:\n" +
                             "Каннский кинофестиваль, 2012 - Приз компании «Шопар» лучшему молодому актеру"
                         },
@@ -449,7 +449,7 @@ namespace NewKinoHub.Models
                          new Person
                         {
                             Name="Крис Террио",
-                            OriginalName="Chris Terrio",                            
+                            OriginalName="Chris Terrio",
                             DateOfBirthday="31/12/1976",
                             RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Screenwriter,RoleInFilm.Director,RoleInFilm.Actor},
                             Image="https://imageup.ru/img11/3736631/christerrio.jpg",
@@ -489,7 +489,7 @@ namespace NewKinoHub.Models
             }
         }
 
-        
+
     }
 }
 

@@ -10,7 +10,7 @@ using NewKinoHub.Storage;
 namespace NewKinoHub.Migrations
 {
     [DbContext(typeof(MvcFilmContext))]
-    [Migration("20210430193744_m1")]
+    [Migration("20210501110601_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

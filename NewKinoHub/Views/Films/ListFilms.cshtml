@@ -111,10 +111,29 @@
                     <p>
                         Жанр:@foreach (var genre in film.Genres)
                         {
-                            <a>@genre.Genre_Name </a>
+                            <a>@genre.Genre_Name |</a>
                         }
                     </p>
-                    @*<p>Актёры: @film.Actors</p>*@
+                    <p>
+                        Режиссер:
+                        @foreach (var director in film.Casts)
+                        {
+                            if (director.RoleInFilm == ViewBag.Director)
+                            {
+                                <a>@director.Person.Name</a>
+                            }
+                        }
+                    </p>
+                    <p>
+                        Актеры:
+                        @foreach (var director in film.Casts)
+                        {
+                            if (director.RoleInFilm == ViewBag.Actor)
+                            {
+                                <a>@director.Person.Name |</a>
+                            }
+                        }
+                    </p>
                     <p>Страна: @film.Country</p>
                     <p>Возраст: @film.Age+</p>
                     <a><img src=@film.ScoreKP border='0'></a>
