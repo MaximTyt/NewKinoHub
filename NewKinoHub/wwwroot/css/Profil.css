@@ -265,3 +265,14 @@ a.btn{
             background-color: rgb(247,151,30);
             color: black !important;
         }
+
+        .login{
+            color:white;
+        }
+
+        .login_a{
+            color:white;
+        }
+            .login_a:hover {
+                color: rgb(247,151,30);
+            }

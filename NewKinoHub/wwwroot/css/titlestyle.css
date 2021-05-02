@@ -10,10 +10,20 @@ img.imagetitle {
         animation-play-state: paused;
     }
 
-    .bgtitleopacity{
-        opacity:75%;
+.bgtitleopacity {
+    background: rgba(247,151,30,0.6);
+    color: black;
+}
+
+    .bgtitleopacity:hover {
+        background: rgba(247,151,30,1);
+        color: black;
     }
 
-.bgtitleopacity:hover {
-    opacity: 100%;
+.textstyle {
+    color: black;
 }
+
+    .textstyle:hover {
+        color: rgb(26,25,23) !important;
+    }
