@@ -91,7 +91,27 @@ namespace NewKinoHub.Models
                                 Person=Persons["Рэй Фишер"],
                                 Character = "Cyborg / Victor Stone"
                             }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img128/3736799/liga-1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img191/3736801/liga-2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img156/3736802/liga-3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img13/3736803/liga-4.jpg"
+                            }
                         }
+                        
                     },
                     new Media
                     {
@@ -116,7 +136,28 @@ namespace NewKinoHub.Models
                         " возвращению домой и занять место убитого. Живя в новом теле, он постепенно" +
                         " начинает задаваться вопросами, стоят люди спасения или нет.",
                         ScoreKP = "https://rating.kinopoisk.ru/1200189.gif",
-                        Genres = new List<Genre>() { Genres["Фантастика"], Genres["Драма"], Genres["Комедия"], Genres["Детектив"] }
+                        Genres = new List<Genre>() { Genres["Фантастика"], Genres["Драма"], Genres["Комедия"], Genres["Детектив"] },
+                        Images = new List<MediaImages>
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img178/3736813/zsl1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img188/3736816/zsl2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img178/3736817/zsl3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img155/3736819/zsl4.jpg"
+                            }
+                        }
+                            
+
                     },
                     new Media
                     {
@@ -137,8 +178,82 @@ namespace NewKinoHub.Models
                         " Но компания ещё не знает, что в составе находится один из двенадцати" +
                         " Лунных демонов, и он приготовил для них ловушку.",
                         ScoreKP = "https://rating.kinopoisk.ru/1347949.gif",
-                        Genres = new List<Genre>() { Genres["Аниме"], Genres["Боевик"], Genres["Фэнтези"] }
-                    }
+                        Genres = new List<Genre>() { Genres["Аниме"], Genres["Мультфильм"], Genres["Боевик"], Genres["Фэнтези"] },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img13/3736804/kl1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img144/3736805/kl2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img286/3736806/kl3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img184/3736807/kl4.jpg"
+                            }
+                        }
+                    },
+                        new Media
+                        {
+                            MediaType = MediaType.Film,
+                            Name = "Твоё имя",
+                            Img = "https://imageup.ru/img161/3733340/yourname.jpg",
+                            Video = "https://www.youtube.com/embed/tT7b5wR0IOM",
+                            SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3929305",
+                            Year = 2016,
+                            Country = "Япония",
+                            Age = 16,
+                            Score = 8.327,
+                            Release_Date = "3 июля 2016",
+                            Runtime = "01:50",
+                            ShortDescription = "«Я ищу тебя, хотя не знаю, кто ты». " +
+                            "Нежная сказка о первой любви, которая преодолевает пространство и время. Аниме – рекордсмен бокс-офиса.",
+                            Description = "Парень из Токио Таки и девушка из провинции Мицуха обнаруживают," +
+                            " что между ними существует странная связь. Во сне они меняются телами и проживают" +
+                            " жизни друг друга. Но однажды эта способность исчезает так же внезапно, как появилась." +
+                            " Таки решает во что бы то ни стало отыскать Мицуху.",
+                            ScoreKP = "https://rating.kinopoisk.ru/958722.gif",
+                            Genres = new List<Genre>() { Genres["Аниме"], Genres["Мультфильм"], Genres["Фэнтези"], Genres["Драма"], Genres["Мелодрама"], },
+                            Casts = new List<Cast>()
+                            {
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Director,
+                            Person = Persons["Макото Синкай"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Screenwriter,
+                            Person = Persons["Макото Синкай"]
+                            }
+                            },
+                            Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img187/3736954/tvoeimia1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img37/3736955/tvoeimia2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img300/3736956/tvoeimia3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img75/3736957/tvoeimia4.jpg"
+                            }
+                        }
+                        }
+                    
                     ) ;
             }
 
@@ -213,7 +328,7 @@ namespace NewKinoHub.Models
                             Image="https://imageup.ru/img214/3736505/zack_snyder.jpg",
                             Description="Место рождения: Грин Бэй, Висконсин, США\n" +
                             "Супруга: Дебора Снайдер\n" +
-                            "В марте 2017 года дочь Снайдера Отем покончила с собой\n. " +
+                            "В марте 2017 года дочь Снайдера Отем покончила с собой.\n" +
                             "Зак с Деборой воспитывают семерых детей, двое из которых являются приемными.\n" +
                             "Награды:\n" +
                             "Сатурн, 2008 - Лучший режиссер («300 спартанцев»)"
@@ -227,7 +342,7 @@ namespace NewKinoHub.Models
                             Image="https://imageup.ru/img208/3736572/benafflec.jpg",
                             Description="Место рождения: Беркли, Калифорния, США\n" +
                             "Супруга: Дженнифер Гарнер (развод)\n" +
-                            "Актёр Кейси Аффлек — младший брат Бена.\n. " +
+                            "Актёр Кейси Аффлек — младший брат Бена.\n" +
                             "Недолгое время учился в Вермонтском университете и Оксидентал-колледже.\n" +
                             "Награды:\n" +
                             "Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»)\n" +
@@ -255,9 +370,9 @@ namespace NewKinoHub.Models
                             Description="Место рождения: Петах-Тиква, Израиль\n" +
                             "Супруг: Ярон Версано\n" +
                             "Актриса и модель. Является победительницей конкурса" +
-                            " «Мисс Израиль 2004» и участницей конкурса «Мисс Вселенная 2004».\n. " +
+                            " «Мисс Израиль 2004» и участницей конкурса «Мисс Вселенная 2004».\n" +
                             "В начале ноября 2011 года родила дочь от супруга Ярона Версано, которую назвали Альмой.\n" +
-                            "Два года прослужила в качестве спортивного тренера в армии Израиля." +
+                            "Два года прослужила в качестве спортивного тренера в армии Израиля.\n" +
                             "Награды:\n" +
                             "Премия канала «MTV», 2018 - Лучшая драка («Чудо-женщина»)\n" +
                             "Сатурн, 2018 - Лучшая актриса («Чудо-женщина»)"
@@ -272,13 +387,13 @@ namespace NewKinoHub.Models
                             Image="https://imageup.ru/img10/3736585/henrycavill.jpg",
                             Description="Место рождения: Сент-Сейвьер, Джерси, Нормандские острова\n" +
                             "У актера есть четыре брата.\n" +
-                            "Генри Кавилл является представителем Фонда охраны дикой природы имени Даррелла.\n. " +
+                            "Генри Кавилл является представителем Фонда охраны дикой природы имени Даррелла.\n" +
                             "Свободно говорит по-французски, владеет итальянским и немецким языками.\n" +
                             "Кавилл является заядлым геймером с самого детства. Однажды он пропустил" +
                             " важный звонок с предложением играть Супермена из-за World of Warcraft." +
                             " Любовь к игре Ведьмак побудила его сыграть Геральта в ее экранизации." +
                             " Он также назвал серию стратегических игр Total War одной из своих любимых.\n" +
-                            "Он заядлый фанат клуба Канзас-Сити Чифс." +
+                            "Он заядлый фанат клуба Канзас-Сити Чифс.\n" +
                             "Награды:\n" +
                             "Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»)\n" +
                             "Премия канала «MTV», 2014 - Лучший герой («Человек из стали»)"
@@ -295,9 +410,7 @@ namespace NewKinoHub.Models
                             "Супруга: Лиза Боне\n" +
                             "У него есть двое детей от Лизы Боне — Лола Иолани (Lola Iolani) и Накоа Вульф Манакауапо Намакеаха Момоа.\n" +
                             "Лицевой шрам - 15 ноября 2008 года мужчина ударил Момоа по лицу разбитым пивным стаканом во время ссоры" +
-                            " в кафе Birds Cafe, таверне в Голливуде, штат Калифорния.\n" +
-                            "В начале ноября 2011 года родила дочь от супруга Ярона Версано, которую назвали Альмой.\n" +
-                            "Два года прослужила в качестве спортивного тренера в армии Израиля." +
+                            " в кафе Birds Cafe, таверне в Голливуде, штат Калифорния.\n" +                            
                             "Награды:\n" +
                             "CinemaCon, 2011 - Восходящая звезда"                            
                         },
@@ -347,6 +460,25 @@ namespace NewKinoHub.Models
                             "Награды:\n" +
                             "Золотая малина, 2017 - Худший сценарий («Бэтмен против Супермена: На заре справедливости»)\n" +
                             "Оскар, 2013 - Лучший адаптированный сценарий («Операция «Арго»»)"
+                        },
+                         new Person
+                        {
+                            Name="Макото Синкай",
+                            OriginalName="Makoto Niitsu",                            
+                            DateOfBirthday="9/02/1973",
+                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Director,RoleInFilm.Screenwriter,RoleInFilm.Actor},
+                            Image="https://imageup.ru/img111/3736947/makotoshinkai.jpg",
+                            Description="Место рождения: Коуми, Нагано (префектура), Япония\n" +
+                            "Супруга: Мисака Тиэко\n" +
+                            "Настоящее имя — Макото Ниицу. Фильм Синкая «Твоё имя», вышедший в 2016 году," +
+                            " некоторое время был самым кассовым аниме в мире за всю историю.\n" +
+                            "Синкая называли «новым Миядзаки» в нескольких обзорах, хотя сам он" +
+                            " не согласен с таким сравнением, заявляя, что его переоценивают." +
+                            " Также он сказал, что хочет создавать произведения, которые имеют" +
+                            " другие точки соприкосновения с аудиторией, иные, чем у работ Хаяо Миядзаки.\n" +
+                            "Отличительным признаком Синкая является отвлечённость от штампов и требований" +
+                            " аниме-индустрии. Он тщательнейшим образом прорисовывает пейзажи и дальние планы.\n" +
+                            "В честь режиссёра был назван астероид.\n"                            
                         }
                     };
                     persons = new Dictionary<string, Person>();
