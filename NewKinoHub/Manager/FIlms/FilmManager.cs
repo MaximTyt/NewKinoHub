@@ -47,13 +47,12 @@ namespace KinoHab.Manager
 
         public async Task<Media> GetFilmforId(int filmId)
         {
-            return  _context.Media.Include(st => st.Genres).Include(st=>st.Images).Include(st=>st.Casts).ThenInclude(st=>st.Person).FirstOrDefault(st => st.MediaID == filmId);
+            return _context.Media.Include(st => st.Genres).Include(st=>st.Images).Include(st=>st.Casts).ThenInclude(st=>st.Person).FirstOrDefault(st => st.MediaID == filmId);
         }
 
         public Media GetSerialforId(int serialId)
         {
-            var serial = _context.Media.Include(st => st.Genres).FirstOrDefault(st => st.MediaID == serialId);
-            return serial;
+            return _context.Media.Include(st => st.Genres).Include(st => st.Images).Include(st => st.Casts).ThenInclude(st => st.Person).FirstOrDefault(st => st.MediaID == serialId);
         }
 
 

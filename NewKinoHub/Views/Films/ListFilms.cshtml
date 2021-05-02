@@ -95,26 +95,18 @@
                             <a>@genre.Genre_Name |</a>
                         }
                     </p>
+
                     <p>
                         Режиссер:
                         @foreach (var director in film.Casts)
                         {
                             if (director.RoleInFilm == ViewBag.Director)
                             {
-                                <a href="#" class="textstyle">@director.Person.Name</a>
+                                <a href=@Url.Action("Person", "Cast", new { castId = director.Id }) class="textstyle">@director.Person.Name</a>
                             }
                         }
                     </p>
-                    <p>
-                        Актеры:
-                        @foreach (var director in film.Casts)
-                        {
-                            if (director.RoleInFilm == ViewBag.Actor)
-                            {
-                                <a href="#" class="textstyle">@director.Person.Name |</a>
-                            }
-                        }
-                    </p>
+
                     <p>Страна: @film.Country</p>
                     <p>Возраст: @film.Age+</p>
                     <a><img src=@film.ScoreKP border='0'></a>

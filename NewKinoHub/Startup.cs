@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NewKinoHub.Manager.Casts;
 using NewKinoHub.Manager.Home;
 using NewKinoHub.Models;
 using NewKinoHub.Storage;
@@ -32,6 +33,7 @@ namespace NewKinoHub
             services.AddDbContext<MvcFilmContext>(options => options.UseSqlServer(_confstring.GetConnectionString("DefaultConnection")));
             services.AddTransient<IHomeManager, HomeManager>();
             services.AddTransient<IFilmManager, FilmManager>();
+            services.AddTransient<ICastManager, CastManager>();
             services.AddMvc();
             // установка конфигурации подключения
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

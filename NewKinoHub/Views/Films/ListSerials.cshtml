@@ -94,7 +94,18 @@
                             <a>@genre.Genre_Name |</a>
                         }
                     </p>
-                    @*<p>Актёры: @serial.Actors</p>*@
+
+                    <p>
+                        Режиссер:
+                        @foreach (var director in serial.Casts)
+                        {
+                            if (director.RoleInFilm == ViewBag.Director)
+                            {
+                                <a href=@Url.Action("Person", "Cast", new { castId = director.Id }) class="textstyle">@director.Person.Name</a>
+                            }
+                        }
+                    </p>
+
                     <p>Страна: @serial.Country</p>
                     <p>Возраст: @serial.Age+</p>
                     <a><img src=@serial.ScoreKP border='0'></a>

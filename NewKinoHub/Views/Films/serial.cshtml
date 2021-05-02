@@ -30,12 +30,42 @@
                                     <a>@film.Genre_Name |</a>
                                 }
                             </p>
-                            @*<p>Режиссер: @Model.Director</p>
-                            <p>Сценарист: @Model.Screenwriter</p>
-                            <p>Актёры: @Model.Actors</p>*@
+
+                            <p>
+                                Режиссер:
+                                @foreach (var director in Model.Casts)
+                                {
+                                    if (director.RoleInFilm == ViewBag.Director)
+                                    {
+                                        <a href=@Url.Action("Person", "Cast", new { castId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                    }
+                                }
+                            </p>
+
+                            <p>
+                                Сценарист:
+                                @foreach (var director in Model.Casts)
+                                {
+                                    if (director.RoleInFilm == ViewBag.SceenWriter)
+                                    {
+                                        <a href=@Url.Action("Person", "Cast", new { castId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                    }
+                                }
+                            </p>
+
+                            <p>
+                                Актеры:
+                                @foreach (var director in Model.Casts)
+                                {
+                                    if (director.RoleInFilm == ViewBag.Actor)
+                                    {
+                                        <a href=@Url.Action("Person", "Cast", new { castId = director.Id }) class="textstyle">@director.Person.Name |</a>
+                                    }
+                                }
+                            </p>
+
 
                             <p>Страна: @Model.Country</p>
-                            @*<p>Оценка: @Model.Score </p>*@
                             <a><img src=@Model.ScoreKP border='0'></a>
                             <p>Дата выхода: @Model.Release_Date</p>
                             <p>Возраст: @Model.Age+</p>
@@ -91,10 +121,10 @@
                 <input type="radio" name="r" id="r3">
                 <input type="radio" name="r" id="r4">
 
-                <div class="slide s1"><img src="~/lib/images/2.jpeg" alt=""></div>
-                <div class="slide"><img src="~/lib/images/3.jpeg" alt=""></div>
-                <div class="slide"><img src="~/lib/images/2.jpeg" alt=""></div>
-                <div class="slide"><img src="~/lib/images/3.jpeg" alt=""></div>
+                <div class="slide s1"><img src= @Model.Images[0].ImagesUrl alt=""></div>
+                <div class="slide"><img src= @Model.Images[1].ImagesUrl alt=""></div>
+                <div class="slide"><img src= @Model.Images[2].ImagesUrl alt=""></div>
+                <div class="slide"><img src= @Model.Images[3].ImagesUrl alt=""></div>
             </div>
 
             <div class=" navigation">
