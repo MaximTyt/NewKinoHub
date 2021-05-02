@@ -14,7 +14,7 @@
      <link rel="stylesheet" href="/css/headerlist2.css" />                      @*кнопки главного меню*@
      <link rel="stylesheet" href="~/css/upbutton.css" />                        @*кнопка наверх*@
      <link rel="stylesheet" href="~/css/searchbutton.css" />                    @*форма поиска*@
-     <link rel="stylesheet" href="~/css/favorites.css" media="screen">          @*добавление в избранное*@
+     <link rel="stylesheet" href="~/css/titlestyle.css" media="screen">          @*стили для списка тайтлов*@
      <link rel="stylesheet" href="~/css/registration.css" media="screen" />     @*форма регистрации/входа*@
      <link rel="stylesheet" href="~/css/layout.css" media="screen" />           @*форма фильмов/сериалов*@
      <style>
@@ -70,64 +70,64 @@
                      <tr style="">
                          @*первая строчка жанров*@
                          <td>
-                             <a asp-area="" asp-controller="Films" asp-action="ListFilms">
+                             <a href="#">
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Films</h5>
+                             <h5 style="color:white;">Аниме</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="Films" asp-action="Films">
+                             <a href="#">
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Anime</h5>
+                             <h5 style="color:white;">Боевик</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
+                             <a href="#">
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Mult</h5>
+                             <h5 style="color:white;">Драма</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
+                             <a href="#">
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Mult</h5>
+                             <h5 style="color:white;">Мелодрама</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
+                             <a href="#">
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Mult</h5>
+                             <h5 style="color:white;">Мультфильм</h5>
                          </td>
                      </tr>
                      <tr style="margin-top:20px;">
                          @*вторая строчка жанров*@
                          <td>
-                             <a asp-area="" asp-controller="Films" asp-action="ListFilms">
+                             <a href="#">
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Films</h5>
+                             <h5 style="color:white;">Фантастика</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="Films" asp-action="Films">
+                             <a href="#">
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Anime</h5>
+                             <h5 style="color:white;">Фэнтези</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
+                             <a href="#">
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Mult</h5>
+                             <h5 style="color:white;">Гачимиксы</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
+                             <a href="#">
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Mult</h5>
+                             <h5 style="color:white;">Хентай</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="Multfilms" asp-action="ListMults">
+                             <a href="#">
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
                              <h5 style="color:white;">Mult</h5>
@@ -246,7 +246,7 @@
                                              </li>
                                              <li style="width: 100%; max-width: 130px !important;">
                                                  @*сериалы*@
-                                                 <a asp-area="" asp-controller="Serials" asp-action="ListSerials">Serials</a>
+                                                 <a asp-area="" asp-controller="Films" asp-action="ListSerials">Serials</a>
                                                  <ul>
                                                      <li style="width: 100%; max-width: 130px !important;">
                                                          <a href="#serialform">Genres</a>

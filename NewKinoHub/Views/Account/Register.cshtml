@@ -1,5 +1,8 @@
 ﻿@model NewKinoHub.Storage.Entity.RegisterModel
-    <body style="background-color:#1A1917 !important;">
+    <head>
+        <link rel="stylesheet" href="~/css/Profil.css" /> @*стили для регистрации/профиля/логина*@
+    </head>
+    <body>
         <div class="wrapper">
             <h2 style="color:white;">Регистрация</h2>
 
@@ -31,5 +34,10 @@
                     </div>
                 </div>
             </form>
+            <div>
+                <center>
+                    <h4 class="login">Уже зарегистрированы? <a asp-action="Login" asp-controller="Account" class="login_a">Войти</a></h4>
+                </center>
+            </div>
         </div>
     </body>

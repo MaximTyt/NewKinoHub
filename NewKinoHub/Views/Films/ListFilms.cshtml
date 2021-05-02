@@ -9,28 +9,9 @@
 
 <body id="bg">
   
-    <nav style="position: fixed; top: 143px; left:10px; width:160px;" id="menu1">
-        @*блок с жанрами*@
-        <ul>
-            <li style="left: 10px;">
-                <a>Жанры</a> @*слово жанры*@
-                <ul>
-                    <li>
-                        @*кнопки с жанрами*@
-                        <a href=@Url.Action("Filtration", "Films", new { filtr = 1 })>Боевики</a>
-                    </li>
-                    <li>
-                        @*кнопки с жанрами*@
-                        <a href=@Url.Action("Filtration", "Films", new { filtr = 5 })>Комедии</a>
-                    </li>
-                    <li>
-                        @*кнопки с жанрами*@
-                        <a href="#">Приключения</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+    <a href="#" style="position: fixed; top: 143px; left:10px; width:160px; color:white; background-color:black;">
+        Добавить фильм
+    </a>
 
     <div class="u-clearfix u-sheet u-sheet-1 wrapper">
         <table style="margin-top:50px; margin-bottom:30px;">
@@ -91,7 +72,7 @@
                 <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
                     <img width="265" class="u-back-image u-expanded imagetitle" src=@film.Img>
                 </a>
-                <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
+                <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
                     <table style="width: 700px;">
                         <tbody>
                             <tr>
@@ -120,7 +101,7 @@
                         {
                             if (director.RoleInFilm == ViewBag.Director)
                             {
-                                <a>@director.Person.Name</a>
+                                <a href="#" class="textstyle">@director.Person.Name</a>
                             }
                         }
                     </p>
@@ -130,7 +111,7 @@
                         {
                             if (director.RoleInFilm == ViewBag.Actor)
                             {
-                                <a>@director.Person.Name |</a>
+                                <a href="#" class="textstyle">@director.Person.Name |</a>
                             }
                         }
                     </p>
