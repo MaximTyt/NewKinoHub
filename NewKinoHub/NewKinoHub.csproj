@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Serials\**" />
+    <Content Remove="Views\Serials\**" />
+    <EmbeddedResource Remove="Views\Serials\**" />
+    <None Remove="Views\Serials\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\bootStrap\bootstrap-grid.css.map" />
     <None Include="wwwroot\css\bootStrap\bootstrap-grid.min.css.map" />
     <None Include="wwwroot\css\bootStrap\bootstrap-grid.rtl.css.map" />
@@ -72,10 +79,6 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Serials\" />
   </ItemGroup>
 
 </Project>
