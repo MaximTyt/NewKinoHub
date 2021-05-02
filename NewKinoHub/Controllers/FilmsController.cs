@@ -13,14 +13,36 @@ namespace KinoHab.Controllers
             _film = filmManager;
 
         }
+        public async Task<IActionResult> ListSerials()
+        {
+            ViewBag.Director = _film.Cast(0);
+            ViewBag.Actor = _film.Cast(2);
+            var serial = await _film.GetAllSerials();
+            return View(serial);
+        }
+
+        public IActionResult Serial(int SerialId)
+        {
+            ViewBag.Director = _film.Cast(0);
+            ViewBag.SceenWriter = _film.Cast(1);
+            ViewBag.Actor = _film.Cast(2);
+            var serials = _film.GetSerialforId(SerialId);
+            return View(serials);
+        }
+
         public async Task<IActionResult> ListFilms()
         {
+            ViewBag.Director = _film.Cast(0);
+            ViewBag.Actor = _film.Cast(2);
             var film = await _film.GetAllFilms();
             return View(film);
         }
 
         public async Task<IActionResult> Film(int IdFilm)
         {
+            ViewBag.Director = _film.Cast(0);
+            ViewBag.SceenWriter = _film.Cast(1);
+            ViewBag.Actor = _film.Cast(2);
             var film = await _film.GetFilmforId(IdFilm);
             return View(film);
         }   

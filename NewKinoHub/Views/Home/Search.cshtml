@@ -106,7 +106,7 @@
         @foreach (var serial in Model.Item2)
         {
             <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                <a href=@Url.Action("serial", "Serials", new { SerialId = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                <a href=@Url.Action("serial", "Films", new { SerialId = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
                     <img width="265" class="u-back-image u-expanded imagetitle" src=@serial.Img>
                 </a>
                 <div style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
