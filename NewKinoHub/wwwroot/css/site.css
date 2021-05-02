@@ -65,8 +65,9 @@ body {
 }
 
 .wrapper {
+
     display: flex;
-    min-height: 100vh;
+    min-height: 80%;
     flex-direction: column;
     padding: 0;
     margin: 0;
@@ -78,8 +79,22 @@ body {
 
 .footer {
     flex: 0 0 auto;
-    line-height: 76px;
-    background-color: black !important;
+    height: 10%;
+    background: rgb(0,0,0);
     color: white;
+    bottom: 0%;
+}
+
+.headerbg {
+    background: rgb(0,0,0,0.5);
+}
+
+    .headerbg:hover {
+        background: rgb(0,0,0,1);
+    }
+
+.bodybg {
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(26,25,23,1) 50%, rgba(0,0,0,1) 100%);
 }
 

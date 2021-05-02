@@ -71,7 +71,7 @@
         }
 
         #menu1 ul li > a:hover, #menu1 ul li:hover > a {
-            /* стиль выпадающщих кнопок первого меню*/
+             /*стиль выпадающщих кнопок первого меню*/
             background: rgb(247,151,30);
             color: black;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -95,7 +95,7 @@
     #menu1 ul li:hover > ul {
         display: block;
     }
-    /*эта строчка реализует механизм выпадения*/
+    эта строчка реализует механизм выпадения
     #menu1 ul li ul li {
         display: block;
         width: auto;
@@ -118,7 +118,7 @@
         }
 
         #menu1 ul li ul li a:hover, #menu1 ul li ul li:hover > a {
-            /* стиль выпадающщих кнопок второго меню*/
+             /*стиль выпадающщих кнопок второго меню*/
             background: rgb(247,151,30);
             color: black;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
