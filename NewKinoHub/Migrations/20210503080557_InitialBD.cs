@@ -2,7 +2,7 @@
 
 namespace NewKinoHub.Migrations
 {
-    public partial class m1 : Migration
+    public partial class InitialBD : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,8 +53,7 @@ namespace NewKinoHub.Migrations
                     ShortDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NumOfSeason = table.Column<int>(type: "int", nullable: true),
-                    NumOfEpisodes = table.Column<int>(type: "int", nullable: true),
-                    CastId = table.Column<int>(type: "int", nullable: false)
+                    NumOfEpisodes = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -72,7 +71,12 @@ namespace NewKinoHub.Migrations
                     Height = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateOfBirthday = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
                     DateOfDeath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PlaceOfBirthday = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PlaceOfDeath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Spouse = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Awards = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>

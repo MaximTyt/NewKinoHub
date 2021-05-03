@@ -10,7 +10,7 @@ using NewKinoHub.Storage;
 namespace NewKinoHub.Migrations
 {
     [DbContext(typeof(MvcFilmContext))]
-    [Migration("20210501104858_InitialBD")]
+    [Migration("20210503080557_InitialBD")]
     partial class InitialBD
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -222,6 +222,12 @@ namespace NewKinoHub.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Awards")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("DateOfBirthday")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -244,6 +250,15 @@ namespace NewKinoHub.Migrations
 
                     b.Property<string>("OriginalName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PlaceOfBirthday")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PlaceOfDeath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Spouse")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
