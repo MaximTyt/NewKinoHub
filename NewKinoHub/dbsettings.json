@@ -2,7 +2,7 @@
   "ConnectionStrings": {
 
     //Front_Andrey//
-   "DefaultConnection": "Server=LAPTOP-QA25E0K7;Database=KinoHub2;Trusted_Connection=True; MultipleActiveResultSets=true"
+   //"DefaultConnection": "Server=LAPTOP-QA25E0K7;Database=KinoHub2;Trusted_Connection=True; MultipleActiveResultSets=true"
 
     //"DefaultConnection": "Server=DESKTOP-IFVH175;Database=KinoHub2;Trusted_Connection=True; MultipleActiveResultSets=true"
 
