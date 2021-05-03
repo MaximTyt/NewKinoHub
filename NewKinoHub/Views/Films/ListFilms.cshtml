@@ -33,15 +33,15 @@
                                             @*что выпадает при наведении на кнопку дата выхода*@
 
                                             <li>
-                                                <a href=@Url.Action("Sorting", "Films", new { sort = "YearOld" })>Сначала старые</a>
+                                                <a href=@Url.Action("ListFilms", "Films", new { sort = "YearOld", type = "Films"})>Сначала старые</a>
                                             </li>
                                             <li>
-                                                <a href=@Url.Action("Sorting", "Films", new { sort = "YearNew" })>Сначала новые</a>
+                                                <a href=@Url.Action("ListFilms", "Films", new { sort = "YearNew",type = "Films" })>Сначала новые</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li style="width: 24% !important;">
-                                        <a href=@Url.Action("Sorting", "Films", new { sort = "Score" })>По рейтингу</a>
+                                        <a href=@Url.Action("ListFilms", "Films", new { sort = "Score",type = "Films" })>По рейтингу</a>
                                     </li>
                                     <li style="width:26% !important;">
                                         <a>По названию</a>
@@ -49,10 +49,10 @@
                                             @*что выпадает при наведении на кнопку дата выхода*@
 
                                             <li>
-                                                <a href=@Url.Action("Sorting", "Films", new { sort = "NameA" })>А-Я</a>
+                                                <a href=@Url.Action("ListFilms", "Films", new { sort = "NameA",type = "Films" })>А-Я</a>
                                             </li>
                                             <li>
-                                                <a href=@Url.Action("Sorting", "Films", new { sort = "NameZ" })>Я-А</a>
+                                                <a href=@Url.Action("ListFilms", "Films", new { sort = "NameZ",type = "Films" })>Я-А</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -92,7 +92,8 @@
                     <p><span style="font-weight:bold">Год:</span> @film.Year</p>
 
                     <p>
-                        <span style="font-weight:bold">Жанр:</span> @foreach (var genre in film.Genres)
+                        <span style="font-weight:bold">Жанр:</span> 
+                        @foreach (var genre in film.Genres)
                         {
                             <a>@genre.Genre_Name |</a>
                         }
