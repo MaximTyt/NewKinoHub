@@ -81,7 +81,7 @@
             </tbody>
         </table>
         <h2 style=" clear:both;">Описание</h2>
-        <p style=" clear:both;">@Model.Description</p>
+        <p style=" clear:both; margin-top:5%; margin-bottom:5%;">@Model.Description</p>
 
         <table>
             <colgroup>
@@ -113,6 +113,7 @@
                 </tr>
             </tbody>
         </table>
+        <h2 style=" clear:both; margin-top:5%; margin-bottom:5%;">Скриншоты:</h2>
         <div class="slider middle">
             <div class="slides">
 
@@ -121,10 +122,10 @@
                 <input type="radio" name="r" id="r3">
                 <input type="radio" name="r" id="r4">
 
-                <div class="slide s1"><img src=@Model.Images[0].ImagesUrl alt=""></div>
-                <div class="slide"><img src=@Model.Images[1].ImagesUrl  alt=""></div>
-                <div class="slide"><img src=@Model.Images[2].ImagesUrl alt=""></div>
-                <div class="slide"><img src=@Model.Images[3].ImagesUrl  alt=""></div>
+                <div class="slide s1"><a href="@Model.Images[0].ImagesUrl" target="_blank"><img src=@Model.Images[0].ImagesUrl alt=""></a></div>
+                <div class="slide"><a href="@Model.Images[1].ImagesUrl" target="_blank"><img src=@Model.Images[1].ImagesUrl alt=""></a></div>
+                <div class="slide"><a href="@Model.Images[2].ImagesUrl" target="_blank"><img src=@Model.Images[2].ImagesUrl alt=""></a></div>
+                <div class="slide"><a href="@Model.Images[3].ImagesUrl" target="_blank"><img src=@Model.Images[3].ImagesUrl alt=""></a></div>
             </div>  
 
             <div class=" navigation">
