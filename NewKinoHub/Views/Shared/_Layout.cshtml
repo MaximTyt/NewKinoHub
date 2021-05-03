@@ -20,123 +20,72 @@
      <style>
          @@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&display=swap');
      </style>
+
  </head>
- <body style="font-family: 'Arimo', sans-serif;" class="bodybg">
-     @*начало блока с регистрацией/входом*@
-     <div id="signform">
-         <a href="#"></a>
-         <div>
-             Форма для регистрации<br />
-
-             @*<form asp-action="Register" asp-controller="Account" asp-anti-forgery="true">
-                    <div class="validation" asp-validation-summary="ModelOnly"></div>
-                    <div>
-                        <div>
-                            <label asp-for="Login">Введите Логин</label><br />
-                            <input type="text" asp-for="Login" />
-                            <span asp-validation-for="Login" />
-                        </div>
-                        <div>
-                            <label asp-for="Email">Введите Email</label><br />
-                            <input type="text" asp-for="Email" />
-                            <span asp-validation-for="Email" />
-                        </div>
-                        <div>
-                            <label asp-for="Password">Введите пароль</label><br />
-                            <input asp-for="Password" />
-                            <span asp-validation-for="Password" />
-                        </div>
-                        <div>
-                            <label asp-for="PasswordConfirm">Повторите пароль</label><br />
-                            <input asp-for="PasswordConfirm" />
-                            <span asp-validation-for="PasswordConfirm" />
-                        </div>
-                        <div>
-                            <input type="submit" value="Регистрация" />
-                        </div>
-                    </div>
-                </form>*@
-
-             <a href="#">Закрыть</a>
-         </div>
-     </div>
-     @*конец блока с регистрацией/входом*@
+ <body style="font-family: 'Arimo', sans-serif !important;" class="bodybg">
      @*начало блока с фильмами*@
      <div id="filmform">
          <a href="#"></a>
          <div>
-             <table style="width:1200px; position:center;">
+             <table style="position:center;">
                  <tbody>
-                     <tr style="">
-                         @*первая строчка жанров*@
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 1})>
-                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Аниме</h5>
+                     <tr>
+                         @* пустые<td></td> не удалять, они не лишние *@
+                         @* первая строчка жанров *@
+                         <td >
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 1})>Аниме</a>
                          </td>
                          <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 13})>
-                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Боевик</h5>
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 13})>Боевик</a>
                          </td>
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 11})>
-                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Драма</h5>
+                         <td >
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 11})>Драма</a>
                          </td>
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 9})>
-                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Мелодрама</h5>
+                         <td >
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 9})>Мелодрама</a>
                          </td>
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 14})>
-                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Мультфильм</h5>
+                         <td >
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 14})>Мультфильм</a>
                          </td>
                      </tr>
-                     <tr style="margin-top:20px;">
-                         @*вторая строчка жанров*@
+                     @* вторая строчка жанров *@
+                     <tr>
+                         <td >
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 2})>Фантастика</a>
+                         </td>
+                         <td >
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 8})>Фэнтези</a>
+                         </td>
+                         <td >
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 6})>Криминал</a>
+                         </td>
+                         <td >
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 12})>Детектив</a>
+                         </td>
+                         <td >
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 7})>Мюзикл</a>
+                         </td>
+                     </tr>
+                     @* третья строчка жанров *@
+                     <tr>
                          <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 2})>
-                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Фантастика</h5>
+                             <a href="#">non Genre</a>
                          </td>
                          <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 8})>
-                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Фэнтези</h5>
+                             <a href="#">non Genre</a>
                          </td>
                          <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 6})>
-                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Криминал</h5>
+                             <a href="#">non Genre</a>
                          </td>
                          <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 12})>
-                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Детектив</h5>
+                             <a href="#">non Genre</a>
                          </td>
                          <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 7})>
-                                 <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Мюзикл</h5>
+                             <a href="#">non Genre</a>
                          </td>
                      </tr>
                  </tbody>
              </table>
-             <br />
-             @*<a href="#">Закрыть</a>*@
          </div>
      </div>
      @*конец блока с фильмами*@
@@ -307,7 +256,7 @@
              &copy; 2021 - <a style="text-decoration: none;" class="text-muted" asp-controller="Home" asp-action="Index">KinoHab</a> - Все права защищены
          </div>
      </footer>
-
+     <script class="u-script" type="text/javascript" src="~/js/bg_genres.js" defer=""></script>
      <script src="~/lib/jquery/dist/jquery.min.js"></script>
      <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
      <script class="u-script" type="text/javascript" src="~/js/upbutton.js" defer=""></script>
