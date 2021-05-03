@@ -11,10 +11,13 @@ namespace KinoHab.Manager
         public RoleInFilm Cast(int i);
         Task<ICollection<Media>> GetAllSerials();
         Media GetSerialforId(int filmId);
-        // ICollection<Media> AllSorting(string sort);
+        Task<ICollection<Media>> AllSorting(string sort,string type);
         //
-        // ICollection<Media> SortingForFiltr(string sort, ICollection<Media> films);
+        //Task<ICollection<Media>> SortingForFiltr(string sort, ICollection<Media> films);
         //
-        // ICollection<Media> Filtration(int filtr);
+        Task<ICollection<Media>> Filtration(int filtr, string type);
+        string GetNameFiltr(int idFiltr);
+        Task<ICollection<Media>> SortingFromFiltr(string sort, ICollection<Media> media);
+
     }
 }
