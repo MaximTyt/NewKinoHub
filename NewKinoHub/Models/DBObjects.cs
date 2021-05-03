@@ -309,7 +309,7 @@ namespace NewKinoHub.Models
             }
         }
 
-
+        private static int Age;
         private static Dictionary<string, Person> persons;
         public static Dictionary<string, Person> Persons
         {
@@ -322,30 +322,26 @@ namespace NewKinoHub.Models
                         new Person{
                             Name="Зак Снайдер",
                             OriginalName="Zachary Edward Snyder",
-                            Height="1.7 м",
+                            Height="1.7 м",                            
                             DateOfBirthday="1/03/1966",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("1/03/1966")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Грин Бэй, Висконсин, США",
+                            Spouse="Дебора Снайдер",
+                            Awards="Сатурн, 2008 - Лучший режиссер («300 спартанцев»)",
                             RolesInMedia = new RoleInFilm[3]{RoleInFilm.Director, RoleInFilm.Screenwriter, RoleInFilm.Actor},
                             Image="https://imageup.ru/img214/3736505/zack_snyder.jpg",
-                            Description="Место рождения: Грин Бэй, Висконсин, США\n" +
-                            "Супруга: Дебора Снайдер\n" +
-                            "В марте 2017 года дочь Снайдера Отем покончила с собой.\n" +
-                            "Зак с Деборой воспитывают семерых детей, двое из которых являются приемными.\n" +
-                            "Награды:\n" +
-                            "Сатурн, 2008 - Лучший режиссер («300 спартанцев»)"
+                            Description="В марте 2017 года дочь Снайдера Отем покончила с собой.\n" +
+                            "Зак с Деборой воспитывают семерых детей, двое из которых являются приемными."
                         },
                         new Person{
                             Name="Бен Аффлек",
                             OriginalName="Benjamin Geza Affleck-Boldt",
                             Height="1.92 м",
                             DateOfBirthday="15/08/1972",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Actor,RoleInFilm.Director, RoleInFilm.Screenwriter},
-                            Image="https://imageup.ru/img208/3736572/benafflec.jpg",
-                            Description="Место рождения: Беркли, Калифорния, США\n" +
-                            "Супруга: Дженнифер Гарнер (развод)\n" +
-                            "Актёр Кейси Аффлек — младший брат Бена.\n" +
-                            "Недолгое время учился в Вермонтском университете и Оксидентал-колледже.\n" +
-                            "Награды:\n" +
-                            "Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»)\n" +
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("15/08/1972")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Беркли, Калифорния, США",
+                            Spouse="Дженнифер Гарнер (развод)",
+                            Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»)\n" +
                             "Золотая малина, 2015 - Премия за восстановление репутации\n" +
                             "Оскар, 2013 - Лучший фильм («Операция «Арго»»)\n" +
                             "Золотой глобус, 2013 - Лучший режиссер («Операция «Арго»»)\n" +
@@ -357,7 +353,11 @@ namespace NewKinoHub.Models
                             "Золотая малина, 2004 - Худшая мужская роль («Сорвиголова»)\n" +
                             "Премия Гильдии актеров, 1999 - Лучший актерский состав («Влюбленный Шекспир»)\n" +
                             "Оскар, 1998 - Лучший сценарий («Умница Уилл Хантинг»)\n" +
-                            "Золотой глобус, 1998 - Лучший сценарий («Умница Уилл Хантинг»)"
+                            "Золотой глобус, 1998 - Лучший сценарий («Умница Уилл Хантинг»)",
+                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Actor,RoleInFilm.Director, RoleInFilm.Screenwriter},
+                            Image="https://imageup.ru/img208/3736572/benafflec.jpg",
+                            Description= "Актёр Кейси Аффлек — младший брат Бена.\n" +
+                            "Недолгое время учился в Вермонтском университете и Оксидентал-колледже."
                         },
                         new Person
                         {
@@ -365,17 +365,17 @@ namespace NewKinoHub.Models
                             OriginalName="Gal Gadot",
                             Height="1.78 м",
                             DateOfBirthday="30/04/1985",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("30/04/1985")).TotalDays/365.2425)),
+                            PlaceOfBirthday = "Петах-Тиква, Израиль",
+                            Spouse="Ярон Версано",
+                            Awards="Премия канала «MTV», 2018 - Лучшая драка («Чудо-женщина»)\n" +
+                            "Сатурн, 2018 - Лучшая актриса («Чудо-женщина»)",
                             RolesInMedia = new RoleInFilm[2]{RoleInFilm.Actor, RoleInFilm.Screenwriter},
                             Image="https://imageup.ru/img152/3736581/galgadot.jpg",
-                            Description="Место рождения: Петах-Тиква, Израиль\n" +
-                            "Супруг: Ярон Версано\n" +
-                            "Актриса и модель. Является победительницей конкурса" +
+                            Description= "Актриса и модель. Является победительницей конкурса" +
                             " «Мисс Израиль 2004» и участницей конкурса «Мисс Вселенная 2004».\n" +
                             "В начале ноября 2011 года родила дочь от супруга Ярона Версано, которую назвали Альмой.\n" +
-                            "Два года прослужила в качестве спортивного тренера в армии Израиля.\n" +
-                            "Награды:\n" +
-                            "Премия канала «MTV», 2018 - Лучшая драка («Чудо-женщина»)\n" +
-                            "Сатурн, 2018 - Лучшая актриса («Чудо-женщина»)"
+                            "Два года прослужила в качестве спортивного тренера в армии Израиля."                          
                         },
                         new Person
                         {
@@ -383,20 +383,20 @@ namespace NewKinoHub.Models
                             OriginalName="Henry William Dalgliesh Cavill",
                             Height="1.85 м",
                             DateOfBirthday="5/05/1983",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("5/05/1983")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Сент-Сейвьер, Джерси, Нормандские острова",
+                            Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»)\n" +
+                            "Премия канала «MTV», 2014 - Лучший герой («Человек из стали»)",
                             RolesInMedia = new RoleInFilm[1]{RoleInFilm.Actor},
                             Image="https://imageup.ru/img10/3736585/henrycavill.jpg",
-                            Description="Место рождения: Сент-Сейвьер, Джерси, Нормандские острова\n" +
-                            "У актера есть четыре брата.\n" +
+                            Description="У актера есть четыре брата.\n" +
                             "Генри Кавилл является представителем Фонда охраны дикой природы имени Даррелла.\n" +
                             "Свободно говорит по-французски, владеет итальянским и немецким языками.\n" +
                             "Кавилл является заядлым геймером с самого детства. Однажды он пропустил" +
                             " важный звонок с предложением играть Супермена из-за World of Warcraft." +
                             " Любовь к игре Ведьмак побудила его сыграть Геральта в ее экранизации." +
                             " Он также назвал серию стратегических игр Total War одной из своих любимых.\n" +
-                            "Он заядлый фанат клуба Канзас-Сити Чифс.\n" +
-                            "Награды:\n" +
-                            "Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»)\n" +
-                            "Премия канала «MTV», 2014 - Лучший герой («Человек из стали»)"
+                            "Он заядлый фанат клуба Канзас-Сити Чифс."
                         },
                         new Person
                         {
@@ -404,15 +404,15 @@ namespace NewKinoHub.Models
                             OriginalName="Joseph Jason Namakaeha Momoa",
                             Height="1.93 м",
                             DateOfBirthday="1/08/1979",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("1/08/1979")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Гонолулу, Гавайи, США",
+                            Spouse="Лиза Боне",
+                            Awards="CinemaCon, 2011 - Восходящая звезда",
                             RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Actor,RoleInFilm.Director, RoleInFilm.Screenwriter},
                             Image="https://imageup.ru/img226/3736588/jasonmamoa.jpg",
-                            Description="Место рождения: Гонолулу, Гавайи, США\n" +
-                            "Супруга: Лиза Боне\n" +
-                            "У него есть двое детей от Лизы Боне — Лола Иолани (Lola Iolani) и Накоа Вульф Манакауапо Намакеаха Момоа.\n" +
+                            Description="У него есть двое детей от Лизы Боне — Лола Иолани (Lola Iolani) и Накоа Вульф Манакауапо Намакеаха Момоа.\n" +
                             "Лицевой шрам - 15 ноября 2008 года мужчина ударил Момоа по лицу разбитым пивным стаканом во время ссоры" +
-                            " в кафе Birds Cafe, таверне в Голливуде, штат Калифорния.\n" +                            
-                            "Награды:\n" +
-                            "CinemaCon, 2011 - Восходящая звезда"
+                            " в кафе Birds Cafe, таверне в Голливуде, штат Калифорния."
                         },
                         new Person
                         {
@@ -420,15 +420,15 @@ namespace NewKinoHub.Models
                             OriginalName="Ezra Matthew Miller",
                             Height="1.8 м",
                             DateOfBirthday="30/09/1992",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("30/09/1992")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Хобокен, Нью-Джерси, США",
+                            Awards="Каннский кинофестиваль, 2012 - Приз компании «Шопар» лучшему молодому актеру",
                             RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Actor,RoleInFilm.Director, RoleInFilm.Screenwriter},
                             Image="https://imageup.ru/img148/3736601/ezramiller.jpg",
-                            Description="Место рождения: Хобокен, Нью-Джерси, США\n" +
-                            "Миллер описывает себя как квира, не идентифицируя свою личность с конкретным гендером и сексуальной ориентацией.\n" +
+                            Description="Миллер описывает себя как квира, не идентифицируя свою личность с конкретным гендером и сексуальной ориентацией.\n" +
                             "С 2016 года играет роли Криденса Бэрбоуна в серии фильмов «Фантастические твари»" +
                             " по романам Джоан Роулинг и Барри Аллена в лентах супергеройской вселенной DC.\n" +
-                            "Помимо кино Миллер занимается музыкой — он барабанщик и вокалист в группе «Sons of an Illustrious Father».\n" +
-                            "Награды:\n" +
-                            "Каннский кинофестиваль, 2012 - Приз компании «Шопар» лучшему молодому актеру"
+                            "Помимо кино Миллер занимается музыкой — он барабанщик и вокалист в группе «Sons of an Illustrious Father»."
                         },
                         new Person
                         {
@@ -436,10 +436,11 @@ namespace NewKinoHub.Models
                             OriginalName="Ray Fisher",
                             Height="1.91 м",
                             DateOfBirthday="8/09/1987",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("8/09/1987")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Балтимор, Мэрилэнд, США",
                             RolesInMedia = new RoleInFilm[1]{RoleInFilm.Actor},
                             Image="https://imageup.ru/img65/3736608/rayfisher.jpg",
-                            Description="Место рождения: Балтимор, Мэрилэнд, США\n" +
-                            "После средней школы Фишер учился в Американской музыкально-драматической академии в Нью-Йорке.\n" +
+                            Description="После средней школы Фишер учился в Американской музыкально-драматической академии в Нью-Йорке.\n" +
                             "Получив роль Киборга, Фишер сказал: «Я не знал, в какой степени DC и WB планировали использовать" +
                             " моего персонажа. Когда я подписал контракт, я просто хотел быть частью этого мира. Но эту конкретную" +
                             " информацию я узнал только тогда и только там. Я не думал, что я получу свой собственный фильм." +
@@ -451,26 +452,27 @@ namespace NewKinoHub.Models
                             Name="Крис Террио",
                             OriginalName="Chris Terrio",
                             DateOfBirthday="31/12/1976",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("31/12/1976")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Нью-Йорк, США",
+                            Awards="Золотая малина, 2017 - Худший сценарий («Бэтмен против Супермена: На заре справедливости»)\n" +
+                            "Оскар, 2013 - Лучший адаптированный сценарий («Операция «Арго»»)",
                             RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Screenwriter,RoleInFilm.Director,RoleInFilm.Actor},
                             Image="https://imageup.ru/img11/3736631/christerrio.jpg",
-                            Description="Место рождения: Нью-Йорк, США\n" +
-                            "Крис Террио вырос на Статен-Айленде (Нью-Йорк), в католической" +
+                            Description="Крис Террио вырос на Статен-Айленде (Нью-Йорк), в католической" +
                             " семье итальянского и ирландского происхождения. В 1997 году окончил" +
-                            " Гарвардский университет, где он изучал английскую и американскую литературу.\n" +
-                            "Награды:\n" +
-                            "Золотая малина, 2017 - Худший сценарий («Бэтмен против Супермена: На заре справедливости»)\n" +
-                            "Оскар, 2013 - Лучший адаптированный сценарий («Операция «Арго»»)"
+                            " Гарвардский университет, где он изучал английскую и американскую литературу."
                         },
                          new Person
                         {
                             Name="Макото Синкай",
                             OriginalName="Makoto Niitsu",                            
                             DateOfBirthday="9/02/1973",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("9/02/1973")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Коуми, Нагано (префектура), Япония",
+                            Spouse="Мисака Тиэко",
                             RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Director,RoleInFilm.Screenwriter,RoleInFilm.Actor},
                             Image="https://imageup.ru/img111/3736947/makotoshinkai.jpg",
-                            Description="Место рождения: Коуми, Нагано (префектура), Япония\n" +
-                            "Супруга: Мисака Тиэко\n" +
-                            "Настоящее имя — Макото Ниицу. Фильм Синкая «Твоё имя», вышедший в 2016 году," +
+                            Description="Настоящее имя — Макото Ниицу. Фильм Синкая «Твоё имя», вышедший в 2016 году," +
                             " некоторое время был самым кассовым аниме в мире за всю историю.\n" +
                             "Синкая называли «новым Миядзаки» в нескольких обзорах, хотя сам он" +
                             " не согласен с таким сравнением, заявляя, что его переоценивают." +

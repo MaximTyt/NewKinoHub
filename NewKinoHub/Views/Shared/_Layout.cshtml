@@ -70,31 +70,31 @@
                      <tr style="">
                          @*первая строчка жанров*@
                          <td>
-                             <a href="#">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 1})>
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
                              <h5 style="color:white;">Аниме</h5>
                          </td>
                          <td>
-                             <a href="#">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 13})>
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
                              <h5 style="color:white;">Боевик</h5>
                          </td>
                          <td>
-                             <a href="#">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 11})>
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
                              <h5 style="color:white;">Драма</h5>
                          </td>
                          <td>
-                             <a href="#">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 9})>
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
                              <h5 style="color:white;">Мелодрама</h5>
                          </td>
                          <td>
-                             <a href="#">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 14})>
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
                              <h5 style="color:white;">Мультфильм</h5>
@@ -103,34 +103,34 @@
                      <tr style="margin-top:20px;">
                          @*вторая строчка жанров*@
                          <td>
-                             <a href="#">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 2})>
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
                              <h5 style="color:white;">Фантастика</h5>
                          </td>
                          <td>
-                             <a href="#">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 8})>
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
                              <h5 style="color:white;">Фэнтези</h5>
                          </td>
                          <td>
-                             <a href="#">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 6})>
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Гачимиксы</h5>
+                             <h5 style="color:white;">Криминал</h5>
                          </td>
                          <td>
-                             <a href="#">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 12})>
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Хентай</h5>
+                             <h5 style="color:white;">Детектив</h5>
                          </td>
                          <td>
-                             <a href="#">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Films",filtr = 7})>
                                  <img src="~/lib/images/Films/Borat.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Mult</h5>
+                             <h5 style="color:white;">Мюзикл</h5>
                          </td>
                      </tr>
                  </tbody>
@@ -149,67 +149,67 @@
                      <tr>
                          <td>
                              @*первая строчка*@
-                             <a asp-area="" asp-controller="Serials" asp-action="ListSerials">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serials",filtr = 1})>
                                  <img src="~/lib/images/Films/JohnWick.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Serials</h5>
+                             <h5 style="color:white;">Аниме</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="Serials" asp-action="ListSerial">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serials",filtr = 13})>
                                  <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">AnimeSerials</h5>
+                             <h5 style="color:white;">Боевик</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="MultSerials" asp-action="ListMultSerials">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serials",filtr = 11})>
                                  <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">MultSerials</h5>
+                             <h5 style="color:white;">Драма</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="Serials" asp-action="ListSerial">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serials",filtr = 9})>
                                  <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">AnimeSerials</h5>
+                             <h5 style="color:white;">Мелодрама</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="MultSerials" asp-action="ListMultSerials">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serials",filtr = 14})>
                                  <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">MultSerials</h5>
+                             <h5 style="color:white;">Мультфильм</h5>
                          </td>
                      </tr>
                      <tr>
                          @*вторая строчка*@
                          <td>
-                             <a asp-area="" asp-controller="Serials" asp-action="ListSerials">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serials",filtr = 2})>
                                  <img src="~/lib/images/Films/JohnWick.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">Serials</h5>
+                             <h5 style="color:white;">Фантастика</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="Serials" asp-action="ListSerial">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serials",filtr = 8})>
                                  <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">AnimeSerials</h5>
+                             <h5 style="color:white;">Фэнтези</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="MultSerials" asp-action="ListMultSerials">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serials",filtr = 6})>
                                  <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">MultSerials</h5>
+                             <h5 style="color:white;">Криминал</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="Serials" asp-action="ListSerial">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serials", filtr = 12 })>
                                  <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">AnimeSerials</h5>
+                             <h5 style="color:white;">Детектив</h5>
                          </td>
                          <td>
-                             <a asp-area="" asp-controller="MultSerials" asp-action="ListMultSerials">
+                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serials",filtr = 7})>
                                  <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
                              </a>
-                             <h5 style="color:white;">MultSerials</h5>
+                             <h5 style="color:white;">Мюзикл</h5>
                          </td>
                      </tr>
                  </tbody>

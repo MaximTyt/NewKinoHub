@@ -9,43 +9,66 @@
 </head>
 
 <body id="bg">
-    <div class="wrapper">
-        <h1 style="font-weight: bold; color: aliceblue">@Model.Person.Name</h1>
-        <div style="width: 1100px; min-height: 380px;  background-color:azure; min-height : 580px; padding: 20px;">
-            <div>
-                <a style="display:block; width : 250px; float : left; margin-right : 20px; margin-bottom: 40px;">
-                    <img width="265" class="u-back-image u-expanded" src=@Model.Person.Image>
-                </a>
-            </div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div style=" min-height: 20px; width:600px; float:left;">
 
-                                <p><span style="font-weight:bold">OriginalName:</span> @Model.Person.OriginalName</p>
+   
+    
+    <div style="width: 1100px; min-height: 380px;  background-color:azure; min-height : 580px; padding: 20px;">
+        <div>
+            <a style="display:block; width : 250px; float : left; margin-right : 20px; margin-bottom: 40px;">
+                <img width="265" class="u-back-image u-expanded" src=@Model.Person.Image>
+            </a>
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <div style=" min-height: 20px; width:600px; float:left;">
 
-                                <p><span style="font-weight:bold">Дата рождения:</span> @Model.Person.DateOfBirthday</p>
-                                @if (Model.Person.DateOfDeath != null)
-                                {
-                                    <p> <span style="font-weight:bold">Дата смерти:</span> @Model.Person.DateOfDeath</p>
-                                }
-                                @if (Model.Character != null)
-                                {
-                                    <p> <span style="font-weight:bold">Роль в фильме:</span> @Model.Character</p>
-                                }
-                            </div>
-                        </td>
-                        <td valign="top" align="right">
-                            <a href="#">
-                                <img src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <h2 style=" clear:both;">Описание</h2>
-            <p style=" clear:both;">@Model.Person.Description</p>
+                            <h1 style="font-weight: bold; color: black">@Model.Person.Name</h1>
+                            <p><span style="font-weight:bold">OriginalName:</span> @Model.Person.OriginalName</p>
+
+                            <p>
+                                <span style="font-weight:bold">Дата рождения:</span> @Model.Person.DateOfBirthday
+                            </p>
+                            @if (Model.Person.Age % 10 == 2 || Model.Person.Age % 10 == 3 || Model.Person.Age % 10 == 4)
+                            {
+                                <p> <span style="font-weight:bold">Возраст:</span> @Model.Person.Age года</p>
+                            }
+                            else if (Model.Person.Age % 10 == 1)
+                            {
+                                <p> <span style="font-weight:bold">Возраст:</span> @Model.Person.Age год</p>
+                            }
+                            else
+                            {
+                                <p> <span style="font-weight:bold">Возраст:</span> @Model.Person.Age лет</p>
+                            }
+                            @if (Model.Person.DateOfDeath != null)
+                            {
+                                <p> <span style="font-weight:bold">Дата смерти:</span> @Model.Person.DateOfDeath</p>
+                            }
+                            <p><span style="font-weight:bold">Место рождения:</span> @Model.Person.PlaceOfBirthday</p>
+                            @if (Model.Person.Spouse != null)
+                            {
+                                <p> <span style="font-weight:bold">Супруг(а):</span> @Model.Person.Spouse</p>
+                            }
+                            @if (Model.Person.Awards != null)
+                            {
+                                <p> <span style="font-weight:bold">Награды:</span> @Model.Person.Awards</p>
+                            }
+
+                        </div>
+                    </td>
+                    <td valign="top" align="right">
+                        <a href="#">
+                            <img src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 style=" clear:both;">Интересные факты</h2>
+        <p style=" clear:both;">@Model.Person.Description</p>
+
 
             <!--<table>
             <colgroup>

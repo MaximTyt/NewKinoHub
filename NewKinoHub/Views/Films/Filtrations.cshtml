@@ -2,23 +2,24 @@
 
 <html style="font-size: 16px;">
 <head>
-    <link rel="stylesheet" href="~/css/bg_css/bg_film_serials.css" media="screen"> @*не переносить в layout*@
+    <link rel="stylesheet" href="~/css/bg_css/bg_films.css" media="screen">
     <link rel="stylesheet" href="~/css/favorites.css" media="screen">
     <script class="u-script" type="text/javascript" src="/js/jquery.js" defer=""></script>
 </head>
 
 <body id="bg">
-
+  
     <a href="#" style="position: fixed; top: 143px; left:10px; width:160px; color:white; background-color:black;">
-        Добавить Сериал
+        Добавить фильм
     </a>
+
     <div class="u-clearfix u-sheet u-sheet-1 wrapper">
         <div style="margin-top:50px; margin-bottom:30px; width: 95%;">
             <table style="margin: 0 auto;">
                 <tbody>
                     <tr>
                         <td style="width: 10% !important; left:0%;">
-                            <h2 style="color: white;">Сериалы</h2>
+                            <h2 style="color: white;">@ViewBag.Filtrr</h2>
                         </td>
                         <td style="right:0%;">
                             <nav id="menu1" style="margin-left:50px;">
@@ -32,15 +33,15 @@
                                             @*что выпадает при наведении на кнопку дата выхода*@
 
                                             <li>
-                                                <a href=@Url.Action("ListSerials", "Films", new { sort = "YearOld",type = "Serials" })>Сначала старые</a>
+                                                <a href=@Url.Action("Filtrations", "Films", new { sort = "YearOld", type = ViewBag.type ,filtr = ViewBag.filtr})>Сначала старые</a>
                                             </li>
                                             <li>
-                                                <a href=@Url.Action("ListSerials", "Films", new { sort = "YearNew",type = "Serials" })>Сначала новые</a>
+                                                <a href=@Url.Action("Filtrations", "Films", new { sort = "YearNew",type = ViewBag.type ,filtr = ViewBag.filtr })>Сначала новые</a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li style="width: 24% !important;">
-                                        <a href=@Url.Action("ListSerials", "Films", new { sort = "Score",type = "Serials" })>По рейтингу</a>
+                                        <a href=@Url.Action("Filtrations", "Films", new { sort = "Score",type = ViewBag.type ,filtr = ViewBag.filtr })>По рейтингу</a>
                                     </li>
                                     <li style="width:26% !important;">
                                         <a>По названию</a>
@@ -48,10 +49,10 @@
                                             @*что выпадает при наведении на кнопку дата выхода*@
 
                                             <li>
-                                                <a href=@Url.Action("ListSerials", "Films", new { sort = "NameA",type = "Serials" })>А-Я</a>
+                                                <a href=@Url.Action("Filtrations", "Films", new { sort = "NameA",type = ViewBag.type ,filtr = ViewBag.filtr })>А-Я</a>
                                             </li>
                                             <li>
-                                                <a href=@Url.Action("ListSerials", "Films", new { sort = "NameZ",type = "Serials" })>Я-А</a>
+                                                <a href=@Url.Action("Filtrations", "Films", new { sort = "NameZ",type = ViewBag.type ,filtr = ViewBag.filtr })>Я-А</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -67,18 +68,18 @@
                 </tbody>
             </table>
         </div>
-        @foreach (var serial in Model)
+        @foreach (var film in Model)
         {
             <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                <a href=@Url.Action("serial", "Films", new { SerialId = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
-                    <img width="265" class="u-back-image u-expanded imagetitle" src=@serial.Img>
+                <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                    <img width="265" class="u-back-image u-expanded imagetitle" src=@film.Img>
                 </a>
-                <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
+                <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
                     <table style="width: 700px;">
                         <tbody>
                             <tr>
                                 <td style="width: 400px;">
-                                    <p style="font-weight: bold; right:100%; left:0%;"> @serial.Name </p>
+                                    <p style="font-weight: bold; right:100%; left:0%;"> @film.Name </p>
                                 </td>
                                 <td style="width: 300px; float:left !important;">
                                     <a href="#">
@@ -88,11 +89,11 @@
                             </tr>
                         </tbody>
                     </table>
-                    <p><span style="font-weight:bold">Год:</span> @serial.Year</p>
+                    <p><span style="font-weight:bold">Год:</span> @film.Year</p>
 
                     <p>
                         <span style="font-weight:bold">Жанр:</span> 
-                        @foreach (var genre in serial.Genres)
+                        @foreach (var genre in film.Genres)
                         {
                             <a>@genre.Genre_Name |</a>
                         }
@@ -100,7 +101,7 @@
 
                     <p>
                         <span style="font-weight:bold">Режиссер:</span>
-                        @foreach (var director in serial.Casts)
+                        @foreach (var director in film.Casts)
                         {
                             if (director.RoleInFilm == ViewBag.Director)
                             {
@@ -109,15 +110,14 @@
                         }
                     </p>
 
-                    <p><span style="font-weight:bold">Страна:</span> @serial.Country</p>
-                    <p><span style="font-weight:bold">Возраст:</span> @serial.Age+</p>
-                    <a><img src=@serial.ScoreKP border='0'></a>
-                    <p><span style="font-weight:bold">Краткое описание:</span> @serial.ShortDescription</p>
+                    <p><span style="font-weight:bold">Страна:</span> @film.Country</p>
+                    <p><span style="font-weight:bold">Возраст:</span> @film.Age+</p>
+                    <a><img src=@film.ScoreKP border='0'></a>
+                    <p><span style="font-weight:bold">Краткое описание:</span> @film.ShortDescription</p>
                 </div>
                 <div style=" clear:both;"></div>
             </div>
         }
     </div>
-
 </body>
 </html>
