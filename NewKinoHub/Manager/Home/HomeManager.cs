@@ -35,12 +35,13 @@ namespace NewKinoHub.Manager.Home
         {
             var films = from x in _context.Media.Include(st => st.Genres) select x;
             var serials = from x in _context.Media.Include(st => st.Genres) select x;
-            if (!String.IsNullOrEmpty(Name))
+            (List<Media>, List<Media>) film = (null, null);
+            if (!String.IsNullOrEmpty(Name) && Name!= "")
             {
                 films = films.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Film);
                 serials = serials.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Serial);
+                film = (films.ToList(), serials.ToList());
             }
-            (List<Media>, List<Media>) film = (films.ToList(), serials.ToList());
             return film;
         }
     }

@@ -37,7 +37,7 @@
                                 {
                                     if (director.RoleInFilm == ViewBag.Director)
                                     {
-                                        <a href="#" class="textstyle">@director.Person.Name</a>
+                                        <a href=@Url.Action("Person", "Cast", new { castId = director.Id }) class="textstyle">@director.Person.Name</a>
                                     }
                                 }
                             </p>
@@ -48,7 +48,7 @@
                                 {
                                     if (director.RoleInFilm == ViewBag.SceenWriter)
                                     {
-                                        <a href="#" class="textstyle">@director.Person.Name</a>
+                                        <a href=@Url.Action("Person", "Cast", new { castId = director.Id }) class="textstyle">@director.Person.Name</a>
                                     }
                                 }
                             </p>
@@ -59,7 +59,7 @@
                                 {
                                     if (director.RoleInFilm == ViewBag.Actor)
                                     {
-                                        <a href="#" class="textstyle">@director.Person.Name |</a>
+                                        <a href=@Url.Action("Person", "Cast", new { castId = director.Id }) class="textstyle">@director.Person.Name |</a>
                                     }
                                 }
                             </p>
