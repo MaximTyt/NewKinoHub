@@ -22,9 +22,9 @@
                 <tr>
                     <td>
                         <div style=" min-height: 20px; width:600px; float:left;">
-                            <p>Год: @Model.Year</p>
+                            <p><span style="font-weight:bold">Год:</span> @Model.Year</p>
                             <p>
-                                Жанры:
+                                <span style="font-weight:bold">Жанр:</span>
                                 @foreach (var film in Model.Genres)
                                 {
                                     <a>@film.Genre_Name |</a>
@@ -32,7 +32,7 @@
                             </p>
 
                             <p>
-                                Режиссер:
+                                <span style="font-weight:bold">Режиссер:</span>
                                 @foreach (var director in Model.Casts)
                                 {
                                     if (director.RoleInFilm == ViewBag.Director)
@@ -43,7 +43,7 @@
                             </p>
 
                             <p>
-                                Сценарист:
+                                <span style="font-weight:bold">Сценарист:</span>
                                 @foreach (var director in Model.Casts)
                                 {
                                     if (director.RoleInFilm == ViewBag.SceenWriter)
@@ -54,7 +54,7 @@
                             </p>
 
                             <p>
-                                Актеры:
+                                <span style="font-weight:bold">Актеры:</span>
                                 @foreach (var director in Model.Casts)
                                 {
                                     if (director.RoleInFilm == ViewBag.Actor)
@@ -64,12 +64,12 @@
                                 }
                             </p>
 
-                            <p>Страна: @Model.Country</p>
+                            <p><span style="font-weight:bold">Страна:</span> @Model.Country</p>
 
                             <a><img src=@Model.ScoreKP border='0'></a>
-                            <p>Дата выхода: @Model.Release_Date</p>
-                            <p>Возраст: @Model.Age+</p>
-                            <p>Время: @Model.Runtime</p>
+                            <p><span style="font-weight:bold">Дата выхода:</span> @Model.Release_Date</p>
+                            <p><span style="font-weight:bold">Возраст:</span> @Model.Age+</p>
+                            <p><span style="font-weight:bold">Время:</span> @Model.Runtime</p>
                         </div>
                     </td>
                     <td valign="top" align="right">
@@ -81,7 +81,7 @@
             </tbody>
         </table>
         <h2 style=" clear:both;">Описание</h2>
-        <p style=" clear:both;">@Model.Description</p>
+        <p style=" clear:both; margin-top:5%; margin-bottom:5%;">@Model.Description</p>
 
         <table>
             <colgroup>
@@ -113,6 +113,7 @@
                 </tr>
             </tbody>
         </table>
+        <h2 style=" clear:both; margin-top:5%; margin-bottom:5%;">Скриншоты:</h2>
         <div class="slider middle">
             <div class="slides">
 
@@ -121,10 +122,10 @@
                 <input type="radio" name="r" id="r3">
                 <input type="radio" name="r" id="r4">
 
-                <div class="slide s1"><img src=@Model.Images[0].ImagesUrl alt=""></div>
-                <div class="slide"><img src=@Model.Images[1].ImagesUrl  alt=""></div>
-                <div class="slide"><img src=@Model.Images[2].ImagesUrl alt=""></div>
-                <div class="slide"><img src=@Model.Images[3].ImagesUrl  alt=""></div>
+                <div class="slide s1"><a href="@Model.Images[0].ImagesUrl" target="_blank"><img src=@Model.Images[0].ImagesUrl alt=""></a></div>
+                <div class="slide"><a href="@Model.Images[1].ImagesUrl" target="_blank"><img src=@Model.Images[1].ImagesUrl alt=""></a></div>
+                <div class="slide"><a href="@Model.Images[2].ImagesUrl" target="_blank"><img src=@Model.Images[2].ImagesUrl alt=""></a></div>
+                <div class="slide"><a href="@Model.Images[3].ImagesUrl" target="_blank"><img src=@Model.Images[3].ImagesUrl alt=""></a></div>
             </div>  
 
             <div class=" navigation">

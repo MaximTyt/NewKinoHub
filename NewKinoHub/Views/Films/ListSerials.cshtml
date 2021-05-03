@@ -13,58 +13,60 @@
         Добавить Сериал
     </a>
     <div class="u-clearfix u-sheet u-sheet-1 wrapper">
-        <table style="margin-top:50px; margin-bottom:30px;">
-            <tbody style="width: 100%; max-width: 1125px; margin: 0 auto;">
-                <tr>
-                    <td style="        max-width: 100px !important; left:0%;">
-                        <h2 class="u-text u-text-1" style="color: white ">Сериалы</h2>
-                    </td>
-                    <td style="        max-width: 1000px !important; right:0%;">
-                        <nav id="menu1" style="margin-left:50px;">
-                            <ul>
-                                <li style="        max-width: 250px !important;">
-                                    <a style="background-color:black !important; color:white !important;">Сортировать: </a>@*кнопка*@
-                                </li>
-                                <li style="        max-width: 250px !important;">
-                                    <a>По дате выхода</a>
-                                    <ul>
-                                        @*что выпадает при наведении на кнопку дата выхода*@
+        <div style="margin-top:50px; margin-bottom:30px; width: 95%;">
+            <table style="margin: 0 auto;">
+                <tbody>
+                    <tr>
+                        <td style="width: 10% !important; left:0%;">
+                            <h2 style="color: white;">Сериалы</h2>
+                        </td>
+                        <td style="right:0%;">
+                            <nav id="menu1" style="margin-left:50px;">
+                                <ul>
+                                    <li style="width: 15% !important;">
+                                        <a style="background-color:black !important; color:white !important;">Сортировать: </a>@*кнопка*@
+                                    </li>
+                                    <li style="width: 26% !important;">
+                                        <a>По дате выхода</a>
+                                        <ul>
+                                            @*что выпадает при наведении на кнопку дата выхода*@
 
-                                        <li>
-                                            <a href=@Url.Action("Sorting", "Serials", new { sort = "YearOld" })>Сначала старые</a>
-                                        </li>
-                                        <li>
-                                            <a href=@Url.Action("Sorting", "Serials", new { sort = "YearNew" })>Сначала новые</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li style="        max-width: 250px !important;">
-                                    <a href=@Url.Action("Sorting", "Serials", new { sort = "Score" })>По рейтингу</a>
-                                </li>
-                                <li style="max-width:250px !important;">
-                                    <a>По названию</a>
-                                    <ul>
-                                        @*что выпадает при наведении на кнопку дата выхода*@
+                                            <li>
+                                                <a href=@Url.Action("Sorting", "Serials", new { sort = "YearOld" })>Сначала старые</a>
+                                            </li>
+                                            <li>
+                                                <a href=@Url.Action("Sorting", "Serials", new { sort = "YearNew" })>Сначала новые</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li style="width: 24% !important;">
+                                        <a href=@Url.Action("Sorting", "Serials", new { sort = "Score" })>По рейтингу</a>
+                                    </li>
+                                    <li style="width:26% !important;">
+                                        <a>По названию</a>
+                                        <ul>
+                                            @*что выпадает при наведении на кнопку дата выхода*@
 
-                                        <li>
-                                            <a href=@Url.Action("Sorting", "Serials", new { sort = "NameA" })>А-Я</a>
-                                        </li>
-                                        <li>
-                                            <a href=@Url.Action("Sorting", "Serials", new { sort = "NameZ" })>Я-А</a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                            <li>
+                                                <a href=@Url.Action("Sorting", "Serials", new { sort = "NameA" })>А-Я</a>
+                                            </li>
+                                            <li>
+                                                <a href=@Url.Action("Sorting", "Serials", new { sort = "NameZ" })>Я-А</a>
+                                            </li>
+                                        </ul>
+                                    </li>
 
-                                @* здесь можно добавить еще кнопку как дата выхода*@
-                                @*если не работает, позвать меня*@
+                                    @* здесь можно добавить еще кнопку как дата выхода*@
+                                    @*если не работает, позвать меня*@
 
 
-                            </ul>
-                        </nav>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                                </ul>
+                            </nav>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         @foreach (var serial in Model)
         {
             <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
@@ -86,17 +88,17 @@
                             </tr>
                         </tbody>
                     </table>
-                    <p>Год: @serial.Year</p>
+                    <p><span style="font-weight:bold">Год:</span> @serial.Year</p>
 
                     <p>
-                        Жанр:@foreach (var genre in serial.Genres)
+                        <span style="font-weight:bold">Жанр:</span> @foreach (var genre in serial.Genres)
                         {
                             <a>@genre.Genre_Name |</a>
                         }
                     </p>
 
                     <p>
-                        Режиссер:
+                        <span style="font-weight:bold">Режиссер:</span>
                         @foreach (var director in serial.Casts)
                         {
                             if (director.RoleInFilm == ViewBag.Director)
@@ -106,10 +108,10 @@
                         }
                     </p>
 
-                    <p>Страна: @serial.Country</p>
-                    <p>Возраст: @serial.Age+</p>
+                    <p><span style="font-weight:bold">Страна:</span> @serial.Country</p>
+                    <p><span style="font-weight:bold">Возраст:</span> @serial.Age+</p>
                     <a><img src=@serial.ScoreKP border='0'></a>
-                    <p>Краткое описание: @serial.ShortDescription</p>
+                    <p><span style="font-weight:bold">Краткое описание:</span> @serial.ShortDescription</p>
                 </div>
                 <div style=" clear:both;"></div>
             </div>

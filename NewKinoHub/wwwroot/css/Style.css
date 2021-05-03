@@ -52,7 +52,7 @@ input[name="r"]{
     transition: all .6s ease;
 }
 
-    .slide img {
+    .slide a img {
         width: 100%;
         height: 100%;
         opacity: 90%;
@@ -106,11 +106,17 @@ input[name="r"]{
     margin-left: -75%;
 }
 /*изменения при наведении на картинку:*/
-.slide img:hover {
+.slide a img:hover {
     opacity: 100%;
 }
+.slide img:active{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:60%;
+}
+
 .slider:hover {
     border: 8px solid rgb(247,151,30,1);
     border-radius: 15px;
 }
-
