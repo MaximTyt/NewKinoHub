@@ -67,7 +67,7 @@ body {
 .wrapper {
 
     display: flex;
-    min-height: 80%;
+    min-height: 77%;
     flex-direction: column;
     padding: 0;
     margin: 0;
