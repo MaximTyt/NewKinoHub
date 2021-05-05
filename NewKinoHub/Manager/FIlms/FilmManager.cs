@@ -47,12 +47,22 @@ namespace KinoHab.Manager
 
         public async Task<Media> GetFilmforId(int filmId)
         {
-            return _context.Media.Include(st => st.Genres).Include(st=>st.Images).Include(st=>st.Casts).ThenInclude(st=>st.Person).FirstOrDefault(st => st.MediaID == filmId);
+            return await _context.Media.Include(st => st.Genres)
+                                       .Include(st=>st.Images)
+                                       .Include(st=>st.Casts)
+                                       .ThenInclude(st=>st.Person)
+                                       .Where(st => st.MediaType == MediaType.Film)
+                                       .FirstOrDefaultAsync(st => st.MediaID == filmId);
         }
 
-        public Media GetSerialforId(int serialId)
+        public async Task<Media> GetSerialforId(int serialId)
         {
-            return _context.Media.Include(st => st.Genres).Include(st => st.Images).Include(st => st.Casts).ThenInclude(st => st.Person).FirstOrDefault(st => st.MediaID == serialId);
+            return await _context.Media.Include(st => st.Genres)
+                                       .Include(st => st.Images)
+                                       .Include(st => st.Casts)
+                                       .ThenInclude(st => st.Person)
+                                       .Where(st => st.MediaType == MediaType.Serial)
+                                       .FirstOrDefaultAsync(st => st.MediaID == serialId);
         }
 
         
@@ -60,12 +70,12 @@ namespace KinoHab.Manager
          {
             var media = await _context.Media.Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
 
-            if(type == "Films")
+            if(type == "Film")
             {
                 media = await _context.Media.Where(st=>st.MediaType == MediaType.Film).Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
             }
 
-            if(type == "Serials")
+            if(type == "Serial")
             {
                 media = await _context.Media.Where(st => st.MediaType == MediaType.Serial).Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
             }
@@ -124,12 +134,12 @@ namespace KinoHab.Manager
 
             var media = await _context.Media.Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
 
-            if (type == "Films")
+            if (type == "Film")
             {
                 media = await _context.Media.Where(st => st.MediaType == MediaType.Film).Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
             }
 
-            if (type == "Serials")
+            if (type == "Serial")
             {
                 media = await _context.Media.Where(st => st.MediaType == MediaType.Serial).Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
             }
