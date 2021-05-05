@@ -22,7 +22,7 @@
         width: 100%;
         height: auto;
         list-style: none;
-        background-color:black;
+        background-color: rgb(8,8,8);
     }
 
     #menu1 > ul {
@@ -45,8 +45,8 @@
         height: auto;
         vertical-align: top;
         text-align: left;
-        background-color:black;
-        color:white;
+        background-color: rgb(8,8,8);
+        color: white;
     }
 
         #menu1 ul li.razd {

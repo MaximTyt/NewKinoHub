@@ -3,61 +3,58 @@
     <link href="~/css/Profil.css" rel="stylesheet" />
 </head>
 
-<body id="bg">
+<body>
+    <div class="wrapper">
+        <h3 style="color:white; margin-top:4%;">Name: @Model.Login </h3>
 
-    <p>Name: @Model.Login </p>
-    <a href=@Url.Action("Logout", "Account")>
-        <img src="~/lib/images/Films/JohnWick.jpg" alt="" style="height:200px;">
-    </a>
-    <h5 style="color:white;">Выход</h5>
-    @*--------------------Начало блока с изменением пароля--------------------*@
-    <div id="chpss">
-        <a href="#"></a>
-        <div>
-            Введите новый пароль<br />
-            <br />
-            <input type="email" placeholder="Введите новый пароль..." /> <br />
-            <a href="#profil">Сохранить</a><br />
-            <a href="#profil">Закрыть</a>
+        @*--------------------Начало блока с изменением пароля--------------------*@
+        <div id="chpss">
+            <a href="#"></a>
+            <div>
+                Введите новый пароль<br />
+                <br />
+                <input type="email" placeholder="Введите новый пароль..." /> <br />
+                <a href="#profil">Сохранить</a><br />
+                <a href="#profil">Закрыть</a>
 
+            </div>
         </div>
-    </div>
-    @*--------------------Конец блока с изменением пароля--------------------*@
-    @*--------------------Начало блока с изменением почты--------------------*@
-    <div id="chmail">
-        <a href="#"></a>
-        <div>
-            Введите новую почту<br />
-            <br />
-            <input type="password" placeholder="Введите новую почту..." /> <br />
-            <a href="#profil">Сохранить</a><br />
-            <a href="#profil">Закрыть</a>
+        @*--------------------Конец блока с изменением пароля--------------------*@
+        @*--------------------Начало блока с изменением почты--------------------*@
+        <div id="chmail">
+            <a href="#"></a>
+            <div>
+                Введите новую почту<br />
+                <br />
+                <input type="password" placeholder="Введите новую почту..." /> <br />
+                <a href="#profil">Сохранить</a><br />
+                <a href="#profil">Закрыть</a>
 
+            </div>
         </div>
-    </div>
-    @*--------------------Конец блока с изменением почты--------------------*@
-    @*--------------------Начало блока с настройками профиля--------------------*@
-    <div id="profil">
-        <a href="#"></a>
-        <div>
-            <table>
-                <tbody>
-                    <tr>
-                        <td style="width:170px;">
-                            <img style="width:100px !important; height:100px !important;" class="avasize" src="~/lib/images/Films/Alien.jpg" />@*поле с аватаркой пользователя*@
-                        </td>
-                        <td>
-                            Настройки<br />
-                            <a href="#chmail">Изменить почту</a><br />
-                            <a href="#chpss">Изменить пароль</a><br />
-                            <a href="#">Закрыть</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        @*--------------------Конец блока с изменением почты--------------------*@
+        @*--------------------Начало блока с настройками профиля--------------------*@
+        <div id="profil">
+            <a href="#"></a>
+            <div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td style="width:170px;">
+                                <img style="width:100px !important; height:100px !important;" class="avasize" src="~/lib/images/Films/Alien.jpg" />@*поле с аватаркой пользователя*@
+                            </td>
+                            <td>
+                                Настройки<br />
+                                <a href="#chmail">Изменить почту</a><br />
+                                <a href="#chpss">Изменить пароль</a><br />
+                                <a href="#">Закрыть</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-    @*--------------------Конец блока с настройками профиля--------------------*@
+        @*--------------------Конец блока с настройками профиля--------------------*@
 
     <div style="margin-top:40px;">
         <center>
@@ -80,8 +77,8 @@
     <div>
         <h2 style="color:white;">Здесь будут выводиться избранные тайтлы</h2>
 
-        @*поле с избранными тайтлами*@
+            @*поле с избранными тайтлами*@
 
+        </div>
     </div>
-
 </body>
