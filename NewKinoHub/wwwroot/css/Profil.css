@@ -10,17 +10,17 @@ img.avasize{
     border-radius:50%;
 }
 
-a.btn{
-    width:300px;
-    height:40px;
-    background-color:black;
-    align-content:center;
-    color:white;
+a.btn {
+    width: 300px;
+    height: 40px;
+    background-color: rgb(8,8,8);
+    align-content: center;
+    color: white;
 }
 
     a.btn:hover {
         background: rgb(247,151,30);
-        color: black;
+        color: rgb(8,8,8);
     }
 
 /*---------------------------------------------настройки профиля---------------------------------------------*/
@@ -70,7 +70,7 @@ a.btn{
         bottom: 0;
         left: 0;
         margin: auto;
-        background-color: black;
+        background-color: rgb(8,8,8);
         z-index: 22;
     }
 
@@ -93,7 +93,7 @@ a.btn{
 
         #profil > div > a:hover {
             background-color: rgb(247,151,30);
-            color: black !important;
+            color: rgb(8,8,8) !important;
         }
 
     #profil > div > table > tbody > tr > td > a {
@@ -101,7 +101,7 @@ a.btn{
         display: block;
         padding: 9px 45px 0px 45px;
         font-size: 14px;
-        color: black;
+        color: rgb(8,8,8);
         line-height: 1.3em;
         text-decoration: none;
         font-weight: bold;
@@ -111,7 +111,7 @@ a.btn{
 
         #profil > div > table > tbody > tr > td > a:hover {
             background-color: rgb(247,151,30);
-            color: black !important;
+            color: rgb(8,8,8) !important;
         }
 
 
@@ -163,7 +163,7 @@ a.btn{
         bottom: 0;
         left: 0;
         margin: auto;
-        background-color: black;
+        background-color: rgb(8,8,8);
         z-index: 22;
     }
 
@@ -176,7 +176,7 @@ a.btn{
         display: block;
         padding: 9px 45px 0px 45px;
         font-size: 14px;
-        color: black;
+        color: rgb(8,8,8);
         line-height: 1.3em;
         text-decoration: none;
         font-weight: bold;
@@ -186,7 +186,7 @@ a.btn{
 
         #chpss > div > a:hover {
             background-color: rgb(247,151,30);
-            color: black !important;
+            color: rgb(8,8,8) !important;
         }
 
 /*---------------------------------------------изменение почты профиля---------------------------------------------*/
@@ -236,7 +236,7 @@ a.btn{
         bottom: 0;
         left: 0;
         margin: auto;
-        background-color: black;
+        background-color: rgb(8,8,8);
         z-index: 22;
     }
 
@@ -249,7 +249,7 @@ a.btn{
         display: block;
         padding: 9px 45px 0px 45px;
         font-size: 14px;
-        color: black;
+        color: rgb(8,8,8);
         line-height: 1.3em;
         text-decoration: none;
         font-weight: bold;
@@ -259,7 +259,7 @@ a.btn{
 
         #chmail > div > a:hover {
             background-color: rgb(247,151,30);
-            color: black !important;
+            color: rgb(8,8,8) !important;
         }
 
         .login{

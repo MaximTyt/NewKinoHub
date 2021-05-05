@@ -5,7 +5,7 @@
     overflow: hidden;
     border: 5px solid rgb(247,151,30);
     border-radius: 10px;
-    background-color: black; /* Чёрный фон */
+    background-color: rgb(8,8,8); /* фон */
 }
 
 .middle {
@@ -87,22 +87,6 @@ input[name="r"]{
 }
 
 #r8:checked ~ .s1 {
-    margin-left: -75%;
-}
-
-#r9:checked ~ .s1 {
-    margin-left: 0;
-}
-
-#r10:checked ~ .s1 {
-    margin-left: -25%;
-}
-
-#r11:checked ~ .s1 {
-    margin-left: -50%;
-}
-
-#r12:checked ~ .s1 {
     margin-left: -75%;
 }
 /*изменения при наведении на картинку:*/
