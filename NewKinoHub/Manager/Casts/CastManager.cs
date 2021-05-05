@@ -15,9 +15,36 @@ namespace NewKinoHub.Manager.Casts
         {
             _context = context;
         }
-        public async Task<Cast> GetCastforId(int castId)
+
+        public  async Task<ICollection<Cast>> GetAllCast(int castId)
         {
-            return _context.Casts.Include(st=>st.Person).FirstOrDefault(st => st.Id == castId);
+            return await _context.Casts.Include(st => st.Person).Where(st=>st.Media.MediaID == castId).ToListAsync();
+        }
+
+        public async Task<Cast> GetPersonforId(int personId)
+        {
+            return await _context.Casts.Include(st=>st.Person).FirstOrDefaultAsync(st => st.Id == personId);
+        }
+
+        public RoleInFilm Cast(int i)
+        {
+            RoleInFilm role = RoleInFilm.Actor;
+            if (i == 0)
+            {
+                role = RoleInFilm.Director;
+                return role;
+            }
+            if (i == 1)
+            {
+                role = RoleInFilm.Screenwriter;
+                return role;
+            }
+            if (i == 2)
+            {
+                role = RoleInFilm.Actor;
+                return role;
+            }
+            return role;
         }
     }
 }

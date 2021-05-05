@@ -16,10 +16,19 @@ namespace NewKinoHub.Controllers
             _cast = castManager;
 
         }
-        public async Task<IActionResult> Person(int castId)
+        public async Task<IActionResult> Person(int personId)
         {
-            var person = await _cast.GetCastforId(castId);
+            var person = await _cast.GetPersonforId(personId);
             return View(person);
+        }
+
+        public async Task<IActionResult> ListCast(int castId)
+        {
+            ViewBag.Director = _cast.Cast(0);
+            ViewBag.SceenWriter = _cast.Cast(1);
+            ViewBag.Actor = _cast.Cast(2);
+            var cast = await _cast.GetAllCast(castId);
+            return View(cast);
         }
     }
 }

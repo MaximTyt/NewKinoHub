@@ -8,13 +8,10 @@ namespace KinoHab.Manager
     {
         Task<ICollection<Media>> GetAllFilms();
         Task<Media> GetFilmforId(int filmId);
-        public RoleInFilm Cast(int i);
+        RoleInFilm Cast(int i);
         Task<ICollection<Media>> GetAllSerials();
-        Media GetSerialforId(int filmId);
+        Task<Media> GetSerialforId(int filmId);
         Task<ICollection<Media>> AllSorting(string sort,string type);
-        //
-        //Task<ICollection<Media>> SortingForFiltr(string sort, ICollection<Media> films);
-        //
         Task<ICollection<Media>> Filtration(int filtr, string type);
         string GetNameFiltr(int idFiltr);
         Task<ICollection<Media>> SortingFromFiltr(string sort, ICollection<Media> media);

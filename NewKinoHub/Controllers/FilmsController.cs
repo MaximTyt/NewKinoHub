@@ -26,25 +26,25 @@ namespace KinoHab.Controllers
             return View(serial);
         }
 
-        public IActionResult Serial(int SerialId)
+        public async Task<IActionResult> Serial(int SerialId)
         {
             ViewBag.Director = _film.Cast(0);
             ViewBag.SceenWriter = _film.Cast(1);
             ViewBag.Actor = _film.Cast(2);
-            var serials = _film.GetSerialforId(SerialId);
-            return View(serials);
+            var serial = await _film.GetSerialforId(SerialId);
+            return View(serial);
         }
 
-        public async Task<IActionResult> ListFilms(string sort, string type,int filtr)
+        public async Task<IActionResult> ListFilms(string sort, string type)
         {
             ViewBag.Director = _film.Cast(0);
             ViewBag.Actor = _film.Cast(2);
-            if(filtr != 0)
-            {
-                ViewBag.Filtr = _film.GetNameFiltr(filtr);
-                var Filtr = await _film.Filtration(filtr, type);
-                return View(Filtr);
-            }
+            //if(filtr != 0)
+            //{
+            //    ViewBag.Filtr = _film.GetNameFiltr(filtr);
+            //    var Filtr = await _film.Filtration(filtr, type);
+            //    return View(Filtr);
+            //}
             if (sort != null)
             {
                 var Sort = await _film.AllSorting(sort, type);

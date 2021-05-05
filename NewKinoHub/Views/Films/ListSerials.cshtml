@@ -32,10 +32,10 @@
                                             @*что выпадает при наведении на кнопку дата выхода*@
 
                                             <li>
-                                                <a href=@Url.Action("ListSerials", "Films", new { sort = "YearOld",type = "Serials" })>Сначала старые</a>
+                                                <a href=@Url.Action("ListSerials", "Films", new { sort = "YearOld",type = "Serial" })>Сначала старые</a>
                                             </li>
                                             <li>
-                                                <a href=@Url.Action("ListSerials", "Films", new { sort = "YearNew",type = "Serials" })>Сначала новые</a>
+                                                <a href=@Url.Action("ListSerials", "Films", new { sort = "YearNew",type = "Serial" })>Сначала новые</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -48,10 +48,10 @@
                                             @*что выпадает при наведении на кнопку дата выхода*@
 
                                             <li>
-                                                <a href=@Url.Action("ListSerials", "Films", new { sort = "NameA",type = "Serials" })>А-Я</a>
+                                                <a href=@Url.Action("ListSerials", "Films", new { sort = "NameA",type = "Serial" })>А-Я</a>
                                             </li>
                                             <li>
-                                                <a href=@Url.Action("ListSerials", "Films", new { sort = "NameZ",type = "Serials" })>Я-А</a>
+                                                <a href=@Url.Action("ListSerials", "Films", new { sort = "NameZ",type = "Serial" })>Я-А</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -70,7 +70,7 @@
         @foreach (var serial in Model)
         {
             <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                <a href=@Url.Action("serial", "Films", new { SerialId = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                <a href=@Url.Action("Serial", "Films", new { SerialId = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
                     <img width="265" class="u-back-image u-expanded imagetitle" src=@serial.Img>
                 </a>
                 <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
@@ -91,10 +91,10 @@
                     <p><span style="font-weight:bold">Год:</span> @serial.Year</p>
 
                     <p>
-                        <span style="font-weight:bold">Жанр:</span> 
+                        <span style="font-weight:bold">Жанр:</span>
                         @foreach (var genre in serial.Genres)
                         {
-                            <a>@genre.Genre_Name |</a>
+                            <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = genre.GenreId }) class="textstyle">@genre.Genre_Name |</a>
                         }
                     </p>
 
@@ -104,9 +104,13 @@
                         {
                             if (director.RoleInFilm == ViewBag.Director)
                             {
-                                <a href=@Url.Action("Person", "Cast", new { castId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
                             }
                         }
+                    </p>
+
+                    <p>
+                        <a href=@Url.Action("ListCast", "Cast", new { castId = serial.MediaID}) class="textstyle">Весь каст</a>
                     </p>
 
                     <p><span style="font-weight:bold">Страна:</span> @serial.Country</p>
