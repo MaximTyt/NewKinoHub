@@ -2,72 +2,13 @@
 
 <html style="font-size: 16px;">
 <head>
-    <link rel="stylesheet" href="~/css/bg_css/bg_films.css" media="screen">
     <link rel="stylesheet" href="~/css/favorites.css" media="screen">
     <script class="u-script" type="text/javascript" src="/js/jquery.js" defer=""></script>
 </head>
 
-<body id="bg">
-  
-    <a href="#" style="position: fixed; top: 143px; left:10px; width:160px; color:white; background-color:black;">
-        Добавить фильм
-    </a>
-
+<body>
     <div class="u-clearfix u-sheet u-sheet-1 wrapper">
-        <!--<div style="margin-top:50px; margin-bottom:30px; width: 95%;">
-            <table style="margin: 0 auto;">
-                <tbody>
-                    <tr>
-                        <td style="width: 10% !important; left:0%;">
-                            <h2 style="color: white;">Фильмы</h2>
-                        </td>
-                        <td style="right:0%;">
-                            <nav id="menu1" style="margin-left:50px;">
-                                <ul>
-                                    <li style="width: 15% !important;">
-                                        <a style="background-color:black !important; color:white !important;">Сортировать: </a>-->@*кнопка*@
-                                    <!--</li>
-                                    <li style="width: 26% !important;">
-                                        <a>По дате выхода</a>
-                                        <ul>-->
-                                            @*что выпадает при наведении на кнопку дата выхода*@
 
-                                            <!--<li>
-                                                <a href=@Url.Action("ListFilms", "Films", new { sort = "YearOld", type = "Film"})>Сначала старые</a>
-                                            </li>
-                                            <li>
-                                                <a href=@Url.Action("ListFilms", "Films", new { sort = "YearNew",type = "Film" })>Сначала новые</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li style="width: 24% !important;">
-                                        <a href=@Url.Action("ListFilms", "Films", new { sort = "Score",type = "Film" })>По рейтингу</a>
-                                    </li>
-                                    <li style="width:26% !important;">
-                                        <a>По названию</a>
-                                        <ul>-->
-                                            @*что выпадает при наведении на кнопку дата выхода*@
-
-                                            <!--<li>
-                                                <a href=@Url.Action("ListFilms", "Films", new { sort = "NameA",type = "Film" })>А-Я</a>
-                                            </li>
-                                            <li>
-                                                <a href=@Url.Action("ListFilms", "Films", new { sort = "NameZ",type = "Film" })>Я-А</a>
-                                            </li>
-                                        </ul>
-                                    </li>-->
-
-                                    @* здесь можно добавить еще кнопку как дата выхода*@
-                                    @*если не работает, позвать меня*@
-
-
-                                <!--</ul>
-                            </nav>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>-->
         @foreach (var cast in Model)
         {
             <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">

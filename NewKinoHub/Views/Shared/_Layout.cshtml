@@ -20,69 +20,54 @@
      <style>
          @@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&display=swap');
      </style>
+     <script language="JavaScript" type="text/javascript">
+         var bb = Math.floor(Math.random() * 6); /*цифра 6 - количество css файлов*/
+         bgpic = new Array();
+         bgpic[0] = '/css/bg_css/bg_films.css'  /*собственно сами файлы*/
+         bgpic[1] = '/css/bg_css/bg_film_serials.css' /*собственно сами файлы*/
+         bgpic[2] = '/css/bg_css/bg_mult.css' /*собственно сами файлы*/
+         bgpic[3] = '/css/bg_css/bg_mult_serials.css' /*собственно сами файлы*/
+         bgpic[4] = '/css/bg_css/bg_anime.css' /*собственно сами файлы*/
+         bgpic[5] = '/css/bg_css/bg_anime_serials.css' /*собственно сами файлы*/
+         /*function bgpic() {*/
+         document.write('<link rel="stylesheet" href=');
+         document.write("" + bgpic[bb] + ""); /*не трогать а то сломается*/
+         document.write(' media="screen"');
+             /*}*/
+     </script>>
 
  </head>
  <body style="font-family: 'Arimo', sans-serif !important;" class="bodybg">
      @*начало блока с фильмами*@
      <div id="filmform">
          <a href="#"></a>
-         <div>
+         <div id="bg" style="background-size:100%; background-color: rgba(8,8,8,0.3);">
              <table style="position:center;">
                  <tbody>
                      <tr>
                          @* пустые<td></td> не удалять, они не лишние *@
                          @* первая строчка жанров *@
-                         <td >
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 1})>Аниме</a>
-                         </td>
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 13})>Боевик</a>
-                         </td>
-                         <td >
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 11})>Драма</a>
-                         </td>
-                         <td >
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 9})>Мелодрама</a>
-                         </td>
-                         <td >
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 14})>Мультфильм</a>
-                         </td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 1})>Аниме</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 13})>Боевик</a></td>
+                         <td ><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 11})>Драма</a></td>
+                         <td ><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 9})>Мелодрама</a></td>
+                         <td ><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 14})>Мультфильм</a></td>
                      </tr>
                      @* вторая строчка жанров *@
                      <tr>
-                         <td >
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 2})>Фантастика</a>
-                         </td>
-                         <td >
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 8})>Фэнтези</a>
-                         </td>
-                         <td >
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 6})>Криминал</a>
-                         </td>
-                         <td >
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 12})>Детектив</a>
-                         </td>
-                         <td >
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 7})>Мюзикл</a>
-                         </td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 2})>Фантастика</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 8})>Фэнтези</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 6})>Криминал</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 12})>Детектив</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 7})>Мюзикл</a></td>
                      </tr>
                      @* третья строчка жанров *@
                      <tr>
-                         <td>
-                             <a href="#">non Genre</a>
-                         </td>
-                         <td>
-                             <a href="#">non Genre</a>
-                         </td>
-                         <td>
-                             <a href="#">non Genre</a>
-                         </td>
-                         <td>
-                             <a href="#">non Genre</a>
-                         </td>
-                         <td>
-                             <a href="#">non Genre</a>
-                         </td>
+                         <td><a href="#"></a></td>
+                         <td><a href="#"></a></td>
+                         <td><a href="#"></a></td>
+                         <td><a href="#"></a></td>
+                         <td><a href="#"></a></td>
                      </tr>
                  </tbody>
              </table>
@@ -92,74 +77,33 @@
      @*начало блока с сериалами*@
      <div id="serialform">
          <a href="#"></a>
-         <div>
-             <table style="width:1200px; position:center;">
+         <div id="bg" style="background-size:100%;">
+             <table style="position:center;">
                  <tbody>
+                     @* пустые<td></td> не удалять, они не лишние *@
                      <tr>
-                         <td>
-                             @*первая строчка*@
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 1})>
-                                 <img src="~/lib/images/Films/JohnWick.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Аниме</h5>
-                         </td>
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 13})>
-                                 <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Боевик</h5>
-                         </td>
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 11})>
-                                 <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Драма</h5>
-                         </td>
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 9})>
-                                 <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Мелодрама</h5>
-                         </td>
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 14})>
-                                 <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Мультфильм</h5>
-                         </td>
+                         @* первая строчка жанров *@
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 1})>Аниме</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 13})>Боевик</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 11})>Драма</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 9})>Мелодрама</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 14})>Мультфильм</a></td>
                      </tr>
+                     @* вторая строчка жанров *@
                      <tr>
-                         @*вторая строчка*@
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 2})>
-                                 <img src="~/lib/images/Films/JohnWick.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Фантастика</h5>
-                         </td>
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 8})>
-                                 <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Фэнтези</h5>
-                         </td>
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 6})>
-                                 <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Криминал</h5>
-                         </td>
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serial", filtr = 12 })>
-                                 <img src="~/lib/images/Films/ArmorOfGod.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Детектив</h5>
-                         </td>
-                         <td>
-                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 7})>
-                                 <img src="~/lib/images/Films/ChelovekSBulvaraKaputsinov.jpg" alt="" style="height:200px;">
-                             </a>
-                             <h5 style="color:white;">Мюзикл</h5>
-                         </td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 2})>Фантастика</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 8})>Фэнтези</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 6})>Криминал</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial", filtr = 12 })>Детектив</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 7})>Мюзикл</a></td>
+                     </tr>
+                     @* третья строчка жанров *@
+                     <tr>
+                         <td><a href="#"></a></td>
+                         <td><a href="#"></a></td>
+                         <td><a href="#"></a></td>
+                         <td><a href="#"></a></td>
+                         <td><a href="#"></a></td>
                      </tr>
                  </tbody>
              </table>
@@ -167,17 +111,16 @@
          </div>
      </div>
      @*конец блока с сериалами*@
-     @*max-width: 1125px;*@
-     <header style="height: 13% !important; width: 100%; position: absolute; top: 0; " class="border-bottom headerbg">
+     <header class="border-bottom headerbg">
          <center>
              <div class="container">
-                 <div style="margin-top:1% !important;">
+                 <div style="margin-top:1%;">
                      <table style="width: 100%; max-width: 1100px; margin: 0 auto; position:center;">
                          <tbody>
                              <tr>
                                  <td>
                                      <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                                         <img src="~/lib/images/logo.jpg" style="border-radius : 8px; width : 200px !important; position:static;" />
+                                         <img src="~/lib/images/logo.png" style="border-radius : 8px; width : 200px !important; position:static;" />
                                      </a>
                                  </td>
                                  <td style="width: 100%; max-width: 420px !important;">
@@ -256,7 +199,6 @@
              &copy; 2021 - <a style="text-decoration: none;" class="text-muted" asp-controller="Home" asp-action="Index">KinoHab</a> - Все права защищены
          </div>
      </footer>
-     <script class="u-script" type="text/javascript" src="~/js/bg_genres.js" defer=""></script>
      <script src="~/lib/jquery/dist/jquery.min.js"></script>
      <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
      <script class="u-script" type="text/javascript" src="~/js/upbutton.js" defer=""></script>
