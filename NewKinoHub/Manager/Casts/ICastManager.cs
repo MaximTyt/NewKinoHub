@@ -8,6 +8,8 @@ namespace NewKinoHub.Manager.Casts
 {
     public interface ICastManager
     {
-        Task<Cast> GetCastforId(int castId);
+        Task<Cast> GetPersonforId(int personId);
+        Task<ICollection<Cast>> GetAllCast(int castId);
+        RoleInFilm Cast(int i);
     }
 }

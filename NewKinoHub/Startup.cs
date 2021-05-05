@@ -6,8 +6,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NewKinoHub.Manager;
+using NewKinoHub.Manager.Accounts;
 using NewKinoHub.Manager.Casts;
 using NewKinoHub.Manager.Home;
+using NewKinoHub.Manager.Userss;
 using NewKinoHub.Models;
 using NewKinoHub.Storage;
 using System;
@@ -34,6 +37,8 @@ namespace NewKinoHub
             services.AddTransient<IHomeManager, HomeManager>();
             services.AddTransient<IFilmManager, FilmManager>();
             services.AddTransient<ICastManager, CastManager>();
+            services.AddTransient<IAccountManager, AccountManager>();
+            services.AddTransient<IUserManager, UserManager>();
             services.AddMvc();
             // установка конфигурации подключения
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

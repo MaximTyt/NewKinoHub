@@ -25,9 +25,9 @@
                             <p><span style="font-weight:bold">Год:</span> @Model.Year</p>
                             <p>
                                 <span style="font-weight:bold">Жанры:</span>
-                                @foreach (var film in Model.Genres)
+                                @foreach (var genre in Model.Genres)
                                 {
-                                    <a>@film.Genre_Name |</a>
+                                    <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = genre.GenreId }) class="textstyle">@genre.Genre_Name |</a>
                                 }
                             </p>
 
@@ -37,7 +37,7 @@
                                 {
                                     if (director.RoleInFilm == ViewBag.Director)
                                     {
-                                        <a href=@Url.Action("Person", "Cast", new { castId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                        <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
                                     }
                                 }
                             </p>
@@ -48,7 +48,7 @@
                                 {
                                     if (director.RoleInFilm == ViewBag.SceenWriter)
                                     {
-                                        <a href=@Url.Action("Person", "Cast", new { castId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                        <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
                                     }
                                 }
                             </p>
@@ -59,7 +59,7 @@
                                 {
                                     if (director.RoleInFilm == ViewBag.Actor)
                                     {
-                                        <a href=@Url.Action("Person", "Cast", new { castId = director.Id }) class="textstyle">@director.Person.Name |</a>
+                                        <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name |</a>
                                     }
                                 }
                             </p>

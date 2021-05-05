@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NewKinoHub.Manager.Accounts;
 using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
 using System.Collections.Generic;
@@ -12,10 +13,10 @@ namespace NewKinoHub.Controllers
 {
     public class AccountController : Controller
     {
-        private MvcFilmContext db;
-        public AccountController(MvcFilmContext context)
+        private IAccountManager db;
+        public AccountController(IAccountManager accountManager)
         {
-            db = context;
+            db = accountManager;
         }
         [HttpGet]
         public IActionResult Login()
@@ -28,7 +29,7 @@ namespace NewKinoHub.Controllers
         {
             if (ModelState.IsValid)
             {
-                Users user = await db.Users.FirstOrDefaultAsync(u => u.Login == model.Login && u.Password == model.Password);
+                var user = await db.GetUser(model);
                 if (user != null)
                 {
                     await Authenticate(model.Login); // аутентификация
@@ -39,24 +40,23 @@ namespace NewKinoHub.Controllers
             }
             return View(model);
         }
+
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
-                Users user = await db.Users.FirstOrDefaultAsync(u => u.Login == model.Login);
+                var user = await db.GetUser1(model);
                 if (user == null)
                 {
-                    // добавляем пользователя в бд
-                    db.Users.Add(new Users { Login = model.Login, Email = model.Email, Password = model.Password });
-                    await db.SaveChangesAsync();
-
+                    await db.AddUsers(model);
                     await Authenticate(model.Login); // аутентификация
 
                     return RedirectToAction("Index", "Home");
@@ -67,23 +67,23 @@ namespace NewKinoHub.Controllers
             return View(model);
         }
 
-        private async Task Authenticate(string userName)
-        {
-            // создаем один claim
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
-            };
-            // создаем объект ClaimsIdentity
-            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
-            // установка аутентификационных куки
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
-        }
-
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login", "Account");
         }
+
+       private async Task Authenticate(string userName)
+       {
+           // создаем один claim
+           var claims = new List<Claim>
+           {
+               new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
+           };
+           // создаем объект ClaimsIdentity
+           ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+           // установка аутентификационных куки
+           await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+       }
     }
 }
