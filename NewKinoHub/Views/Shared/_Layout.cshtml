@@ -217,25 +217,16 @@
                                  </td>
                                  <td style="width: 100%; max-width: 260px !important;">
                                      <nav id="menu1">
-                                         <ul>
+                                         <!--<ul>
                                              <li style="width: 100%; max-width: 250px !important;">
-                                                 <a asp-area="" asp-controller="Account" asp-action="Register">Sign</a> @* не трогать строчку*@
+                                                 <a asp-area="" asp-controller="Account" asp-action="Register">Sign</a>--> @* не трогать строчку*@
+                                             <!--</li>
+                                         </ul>-->
+                                          <ul>
+                                             <li style="width: 100%; max-width: 250px !important;">
+                                                 <a asp-area="" asp-controller="User" asp-action="Profile"> Profile</a>
                                              </li>
-                                         </ul>
-                                         <ul>
-                                             @if (1 == 1)
-                                             {
-                                                 <li style="width: 100%; max-width: 250px !important;">
-                                                     <a asp-area="" asp-controller="User" asp-action="Profile"> Profile</a>
-                                                 </li>
-                                             }
-                                             else
-                                             {
-                                                 <li style="width: 100%; max-width: 250px !important;">
-                                                     <a style="background-color:black !important; color: white !important;">Profile</a>
-                                                 </li>
-                                             }
-                                         </ul>
+                                          </ul>
                                      </nav>
                                  </td>
                              </tr>

@@ -61,7 +61,14 @@
 
     <div style="margin-top:40px;">
         <center>
-            <img class="avasize" src="~/lib/images/Films/Alien.jpg" /> @*поле с аватаркой пользователя*@
+            @if (Model.Image != null)
+            {
+                <img class="avasize" src=@Model.Image /> @*поле с аватаркой пользователя*@
+            }
+            else
+            {
+                <img class="avasize" src="~/lib/images/2.jpeg" /> @*поле с аватаркой пользователя*@
+            }
             <div style="margin-top:10px;">
                 <a class="btn" href="#profil">Редактировать профиль</a>
             </div>
