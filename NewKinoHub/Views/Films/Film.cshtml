@@ -71,23 +71,11 @@
                             <p><span style="font-weight:bold">Время:</span> @Model.Runtime</p>
                         </div>
                     </td>
-                    @if (!ViewBag.Favorite)
-                    {
-                        <td valign="top" align="right">
-                          <a href=@Url.Action("AddFilms", "User", new { Id = Model.MediaID })>
-                            <img src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
-                          </a>
-                        </td>
-                     }
-                     else
-                     {
-                         <td valign="top" align="right">
-                            <a>
-                                <img src="~/lib/images/Icons/favourite11.png" width="30" height="30"/>
-                            </a>
-                         </td>
-                     }
-                    @*@if (Model.Favorites.FirstOrDefault(st => st.i).)
+
+                    @if ((Model.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
+                        Model.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User)
+                                       .Medias
+                                       .SingleOrDefault(st => st.MediaID == Model.MediaID) == null) && ViewBag.User != null)
                     {
                         <td valign="top" align="right">
                             <a href=@Url.Action("AddFilms", "User", new { Id = Model.MediaID })>
@@ -97,12 +85,23 @@
                     }
                     else
                     {
-                        <td valign="top" align="right">
-                            <a>
-                                <img src="~/lib/images/Icons/" width="30" height="30" />
-                            </a>
-                        </td>
-                    }*@
+                        if (ViewBag.User != null)
+                        {
+                            <td valign="top" align="right">
+                                <a>
+                                    <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
+                                </a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td valign="top" align="right">
+                                <a>
+                                    <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
+                                </a>
+                            </td>
+                        }
+                    }
                 </tr>
             </tbody>
         </table>

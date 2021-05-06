@@ -75,11 +75,36 @@
                                 <td style="width: 400px;">
                                     <p style="font-weight: bold; right:100%; left:0%;"> @film.Name </p>
                                 </td>
-                                <td style="width: 300px; float:left !important;">
-                                    <a href="#">
-                                        <img style="float:left !important;" src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
-                                    </a>
-                                </td>
+                                @if ((film.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
+                                   film.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User)
+                                                  .Medias
+                                                  .SingleOrDefault(st => st.MediaID == film.MediaID) == null) && ViewBag.User != null)
+                                {
+                                    <td valign="top" align="right">
+                                        <a href=@Url.Action("AddFilms", "User", new { Id = film.MediaID })>
+                                            <img src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
+                                        </a>
+                                    </td>
+                                }
+                                else
+                                {
+                                    if (ViewBag.User != null)
+                                    {
+                                        <td valign="top" align="right">
+                                            <a>
+                                                <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
+                                            </a>
+                                        </td>
+                                    }
+                                    else
+                                    {
+                                        <td valign="top" align="right">
+                                            <a>
+                                                <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
+                                            </a>
+                                        </td>
+                                    }
+                                }
                             </tr>
                         </tbody>
                     </table>

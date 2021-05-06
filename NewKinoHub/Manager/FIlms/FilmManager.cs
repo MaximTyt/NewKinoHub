@@ -21,6 +21,7 @@ namespace KinoHab.Manager
                                  .Include(st => st.Genres)
                                  .Include(st => st.Casts)
                                  .ThenInclude(st => st.Person)
+                                 .Include(st => st.Favorites)
                                  .ToListAsync();
         }
 
@@ -31,6 +32,7 @@ namespace KinoHab.Manager
                                  .Include(st => st.Genres)
                                  .Include(st => st.Casts)
                                  .ThenInclude(st => st.Person)
+                                 .Include(st => st.Favorites)
                                  .ToListAsync();
         }
 
@@ -210,24 +212,6 @@ namespace KinoHab.Manager
                 media = media.OrderByDescending(st => st.Name).ToList();
             }
             return media;
-        }
-
-        public bool GetIdFavorites(int id, string Name)
-        {
-            try{
-                var item = _context.Users
-                                   .Include(st => st.Favorites)
-                                   .ThenInclude(st => st.Medias)
-                                   .FirstOrDefault(st => st.Login == Name)
-                                   .Favorites
-                                   .Medias
-                                   .Single(st => st.MediaID == id);
-                return true;
-            }
-            catch{
-                return false;
-            }
-
         }
     }
 }

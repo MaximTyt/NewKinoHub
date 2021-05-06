@@ -39,12 +39,7 @@ namespace KinoHab.Controllers
         {
             ViewBag.Director = _film.Cast(0);
             ViewBag.Actor = _film.Cast(2);
-            //if(filtr != 0)
-            //{
-            //    ViewBag.Filtr = _film.GetNameFiltr(filtr);
-            //    var Filtr = await _film.Filtration(filtr, type);
-            //    return View(Filtr);
-            //}
+            ViewBag.User = User.Identity.Name;
             if (sort != null)
             {
                 var Sort = await _film.AllSorting(sort, type);
@@ -59,9 +54,7 @@ namespace KinoHab.Controllers
             ViewBag.Director = _film.Cast(0);
             ViewBag.SceenWriter = _film.Cast(1);
             ViewBag.Actor = _film.Cast(2);
-            ViewBag.Favorite = _film.GetIdFavorites(IdFilm, User.Identity.Name);
-            //ViewBag.Favorite = true;
-            //ViewBag.User = User.Identity.Name;
+            ViewBag.User = User.Identity.Name;
             var film = await _film.GetFilmforId(IdFilm);
             return View(film);
         }
