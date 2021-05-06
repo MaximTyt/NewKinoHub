@@ -59,6 +59,9 @@ namespace KinoHab.Controllers
             ViewBag.Director = _film.Cast(0);
             ViewBag.SceenWriter = _film.Cast(1);
             ViewBag.Actor = _film.Cast(2);
+            ViewBag.Favorite = _film.GetIdFavorites(IdFilm, User.Identity.Name);
+            //ViewBag.Favorite = true;
+            //ViewBag.User = User.Identity.Name;
             var film = await _film.GetFilmforId(IdFilm);
             return View(film);
         }

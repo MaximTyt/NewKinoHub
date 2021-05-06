@@ -15,6 +15,6 @@ namespace KinoHab.Manager
         Task<ICollection<Media>> Filtration(int filtr, string type);
         string GetNameFiltr(int idFiltr);
         Task<ICollection<Media>> SortingFromFiltr(string sort, ICollection<Media> media);
-
+        bool GetIdFavorites(int id, string Name); 
     }
 }

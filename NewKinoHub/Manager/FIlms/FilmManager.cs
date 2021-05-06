@@ -16,12 +16,22 @@ namespace KinoHab.Manager
         }
         public async Task<ICollection<Media>> GetAllFilms()
         {
-            return await _context.Media.Where(st => st.MediaType == MediaType.Film).Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
+            return await _context.Media
+                                 .Where(st => st.MediaType == MediaType.Film)
+                                 .Include(st => st.Genres)
+                                 .Include(st => st.Casts)
+                                 .ThenInclude(st => st.Person)
+                                 .ToListAsync();
         }
 
         public async Task<ICollection<Media>> GetAllSerials()
         {
-            return await _context.Media.Where(st => st.MediaType == MediaType.Serial).Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
+            return await _context.Media
+                                 .Where(st => st.MediaType == MediaType.Serial)
+                                 .Include(st => st.Genres)
+                                 .Include(st => st.Casts)
+                                 .ThenInclude(st => st.Person)
+                                 .ToListAsync();
         }
 
         public RoleInFilm Cast(int i)
@@ -51,6 +61,7 @@ namespace KinoHab.Manager
                                        .Include(st=>st.Images)
                                        .Include(st=>st.Casts)
                                        .ThenInclude(st=>st.Person)
+                                       .Include(st=>st.Favorites)
                                        .Where(st => st.MediaType == MediaType.Film)
                                        .FirstOrDefaultAsync(st => st.MediaID == filmId);
         }
@@ -68,25 +79,39 @@ namespace KinoHab.Manager
         
          public async Task<ICollection<Media>> AllSorting(string sort,string type)
          {
-            var media = await _context.Media.Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
+            var media = await _context.Media
+                                      .Include(st => st.Genres)
+                                      .Include(st => st.Casts)
+                                      .ThenInclude(st => st.Person)
+                                      .ToListAsync();
 
             if(type == "Film")
             {
-                media = await _context.Media.Where(st=>st.MediaType == MediaType.Film).Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
+                media = await _context.Media
+                                      .Where(st=>st.MediaType == MediaType.Film)
+                                      .Include(st => st.Genres)
+                                      .Include(st => st.Casts)
+                                      .ThenInclude(st => st.Person)
+                                      .ToListAsync();
             }
 
             if(type == "Serial")
             {
-                media = await _context.Media.Where(st => st.MediaType == MediaType.Serial).Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
+                media = await _context.Media
+                                      .Where(st => st.MediaType == MediaType.Serial)
+                                      .Include(st => st.Genres)
+                                      .Include(st => st.Casts)
+                                      .ThenInclude(st => st.Person)
+                                      .ToListAsync();
             }
 
             if (sort == "YearOld")
             {
-                media =  media.OrderBy(st => st.Year).ToList();
+                media = media.OrderBy(st => st.Year).ToList();
             }
             if (sort == "YearNew")
             {
-                media = media.OrderByDescending(st => st.Year).ToList();
+                media =  media.OrderByDescending(st => st.Year).ToList();
             }
             if (sort == "Score")
             {
@@ -94,54 +119,42 @@ namespace KinoHab.Manager
             }
             if (sort == "NameA")
             {
-                media =  media.OrderBy(st => st.Name).ToList();
+                media = media.OrderBy(st => st.Name).ToList();
             }
             if (sort == "NameZ")
             {
-                media =  media.OrderByDescending(st => st.Name).ToList();
+                media = media.OrderByDescending(st => st.Name).ToList();
             }
             return media;
          }
 
-        // public ICollection<Media> SortingForFiltr(string sort, ICollection<Film> films)
-        // {
-        //     var film = films;
-        //     if (sort == "YearOld")
-        //     {
-        //         film = _context.Films.OrderBy(st => st.Year).ToList();
-        //     }
-        //     if (sort == "YearNew")
-        //     {
-        //         film = _context.Films.OrderByDescending(st => st.Year).ToList();
-        //     }
-        //     if (sort == "Score")
-        //     {
-        //         film = _context.Films.OrderByDescending(st => st.Score).ToList();
-        //     }
-        //     if (sort == "NameA")
-        //     {
-        //         film = _context.Films.OrderBy(st => st.Name).ToList();
-        //     }
-        //     if (sort == "NameZ")
-        //     {
-        //         film = _context.Films.OrderByDescending(st => st.Name).ToList();
-        //     }
-        //     return film;
-        // }
-
          public async Task<ICollection<Media>> Filtration(int filtr, string type)
          {
 
-            var media = await _context.Media.Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
+            var media = await _context.Media
+                                      .Include(st => st.Genres)
+                                      .Include(st => st.Casts)
+                                      .ThenInclude(st => st.Person)
+                                      .ToListAsync();
 
             if (type == "Film")
             {
-                media = await _context.Media.Where(st => st.MediaType == MediaType.Film).Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
+                media = await _context.Media
+                                      .Where(st => st.MediaType == MediaType.Film)
+                                      .Include(st => st.Genres)
+                                      .Include(st => st.Casts)
+                                      .ThenInclude(st => st.Person)
+                                      .ToListAsync();
             }
 
             if (type == "Serial")
             {
-                media = await _context.Media.Where(st => st.MediaType == MediaType.Serial).Include(st => st.Genres).Include(st => st.Casts).ThenInclude(st => st.Person).ToListAsync();
+                media = await _context.Media
+                                      .Where(st => st.MediaType == MediaType.Serial)
+                                      .Include(st => st.Genres)
+                                      .Include(st => st.Casts)
+                                      .ThenInclude(st => st.Person)
+                                      .ToListAsync();
             }
 
             List<Media> film = new List<Media>();
@@ -197,6 +210,24 @@ namespace KinoHab.Manager
                 media = media.OrderByDescending(st => st.Name).ToList();
             }
             return media;
+        }
+
+        public bool GetIdFavorites(int id, string Name)
+        {
+            try{
+                var item = _context.Users
+                                   .Include(st => st.Favorites)
+                                   .ThenInclude(st => st.Medias)
+                                   .FirstOrDefault(st => st.Login == Name)
+                                   .Favorites
+                                   .Medias
+                                   .Single(st => st.MediaID == id);
+                return true;
+            }
+            catch{
+                return false;
+            }
+
         }
     }
 }

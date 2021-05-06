@@ -77,6 +77,20 @@
                 </div>
             </center>
         </div>
+        <div style="margin-top:10px;">
+            @if (Model.Favorites != null)
+            {
+                @foreach (var f in Model.Favorites.Medias)
+                {
+                    <div>
+                        <a>@f.Name  </a>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <a class="btn" href=@Url.Action("DeleteFilms", "User", new { id = f.MediaID})>Удалить</a>
+                    </div>
+                }
+            }
+        </div>
         <div>
             <h2 style="color:white;">Здесь будут выводиться избранные тайтлы</h2>
 

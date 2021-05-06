@@ -9,6 +9,9 @@ namespace NewKinoHub.Manager.Userss
 {
     public interface IUserManager
     {
-        Users GetUsers(string Name);
+        Task<Users> GetUsers(string Name);
+        Task AddFilms(int id, string Name);
+
+        Task DeleteFilms(int idFilms, string Name);
     }
 }

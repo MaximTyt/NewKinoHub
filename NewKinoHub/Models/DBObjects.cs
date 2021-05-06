@@ -270,7 +270,7 @@ namespace NewKinoHub.Models
                         Password = "123",
                         Role = Role.Admin,
                         DateOfBirthday = "10/08/2001",
-                        Image = "https://imageup.ru/img161/3736570/pirate.jpg"
+                        Image = "https://imageup.ru/img161/3736570/pirate.jpg",
                     }
                     );
             }
