@@ -64,21 +64,9 @@ namespace KinoHab.Manager
                                        .Include(st=>st.Casts)
                                        .ThenInclude(st=>st.Person)
                                        .Include(st=>st.Favorites)
-                                       .Where(st => st.MediaType == MediaType.Film)
                                        .FirstOrDefaultAsync(st => st.MediaID == filmId);
         }
 
-        public async Task<Media> GetSerialforId(int serialId)
-        {
-            return await _context.Media.Include(st => st.Genres)
-                                       .Include(st => st.Images)
-                                       .Include(st => st.Casts)
-                                       .ThenInclude(st => st.Person)
-                                       .Where(st => st.MediaType == MediaType.Serial)
-                                       .FirstOrDefaultAsync(st => st.MediaID == serialId);
-        }
-
-        
          public async Task<ICollection<Media>> AllSorting(string sort,string type)
          {
             var media = await _context.Media
@@ -137,6 +125,7 @@ namespace KinoHab.Manager
                                       .Include(st => st.Genres)
                                       .Include(st => st.Casts)
                                       .ThenInclude(st => st.Person)
+                                      .Include(st => st.Favorites)
                                       .ToListAsync();
 
             if (type == "Film")
@@ -146,6 +135,7 @@ namespace KinoHab.Manager
                                       .Include(st => st.Genres)
                                       .Include(st => st.Casts)
                                       .ThenInclude(st => st.Person)
+                                      .Include(st => st.Favorites)
                                       .ToListAsync();
             }
 
@@ -156,6 +146,7 @@ namespace KinoHab.Manager
                                       .Include(st => st.Genres)
                                       .Include(st => st.Casts)
                                       .ThenInclude(st => st.Person)
+                                      .Include(st => st.Favorites)
                                       .ToListAsync();
             }
 

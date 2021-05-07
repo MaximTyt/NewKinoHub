@@ -61,6 +61,7 @@
                                         <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name |</a>
                                     }
                                 }
+                                <a href=@Url.Action("ListCast", "Cast", new { castId = Model.MediaID}) class="textstyle">...</a>
                             </p>
 
                             <p><span style="font-weight:bold">Страна:</span> @Model.Country</p>
@@ -88,8 +89,8 @@
                         if (ViewBag.User != null)
                         {
                             <td valign="top" align="right">
-                                <a>
-                                    <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
+                                <a href =@Url.Action("DeleteFavoriteFilms", "User", new { Id = Model.MediaID, method = "Film"})>
+                                    <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite11.png'; width = 30; height=30;"/>
                                 </a>
                             </td>
                         }
