@@ -12,6 +12,7 @@ namespace NewKinoHub.Manager.Userss
         Task<Users> GetUsers(string Name);
         Task AddFilms(int id, string Name);
 
-        Task DeleteFilms(int idFilms, string Name);
+        Task DeleteFavoriteFilms(int idFilms, string Name);
+        Task EditAccount(string mainPhoto, string name, string DataB, string Login);
     }
 }

@@ -33,8 +33,18 @@ namespace NewKinoHub.Manager.Home
         [HttpGet]
         public (List<Media>, List<Media>) Search(string Name)
         {
-            var films = from x in _context.Media.Include(st => st.Genres) select x;
-            var serials = from x in _context.Media.Include(st => st.Genres) select x;
+            var films = from x in _context.Media
+                                          .Include(st => st.Genres)
+                                          .Include(st => st.Casts)
+                                          .ThenInclude(st => st.Person)
+                                          .Include(st => st.Favorites)
+                                          select x;
+            var serials = from x in _context.Media
+                                            .Include(st => st.Genres)
+                                            .Include(st => st.Casts)
+                                            .ThenInclude(st => st.Person)
+                                            .Include(st => st.Favorites)
+                                            select x;
             (List<Media>, List<Media>) film = (null, null);
             if (!String.IsNullOrEmpty(Name) && Name!= "")
             {
@@ -43,6 +53,26 @@ namespace NewKinoHub.Manager.Home
                 film = (films.ToList(), serials.ToList());
             }
             return film;
+        }
+        public RoleInFilm Cast(int i)
+        {
+            RoleInFilm role = RoleInFilm.Actor;
+            if (i == 0)
+            {
+                role = RoleInFilm.Director;
+                return role;
+            }
+            if (i == 1)
+            {
+                role = RoleInFilm.Screenwriter;
+                return role;
+            }
+            if (i == 2)
+            {
+                role = RoleInFilm.Actor;
+                return role;
+            }
+            return role;
         }
     }
 }

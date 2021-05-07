@@ -20,7 +20,10 @@ namespace NewKinoHub.Controllers
         }
         public IActionResult Search(string Name)
         {
+            ViewBag.Director = _media.Cast(0);
+            ViewBag.Actor = _media.Cast(2);
             ViewData["Getemployeedetails"] = Name;
+            ViewBag.User = User.Identity.Name;
             var media = _media.Search(Name);
             return View(media);
         }

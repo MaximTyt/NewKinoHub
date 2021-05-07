@@ -6,7 +6,12 @@
 <body>
     <div class="wrapper">
         <h3 style="color:white; margin-top:4%;">Name: @Model.Login </h3>
-
+        @if (Model.DateOfBirthday != null)
+        {
+        <div>
+            <a>@Model.DateOfBirthday</a>
+        </div>
+        }
         @*--------------------Начало блока с изменением пароля--------------------*@
         <div id="chpss">
             <a href="#"></a>
@@ -67,7 +72,7 @@
                     <img class="avasize" src="~/lib/images/2.jpeg" /> @*поле с аватаркой пользователя*@
                 }
                 <div style="margin-top:10px;">
-                    <a class="btn" href="#profil">Редактировать профиль</a>
+                    <a class="btn" href="#popup_adder">Редактировать профиль</a>
                 </div>
                 <div style="margin-top:10px;">
                     <a class="btn" asp-area="" asp-controller="Users" asp-action="Profil">Избранное</a>
@@ -86,7 +91,7 @@
                         <a>@f.Name  </a>
                     </div>
                     <div style="margin-top:10px;">
-                        <a class="btn" href=@Url.Action("DeleteFilms", "User", new { id = f.MediaID})>Удалить</a>
+                        <a class="btn" href=@Url.Action("DeleteFavoriteFilms", "User", new { id = f.MediaID})>Удалить</a>
                     </div>
                 }
             }
@@ -96,6 +101,25 @@
 
             @*поле с избранными тайтлами*@
 
+        </div>
+
+    </div>
+    <div id="popup_adder" class="popup">
+        <a href="#" class="popup_area"></a>
+        <div class="popup_body">
+            <div class="popup_content popup_content-adder" style="width: 276px;">
+                <div class="popup_text">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <label>Аватарка(Только ссылка с сервера)<sup>*</sup></label><br />
+                        <input type="text" name="mainPhoto"><br />
+                        @*<label>Никнейм:<sup>*</sup></label><br />
+                        <input type="text" name="name"/><br />*@
+                        <label>Дата рождения:<sup>*</sup></label><br />
+                        <input type="text" name="DataB" /><br />
+                        <input type="submit" value="Подтвердить" formaction="~/User/EditAccount">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </body>
