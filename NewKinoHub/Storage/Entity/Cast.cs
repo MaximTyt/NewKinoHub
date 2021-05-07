@@ -16,8 +16,8 @@ namespace NewKinoHub.Storage.Entity
     }
     public enum RoleInFilm
     {
-        Director,
-        Screenwriter,
-        Actor
+        Режиссёр,
+        Сценарист,
+        Актёр
     }
 }
