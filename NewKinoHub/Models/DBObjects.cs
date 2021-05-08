@@ -159,8 +159,6 @@ namespace NewKinoHub.Models
                                 ImagesUrl ="https://imageup.ru/img155/3736819/zsl4.jpg"
                             }
                         }
-
-
                     },
                     new Media
                     {
@@ -182,6 +180,43 @@ namespace NewKinoHub.Models
                         " Лунных демонов, и он приготовил для них ловушку.",
                         ScoreKP = "https://rating.kinopoisk.ru/1347949.gif",
                         Genres = new List<Genre>() { Genres["Аниме"], Genres["Мультфильм"], Genres["Боевик"], Genres["Фэнтези"] },
+                        Casts=new List<Cast>()
+                        {
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Режиссёр,
+                            Person = Persons["Харуо Сотодзаки"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Сценарист,
+                            Person = Persons["Коёхару Готогэ"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Нацуки Ханаэ"],
+                            Character="Kamado Tanjiro, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Ёсицугу Мацуока"],
+                            Character="Hashibira Inosuke, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Хиро Симоно"],
+                            Character="Agatsuma Zenitsu, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Сатоси Хино"],
+                            Character="Rengoku Kyôjurô, озвучка"
+                            },
+                        },
                         Images = new List<MediaImages>()
                         {
                             new MediaImages
@@ -279,8 +314,55 @@ namespace NewKinoHub.Models
                                 ImagesUrl ="https://imageup.ru/img75/3736957/tvoeimia4.jpg"
                             }
                         }
+                        },
+                        new Media
+                        {
+                            MediaType = MediaType.Film,
+                            Name = "Майор Гром: Чумной Доктор",                            
+                            Img = "https://imageup.ru/img227/3732084/mayorgromchumnoydoktor.jpg",
+                            Video = "https://www.youtube.com/embed/aUi6fQRUP1o",
+                            SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/music-blog/2524",
+                            Year = 2021,
+                            Country = "Россия",
+                            Age = 12,
+                            Score = 7.391,
+                            Release_Date = "1 апреля 2021",
+                            Runtime = "02:16",
+                            ShortDescription = "Честный полицейский ловит мстителя в маске, убивающего" +
+                            " коррупционеров. Супергеройское кино по комиксу Bubble",
+                            Description = "Майор полиции Игорь Гром известен всему Санкт-Петербургу пробивным" +
+                            " характером и непримиримой позицией по отношению к преступникам всех мастей." +
+                            " Неимоверная сила, аналитический склад ума и неподкупность — всё это делает майора" +
+                            " Грома идеальным полицейским. Но всё резко меняется с появлением человека в маске" +
+                            " Чумного Доктора. Заявив, что его город «болен чумой беззакония», он принимается" +
+                            " за «лечение», убивая людей, которые в своё время избежали наказания при помощи" +
+                            " денег и влияния. Общество взбудоражено. Полиция бессильна. Игорь впервые" +
+                            " сталкивается с трудностями в расследовании, от итогов которого может зависеть" +
+                            " судьба всего города.",
+                            ScoreKP = "https://rating.kinopoisk.ru/1109271.gif",
+                            Genres = new List<Genre>() { Genres["Боевик"], Genres["Криминал"], Genres["Комедия"], Genres["Детектив"] },
+                            Images = new List<MediaImages>
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img174/3739201/mg1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img161/3739202/mg2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img291/3739203/mg3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img198/3739204/mg4.jpg"
+                            }
                         }
-                    
+
+
+                        }
                     ) ;
             }
 
@@ -346,7 +428,7 @@ namespace NewKinoHub.Models
                         new Person{
                             Name="Зак Снайдер",
                             OriginalName="Zachary Edward Snyder",
-                            Height="1.7 м",                            
+                            Height="1.7 м",
                             DateOfBirthday="1/03/1966",
                             Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("1/03/1966")).TotalDays/365.2425)),
                             PlaceOfBirthday="Грин Бэй, Висконсин, США",
@@ -365,19 +447,20 @@ namespace NewKinoHub.Models
                             Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("15/08/1972")).TotalDays/365.2425)),
                             PlaceOfBirthday="Беркли, Калифорния, США",
                             Spouse="Дженнифер Гарнер (развод)",
-                            Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»)"+"\n" +
-                            "Золотая малина, 2015 - Премия за восстановление репутации"+"\n" +
-                            "Оскар, 2013 - Лучший фильм («Операция «Арго»»)\n" +
-                            "Золотой глобус, 2013 - Лучший режиссер («Операция «Арго»»)\n" +
-                            "Британская академия, 2013 - Лучший фильм («Операция «Арго»»), Лучший режиссер («Операция «Арго»»)\n" +
-                            "Сезар, 2013 - Лучший фильм на иностранном языке («Операция «Арго»»)\n" +
-                            "Премия Гильдии актеров, 2013 - Лучший актерский состав («Операция «Арго»»)\n" +
-                            "Сатурн, 2007 - Лучший актер второго плана («Смерть супермена»)\n" +
-                            "Венецианский кинофестиваль, 2006 - Кубок Вольпи за лучшую мужскую роль («Смерть супермена»)\n" +
-                            "Золотая малина, 2004 - Худшая мужская роль («Сорвиголова»)\n" +
-                            "Премия Гильдии актеров, 1999 - Лучший актерский состав («Влюбленный Шекспир»)\n" +
-                            "Оскар, 1998 - Лучший сценарий («Умница Уилл Хантинг»)\n" +
-                            "Золотой глобус, 1998 - Лучший сценарий («Умница Уилл Хантинг»)",
+                            Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»);" +
+                            " Золотая малина, 2015 - Премия за восстановление репутации;" +
+                            " Оскар, 2013 - Лучший фильм («Операция «Арго»»);"+
+                            " Золотой глобус, 2013 - Лучший режиссер («Операция «Арго»»);"+
+                            " Британская академия, 2013 - Лучший фильм («Операция «Арго»»);"+
+                             " Лучший режиссер («Операция «Арго»»);"+
+                            " Сезар, 2013 - Лучший фильм на иностранном языке («Операция «Арго»»);"+
+                            " Премия Гильдии актеров, 2013 - Лучший актерский состав («Операция «Арго»»);"+
+                            " Сатурн, 2007 - Лучший актер второго плана («Смерть супермена»);"+
+                            " Венецианский кинофестиваль, 2006 - Кубок Вольпи за лучшую мужскую роль («Смерть супермена»);"+
+                            " Золотая малина, 2004 - Худшая мужская роль («Сорвиголова»);"+
+                            " Премия Гильдии актеров, 1999 - Лучший актерский состав («Влюбленный Шекспир»);"+
+                            " Оскар, 1998 - Лучший сценарий («Умница Уилл Хантинг»);"+
+                            " Золотой глобус, 1998 - Лучший сценарий («Умница Уилл Хантинг»)",
                             RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Актёр,RoleInFilm.Режиссёр, RoleInFilm.Сценарист},
                             Image="https://imageup.ru/img208/3736572/benafflec.jpg",
                             Description= "Актёр Кейси Аффлек — младший брат Бена.\n" +
@@ -392,7 +475,7 @@ namespace NewKinoHub.Models
                             Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("30/04/1985")).TotalDays/365.2425)),
                             PlaceOfBirthday = "Петах-Тиква, Израиль",
                             Spouse="Ярон Версано",
-                            Awards="Премия канала «MTV», 2018 - Лучшая драка («Чудо-женщина»)\n" +
+                            Awards="Премия канала «MTV», 2018 - Лучшая драка («Чудо-женщина»);" +
                             "Сатурн, 2018 - Лучшая актриса («Чудо-женщина»)",
                             RolesInMedia = new RoleInFilm[2]{RoleInFilm.Актёр, RoleInFilm.Сценарист},
                             Image="https://imageup.ru/img152/3736581/galgadot.jpg",
@@ -409,7 +492,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday="5/05/1983",
                             Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("5/05/1983")).TotalDays/365.2425)),
                             PlaceOfBirthday="Сент-Сейвьер, Джерси, Нормандские острова",
-                            Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»)\n" +
+                            Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»);" +
                             "Премия канала «MTV», 2014 - Лучший герой («Человек из стали»)",
                             RolesInMedia = new RoleInFilm[1]{RoleInFilm.Актёр},
                             Image="https://imageup.ru/img10/3736585/henrycavill.jpg",
@@ -471,14 +554,14 @@ namespace NewKinoHub.Models
                             " Я человек долгоиграющих перспектив и не думал, что подобное произойдет раньше, чем мне исполнится 40." +
                             " Это огромная честь, но с ним приходит немного давления. Мой разум просто ошеломлён прямо сейчас»."
                         },
-                         new Person
+                        new Person
                         {
                             Name="Крис Террио",
                             OriginalName="Chris Terrio",
                             DateOfBirthday="31/12/1976",
                             Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("31/12/1976")).TotalDays/365.2425)),
                             PlaceOfBirthday="Нью-Йорк, США",
-                            Awards="Золотая малина, 2017 - Худший сценарий («Бэтмен против Супермена: На заре справедливости»)\n" +
+                            Awards="Золотая малина, 2017 - Худший сценарий («Бэтмен против Супермена: На заре справедливости»);" +
                             "Оскар, 2013 - Лучший адаптированный сценарий («Операция «Арго»»)",
                             RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Сценарист,RoleInFilm.Режиссёр,RoleInFilm.Актёр},
                             Image="https://imageup.ru/img11/3736631/christerrio.jpg",
@@ -486,7 +569,7 @@ namespace NewKinoHub.Models
                             " семье итальянского и ирландского происхождения. В 1997 году окончил" +
                             " Гарвардский университет, где он изучал английскую и американскую литературу."
                         },
-                         new Person
+                        new Person
                         {
                             Name="Макото Синкай",
                             OriginalName="Makoto Niitsu",                            
@@ -506,7 +589,7 @@ namespace NewKinoHub.Models
                             " аниме-индустрии. Он тщательнейшим образом прорисовывает пейзажи и дальние планы.\n" +
                             "В честь режиссёра был назван астероид.\n"                            
                         },
-                         new Person
+                        new Person
                         {
                             Name="Рюносукэ Камики",
                             OriginalName="Ryunosuke Kamiki",
@@ -529,7 +612,7 @@ namespace NewKinoHub.Models
                             " , Ходячий замок Хаяо Миядзаки и т.д., Летние войны Хосоды Мамору," +
                             " а также работы Синкая Макото."
                         },
-                         new Person
+                        new Person
                         {
                             Name="Монэ Камисираиси",
                             OriginalName="Mone Kamishiraishi",
@@ -546,7 +629,7 @@ namespace NewKinoHub.Models
                             " ролей в картине «Волчьи дети Амэ и Юки». В 2016 году она озвучила" +
                             " роль Мицухи в полнометражном мультфильме «Твое имя» режиссера Макото Синкай."
                         },
-                          new Person
+                        new Person
                         {
                             Name="Рё Нарита",
                             OriginalName="Ryo Narita",
@@ -563,7 +646,7 @@ namespace NewKinoHub.Models
                             "Работа в школьном сериале 'Лестницы школы' (2015) привлекла к нему внимание зрителей. " +
                             "Имеет лицензию косметолога."
                         },
-                           new Person
+                        new Person
                         {
                             Name="Аой Юки",
                             OriginalName="Aoi Yuki",
@@ -572,7 +655,7 @@ namespace NewKinoHub.Models
                             Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("27/03/1992")).TotalDays/365.2425)),
                             PlaceOfBirthday="Тиба (префектура), Япония",
                             RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
-                            Awards="Newtype Anime Awards, 2011 - Лучшая женская роль"+"\n" +
+                            Awards="Newtype Anime Awards, 2011 - Лучшая женская роль;"+
                             "6-я премия Seiyu Awards, 2012 - Лучшая женская роль («Пуэлла Маги Мадока Магика»), («Госик»), («A-Channel»)"                            ,
                             Image="https://imageup.ru/img220/3739117/aoi_yuki.jpg",
                             Description="Она пришла в индустрию развлечений в четыре года." +
@@ -582,6 +665,112 @@ namespace NewKinoHub.Models
                             " В пятом классе она дебютировала как актриса озвучивания." +
                             " У нее было две роли в 2008 году, восемь в 2009 году и двенадцать в 2010 году." +
                             " В 2013 году Юки и Аяна Такетацу создали певческую группу Petit Milady."
+                        },
+                        new Person
+                        {
+                            Name="Харуо Сотодзаки",
+                            OriginalName="Haruo Sotozaki",                            
+                            DateOfBirthday="-",                            
+                            PlaceOfBirthday="Хоккайдо, Япония",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Режиссёр},
+                            Awards="Tokyo Anime Award, 2021 - Режиссёр («Клинок, рассекающий демонов»)",
+                            Image="https://imageup.ru/img109/3739209/haruo-sotozaki.jpg",
+                            Description="Полнометражное аниме 'Клинок, рассекающий демонов. Бесконечный поезд'" +
+                            " стало самым кассовым японским фильмом в мировом прокате, опередив «Унесённых призраками»" +
+                            " Хаяо Миядзаки и собрав более 400 миллионов долларов — и это в условиях пандемии Covid-19."
+                        },
+                        new Person
+                        {
+                            Name="Коёхару Готогэ",
+                            OriginalName="Koyoharu Gotouge",
+                            DateOfBirthday="5/05/1989",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("5/05/1989")).TotalDays/365.2425)),
+                            PlaceOfBirthday="-",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},                            
+                            Image="https://imageup.ru/img71/3739216/koyoharu_gotouge.jpg",
+                            Description="Автор и мангака 'Клинка, рассекающего демонов'." +
+                            " В ноябре 2016 года Готоге начала выпускать свою первую продолжительную" +
+                            " мангу Kimetsu no Yaiba('Клинок, рассекающий демонов')."
+                        },                        
+                        new Person
+                        {
+                            Name="Нацуки Ханаэ",
+                            OriginalName="Natsuki Hanae",
+                            Height="1.73 м",
+                            DateOfBirthday="26/06/1991",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("26/06/1991")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Канагава, Япония",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Awards="Seiyu Awards, 2015 - Лучший начинающий актёр;" +
+                            "Seiyu Awards, 2017 - «Лучшая индивидуальная работа»;" +
+                            "Seiyu Awards, 2020 - Лучшая мужская роль",
+                            Image="https://imageup.ru/img42/3739368/natsuki_hanae.jpg",
+                            Description="Свою дебютную роль в качестве сэйю Ханаэ исполнил в 2011 году." +
+                            " Первую главную роль он исполнил в аниме Tari Tari, озвучив Ацухиро Маэду, при" +
+                            " этом его имя как композитора фигурировало в титрах пятой и двенадцатой серий." +
+                            " В 2014 году Ханаэ исполнил множество главных ролей, среди них Инахо Кайдзука в" +
+                            " Aldnoah.Zero, Кэн Канэки в Tokyo Ghoul и Косэй Арима в Shigatsu wa Kimi no Uso." +
+                            " 27 августа 2016 года Ханаэ официально заявил о том, что женился."
+                        },
+                        new Person
+                        {
+                            Name="Ёсицугу Мацуока",
+                            OriginalName="Yoshitsugu Matsuoka",
+                            DateOfBirthday="17/09/1986",
+                            Height="1.65 м",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("17/09/1986")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Хоккайдо, Япония",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Awards="Seiyu Awards, 2012 - Лучший начинающий актёр;" +
+                            "Seiyu Awards, 2016 - «Лучший актёр в главной роли»;",
+                            Image="https://imageup.ru/img192/3739467/yoshitsugu_matsuoka.jpg",
+                            Description="Наиболее известен тем, что озвучивал Кирито из Sword Art Online," +
+                            " Сората Канда из Домашнее животное Сакурасо, Сора из Нет игры - нет жизни, Арата Касуга" +
+                            " / Астральная троица из Тринити Семь, Сома Юкихира из Food Wars !: Сёкугэки но Сома" +
+                            " и Масамунэ Идзуми из Эроманга Сенсей. По состоянию на 17 июня 2019 года он является действующим" +
+                            " официальным обладателем Мирового рекорда Гиннеса за самые уникальные звуковые фрагменты, предоставленные" +
+                            " актером озвучивания на более чем 10 000 слов в Неправильно ли пытаться подбирать девушек в темнице?"
+                        },
+                        new Person
+                        {
+                            Name="Хиро Симоно",
+                            OriginalName="Hiro Shimono",
+                            DateOfBirthday="21/04/1980",
+                            Height="1.68 м",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("21/04/1980")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Хоккайдо, Япония",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Awards="Seiyu Awards, 2012 - «Лучшее исполнение песни» («Поющий принц»)",                            
+                            Image="https://imageup.ru/img219/3739474/hiro_shimono.jpg",
+                            Description="Его известные роли включают Кейма Кацураги в Мир, который знает только Бог," +
+                            " Конни Спрингер в Атака Титана , Най в Карневал , Аято Камина в Рахксефон, Акихиса Ёсии" +
+                            " в Бака и испытание: Призыв зверей, Норифуми Каваками в Бриллиантовом тузе, Сатоши Мотида" +
+                            " в серии Corpse Party , Сё Курусу в Ута но принц-сама сериал и Зеницу Агацума в Demon Slayer:" +
+                            " Kimetsu no Yaiba."
+                        },
+                        new Person
+                        {
+                            Name="Сатоси Хино",
+                            OriginalName="Satoshi Hino",
+                            DateOfBirthday="4/08/1978",
+                            Height="1.7 м",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("4/08/1978")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Сан-Франциско, Калифорния, США",
+                            Spouse="Саки Накадзима",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Awards="Seiyu Awards, 2012 - «Лучшее исполнение песни» («Поющий принц»)",
+                            Image="https://imageup.ru/img226/3739477/satoshi_hino.jpg",
+                            Description="Хино родился в США и вырос в Токио . Он жил в Сан-Франциско до пяти лет." +
+                            " В подростковом возрасте он был участником Детской театральной труппы. Изначально Хино" +
+                            " стремился стать театральным актером, но после его участия в дубляже американского" +
+                            " драматического телесериала « Скорая помощь» он изменил свои цели, чтобы всерьез" +
+                            " стать актером озвучивания . В 2001 году он сыграл свою первую главную роль в роли" +
+                            " Эдди в зарубежной драме « Ванда Эдди», которую транслировали на канале NHK Educational" +
+                            " TV . Хотя изначально он не знал о связи дубляжа с аниме, он был приглашен на прослушивание," +
+                            " и в конечном итоге получил роль в Икки Тоусене , работе, в которой принимал участие режиссер" +
+                            " дубляжа. Хино выступал в качестве актера озвучивания в различных областях, таких как дубляж," +
+                            " анимация, игры и повествование. До июня 2011 года он был связан с Production Baobab . С июля" +
+                            " 2011 года Hino присоединилась к Axl-One."
                         },
                     };
                     persons = new Dictionary<string, Person>();
