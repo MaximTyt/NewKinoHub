@@ -30,9 +30,16 @@ namespace NewKinoHub.Controllers
             return RedirectToAction("Film","Films", new { IdFilm = id });
         }
 
-        public async Task<IActionResult> DeleteFilms(int id)
+        public async Task<IActionResult> DeleteFavoriteFilms(int id)
         {
-            await _user.DeleteFilms(id, User.Identity.Name);
+            await _user.DeleteFavoriteFilms(id, User.Identity.Name);
+            return RedirectToAction("Film", "Films", new { IdFilm = id });
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> EditAccount(string mainPhoto, string name, string DataB)
+        {
+            await _user.EditAccount(mainPhoto, name, DataB, User.Identity.Name);
             return RedirectToAction("Profile", "User");
         }
     }

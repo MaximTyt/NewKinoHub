@@ -13,10 +13,12 @@ namespace KinoHab.Controllers
             _film = filmManager;
 
         }
+
         public async Task<IActionResult> ListSerials(string sort, string type)
         {
             ViewBag.Director = _film.Cast(0);
             ViewBag.Actor = _film.Cast(2);
+            ViewBag.User = User.Identity.Name;
             if (sort != null)
             {
                 var Sort = await _film.AllSorting(sort, type);
@@ -26,17 +28,9 @@ namespace KinoHab.Controllers
             return View(serial);
         }
 
-        public async Task<IActionResult> Serial(int SerialId)
-        {
-            ViewBag.Director = _film.Cast(0);
-            ViewBag.SceenWriter = _film.Cast(1);
-            ViewBag.Actor = _film.Cast(2);
-            var serial = await _film.GetSerialforId(SerialId);
-            return View(serial);
-        }
-
         public async Task<IActionResult> ListFilms(string sort, string type)
         {
+            var film = await _film.GetAllFilms();
             ViewBag.Director = _film.Cast(0);
             ViewBag.Actor = _film.Cast(2);
             ViewBag.User = User.Identity.Name;
@@ -45,17 +39,17 @@ namespace KinoHab.Controllers
                 var Sort = await _film.AllSorting(sort, type);
                 return View(Sort);
             }
-            var film = await _film.GetAllFilms();
             return View(film);
         }
 
         public async Task<IActionResult> Film(int IdFilm)
         {
+            var film = await _film.GetFilmforId(IdFilm);
             ViewBag.Director = _film.Cast(0);
             ViewBag.SceenWriter = _film.Cast(1);
             ViewBag.Actor = _film.Cast(2);
             ViewBag.User = User.Identity.Name;
-            var film = await _film.GetFilmforId(IdFilm);
+            
             return View(film);
         }
 
@@ -66,6 +60,7 @@ namespace KinoHab.Controllers
             ViewBag.Filtrr = _film.GetNameFiltr(filtr);
             ViewBag.filtr = filtr;
             ViewBag.type = type;
+            ViewBag.User = User.Identity.Name;
             var Filtr = await _film.Filtration(filtr, type);
             if (sort != null)
             {

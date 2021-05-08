@@ -10,5 +10,6 @@ namespace NewKinoHub.Manager.Home
     {
         (List<Media>,List<Media>) GetNewPopularFilms();
         (List<Media>, List<Media>) Search(string Name);
+        RoleInFilm Cast(int i);
     }
 }

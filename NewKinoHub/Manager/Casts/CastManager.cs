@@ -18,7 +18,7 @@ namespace NewKinoHub.Manager.Casts
 
         public  async Task<ICollection<Cast>> GetAllCast(int castId)
         {
-            return await _context.Casts.Include(st => st.Person).Where(st=>st.Media.MediaID == castId).ToListAsync();
+            return await _context.Casts.Include(st => st.Person).Where(st=>st.Media.MediaID == castId && st.RoleInFilm == RoleInFilm.Actor).ToListAsync();
         }
 
         public async Task<Cast> GetPersonforId(int personId)

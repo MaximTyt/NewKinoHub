@@ -54,11 +54,36 @@
                                             <td style="width: 400px;">
                                                 <p style="font-weight: bold; right:100%; left:0%;"> @film.Name </p>
                                             </td>
-                                            <td style="width: 300px; float:left !important;">
-                                                <a href="#">
-                                                    <img style="float:left !important;" src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
-                                                </a>
-                                            </td>
+                                            @if ((film.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
+                                            film.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User)
+                                                           .Medias
+                                                           .SingleOrDefault(st => st.MediaID == film.MediaID) == null) && ViewBag.User != null)
+                                            {
+                                                <td valign="top" align="right">
+                                                    <a>
+                                                        <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
+                                                    </a>
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                if (ViewBag.User != null)
+                                                {
+                                                    <td valign="top" align="right">
+                                                        <a>
+                                                            <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
+                                                        </a>
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td valign="top" align="right">
+                                                        <a>
+                                                            <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
+                                                        </a>
+                                                    </td>
+                                                }
+                                            }
                                         </tr>
                                     </tbody>
                                 </table>
@@ -70,7 +95,15 @@
                                         <a>@genre.Genre_Name </a>
                                     }
                                 </p>
-                                @*<p>Актёры: @film.Actors</p>*@
+                                <p>
+                                    <span style="font-weight:bold">Режиссер:</span>
+                                    @foreach (var director in film.Casts)
+                                    {
+                                        if (director.RoleInFilm == ViewBag.Director)
+                                        {
+                                            <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                        }
+                                    }
                                 <p>Страна: @film.Country</p>
                                 <p>Возраст: @film.Age+</p>
                                 <a><img src=@film.ScoreKP border='0'></a>
@@ -79,6 +112,7 @@
                             <div style=" clear:both;"></div>
                         </div>
                     }
+
                     @if (Model.Item2.Count != 0)
                     {
                         <div style="color:white; background-color:black; width:150px; height:30px; padding-bottom:3px !important;">
@@ -88,7 +122,7 @@
                     @foreach (var serial in Model.Item2)
                     {
                         <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                            <a href=@Url.Action("serial", "Films", new { SerialId = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                            <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
                                 <img width="265" class="u-back-image u-expanded imagetitle" src=@serial.Img>
                             </a>
                             <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
@@ -98,11 +132,36 @@
                                             <td style="width: 400px;">
                                                 <p style="font-weight: bold; right:100%; left:0%;"> @serial.Name </p>
                                             </td>
-                                            <td style="width: 300px; float:left !important;">
-                                                <a href="#">
-                                                    <img style="float:left !important;" src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
-                                                </a>
-                                            </td>
+                                            @if ((serial.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
+                                            serial.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User)
+                                                           .Medias
+                                                           .SingleOrDefault(st => st.MediaID == serial.MediaID) == null) && ViewBag.User != null)
+                                            {
+                                                <td valign="top" align="right">
+                                                    <a>
+                                                        <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
+                                                    </a>
+                                                </td>
+                                            }
+                                            else
+                                            {
+                                                if (ViewBag.User != null)
+                                                {
+                                                    <td valign="top" align="right">
+                                                        <a>
+                                                            <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
+                                                        </a>
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td valign="top" align="right">
+                                                        <a>
+                                                            <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
+                                                        </a>
+                                                    </td>
+                                                }
+                                            }
                                         </tr>
                                     </tbody>
                                 </table>
@@ -114,7 +173,24 @@
                                         <a>@genre.Genre_Name </a>
                                     }
                                 </p>
-                                @*<p>Актёры: @serial.Actors</p>*@
+                                <p>
+                                    <span style="font-weight:bold">Режиссер:</span>
+                                    @foreach (var director in serial.Casts)
+                                    {
+                                        if (director.RoleInFilm == ViewBag.Director)
+                                        {
+                                            <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                        }
+                                    }
+                                </p>
+
+                                @foreach (var director in serial.Casts)
+                                {
+                                    if (director.RoleInFilm == ViewBag.Director)
+                                    {
+                                        <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                    }
+                                }
                                 <p>Страна: @serial.Country</p>
                                 <p>Возраст: @serial.Age+</p>
                                 <a><img src=@serial.ScoreKP border='0'></a>
