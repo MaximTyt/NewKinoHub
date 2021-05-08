@@ -50,47 +50,47 @@ namespace NewKinoHub.Models
                         {
                             new Cast
                             {
-                            RoleInFilm = RoleInFilm.Director,
+                            RoleInFilm = RoleInFilm.Режиссёр,
                             Person = Persons["Зак Снайдер"]
                             },
                             new Cast
                             {
-                                RoleInFilm=RoleInFilm.Screenwriter,
+                                RoleInFilm=RoleInFilm.Сценарист,
                                 Person=Persons["Крис Террио"]
                             },
                             new Cast
                             {
-                            RoleInFilm = RoleInFilm.Actor,
+                            RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Бен Аффлек"],
                             Character = "Batman / Bruce Wayne"
                             },
                             new Cast
                             {
-                            RoleInFilm = RoleInFilm.Actor,
+                            RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Галь Гадот"],
                             Character = "Wonder Woman / Diana Prince"
                             },
                             new Cast
                             {
-                            RoleInFilm = RoleInFilm.Actor,
+                            RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Генри Кавилл"],
                             Character = "Superman / Clark Kent"
                             },
                             new Cast
                             {
-                                RoleInFilm=RoleInFilm.Actor,
+                                RoleInFilm=RoleInFilm.Актёр,
                                 Person=Persons["Джейсон Момоа"],
                                 Character = "Aquaman / Arthur Curry"
                             },
                             new Cast
                             {
-                                RoleInFilm=RoleInFilm.Actor,
+                                RoleInFilm=RoleInFilm.Актёр,
                                 Person=Persons["Эзра Миллер"],
                                 Character = "The Flash / Barry Allen"
                             },
                             new Cast
                             {
-                                RoleInFilm=RoleInFilm.Actor,
+                                RoleInFilm=RoleInFilm.Актёр,
                                 Person=Persons["Рэй Фишер"],
                                 Character = "Cyborg / Victor Stone"
                             }
@@ -227,13 +227,37 @@ namespace NewKinoHub.Models
                             {
                             new Cast
                             {
-                            RoleInFilm = RoleInFilm.Director,
+                            RoleInFilm = RoleInFilm.Режиссёр,
                             Person = Persons["Макото Синкай"]
                             },
                             new Cast
                             {
-                            RoleInFilm = RoleInFilm.Screenwriter,
+                            RoleInFilm = RoleInFilm.Сценарист,
                             Person = Persons["Макото Синкай"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Рюносукэ Камики"],
+                            Character="Taki Tachibana, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Монэ Камисираиси"],
+                            Character="Mitsuha Miyamizu, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Рё Нарита"],
+                            Character="Katsuhiko Teshigawara, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Аой Юки"],
+                            Character="Sayaka Natori, озвучка"
                             }
                             },
                             Images = new List<MediaImages>()
@@ -328,7 +352,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Грин Бэй, Висконсин, США",
                             Spouse="Дебора Снайдер",
                             Awards="Сатурн, 2008 - Лучший режиссер («300 спартанцев»)",
-                            RolesInMedia = new RoleInFilm[3]{RoleInFilm.Director, RoleInFilm.Screenwriter, RoleInFilm.Actor},
+                            RolesInMedia = new RoleInFilm[3]{RoleInFilm.Режиссёр, RoleInFilm.Сценарист, RoleInFilm.Актёр},
                             Image="https://imageup.ru/img214/3736505/zack_snyder.jpg",
                             Description="В марте 2017 года дочь Снайдера Отем покончила с собой.\n" +
                             "Зак с Деборой воспитывают семерых детей, двое из которых являются приемными."
@@ -341,8 +365,8 @@ namespace NewKinoHub.Models
                             Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("15/08/1972")).TotalDays/365.2425)),
                             PlaceOfBirthday="Беркли, Калифорния, США",
                             Spouse="Дженнифер Гарнер (развод)",
-                            Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»)\n" +
-                            "Золотая малина, 2015 - Премия за восстановление репутации\n" +
+                            Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»)"+"\n" +
+                            "Золотая малина, 2015 - Премия за восстановление репутации"+"\n" +
                             "Оскар, 2013 - Лучший фильм («Операция «Арго»»)\n" +
                             "Золотой глобус, 2013 - Лучший режиссер («Операция «Арго»»)\n" +
                             "Британская академия, 2013 - Лучший фильм («Операция «Арго»»), Лучший режиссер («Операция «Арго»»)\n" +
@@ -354,7 +378,7 @@ namespace NewKinoHub.Models
                             "Премия Гильдии актеров, 1999 - Лучший актерский состав («Влюбленный Шекспир»)\n" +
                             "Оскар, 1998 - Лучший сценарий («Умница Уилл Хантинг»)\n" +
                             "Золотой глобус, 1998 - Лучший сценарий («Умница Уилл Хантинг»)",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Actor,RoleInFilm.Director, RoleInFilm.Screenwriter},
+                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Актёр,RoleInFilm.Режиссёр, RoleInFilm.Сценарист},
                             Image="https://imageup.ru/img208/3736572/benafflec.jpg",
                             Description= "Актёр Кейси Аффлек — младший брат Бена.\n" +
                             "Недолгое время учился в Вермонтском университете и Оксидентал-колледже."
@@ -370,7 +394,7 @@ namespace NewKinoHub.Models
                             Spouse="Ярон Версано",
                             Awards="Премия канала «MTV», 2018 - Лучшая драка («Чудо-женщина»)\n" +
                             "Сатурн, 2018 - Лучшая актриса («Чудо-женщина»)",
-                            RolesInMedia = new RoleInFilm[2]{RoleInFilm.Actor, RoleInFilm.Screenwriter},
+                            RolesInMedia = new RoleInFilm[2]{RoleInFilm.Актёр, RoleInFilm.Сценарист},
                             Image="https://imageup.ru/img152/3736581/galgadot.jpg",
                             Description= "Актриса и модель. Является победительницей конкурса" +
                             " «Мисс Израиль 2004» и участницей конкурса «Мисс Вселенная 2004».\n" +
@@ -387,7 +411,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Сент-Сейвьер, Джерси, Нормандские острова",
                             Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»)\n" +
                             "Премия канала «MTV», 2014 - Лучший герой («Человек из стали»)",
-                            RolesInMedia = new RoleInFilm[1]{RoleInFilm.Actor},
+                            RolesInMedia = new RoleInFilm[1]{RoleInFilm.Актёр},
                             Image="https://imageup.ru/img10/3736585/henrycavill.jpg",
                             Description="У актера есть четыре брата.\n" +
                             "Генри Кавилл является представителем Фонда охраны дикой природы имени Даррелла.\n" +
@@ -408,7 +432,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Гонолулу, Гавайи, США",
                             Spouse="Лиза Боне",
                             Awards="CinemaCon, 2011 - Восходящая звезда",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Actor,RoleInFilm.Director, RoleInFilm.Screenwriter},
+                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Актёр,RoleInFilm.Режиссёр, RoleInFilm.Сценарист},
                             Image="https://imageup.ru/img226/3736588/jasonmamoa.jpg",
                             Description="У него есть двое детей от Лизы Боне — Лола Иолани (Lola Iolani) и Накоа Вульф Манакауапо Намакеаха Момоа.\n" +
                             "Лицевой шрам - 15 ноября 2008 года мужчина ударил Момоа по лицу разбитым пивным стаканом во время ссоры" +
@@ -423,7 +447,7 @@ namespace NewKinoHub.Models
                             Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("30/09/1992")).TotalDays/365.2425)),
                             PlaceOfBirthday="Хобокен, Нью-Джерси, США",
                             Awards="Каннский кинофестиваль, 2012 - Приз компании «Шопар» лучшему молодому актеру",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Actor,RoleInFilm.Director, RoleInFilm.Screenwriter},
+                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Актёр,RoleInFilm.Режиссёр, RoleInFilm.Сценарист},
                             Image="https://imageup.ru/img148/3736601/ezramiller.jpg",
                             Description="Миллер описывает себя как квира, не идентифицируя свою личность с конкретным гендером и сексуальной ориентацией.\n" +
                             "С 2016 года играет роли Криденса Бэрбоуна в серии фильмов «Фантастические твари»" +
@@ -438,7 +462,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday="8/09/1987",
                             Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("8/09/1987")).TotalDays/365.2425)),
                             PlaceOfBirthday="Балтимор, Мэрилэнд, США",
-                            RolesInMedia = new RoleInFilm[1]{RoleInFilm.Actor},
+                            RolesInMedia = new RoleInFilm[1]{RoleInFilm.Актёр},
                             Image="https://imageup.ru/img65/3736608/rayfisher.jpg",
                             Description="После средней школы Фишер учился в Американской музыкально-драматической академии в Нью-Йорке.\n" +
                             "Получив роль Киборга, Фишер сказал: «Я не знал, в какой степени DC и WB планировали использовать" +
@@ -456,7 +480,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Нью-Йорк, США",
                             Awards="Золотая малина, 2017 - Худший сценарий («Бэтмен против Супермена: На заре справедливости»)\n" +
                             "Оскар, 2013 - Лучший адаптированный сценарий («Операция «Арго»»)",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Screenwriter,RoleInFilm.Director,RoleInFilm.Actor},
+                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Сценарист,RoleInFilm.Режиссёр,RoleInFilm.Актёр},
                             Image="https://imageup.ru/img11/3736631/christerrio.jpg",
                             Description="Крис Террио вырос на Статен-Айленде (Нью-Йорк), в католической" +
                             " семье итальянского и ирландского происхождения. В 1997 году окончил" +
@@ -470,7 +494,7 @@ namespace NewKinoHub.Models
                             Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("9/02/1973")).TotalDays/365.2425)),
                             PlaceOfBirthday="Коуми, Нагано (префектура), Япония",
                             Spouse="Мисака Тиэко",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Director,RoleInFilm.Screenwriter,RoleInFilm.Actor},
+                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Режиссёр,RoleInFilm.Сценарист,RoleInFilm.Актёр},
                             Image="https://imageup.ru/img111/3736947/makotoshinkai.jpg",
                             Description="Настоящее имя — Макото Ниицу. Фильм Синкая «Твоё имя», вышедший в 2016 году," +
                             " некоторое время был самым кассовым аниме в мире за всю историю.\n" +
@@ -481,7 +505,84 @@ namespace NewKinoHub.Models
                             "Отличительным признаком Синкая является отвлечённость от штампов и требований" +
                             " аниме-индустрии. Он тщательнейшим образом прорисовывает пейзажи и дальние планы.\n" +
                             "В честь режиссёра был назван астероид.\n"                            
-                        }
+                        },
+                         new Person
+                        {
+                            Name="Рюносукэ Камики",
+                            OriginalName="Ryunosuke Kamiki",
+                            Height="1.68 м",
+                            DateOfBirthday="19/05/1993",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("19/05/1993")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Сайтама, Япония",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Awards="11-я премия Seiyu Awards, 2017 - Лучшая мужская роль («Твоё имя»)",
+                            Image="https://imageup.ru/img21/3739101/ryunosuke_kamiki.jpg",
+                            Description="Его отец любил поезда, и его назвали Рюносукэ" +
+                            " в честь поезда. Его хобби - фотография. Он любил поезда с" +
+                            " юных лет, а фотографирование поездов превратилось в хобби." +
+                            " Его фотокнига «Рынок выходного дня» получила награду. " +
+                            "Он близок со многими знаменитостями. Сато Такеру сказал," +
+                            " что Камики - это тот, кого все любят. Несмотря на то, что" +
+                            " он был более активен как актер, а не как актер озвучивания," +
+                            " он довольно много участвовал в работах режиссеров, которых" +
+                            " можно было бы назвать мастерами анимации. Унесенные призраками" +
+                            " , Ходячий замок Хаяо Миядзаки и т.д., Летние войны Хосоды Мамору," +
+                            " а также работы Синкая Макото."
+                        },
+                         new Person
+                        {
+                            Name="Монэ Камисираиси",
+                            OriginalName="Mone Kamishiraishi",
+                            Height="1.52 м",
+                            DateOfBirthday="27/01/1998",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("27/01/1998")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Кагосима, Япония",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Awards="11-я премия Seiyu Awards, 2017 - Лучшая женская роль («Твоё имя»)",
+                            Image="https://imageup.ru/img225/3739102/mone_kamishiraishi.jpg",
+                            Description="Родилась в артистической семье, ее сестра Мока Камисираиси" +
+                            " играет в кино и на телевидении. Работу над озвучиванием мультфильмов" +
+                            " актриса начала еще в 12 лет, став «голосом» одной из второстепенных" +
+                            " ролей в картине «Волчьи дети Амэ и Юки». В 2016 году она озвучила" +
+                            " роль Мицухи в полнометражном мультфильме «Твое имя» режиссера Макото Синкай."
+                        },
+                          new Person
+                        {
+                            Name="Рё Нарита",
+                            OriginalName="Ryo Narita",
+                            Height="1.82 м",
+                            DateOfBirthday="22/11/1993",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("22/11/1993")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Сайтама (префектура), Япония",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Awards="74-ю Mainichi Film Awards, 2020 - Лучшая мужская роль («Говорящие картинки»)",
+                            Image="https://imageup.ru/img248/3739110/ryo_narita.jpg",
+                            Description="В индустрию развлечений пришел в 2013 году" +
+                            " в качестве эксклюзивной модели модного торгового бренда" +
+                            " мужской одежды MEN'S NON-NO. Дебютировал как актер в 2014 году в фантастической детективной драме 'Флешбек'. " +
+                            "Работа в школьном сериале 'Лестницы школы' (2015) привлекла к нему внимание зрителей. " +
+                            "Имеет лицензию косметолога."
+                        },
+                           new Person
+                        {
+                            Name="Аой Юки",
+                            OriginalName="Aoi Yuki",
+                            Height="1.45 м",
+                            DateOfBirthday="27/03/1992",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("27/03/1992")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Тиба (префектура), Япония",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Awards="Newtype Anime Awards, 2011 - Лучшая женская роль"+"\n" +
+                            "6-я премия Seiyu Awards, 2012 - Лучшая женская роль («Пуэлла Маги Мадока Магика»), («Госик»), («A-Channel»)"                            ,
+                            Image="https://imageup.ru/img220/3739117/aoi_yuki.jpg",
+                            Description="Она пришла в индустрию развлечений в четыре года." +
+                            " В детстве она снималась в фильмах и драмах. С 1999 по 2002 год" +
+                            " она регулярно появлялась в развлекательных шоу Appare Sanma Dai-sensei" +
+                            " и Yappari Sanma Dai-sensei, которые транслировались на Fuji TV." +
+                            " В пятом классе она дебютировала как актриса озвучивания." +
+                            " У нее было две роли в 2008 году, восемь в 2009 году и двенадцать в 2010 году." +
+                            " В 2013 году Юки и Аяна Такетацу создали певческую группу Petit Milady."
+                        },
                     };
                     persons = new Dictionary<string, Person>();
                     foreach (Person el in list)

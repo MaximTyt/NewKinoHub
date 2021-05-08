@@ -28,20 +28,20 @@ namespace NewKinoHub.Manager.Casts
 
         public RoleInFilm Cast(int i)
         {
-            RoleInFilm role = RoleInFilm.Actor;
+            RoleInFilm role = RoleInFilm.Актёр;
             if (i == 0)
             {
-                role = RoleInFilm.Director;
+                role = RoleInFilm.Режиссёр;
                 return role;
             }
             if (i == 1)
             {
-                role = RoleInFilm.Screenwriter;
+                role = RoleInFilm.Сценарист;
                 return role;
             }
             if (i == 2)
             {
-                role = RoleInFilm.Actor;
+                role = RoleInFilm.Актёр;
                 return role;
             }
             return role;
