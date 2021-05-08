@@ -165,7 +165,7 @@ namespace NewKinoHub.Models
                         MediaType = MediaType.Film,
                         Name = "Истребитель демонов: Поезд «Бесконечный»",
                         Img = "https://imageup.ru/img260/3733456/demonslayer.jpg",
-                        Video = "https://www.youtube.com/embed/__Nwefty3Y4",
+                        Video = "https://www.youtube.com/embed/wtE-SW8YDHM",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1026",
                         Year = 2020,
                         Country = "Япония",
