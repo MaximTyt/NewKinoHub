@@ -5,121 +5,75 @@
 
 <body>
     <div class="wrapper">
-        <h3 style="color:white; margin-top:4%;">Name: @Model.Login </h3>
-        @if (Model.DateOfBirthday != null)
-        {
-        <div>
-            <a>@Model.DateOfBirthday</a>
-        </div>
-        }
-        @*--------------------Начало блока с изменением пароля--------------------*@
-        <div id="chpss">
-            <a href="#"></a>
-            <div>
-                Введите новый пароль<br />
-                <br />
-                <input type="email" placeholder="Введите новый пароль..." /> <br />
-                <a href="#profil">Сохранить</a><br />
-                <a href="#profil">Закрыть</a>
-
-            </div>
-        </div>
-        @*--------------------Конец блока с изменением пароля--------------------*@
-        @*--------------------Начало блока с изменением почты--------------------*@
-        <div id="chmail">
-            <a href="#"></a>
-            <div>
-                Введите новую почту<br />
-                <br />
-                <input type="password" placeholder="Введите новую почту..." /> <br />
-                <a href="#profil">Сохранить</a><br />
-                <a href="#profil">Закрыть</a>
-
-            </div>
-        </div>
-        @*--------------------Конец блока с изменением почты--------------------*@
         @*--------------------Начало блока с настройками профиля--------------------*@
         <div id="profil">
             <a href="#"></a>
             <div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td style="width:170px;">
-                                <img style="width:100px !important; height:100px !important;" class="avasize" src="~/lib/images/Films/Alien.jpg" />@*поле с аватаркой пользователя*@
-                            </td>
-                            <td>
-                                Настройки<br />
-                                <a href="#chmail">Изменить почту</a><br />
-                                <a href="#chpss">Изменить пароль</a><br />
-                                <a href="#">Закрыть</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <label>Аватарка(Только ссылка с сервера)<sup>*</sup></label><br />
+                    <input type="text" name="mainPhoto"><br />
+                    @*<label>Никнейм:<sup>*</sup></label><br />
+                    <input type="text" name="name"/><br />*@
+                    <label>Дата рождения:<sup>*</sup></label><br />
+                    <input type="text" name="DataB" /><br />
+                    <input type="submit" value="Подтвердить" formaction="~/User/EditAccount">
+                </form>
+                <a href="#">Выйти</a>
             </div>
         </div>
         @*--------------------Конец блока с настройками профиля--------------------*@
+    <table class="tablestyle">
+        <tbody>
+            <tr>
+                <td>
+                    @if (Model.Image != null)
+                    {
+                        <img class="avasize" src=@Model.Image /> @*поле с аватаркой пользователя*@
+                    }
+                    else
+                    {
+                        <img class="avasize" src="~/lib/images/2.jpeg" /> @*поле с аватаркой пользователя*@
+                    }
 
-        <div style="margin-top:40px;">
-            <center>
-                @if (Model.Image != null)
-                {
-                    <img class="avasize" src=@Model.Image /> @*поле с аватаркой пользователя*@
-                }
-                else
-                {
-                    <img class="avasize" src="~/lib/images/2.jpeg" /> @*поле с аватаркой пользователя*@
-                }
-                <div style="margin-top:10px;">
-                    <a class="btn" href="#popup_adder">Редактировать профиль</a>
-                </div>
-                <div style="margin-top:10px;">
-                    <a class="btn" asp-area="" asp-controller="Users" asp-action="Profil">Избранное</a>
-                </div>
-                <div style="margin-top:10px;">
-                    <a class="btn" href=@Url.Action("Logout", "Account")>Выйти из аккаунта</a>
-                </div>
-            </center>
-        </div>
-        <div style="margin-top:10px;">
-            @if (Model.Favorites != null)
-            {
-                @foreach (var f in Model.Favorites.Medias)
-                {
-                    <div>
-                        <a>@f.Name  </a>
+                    <h3 style="color:white; margin-top:4%;">Name: @Model.Login </h3>
+                    @if (Model.DateOfBirthday != null)
+                    {
+                        <div>
+                            <a class="colortext">@Model.DateOfBirthday</a>
+                        </div>
+                    }
+                </td>
+                <td>
+                    <div style="margin-top:10px;">
+                        <a class="btn" href="#profil">Редактировать профиль</a>
                     </div>
                     <div style="margin-top:10px;">
-                        <a class="btn" href=@Url.Action("DeleteFavoriteFilms", "User", new { id = f.MediaID})>Удалить</a>
+                        <a class="btn" asp-area="" asp-controller="Users" asp-action="Profil">Избранное</a>
                     </div>
-                }
-            }
-        </div>
-        <div>
-            <h2 style="color:white;">Здесь будут выводиться избранные тайтлы</h2>
+                    <div style="margin-top:10px;">
+                        <a class="btn" href=@Url.Action("Logout", "Account")>Выйти из аккаунта</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="margin-top:10px;">
 
-            @*поле с избранными тайтлами*@
-
-        </div>
-
-    </div>
-    <div id="popup_adder" class="popup">
-        <a href="#" class="popup_area"></a>
-        <div class="popup_body">
-            <div class="popup_content popup_content-adder" style="width: 276px;">
-                <div class="popup_text">
-                    <form action="" method="post" enctype="multipart/form-data">
-                        <label>Аватарка(Только ссылка с сервера)<sup>*</sup></label><br />
-                        <input type="text" name="mainPhoto"><br />
-                        @*<label>Никнейм:<sup>*</sup></label><br />
-                        <input type="text" name="name"/><br />*@
-                        <label>Дата рождения:<sup>*</sup></label><br />
-                        <input type="text" name="DataB" /><br />
-                        <input type="submit" value="Подтвердить" formaction="~/User/EditAccount">
-                    </form>
+        @*поле с избранными тайтлами*@
+        @if (Model.Favorites != null)
+        {
+            @foreach (var f in Model.Favorites.Medias)
+            {
+                <div>
+                    <a class="colortext titlenamesize">@f.Name  </a>
                 </div>
-            </div>
-        </div>
+                <div style="margin-top:10px;">
+                    <a class="btn" href=@Url.Action("DeleteFavoriteFilms", "User", new { id = f.MediaID})>Удалить</a>
+                </div>
+            }
+        }
+    </div>
+
+
     </div>
 </body>
