@@ -5,8 +5,8 @@ tr.background {
     background-color: bisque;
 }
 img.avasize{
-    width:150px;
-    height:150px;
+    width:250px;
+    height:250px;
     border-radius:50%;
 }
 
@@ -21,6 +21,19 @@ a.btn {
     a.btn:hover {
         background: rgb(247,151,30);
         color: rgb(8,8,8);
+    }
+
+
+    .colortext{
+        color:white !important;
+    }
+
+    .titlenamesize{
+        font-size:30px;
+    }
+
+    .tablestyle{
+        width:100% !important;
     }
 
 /*---------------------------------------------настройки профиля---------------------------------------------*/
@@ -79,15 +92,12 @@ a.btn {
     }
 
     #profil > div > a {
+        bottom:0%;
+        width:80%;
         background-color: bisque;
-        display: block;
-        padding: 9px 45px 0px 45px;
-        font-size: 14px;
+        font-size: 20px;
         color: black;
-        line-height: 1.3em;
-        text-decoration: none;
         font-weight: bold;
-        text-transform: uppercase;
         height: 36px;
     }
 
@@ -96,179 +106,6 @@ a.btn {
             color: rgb(8,8,8) !important;
         }
 
-    #profil > div > table > tbody > tr > td > a {
-        background-color: bisque;
-        display: block;
-        padding: 9px 45px 0px 45px;
-        font-size: 14px;
-        color: rgb(8,8,8);
-        line-height: 1.3em;
-        text-decoration: none;
-        font-weight: bold;
-        text-transform: uppercase;
-        height: 36px;
+    #profil > div > form {
+        width:80%;
     }
-
-        #profil > div > table > tbody > tr > td > a:hover {
-            background-color: rgb(247,151,30);
-            color: rgb(8,8,8) !important;
-        }
-
-
-
-/*---------------------------------------------изменение пароля профиля---------------------------------------------*/
-/*---------------------------------------------изменение пароля профиля---------------------------------------------*/
-/*---------------------------------------------изменение пароля профиля---------------------------------------------*/
-
-#chpss {
-    background: rgba(102, 102, 102, 0.5);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-    color: white;
-    z-index: 20;
-}
-
-    #chpss > a {
-        width: 100%;
-        height: 100%;
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 21;
-    }
-
-        #chpss > a:target {
-            visibility: visible;
-            opacity: 1;
-        }
-
-    #chpss > div {
-        width: 300px;
-        height: 300px;
-        text-align: center;
-        padding: 15px;
-        border: 3px solid rgb(247,151,30);
-        border-radius: 10px;
-        color: white;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        background-color: rgb(8,8,8);
-        z-index: 22;
-    }
-
-    #chpss:target {
-        display: block;
-    }
-
-    #chpss > div > a {
-        background-color: bisque;
-        display: block;
-        padding: 9px 45px 0px 45px;
-        font-size: 14px;
-        color: rgb(8,8,8);
-        line-height: 1.3em;
-        text-decoration: none;
-        font-weight: bold;
-        text-transform: uppercase;
-        height: 36px;
-    }
-
-        #chpss > div > a:hover {
-            background-color: rgb(247,151,30);
-            color: rgb(8,8,8) !important;
-        }
-
-/*---------------------------------------------изменение почты профиля---------------------------------------------*/
-/*---------------------------------------------изменение почты профиля---------------------------------------------*/
-/*---------------------------------------------изменение почты профиля---------------------------------------------*/
-
-#chmail {
-    background: rgba(102, 102, 102, 0.5);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: none;
-    color: white;
-    z-index: 20;
-}
-
-    #chmail > a {
-        width: 100%;
-        height: 100%;
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 21;
-    }
-
-        #chmail > a:target {
-            visibility: visible;
-            opacity: 1;
-        }
-
-    #chmail > div {
-        width: 300px;
-        height: 300px;
-        text-align: center;
-        padding: 15px;
-        border: 3px solid rgb(247,151,30);
-        border-radius: 10px;
-        color: white;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        background-color: rgb(8,8,8);
-        z-index: 22;
-    }
-
-    #chmail:target {
-        display: block;
-    }
-
-    #chmail > div > a {
-        background-color: bisque;
-        display: block;
-        padding: 9px 45px 0px 45px;
-        font-size: 14px;
-        color: rgb(8,8,8);
-        line-height: 1.3em;
-        text-decoration: none;
-        font-weight: bold;
-        text-transform: uppercase;
-        height: 36px;
-    }
-
-        #chmail > div > a:hover {
-            background-color: rgb(247,151,30);
-            color: rgb(8,8,8) !important;
-        }
-
-        .login{
-            color:white;
-        }
-
-        .login_a{
-            color:white;
-        }
-            .login_a:hover {
-                color: rgb(247,151,30);
-            }
