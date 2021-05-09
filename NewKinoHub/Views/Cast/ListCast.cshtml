@@ -15,22 +15,8 @@
                 <a href=@Url.Action("Person", "Cast", new { personId = cast.Id }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
                     <img width="265" class="u-back-image u-expanded imagetitle" src=@cast.Person.Image>
                 </a>
-                <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
-                    <table style="width: 700px;">
-                        <tbody>
-                            <tr>
-                                <td style="width: 400px;">
-                                    <p style="font-weight: bold; right:100%; left:0%;"> @cast.Person.Name </p>
-                                </td>
-                                <td style="width: 300px; float:left !important;">
-                                    <a href="#">
-                                        <img style="float:left !important;" src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
+                <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
+                     <p style="font-weight: bold; right:100%; left:0%;"> @cast.Person.Name </p>
                     @if (cast.RoleInFilm == ViewBag.Actor)
                     {
                         <p><span style="font-weight:bold">Роль в фильме:</span>
@@ -39,9 +25,6 @@
                 
                         </p>
                     }
-
-                 
-
                     @*<p><span style="font-weight:bold">Страна:</span> @film.Country</p>
                     <p><span style="font-weight:bold">Возраст:</span> @film.Age+</p>
                     <a><img src=@film.ScoreKP border='0'></a>

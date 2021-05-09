@@ -27,3 +27,14 @@ img.imagetitle {
     .textstyle:hover {
         color: rgb(26,25,23) !important;
     }
+
+.bglistcast {
+    background: rgba(26,25,23,0);
+    background: linear-gradient(180deg, rgba(247,151,30,0.6) 0%, rgba(26,25,23,0.1) 50%, rgba(26,25,23,0) 100%);
+    color: black;
+}
+
+.bglistcast:hover {
+    background: rgba(26,25,23,0);
+    background: linear-gradient(180deg, rgba(247,151,30,1) 0%, rgba(26,25,23,0.2) 50%, rgba(26,25,23,0) 100%);
+}
