@@ -20,8 +20,7 @@ namespace KinoHab.Manager
                                  .Where(st => st.MediaType == MediaType.Film)
                                  .Include(st => st.Genres)
                                  .Include(st => st.Casts)
-                                 .ThenInclude(st => st.Person)
-                                 .Include(st => st.Favorites)
+                                 .ThenInclude(st => st.Person)                                 
                                  .ToListAsync();
         }
 
@@ -31,8 +30,7 @@ namespace KinoHab.Manager
                                  .Where(st => st.MediaType == MediaType.Serial)
                                  .Include(st => st.Genres)
                                  .Include(st => st.Casts)
-                                 .ThenInclude(st => st.Person)
-                                 .Include(st => st.Favorites)
+                                 .ThenInclude(st => st.Person)                                 
                                  .ToListAsync();
         }
 
@@ -62,8 +60,7 @@ namespace KinoHab.Manager
             return await _context.Media.Include(st => st.Genres)
                                        .Include(st=>st.Images)
                                        .Include(st=>st.Casts)
-                                       .ThenInclude(st=>st.Person)
-                                       .Include(st=>st.Favorites)
+                                       .ThenInclude(st=>st.Person)                                       
                                        .FirstOrDefaultAsync(st => st.MediaID == filmId);
         }
 
@@ -124,8 +121,7 @@ namespace KinoHab.Manager
             var media = await _context.Media
                                       .Include(st => st.Genres)
                                       .Include(st => st.Casts)
-                                      .ThenInclude(st => st.Person)
-                                      .Include(st => st.Favorites)
+                                      .ThenInclude(st => st.Person)                                      
                                       .ToListAsync();
 
             if (type == "Film")
@@ -134,8 +130,7 @@ namespace KinoHab.Manager
                                       .Where(st => st.MediaType == MediaType.Film)
                                       .Include(st => st.Genres)
                                       .Include(st => st.Casts)
-                                      .ThenInclude(st => st.Person)
-                                      .Include(st => st.Favorites)
+                                      .ThenInclude(st => st.Person)                                      
                                       .ToListAsync();
             }
 
@@ -145,8 +140,7 @@ namespace KinoHab.Manager
                                       .Where(st => st.MediaType == MediaType.Serial)
                                       .Include(st => st.Genres)
                                       .Include(st => st.Casts)
-                                      .ThenInclude(st => st.Person)
-                                      .Include(st => st.Favorites)
+                                      .ThenInclude(st => st.Person)                                      
                                       .ToListAsync();
             }
 

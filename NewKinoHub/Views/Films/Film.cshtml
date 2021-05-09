@@ -73,7 +73,7 @@
                         </div>
                     </td>
 
-                    @if ((Model.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
+                    @*@if ((Model.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
                         Model.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User)
                                        .Medias
                                        .SingleOrDefault(st => st.MediaID == Model.MediaID) == null) && ViewBag.User != null)
@@ -102,7 +102,7 @@
                                 </a>
                             </td>
                         }
-                    }
+                    }*@
                 </tr>
             </tbody>
         </table>

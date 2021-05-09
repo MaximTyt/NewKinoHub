@@ -19,21 +19,6 @@ namespace NewKinoHub.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("FavoritesMedia", b =>
-                {
-                    b.Property<int>("FavoritesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MediasMediaID")
-                        .HasColumnType("int");
-
-                    b.HasKey("FavoritesId", "MediasMediaID");
-
-                    b.HasIndex("MediasMediaID");
-
-                    b.ToTable("FavoritesMedia");
-                });
-
             modelBuilder.Entity("GenreMedia", b =>
                 {
                     b.Property<int>("GenresGenreId")
@@ -47,21 +32,6 @@ namespace NewKinoHub.Migrations
                     b.HasIndex("MediasMediaID");
 
                     b.ToTable("GenreMedia");
-                });
-
-            modelBuilder.Entity("MediaViewed", b =>
-                {
-                    b.Property<int>("MediasMediaID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ViewedsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("MediasMediaID", "ViewedsId");
-
-                    b.HasIndex("ViewedsId");
-
-                    b.ToTable("MediaViewed");
                 });
 
             modelBuilder.Entity("NewKinoHub.Storage.Entity.Cast", b =>
@@ -141,9 +111,18 @@ namespace NewKinoHub.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("FavoritesId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Img")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsFavorites")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsVieweds")
+                        .HasColumnType("bit");
 
                     b.Property<int>("MediaType")
                         .HasColumnType("int");
@@ -184,10 +163,17 @@ namespace NewKinoHub.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ViewedId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Year")
                         .HasColumnType("int");
 
                     b.HasKey("MediaID");
+
+                    b.HasIndex("FavoritesId");
+
+                    b.HasIndex("ViewedId");
 
                     b.ToTable("Media");
                 });
@@ -344,21 +330,6 @@ namespace NewKinoHub.Migrations
                     b.ToTable("Vieweds");
                 });
 
-            modelBuilder.Entity("FavoritesMedia", b =>
-                {
-                    b.HasOne("NewKinoHub.Storage.Entity.Favorites", null)
-                        .WithMany()
-                        .HasForeignKey("FavoritesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NewKinoHub.Storage.Entity.Media", null)
-                        .WithMany()
-                        .HasForeignKey("MediasMediaID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("GenreMedia", b =>
                 {
                     b.HasOne("NewKinoHub.Storage.Entity.Genre", null)
@@ -370,21 +341,6 @@ namespace NewKinoHub.Migrations
                     b.HasOne("NewKinoHub.Storage.Entity.Media", null)
                         .WithMany()
                         .HasForeignKey("MediasMediaID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("MediaViewed", b =>
-                {
-                    b.HasOne("NewKinoHub.Storage.Entity.Media", null)
-                        .WithMany()
-                        .HasForeignKey("MediasMediaID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("NewKinoHub.Storage.Entity.Viewed", null)
-                        .WithMany()
-                        .HasForeignKey("ViewedsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -402,6 +358,17 @@ namespace NewKinoHub.Migrations
                     b.Navigation("Media");
 
                     b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("NewKinoHub.Storage.Entity.Media", b =>
+                {
+                    b.HasOne("NewKinoHub.Storage.Entity.Favorites", null)
+                        .WithMany("Medias")
+                        .HasForeignKey("FavoritesId");
+
+                    b.HasOne("NewKinoHub.Storage.Entity.Viewed", null)
+                        .WithMany("Medias")
+                        .HasForeignKey("ViewedId");
                 });
 
             modelBuilder.Entity("NewKinoHub.Storage.Entity.MediaImages", b =>
@@ -451,6 +418,8 @@ namespace NewKinoHub.Migrations
 
             modelBuilder.Entity("NewKinoHub.Storage.Entity.Favorites", b =>
                 {
+                    b.Navigation("Medias");
+
                     b.Navigation("Users");
                 });
 
@@ -475,6 +444,8 @@ namespace NewKinoHub.Migrations
 
             modelBuilder.Entity("NewKinoHub.Storage.Entity.Viewed", b =>
                 {
+                    b.Navigation("Medias");
+
                     b.Navigation("Users");
                 });
 #pragma warning restore 612, 618

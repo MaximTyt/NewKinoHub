@@ -75,7 +75,7 @@
                                 <td style="width: 400px;">
                                     <p style="font-weight: bold; right:100%; left:0%;"> @serial.Name </p>
                                 </td>
-                                @if ((serial.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
+                                @*@if ((serial.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
                                  serial.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User)
                                                 .Medias
                                                 .SingleOrDefault(st => st.MediaID == serial.MediaID) == null) && ViewBag.User != null)
@@ -104,7 +104,7 @@
                                             </a>
                                         </td>
                                     }
-                                }
+                                }*@
                             </tr>
                         </tbody>
                     </table>

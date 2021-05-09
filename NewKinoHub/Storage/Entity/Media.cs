@@ -65,9 +65,8 @@ namespace NewKinoHub.Storage.Entity
         public List<Genre> Genres { get; set; } = new List<Genre>();
         public List<MediaImages> Images { get; set; } = new List<MediaImages>();        
         public List<Cast> Casts { get; set; } = new List<Cast>();
-
-        public List<Favorites> Favorites { get; set; } = new List<Favorites>();
-        public List<Viewed> Vieweds { get; set; } = new List<Viewed>();
+        public bool IsVieweds { get; set; }
+        public bool IsFavorites { get; set; }
         public List<Review> Reviews { get; set; } = new List<Review>();
 
 

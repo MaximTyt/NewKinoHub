@@ -33,34 +33,6 @@ namespace NewKinoHub.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Media",
-                columns: table => new
-                {
-                    MediaID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MediaType = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Img = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Video = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SoundTrackUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Year = table.Column<int>(type: "int", nullable: false),
-                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Age = table.Column<int>(type: "int", nullable: false),
-                    ScoreKP = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Score = table.Column<double>(type: "float", nullable: false),
-                    Release_Date = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Runtime = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ShortDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NumOfSeason = table.Column<int>(type: "int", nullable: true),
-                    NumOfEpisodes = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Media", x => x.MediaID);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Persons",
                 columns: table => new
                 {
@@ -98,27 +70,107 @@ namespace NewKinoHub.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FavoritesMedia",
+                name: "Media",
                 columns: table => new
                 {
-                    FavoritesId = table.Column<int>(type: "int", nullable: false),
-                    MediasMediaID = table.Column<int>(type: "int", nullable: false)
+                    MediaID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MediaType = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Img = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Video = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SoundTrackUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Year = table.Column<int>(type: "int", nullable: false),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Age = table.Column<int>(type: "int", nullable: false),
+                    ScoreKP = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Score = table.Column<double>(type: "float", nullable: false),
+                    Release_Date = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Runtime = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ShortDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NumOfSeason = table.Column<int>(type: "int", nullable: true),
+                    NumOfEpisodes = table.Column<int>(type: "int", nullable: true),
+                    IsVieweds = table.Column<bool>(type: "bit", nullable: false),
+                    IsFavorites = table.Column<bool>(type: "bit", nullable: false),
+                    FavoritesId = table.Column<int>(type: "int", nullable: true),
+                    ViewedId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FavoritesMedia", x => new { x.FavoritesId, x.MediasMediaID });
+                    table.PrimaryKey("PK_Media", x => x.MediaID);
                     table.ForeignKey(
-                        name: "FK_FavoritesMedia_Favorites_FavoritesId",
+                        name: "FK_Media_Favorites_FavoritesId",
                         column: x => x.FavoritesId,
                         principalTable: "Favorites",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_FavoritesMedia_Media_MediasMediaID",
-                        column: x => x.MediasMediaID,
+                        name: "FK_Media_Vieweds_ViewedId",
+                        column: x => x.ViewedId,
+                        principalTable: "Vieweds",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nickname = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Role = table.Column<int>(type: "int", nullable: false),
+                    DateOfBirthday = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FavoritesId = table.Column<int>(type: "int", nullable: true),
+                    ViewedId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.UserId);
+                    table.ForeignKey(
+                        name: "FK_Users_Favorites_FavoritesId",
+                        column: x => x.FavoritesId,
+                        principalTable: "Favorites",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Users_Vieweds_ViewedId",
+                        column: x => x.ViewedId,
+                        principalTable: "Vieweds",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Casts",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MediaID = table.Column<int>(type: "int", nullable: true),
+                    PersonId = table.Column<int>(type: "int", nullable: true),
+                    RoleInFilm = table.Column<int>(type: "int", nullable: false),
+                    Character = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Casts", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Casts_Media_MediaID",
+                        column: x => x.MediaID,
                         principalTable: "Media",
                         principalColumn: "MediaID",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Casts_Persons_PersonId",
+                        column: x => x.PersonId,
+                        principalTable: "Persons",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -166,90 +218,6 @@ namespace NewKinoHub.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Casts",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MediaID = table.Column<int>(type: "int", nullable: true),
-                    PersonId = table.Column<int>(type: "int", nullable: true),
-                    RoleInFilm = table.Column<int>(type: "int", nullable: false),
-                    Character = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Casts", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Casts_Media_MediaID",
-                        column: x => x.MediaID,
-                        principalTable: "Media",
-                        principalColumn: "MediaID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Casts_Persons_PersonId",
-                        column: x => x.PersonId,
-                        principalTable: "Persons",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "MediaViewed",
-                columns: table => new
-                {
-                    MediasMediaID = table.Column<int>(type: "int", nullable: false),
-                    ViewedsId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_MediaViewed", x => new { x.MediasMediaID, x.ViewedsId });
-                    table.ForeignKey(
-                        name: "FK_MediaViewed_Media_MediasMediaID",
-                        column: x => x.MediasMediaID,
-                        principalTable: "Media",
-                        principalColumn: "MediaID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_MediaViewed_Vieweds_ViewedsId",
-                        column: x => x.ViewedsId,
-                        principalTable: "Vieweds",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Users",
-                columns: table => new
-                {
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nickname = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Role = table.Column<int>(type: "int", nullable: false),
-                    DateOfBirthday = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FavoritesId = table.Column<int>(type: "int", nullable: true),
-                    ViewedId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Users", x => x.UserId);
-                    table.ForeignKey(
-                        name: "FK_Users_Favorites_FavoritesId",
-                        column: x => x.FavoritesId,
-                        principalTable: "Favorites",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Users_Vieweds_ViewedId",
-                        column: x => x.ViewedId,
-                        principalTable: "Vieweds",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Reviews",
                 columns: table => new
                 {
@@ -287,24 +255,24 @@ namespace NewKinoHub.Migrations
                 column: "PersonId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FavoritesMedia_MediasMediaID",
-                table: "FavoritesMedia",
-                column: "MediasMediaID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_GenreMedia_MediasMediaID",
                 table: "GenreMedia",
                 column: "MediasMediaID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Media_FavoritesId",
+                table: "Media",
+                column: "FavoritesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Media_ViewedId",
+                table: "Media",
+                column: "ViewedId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_MediaImages_MediaId",
                 table: "MediaImages",
                 column: "MediaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_MediaViewed_ViewedsId",
-                table: "MediaViewed",
-                column: "ViewedsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reviews_MediaId",
@@ -333,16 +301,10 @@ namespace NewKinoHub.Migrations
                 name: "Casts");
 
             migrationBuilder.DropTable(
-                name: "FavoritesMedia");
-
-            migrationBuilder.DropTable(
                 name: "GenreMedia");
 
             migrationBuilder.DropTable(
                 name: "MediaImages");
-
-            migrationBuilder.DropTable(
-                name: "MediaViewed");
 
             migrationBuilder.DropTable(
                 name: "Reviews");
