@@ -62,7 +62,7 @@
                 </tbody>
             </table>
         </div>
-        @foreach (var serial in Model)
+        @foreach (var serial in Model.Where(st=>st.MediaType == ViewBag.Type))
         {
             <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
                 <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
@@ -75,10 +75,7 @@
                                 <td style="width: 400px;">
                                     <p style="font-weight: bold; right:100%; left:0%;"> @serial.Name </p>
                                 </td>
-                                @*@if ((serial.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
-                                 serial.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User)
-                                                .Medias
-                                                .SingleOrDefault(st => st.MediaID == serial.MediaID) == null) && ViewBag.User != null)
+                                @if (serial.IsFavorites == false && ViewBag.User != null)
                                 {
                                     <td valign="top" align="right">
                                         <a>
@@ -104,7 +101,7 @@
                                             </a>
                                         </td>
                                     }
-                                }*@
+                                }
                             </tr>
                         </tbody>
                     </table>

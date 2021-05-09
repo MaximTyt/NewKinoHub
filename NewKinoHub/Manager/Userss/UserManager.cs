@@ -23,7 +23,6 @@ namespace NewKinoHub.Manager.Userss
             return await _context.Users
                                  .Include(st => st.Favorites)
                                  .ThenInclude(st => st.Medias)
-
                                  .FirstOrDefaultAsync(st => st.Email == Name);
 
         }

@@ -17,23 +17,71 @@ namespace KinoHab.Manager
         public async Task<ICollection<Media>> GetAllFilms()
         {
             return await _context.Media
-                                 .Where(st => st.MediaType == MediaType.Film)
                                  .Include(st => st.Genres)
                                  .Include(st => st.Casts)
-                                 .ThenInclude(st => st.Person)                                 
+                                 .ThenInclude(st => st.Person)
                                  .ToListAsync();
         }
 
-        public async Task<ICollection<Media>> GetAllSerials()
+        public async Task<ICollection<Media>> GetFavoritFilmsForUser(Users User)
         {
-            return await _context.Media
-                                 .Where(st => st.MediaType == MediaType.Serial)
-                                 .Include(st => st.Genres)
-                                 .Include(st => st.Casts)
-                                 .ThenInclude(st => st.Person)                                 
-                                 .ToListAsync();
+            List<Media> FavoritesFilms = null;
+            if (User != null && User.Favorites!= null)
+            {
+                FavoritesFilms = User.Favorites.Medias;
+                return FavoritesFilms;
+            }
+            return FavoritesFilms;
         }
 
+        public async Task<ICollection<Media>> GetFilms(Users User)
+        {
+            var Films = await GetAllFilms();
+            if (User != null)
+            {
+                var FavoritFilm = await GetFavoritFilmsForUser(User);
+                foreach (var f in Films)
+                {
+                    foreach (var Fav in FavoritFilm)
+                    {
+                        if (f.MediaID == Fav.MediaID)
+                        {
+                            f.IsFavorites = true;
+                        }
+                    }
+                }
+            }
+            return Films;
+        }
+
+        public async Task<Media> GetIdFilms(int filmId, Users User)
+        {
+            var Films = _context.Media.Include(st => st.Images)
+                                 .Include(st => st.Casts)
+                                 .ThenInclude(st => st.Person)
+                                 .Include(st => st.Genres)
+                                 .FirstOrDefault(st => st.MediaID == filmId);
+            if (User != null)
+            {
+                var FavoritFilm = await GetFavoritFilmsForUser(User);
+                foreach (var Fav in FavoritFilm)
+                {
+                    if (Films.MediaID == Fav.MediaID)
+                    {
+                        Films.IsFavorites = true;
+                    }
+                }
+                
+            }
+            return Films;
+        }
+        public async Task<Users> GetUser(string UserEmail)
+        {
+            return await _context.Users
+                                 .Include(st => st.Favorites)
+                                 .ThenInclude(st=>st.Medias)
+                                 .FirstOrDefaultAsync(st => st.Email == UserEmail);
+        }
         public RoleInFilm Cast(int i)
         {
             RoleInFilm role = RoleInFilm.Актёр;
@@ -47,49 +95,41 @@ namespace KinoHab.Manager
                 role = RoleInFilm.Сценарист;
                 return role;
             }
-            if (i == 2)
+            return role;
+        }
+
+        public MediaType TypeFilm(string i)
+        {
+            MediaType role = MediaType.Film;
+            if (i == "Serial")
             {
-                role = RoleInFilm.Актёр;
+                role = MediaType.Serial;
                 return role;
             }
             return role;
         }
 
-        public async Task<Media> GetFilmforId(int filmId)
+        public async Task<Media> GetFilmforId(int filmId, Users User)
         {
-            return await _context.Media.Include(st => st.Genres)
-                                       .Include(st=>st.Images)
-                                       .Include(st=>st.Casts)
-                                       .ThenInclude(st=>st.Person)                                       
-                                       .FirstOrDefaultAsync(st => st.MediaID == filmId);
+            if (User != null)
+            {
+                var Films = await GetIdFilms(filmId,User);
+                return Films;
+            }
+            return await _context.Media
+                                 .Include(st => st.Images)
+                                 .Include(st => st.Casts)
+                                 .ThenInclude(st => st.Person)
+                                 .Include(st => st.Genres)
+                                 .FirstOrDefaultAsync(st => st.MediaID == filmId);
         }
 
-         public async Task<ICollection<Media>> AllSorting(string sort,string type)
+         public async Task<ICollection<Media>> AllSorting(string sort, Users User)
          {
-            var media = await _context.Media
-                                      .Include(st => st.Genres)
-                                      .Include(st => st.Casts)
-                                      .ThenInclude(st => st.Person)
-                                      .ToListAsync();
-
-            if(type == "Film")
+            var media = await GetAllFilms();
+            if(User != null)
             {
-                media = await _context.Media
-                                      .Where(st=>st.MediaType == MediaType.Film)
-                                      .Include(st => st.Genres)
-                                      .Include(st => st.Casts)
-                                      .ThenInclude(st => st.Person)
-                                      .ToListAsync();
-            }
-
-            if(type == "Serial")
-            {
-                media = await _context.Media
-                                      .Where(st => st.MediaType == MediaType.Serial)
-                                      .Include(st => st.Genres)
-                                      .Include(st => st.Casts)
-                                      .ThenInclude(st => st.Person)
-                                      .ToListAsync();
+                media = await GetFilms(User);
             }
 
             if (sort == "YearOld")
@@ -115,33 +155,13 @@ namespace KinoHab.Manager
             return media;
          }
 
-         public async Task<ICollection<Media>> Filtration(int filtr, string type)
+         public async Task<ICollection<Media>> Filtration(int filtr, Users User)
          {
 
-            var media = await _context.Media
-                                      .Include(st => st.Genres)
-                                      .Include(st => st.Casts)
-                                      .ThenInclude(st => st.Person)                                      
-                                      .ToListAsync();
-
-            if (type == "Film")
+            var media = await GetAllFilms();
+            if (User != null)
             {
-                media = await _context.Media
-                                      .Where(st => st.MediaType == MediaType.Film)
-                                      .Include(st => st.Genres)
-                                      .Include(st => st.Casts)
-                                      .ThenInclude(st => st.Person)                                      
-                                      .ToListAsync();
-            }
-
-            if (type == "Serial")
-            {
-                media = await _context.Media
-                                      .Where(st => st.MediaType == MediaType.Serial)
-                                      .Include(st => st.Genres)
-                                      .Include(st => st.Casts)
-                                      .ThenInclude(st => st.Person)                                      
-                                      .ToListAsync();
+                media = await GetFilms(User);
             }
 
             List<Media> film = new List<Media>();
@@ -198,5 +218,7 @@ namespace KinoHab.Manager
             }
             return media;
         }
+
+
     }
 }

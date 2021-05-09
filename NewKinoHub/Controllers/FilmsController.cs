@@ -14,29 +14,31 @@ namespace KinoHab.Controllers
 
         }
 
-        public async Task<IActionResult> ListSerials(string sort, string type)
+        public async Task<IActionResult> ListSerials(string sort)
         {
             ViewBag.Director = _film.Cast(0);
             ViewBag.Actor = _film.Cast(2);
             ViewBag.User = User.Identity.Name;
+            ViewBag.Type = _film.TypeFilm("Serial");
             if (sort != null)
             {
-                var Sort = await _film.AllSorting(sort, type);
+                var Sort = await _film.AllSorting(sort, await _film.GetUser(User.Identity.Name));
                 return View(Sort);
             }
-            var serial = await _film.GetAllSerials();
+            var serial = await _film.GetAllFilms();
             return View(serial);
         }
 
-        public async Task<IActionResult> ListFilms(string sort, string type)
+        public async Task<IActionResult> ListFilms(string sort)
         {
-            var film = await _film.GetAllFilms();
+            var film = await _film.GetFilms(await _film.GetUser(User.Identity.Name));
             ViewBag.Director = _film.Cast(0);
             ViewBag.Actor = _film.Cast(2);
             ViewBag.User = User.Identity.Name;
+            ViewBag.Type = _film.TypeFilm("Film");
             if (sort != null)
             {
-                var Sort = await _film.AllSorting(sort, type);
+                var Sort = await _film.AllSorting(sort, await _film.GetUser(User.Identity.Name));
                 return View(Sort);
             }
             return View(film);
@@ -44,7 +46,7 @@ namespace KinoHab.Controllers
 
         public async Task<IActionResult> Film(int IdFilm)
         {
-            var film = await _film.GetFilmforId(IdFilm);
+            var film = await _film.GetFilmforId(IdFilm,await _film.GetUser(User.Identity.Name));
             ViewBag.Director = _film.Cast(0);
             ViewBag.SceenWriter = _film.Cast(1);
             ViewBag.Actor = _film.Cast(2);
@@ -59,9 +61,9 @@ namespace KinoHab.Controllers
             ViewBag.Actor = _film.Cast(2);
             ViewBag.Filtrr = _film.GetNameFiltr(filtr);
             ViewBag.filtr = filtr;
-            ViewBag.type = type;
+            ViewBag.type = _film.TypeFilm(type);
             ViewBag.User = User.Identity.Name;
-            var Filtr = await _film.Filtration(filtr, type);
+            var Filtr = await _film.Filtration(filtr,await _film.GetUser(User.Identity.Name));
             if (sort != null)
             {
                 var Sort = await _film.SortingFromFiltr(sort,Filtr);

@@ -62,7 +62,7 @@
                 </tbody>
             </table>
         </div>
-        @foreach (var film in Model)
+        @foreach (var film in Model.Where(st=>st.MediaType == ViewBag.Type))
         {
             <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
                 <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
@@ -75,10 +75,7 @@
                                 <td style="width: 400px;">
                                     <p style="font-weight: bold; right:100%; left:0%;"> @film.Name </p>
                                 </td>
-                                @*@if ((film.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
-                                  film.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User)
-                                                 .Medias
-                                                 .SingleOrDefault(st => st.MediaID == film.MediaID) == null) && ViewBag.User != null)
+                                @if (film.IsFavorites == false && ViewBag.User != null)
                                 {
                                     <td valign="top" align="right">
                                         <a>
@@ -104,7 +101,7 @@
                                             </a>
                                         </td>
                                     }
-                                }*@
+                                }
                             </tr>
                         </tbody>
                     </table>

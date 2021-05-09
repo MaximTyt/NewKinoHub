@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KinoHab.Manager;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
@@ -31,23 +32,21 @@ namespace NewKinoHub.Manager.Home
         }
 
         [HttpGet]
-        public (List<Media>, List<Media>) Search(string Name)
+        public async Task<(List<Media>, List<Media>)> Search(string Name, Users User)
         {
-            var films = from x in _context.Media
-                                          .Include(st => st.Genres)
-                                          .Include(st => st.Casts)
-                                          .ThenInclude(st => st.Person)                                          
-                                          select x;
-            var serials = from x in _context.Media
-                                            .Include(st => st.Genres)
-                                            .Include(st => st.Casts)
-                                            .ThenInclude(st => st.Person)                                            
-                                            select x;
-            (List<Media>, List<Media>) film = (null, null);
+            IFilmManager Film = new FilmManager(_context);
+            var films = await Film.GetAllFilms();
+            var serials = await Film.GetAllFilms();
+            if (User != null)
+            {
+                films = await Film.GetFilms(User);
+                serials = await Film.GetFilms(User);
+            }
+            (List<Media>, List<Media>) film = (null, null); 
             if (!String.IsNullOrEmpty(Name) && Name!= "")
             {
-                films = films.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Film);
-                serials = serials.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Serial);
+                films = films.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Film).ToList();
+                serials = serials.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Serial).ToList();
                 film = (films.ToList(), serials.ToList());
             }
             return film;

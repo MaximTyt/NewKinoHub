@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KinoHab.Manager;
+using Microsoft.AspNetCore.Mvc;
 using NewKinoHub.Manager.Home;
+using System.Threading.Tasks;
 
 namespace NewKinoHub.Controllers
 {
@@ -11,20 +13,25 @@ namespace NewKinoHub.Controllers
        //    return Content(User.Identity.Name);
        //}
         private readonly IHomeManager _media;
-        public HomeController(IHomeManager mediaManager) => _media = mediaManager;
+        private readonly IFilmManager _film;
+        public HomeController(IHomeManager mediaManager, IFilmManager FilmManager)
+        {
+            _media = mediaManager;
+            _film = FilmManager;
+        }
 
         public IActionResult Index()
         {
             var film = _media.GetNewPopularFilms();
             return View(film);
         }
-        public IActionResult Search(string Name)
+        public async Task<IActionResult> Search(string Name)
         {
             ViewBag.Director = _media.Cast(0);
             ViewBag.Actor = _media.Cast(2);
             ViewData["Getemployeedetails"] = Name;
             ViewBag.User = User.Identity.Name;
-            var media = _media.Search(Name);
+            var media = await _media.Search(Name,await _film.GetUser(User.Identity.Name));
             return View(media);
         }
     }

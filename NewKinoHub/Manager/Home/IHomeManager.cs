@@ -9,7 +9,7 @@ namespace NewKinoHub.Manager.Home
     public interface IHomeManager
     {
         (List<Media>,List<Media>) GetNewPopularFilms();
-        (List<Media>, List<Media>) Search(string Name);
+        Task<(List<Media>, List<Media>)> Search(string Name, Users User);
         RoleInFilm Cast(int i);
     }
 }
