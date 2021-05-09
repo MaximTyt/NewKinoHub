@@ -101,3 +101,17 @@ body {
     background: rgb(8,8,8);
     background: linear-gradient(180deg, rgba(8,8,8,1) 0%, rgba(26,25,23,1) 50%, rgba(0,0,0,1) 100%);
 }
+
+
+.addfilm {
+    width: 90px;
+    height: 36px;
+    background-color: rgba(26,25,23,1);
+    color: white;
+    padding: 9px 45px 9px 45px;
+}
+
+    .addfilm:hover {
+        background-color: rgb(247,151,30);
+        color: rgba(26,25,23,1);
+    }
