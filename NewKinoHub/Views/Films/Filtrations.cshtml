@@ -85,7 +85,7 @@
                     <td style="width: 400px;">
                         <p style="font-weight: bold; right:100%; left:0%;"> @film.Name </p>
                     </td>
-                    @if ((film.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
+                    @*@if ((film.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
                      film.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User)
                                     .Medias
                                     .SingleOrDefault(st => st.MediaID == film.MediaID) == null) && ViewBag.User != null)
@@ -114,7 +114,7 @@
                                 </a>
                             </td>
                         }
-                    }
+                    }*@
                 </tr>
             </tbody>
         </table>
