@@ -37,7 +37,7 @@
                     </div>
 
                     @if (Model.Item1.Count != 0)
-                    {<div style="color:white; background-color:black; width:150px; height:30px; padding-bottom:3px !important;">
+                    {<div style="color:white; width:150px; height:30px; padding-bottom:3px !important;">
                             <h3>Фильмы:</h3>
                         </div>
                     }
@@ -48,7 +48,7 @@
                                 <img width="265" class="u-back-image u-expanded imagetitle" src=@film.Img>
                             </a>
                             <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
-                                <table style="width: 700px;">
+                                <table style="width: 780px;">
                                     <tbody>
                                         <tr>
                                             <td style="width: 400px;">
@@ -81,6 +81,16 @@
                                                     </td>
                                                 }
                                             }
+                                            <td>
+                                                <a href="#">
+                                                    <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/eye.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/eye (1).png'; width = 30; height=30;" />  @*Добавлено в просмотренное : eye.png /// нет в просмотренном eye (1).png*@
+                                                </a>
+                                            </td>
+                                            <td align="right">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/close.png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -112,7 +122,7 @@
 
                     @if (Model.Item2.Count != 0)
                     {
-                        <div style="color:white; background-color:black; width:150px; height:30px; padding-bottom:3px !important;">
+                        <div style="color:white;width:150px; height:30px; padding-bottom:3px !important;">
                             <h3>Сериалы:</h3>
                         </div>
                     }
@@ -123,7 +133,7 @@
                                 <img width="265" class="u-back-image u-expanded imagetitle" src=@serial.Img>
                             </a>
                             <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
-                                <table style="width: 700px;">
+                                <table style="width: 780px;">
                                     <tbody>
                                         <tr>
                                             <td style="width: 400px;">
@@ -156,6 +166,16 @@
                                                     </td>
                                                 }
                                             }
+                                            <td>
+                                                <a href="#">
+                                                    <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/eye.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/eye (1).png'; width = 30; height=30;" />  @*Добавлено в просмотренное : eye.png /// нет в просмотренном eye (1).png*@
+                                                </a>
+                                            </td>
+                                            <td align="right">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/close.png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
