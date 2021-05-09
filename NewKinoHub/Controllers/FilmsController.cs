@@ -16,6 +16,7 @@ namespace KinoHab.Controllers
 
         public async Task<IActionResult> ListSerials(string sort)
         {
+            var serial = await _film.GetFilms(await _film.GetUser(User.Identity.Name));
             ViewBag.Director = _film.Cast(0);
             ViewBag.Actor = _film.Cast(2);
             ViewBag.User = User.Identity.Name;
@@ -25,7 +26,6 @@ namespace KinoHab.Controllers
                 var Sort = await _film.AllSorting(sort, await _film.GetUser(User.Identity.Name));
                 return View(Sort);
             }
-            var serial = await _film.GetAllFilms();
             return View(serial);
         }
 

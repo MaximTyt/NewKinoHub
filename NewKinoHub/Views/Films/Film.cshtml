@@ -74,10 +74,7 @@
                     </td>
 
 
-                    @*@if ((Model.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
-                        Model.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User)
-                                       .Medias
-                                       .SingleOrDefault(st => st.MediaID == Model.MediaID) == null) && ViewBag.User != null)
+                    @if (Model.IsFavorites == false && ViewBag.User != null)
 
                     {
                         <td valign="top" align="right">
@@ -105,7 +102,7 @@
                             </td>
                         }
 
-                    }*@
+                    }
                     <td>
                         <a href="#">
                             <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/eye.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/eye (1).png'; width = 30; height=30;" />  @*Добавлено в просмотренное : eye.png /// нет в просмотренном eye (1).png*@

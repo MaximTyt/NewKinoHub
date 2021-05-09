@@ -79,10 +79,7 @@
                                     <p style="font-weight: bold; right:100%; left:0%;"> @serial.Name </p>
                                 </td>
 
-                                @*@if ((serial.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
-                                 serial.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User)
-                                                .Medias
-                                                .SingleOrDefault(st => st.MediaID == serial.MediaID) == null) && ViewBag.User != null)
+                                @if (serial.IsFavorites == false && ViewBag.User != null)
 
                                 {
                                     <td valign="top" align="right">
@@ -110,7 +107,7 @@
                                         </td>
                                     }
 
-                                }*@
+                                }
                                 <td>
                                     <a href="#">
                                         <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/eye.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/eye (1).png'; width = 30; height=30;" />  @*Добавлено в просмотренное : eye.png /// нет в просмотренном eye (1).png*@
