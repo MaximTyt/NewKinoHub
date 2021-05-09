@@ -394,6 +394,7 @@ namespace NewKinoHub.Models
                     {
                         new Genre { Genre_Name = "Аниме" },
                         new Genre { Genre_Name = "Боевик" },
+                        new Genre { Genre_Name = "Вестерн" },
                         new Genre { Genre_Name = "Детектив" },
                         new Genre { Genre_Name = "Драма" },
                         new Genre { Genre_Name = "Комедия" },
