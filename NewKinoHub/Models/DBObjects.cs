@@ -237,7 +237,7 @@ namespace NewKinoHub.Models
                             }
                         }
                     },
-                        new Media
+                    new Media
                         {
                             MediaType = MediaType.Film,
                             Name = "Твоё имя",
@@ -315,7 +315,7 @@ namespace NewKinoHub.Models
                             }
                         }
                         },
-                        new Media
+                    new Media
                         {
                             MediaType = MediaType.Film,
                             Name = "Майор Гром: Чумной Доктор",                            
@@ -371,7 +371,7 @@ namespace NewKinoHub.Models
                 content.AddRange(
                     new Users
                     {
-                        Login = "admin",
+                        Nickname = "admin",
                         Email = "admin@gmail.com",
                         Password = "123",
                         Role = Role.Admin,
@@ -415,7 +415,7 @@ namespace NewKinoHub.Models
             }
         }
 
-        private static int Age;
+        
         private static Dictionary<string, Person> persons;
         public static Dictionary<string, Person> Persons
         {

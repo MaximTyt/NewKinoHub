@@ -23,7 +23,8 @@ namespace NewKinoHub.Manager.Userss
             return await _context.Users
                                  .Include(st => st.Favorites)
                                  .ThenInclude(st => st.Medias)
-                                 .FirstOrDefaultAsync(st => st.Login == Name);
+                                 .FirstOrDefaultAsync(st => st.
+                                 Email == Name);
         }
 
         public async Task DeleteFavoriteFilms(int idFilm, string Name)
@@ -31,7 +32,7 @@ namespace NewKinoHub.Manager.Userss
             var itemToRemove = _context.Users
                                        .Include(st => st.Favorites)
                                        .ThenInclude(st => st.Medias)
-                                       .FirstOrDefault(st => st.Login == Name)
+                                       .FirstOrDefault(st => st.Email == Name)
                                        .Favorites
                                        .Medias
                                        .SingleOrDefault(st => st.MediaID == idFilm);
@@ -40,7 +41,7 @@ namespace NewKinoHub.Manager.Userss
                 _context.Users
                         .Include(st => st.Favorites)
                         .ThenInclude(st => st.Medias)
-                        .FirstOrDefault(st => st.Login == Name)
+                        .FirstOrDefault(st => st.Email == Name)
                         .Favorites.Medias
                         .Remove(itemToRemove);
                 await _context.SaveChangesAsync();
@@ -50,7 +51,7 @@ namespace NewKinoHub.Manager.Userss
         public async Task AddFilms(int id, string Name)
         {
 
-            if (_context.Users.Include(st => st.Favorites).ThenInclude(st => st.Medias).FirstOrDefault(st => st.Login == Name).Favorites == null)
+            if (_context.Users.Include(st => st.Favorites).ThenInclude(st => st.Medias).FirstOrDefault(st => st.Email == Name).Favorites == null)
             {
                 Favorites f = new Favorites();
                 f.Medias.Add(_context.Media.FirstOrDefault(st => st.MediaID == id));
@@ -62,7 +63,7 @@ namespace NewKinoHub.Manager.Userss
                 //        .Favorites = f;
 
                 _context.Users
-                        .FirstOrDefault(st => st.Login == Name)
+                        .FirstOrDefault(st => st.Email == Name)
                         .Favorites = f;
                               
                               
@@ -78,27 +79,27 @@ namespace NewKinoHub.Manager.Userss
                 //              .Add(_context.Media.FirstOrDefault(st => st.MediaID == id));
 
                  _context.Users
-                         .FirstOrDefault(st => st.Login == Name)
+                         .FirstOrDefault(st => st.Email == Name)
                          .Favorites.Medias
                          .Add(_context.Media.FirstOrDefault(st => st.MediaID == id));
             }
             await _context.SaveChangesAsync();
         }
         [HttpPost]
-        public async Task EditAccount(string mainPhoto, string name, string DataB,string Login)
+        public async Task EditAccount(string mainPhoto, string name, string DataB,string Email)
         {
 
             if(mainPhoto != null)
             {
-                _context.Users.FirstOrDefault(st => st.Login == Login).Image = mainPhoto;
+                _context.Users.FirstOrDefault(st => st.Email == Email).Image = mainPhoto;
             }
             if(DataB != null)
             {
-                _context.Users.FirstOrDefault(st => st.Login == Login).DateOfBirthday = DataB;
+                _context.Users.FirstOrDefault(st => st.Email == Email).DateOfBirthday = DataB;
             }
             if (name != null)
             {
-                _context.Users.FirstOrDefault(st => st.Login == Login).Login = name;
+                _context.Users.FirstOrDefault(st => st.Email == Email).Nickname = name;
             }
             await _context.SaveChangesAsync();
         }
