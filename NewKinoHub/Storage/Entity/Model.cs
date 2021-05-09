@@ -8,10 +8,8 @@ using System.Threading.Tasks;
 namespace NewKinoHub.Storage.Entity
 {
     public class RegisterModel
-    {
-        [Required(ErrorMessage = "Не указан логин")]
-        [Remote(action: "VerifyLogin", controller: "Users")]
-        public string Login { get; set; }
+    {        
+        public string Nickname { get; set; }
         [Required(ErrorMessage = "Не указан электронный адрес")]
         [EmailAddress(ErrorMessage = "Некорректный адрес")]
         [Remote(action: "VerifyEmail", controller: "Users")]
@@ -26,9 +24,9 @@ namespace NewKinoHub.Storage.Entity
     }
     public class LoginModel
     {
-        [Required(ErrorMessage = "Не указан логин")]
-        [Remote(action: "VerifyLogin", controller: "Users")]
-        public string Login { get; set; }        
+        [Required(ErrorMessage = "Не указан email")]
+        [Remote(action: "VerifyEmail", controller: "Users")]
+        public string Email { get; set; }        
                 
         [Required(ErrorMessage = "Не введён пароль")]
         [DataType(DataType.Password)]

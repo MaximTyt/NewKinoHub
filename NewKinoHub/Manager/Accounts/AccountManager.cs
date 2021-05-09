@@ -21,19 +21,19 @@ namespace NewKinoHub.Manager
 
         public async Task AddUsers(RegisterModel model)
         {
-            db.Users.Add(new Users { Login = model.Login, Email = model.Email, Password = model.Password });
+            db.Users.Add(new Users { Nickname = model.Nickname, Email = model.Email, Password = model.Password });
             await db.SaveChangesAsync();
         }
 
         public async Task<Users> GetUser(LoginModel model)
         {
-            Users user = await db.Users.FirstOrDefaultAsync(u => u.Login == model.Login && u.Password == model.Password);
+            Users user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
             return user;
         }
 
         public async Task<Users> GetUser1(RegisterModel model)
         {
-            Users user = await db.Users.FirstOrDefaultAsync(u => u.Login == model.Login);
+            Users user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
             return user;
         }
     }

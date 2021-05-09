@@ -32,11 +32,11 @@ namespace NewKinoHub.Controllers
                 var user = await db.GetUser(model);
                 if (user != null)
                 {
-                    await Authenticate(model.Login); // аутентификация
+                    await Authenticate(model.Email); // аутентификация
 
                     return RedirectToAction("Index", "Home");
                 }
-                ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                ModelState.AddModelError("", "Некорректные email и(или) пароль");
             }
             return View(model);
         }
@@ -57,12 +57,12 @@ namespace NewKinoHub.Controllers
                 if (user == null)
                 {
                     await db.AddUsers(model);
-                    await Authenticate(model.Login); // аутентификация
+                    await Authenticate(model.Email); // аутентификация
 
                     return RedirectToAction("Index", "Home");
                 }
                 else
-                    ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                    ModelState.AddModelError("", "Некорректные email и(или) пароль");
             }
             return View(model);
         }

@@ -13,11 +13,11 @@ namespace NewKinoHub.Storage.Entity
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
-        public string Login { get; set; }
+        public string Nickname { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string Image { get; set; }
-        [Range(0, 2)]
+        [Range(0, 1)]
         public Role Role { get; set; }
         public string DateOfBirthday { get; set; }
         public int? FavoritesId { get; set; }
@@ -28,7 +28,7 @@ namespace NewKinoHub.Storage.Entity
     }
     public enum Role
     {
-        Admin,
-        User
+        Admin=1,
+        User=0
     }
 }
