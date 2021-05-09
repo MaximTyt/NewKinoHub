@@ -36,14 +36,12 @@ namespace NewKinoHub.Manager.Home
             var films = from x in _context.Media
                                           .Include(st => st.Genres)
                                           .Include(st => st.Casts)
-                                          .ThenInclude(st => st.Person)
-                                          .Include(st => st.Favorites)
+                                          .ThenInclude(st => st.Person)                                          
                                           select x;
             var serials = from x in _context.Media
                                             .Include(st => st.Genres)
                                             .Include(st => st.Casts)
-                                            .ThenInclude(st => st.Person)
-                                            .Include(st => st.Favorites)
+                                            .ThenInclude(st => st.Person)                                            
                                             select x;
             (List<Media>, List<Media>) film = (null, null);
             if (!String.IsNullOrEmpty(Name) && Name!= "")
