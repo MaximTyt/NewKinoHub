@@ -37,7 +37,7 @@ namespace KinoHab.Manager
         public async Task<ICollection<Media>> GetFilms(Users User)
         {
             var Films = await GetAllFilms();
-            if (User != null)
+            if (User != null && User.Favorites != null)
             {
                 var FavoritFilm = await GetFavoritFilmsForUser(User);
                 foreach (var f in Films)
@@ -61,7 +61,7 @@ namespace KinoHab.Manager
                                  .ThenInclude(st => st.Person)
                                  .Include(st => st.Genres)
                                  .FirstOrDefault(st => st.MediaID == filmId);
-            if (User != null)
+            if (User != null  && User.Favorites != null)
             {
                 var FavoritFilm = await GetFavoritFilmsForUser(User);
                 foreach (var Fav in FavoritFilm)
@@ -111,7 +111,7 @@ namespace KinoHab.Manager
 
         public async Task<Media> GetFilmforId(int filmId, Users User)
         {
-            if (User != null)
+            if (User != null && User.Favorites != null)
             {
                 var Films = await GetIdFilms(filmId,User);
                 return Films;
@@ -127,7 +127,7 @@ namespace KinoHab.Manager
          public async Task<ICollection<Media>> AllSorting(string sort, Users User)
          {
             var media = await GetAllFilms();
-            if(User != null)
+            if(User != null && User.Favorites != null) 
             {
                 media = await GetFilms(User);
             }
@@ -159,7 +159,7 @@ namespace KinoHab.Manager
          {
 
             var media = await GetAllFilms();
-            if (User != null)
+            if (User != null && User.Favorites != null)
             {
                 media = await GetFilms(User);
             }

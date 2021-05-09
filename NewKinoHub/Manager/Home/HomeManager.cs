@@ -37,7 +37,7 @@ namespace NewKinoHub.Manager.Home
             IFilmManager Film = new FilmManager(_context);
             var films = await Film.GetAllFilms();
             var serials = await Film.GetAllFilms();
-            if (User != null)
+            if (User != null && User.Favorites != null)
             {
                 films = await Film.GetFilms(User);
                 serials = await Film.GetFilms(User);
