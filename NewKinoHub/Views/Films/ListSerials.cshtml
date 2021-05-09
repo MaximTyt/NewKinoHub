@@ -7,7 +7,10 @@
 </head>
 
 <body>
-    <div class="u-clearfix u-sheet u-sheet-1 wrapper">
+    <div style="position:fixed; top:20%; left:3%; ">
+        <a href="#" class="addfilm">Добавить Сериал</a>
+    </div>
+    <div class="wrapper">
         <div style="margin-top:50px; margin-bottom:30px; width: 95%;">
             <table style="margin: 0 auto;">
                 <tbody>
@@ -75,10 +78,12 @@
                                 <td style="width: 400px;">
                                     <p style="font-weight: bold; right:100%; left:0%;"> @serial.Name </p>
                                 </td>
+
                                 @*@if ((serial.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
                                  serial.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User)
                                                 .Medias
                                                 .SingleOrDefault(st => st.MediaID == serial.MediaID) == null) && ViewBag.User != null)
+
                                 {
                                     <td valign="top" align="right">
                                         <a>
@@ -104,7 +109,19 @@
                                             </a>
                                         </td>
                                     }
+
                                 }*@
+                                <td>
+                                    <a href="#">
+                                        <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/eye.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/eye (1).png'; width = 30; height=30;" />  @*Добавлено в просмотренное : eye.png /// нет в просмотренном eye (1).png*@
+                                    </a>
+                                </td>
+                                <td>
+                                    <a>
+                                        <img src="~/lib/images/Icons/close.png" width="30" height="30" />
+                                    </a>
+                                </td>
+
                             </tr>
                         </tbody>
                     </table>

@@ -85,10 +85,12 @@
                     <td style="width: 400px;">
                         <p style="font-weight: bold; right:100%; left:0%;"> @film.Name </p>
                     </td>
+
                     @*@if ((film.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User) == null ||
                      film.Favorites.FirstOrDefault(st => st.UserName == ViewBag.User)
                                     .Medias
                                     .SingleOrDefault(st => st.MediaID == film.MediaID) == null) && ViewBag.User != null)
+
                     {
                         <td valign="top" align="right">
                             <a>
@@ -114,7 +116,19 @@
                                 </a>
                             </td>
                         }
+
                     }*@
+                    <td>
+                        <a href="#">
+                            <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/eye.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/eye (1).png'; width = 30; height=30;" />  @*Добавлено в просмотренное : eye.png /// нет в просмотренном eye (1).png*@
+                        </a>
+                    </td>
+                    <td>
+                        <a>
+                            <img src="~/lib/images/Icons/close.png" width="30" height="30" />
+                        </a>
+                    </td>
+
                 </tr>
             </tbody>
         </table>
