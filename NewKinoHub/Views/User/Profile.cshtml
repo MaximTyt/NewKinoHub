@@ -10,10 +10,12 @@
             <a href="#"></a>
             <div>
                 <form action="" method="post" enctype="multipart/form-data">
+
                     <label>Никнейм:<sup>*</sup></label><br />
                     <input type="text" name="name" /><br />
                     <label>Аватарка(Только ссылка с сервера)<sup>*</sup></label><br />
                     <input type="text" name="mainPhoto"><br />
+
                     <label>Дата рождения:<sup>*</sup></label><br />
                     <input type="text" name="DataB" /><br />
                     <input type="submit" value="Подтвердить" formaction="~/User/EditAccount">
@@ -35,7 +37,9 @@
                         <img class="avasize" src="~/lib/images/2.jpeg" /> @*поле с аватаркой пользователя*@
                     }
 
+
                     <h3 style="color:white; margin-top:4%;">Name: @Model.Nickname </h3>
+
                     @if (Model.DateOfBirthday != null)
                     {
                         <div>

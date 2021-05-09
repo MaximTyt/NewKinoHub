@@ -23,8 +23,9 @@ namespace NewKinoHub.Manager.Userss
             return await _context.Users
                                  .Include(st => st.Favorites)
                                  .ThenInclude(st => st.Medias)
-                                 .FirstOrDefaultAsync(st => st.
-                                 Email == Name);
+
+                                 .FirstOrDefaultAsync(st => st.Email == Name);
+
         }
 
         public async Task DeleteFavoriteFilms(int idFilm, string Name)
@@ -63,7 +64,9 @@ namespace NewKinoHub.Manager.Userss
                 //        .Favorites = f;
 
                 _context.Users
+
                         .FirstOrDefault(st => st.Email == Name)
+
                         .Favorites = f;
                               
                               
@@ -79,6 +82,7 @@ namespace NewKinoHub.Manager.Userss
                 //              .Add(_context.Media.FirstOrDefault(st => st.MediaID == id));
 
                  _context.Users
+
                          .FirstOrDefault(st => st.Email == Name)
                          .Favorites.Medias
                          .Add(_context.Media.FirstOrDefault(st => st.MediaID == id));
@@ -103,6 +107,7 @@ namespace NewKinoHub.Manager.Userss
             }
             await _context.SaveChangesAsync();
         }
+
 
         //public static byte[] getByteImage(IFormFile file)
         //{
