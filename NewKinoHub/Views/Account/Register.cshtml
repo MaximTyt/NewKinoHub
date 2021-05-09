@@ -10,9 +10,8 @@
                 <div class="validation" asp-validation-summary="ModelOnly"></div>
                 <div>
                     <div>
-                        <label style="color:white;" asp-for="Login">Введите Логин</label><br />
-                        <input type="text" asp-for="Login" />
-                        <span asp-validation-for="Login" />
+                        <label style="color:white;" asp-for="Nickname">Введите Никнейм</label><br />
+                        <input type="text" asp-for="Nickname" />                        
                     </div>
                     <div>
                         <label style="color:white;" asp-for="Email">Введите Email</label><br />
@@ -30,13 +29,13 @@
                         <span asp-validation-for="PasswordConfirm" />
                     </div>
                     <div>
-                        <input type="submit" value="Регистрация" />
+                        <input style="color: rgb(247,151,30)" type="submit" value="Регистрация" class="btn btn-outline-dark" />
                     </div>
                 </div>
             </form>
             <div>
                 <center>
-                    <h4 class="login">Уже зарегистрированы? <a asp-action="Login" asp-controller="Account" class="login_a">Войти</a></h4>
+                    <h4 style="color:aliceblue" class="login">Уже зарегистрированы? <a style="color: rgb(247,151,30)"asp-action="Login" asp-controller="Account" class="login_a">Войти</a></h4>
                 </center>
             </div>
         </div>
