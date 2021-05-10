@@ -48,27 +48,34 @@
                          @* пустые<td></td> не удалять, они не лишние *@
                          @* первая строчка жанров *@
                          <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 1})>Аниме</a></td>
-                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 2})>Боевик</a></td>
-                         <td ><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 3})>Вестерн</a></td>
-                         <td ><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 4 })>Детектив</a></td>
-                         <td ><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 5})>Драма</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 2})>Биография</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 3})>Боевик</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 4})>Вестерн</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 5})>Военный</a></td>
                      </tr>
                      @* вторая строчка жанров *@
                      <tr>
-                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 6})>Комедия</a></td>
-                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 7})>Криминал</a></td>
-                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 8})>Мелодрама</a></td>
-                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 9})>Мультфильм</a></td>
-                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 10})>Мюзикл</a></td>     
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 6})>Детектив</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 7})>Документальный</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 8})>Драма</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 9})>Комедия</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 10})>Криминал</a></td>
                      </tr>
                      @* третья строчка жанров *@
-                 <tr>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 11})>Приключения</a></td>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 12})>Семейный</a></td>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 13})>Ужасы</a></td>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 14})>Фантастика</a></td>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 15})>Фэнтези</a></td>
-                 </tr>
+                     <tr>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 11})>Мелодрама</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 12})>Музыка</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 13})>Мультфильм</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 14})>Мюзикл</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 15})>Приключения</a></td>
+                     </tr>
+                     <tr>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 16})>Семейный</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 17})>Триллер</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 18})>Ужасы</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 19})>Фантастика</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 20})>Фэнтези</a></td>
+                     </tr>
                  </tbody>
              </table>
          </div>
@@ -84,28 +91,35 @@
                      <tr>
                          @* первая строчка жанров *@
                          <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 1})>Аниме</a></td>
-                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 2})>Боевик</a></td>
-                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 3})>Вестерн</a></td>
-                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial", filtr = 4 })>Детектив</a></td>
-                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 5})>Драма</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 2})>Биография</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 3})>Боевик</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 4})>Вестерн</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 5})>Военный</a></td>
 
                      </tr>
                      @* вторая строчка жанров *@
-                 <tr>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 6})>Комедия</a></td>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 7})>Криминал</a></td>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 8})>Мелодрама</a></td>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 9})>Мультфильм</a></td>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 10})>Мюзикл</a></td>                      
-                 </tr>
+                     <tr>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 6})>Детектив</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 7})>Документальный</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 8})>Драма</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 9})>Комедия</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 10})>Криминал</a></td>
+                     </tr>
                      @* третья строчка жанров *@
-                 <tr>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 11})>Приключения</a></td>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 12})>Семейный</a></td>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 13})>Ужасы</a></td>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 14})>Фантастика</a></td>
-                     <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 15})>Фэнтези</a></td>
-                 </tr>
+                     <tr>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 11})>Мелодрама</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 12})>Музыка</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 13})>Мультфильм</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 14})>Мюзикл</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 15})>Приключения</a></td>
+                     </tr>
+                     <tr>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 16})>Семейный</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 17})>Триллер</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 18})>Ужасы</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 19})>Фантастика</a></td>
+                         <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 20})>Фэнтези</a></td>
+                     </tr>
                  </tbody>
              </table>
              <br />

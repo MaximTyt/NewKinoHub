@@ -214,7 +214,7 @@ namespace NewKinoHub.Models
                             {
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Сатоси Хино"],
-                            Character="Rengoku Kyôjurô, озвучка"
+                            Character="Kyojuro Rengoku, озвучка"
                             },
                         },
                         Images = new List<MediaImages>()
@@ -427,7 +427,8 @@ namespace NewKinoHub.Models
                         " мечты и интересы. Джо становится наставником упрямой души 22, которая уже много" +
                         " веков не может найти свою искру и отправиться на Землю.",
                         ScoreKP = "https://rating.kinopoisk.ru/775273.gif",
-                        Genres = new List<Genre>() { Genres["Мультфильм"], Genres["Фэнтези"], Genres["Комедия"], Genres["Приключения"], Genres["Семейный"], Genres["Мюзикл"] },
+                        Genres = new List<Genre>() { Genres["Мультфильм"], Genres["Фэнтези"], Genres["Комедия"],
+                            Genres["Приключения"], Genres["Семейный"], Genres["Музыка"] },
                         Casts = new List<Cast>()
                         {
                             new Cast
@@ -532,7 +533,151 @@ namespace NewKinoHub.Models
                                 ImagesUrl ="https://imageup.ru/img16/3739995/ob4.jpg"
                             }
                         }
-                    }
+                    }, //доделать каст
+                    new Media
+                    {
+                        MediaType = MediaType.Serial,
+                        Name = "Клинок, рассекающий демонов",
+                        NumOfSeason = 1,
+                        NumOfEpisodes = 26,
+                        Img = "https://imageup.ru/img234/3733520/demonslayer.jpg",
+                        Video = "https://www.youtube.com/embed/uz_Wg-0ulpk",
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/laferacis/1022",
+                        Year = 2019,
+                        Country = "Япония",
+                        Age = 18,
+                        Score = 8.073,
+                        Release_Date = "6 апреля 2019",
+                        Runtime = "25 мин. серия",
+                        ShortDescription = "Тем, кто не выдержал и сдался, остается лишь смотреть на успехи других!",
+                        Description = "Эпоха Тайсё. Ещё с древних времён ходят слухи, что в лесу обитают человекоподобные" +
+                        " демоны, которые питаются людьми и выискивают по ночам новых жертв. Тандзиро Камадо — старший" +
+                        " сын в семье, потерявший отца и взявший на себя заботу о родных. Однажды он уходит в соседний город," +
+                        " чтобы продать древесный уголь. Вернувшись утром, парень обнаруживает перед собой страшную картину:" +
+                        " вся родня зверски убита, а единственная выжившая - младшая сестра Нэдзуко, обращённая в демона," +
+                        " но пока не потерявшая человечность. С этого момента начинается долгое и опасное путешествие Тандзиро" +
+                        " и Нэдзуко, в котором мальчик намерен разыскать убийцу и узнать способ исцеления сестры.",
+                        ScoreKP = "https://rating.kinopoisk.ru/1220920.gif",
+                        Genres = new List<Genre>() { Genres["Аниме"], Genres["Мультфильм"], Genres["Боевик"], Genres["Фэнтези"] },
+                        Casts = new List<Cast>()
+                        {
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Режиссёр,
+                            Person = Persons["Харуо Сотодзаки"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Сценарист,
+                            Person = Persons["Кайл Маккарли"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Сценарист,
+                            Person = Persons["Коёхару Готогэ"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Нацуки Ханаэ"],
+                            Character="Kamado Tanjiro, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Ёсицугу Мацуока"],
+                            Character="Hashibira Inosuke, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Хиро Симоно"],
+                            Character="Agatsuma Zenitsu, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Такахиро Сакурай"],
+                            Character="Giyu Tomioka, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Сатоси Хино"],
+                            Character="Kyojuro Rengoku, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Аой Юки"],
+                            Character="Kiriya Ubuyashiki, озвучка"
+                            }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img93/3740187/kl1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img117/3740189/kl2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img37/3740190/kl3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img72/3740192/kl4.jpg"
+                            }
+                        }
+                    },
+                    new Media
+                    {
+                        MediaType = MediaType.Serial,
+                        Name = "Неуязвимый",
+                        NumOfSeason = 1,
+                        NumOfEpisodes = 8,
+                        Img = "https://imageup.ru/img112/3732606/invingible.jpg",
+                        Video = "https://www.youtube.com/embed/oBD-7njwAsQ",
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/gromsserg/1011",
+                        Year = 2021,
+                        Country = "США",
+                        Age = 18,
+                        Score = 8.368,
+                        Release_Date = "26 марта 2021",
+                        Runtime = "45 мин. серия",
+                        ShortDescription = "Основано на комиксах Роберта Киркмана",
+                        Description = "Сюжет посвящен обычному старшекласснику Марку Грэйсону," +
+                        " подрабатывающему после школы и ведущему вполне нормальную жизнь. За и сключением" +
+                        " одного момента: отец Марка, Норман, является самым могущественным супергероем на планете" +
+                        " по прозвищу Омни-мэн. В возрасте 17 лет Марк обнаруживает, что способности отца передались" +
+                        " ему по наследству, поскольку Норман принадлежит к расе Вильтрумитов — первооткрывателей галактики," +
+                        " прибывших с благожелательной и просветительской миссией.",
+                        ScoreKP = "https://rating.kinopoisk.ru/1171895.gif",
+                        Genres = new List<Genre>() { Genres["Мультфильм"], Genres["Ужасы"], Genres["Фантастика"], Genres["Фэнтези"],
+                            Genres["Боевик"], Genres["Триллер"], Genres["Драма"], Genres["Приключения"], },
+                        Images = new List<MediaImages>
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img162/3740236/inv1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img165/3740237/inv2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img140/3740239/inv3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img237/3740240/inv4.jpg"
+                            }
+                        }
+                    } //доделать каст
                     );
             }
 
@@ -563,20 +708,25 @@ namespace NewKinoHub.Models
                     var list = new Genre[]
                     {
                         new Genre { Genre_Name = "Аниме", NumOfGenre=1 },
-                        new Genre { Genre_Name = "Боевик", NumOfGenre=2},
-                        new Genre { Genre_Name = "Вестерн", NumOfGenre=3},
-                        new Genre { Genre_Name = "Детектив", NumOfGenre=4},
-                        new Genre { Genre_Name = "Драма", NumOfGenre=5},
-                        new Genre { Genre_Name = "Комедия", NumOfGenre=6},
-                        new Genre { Genre_Name = "Криминал", NumOfGenre=7},
-                        new Genre { Genre_Name = "Мелодрама", NumOfGenre=8},
-                        new Genre { Genre_Name = "Мультфильм", NumOfGenre=9},
-                        new Genre { Genre_Name = "Мюзикл", NumOfGenre=10},
-                        new Genre { Genre_Name = "Приключения", NumOfGenre=11},
-                        new Genre { Genre_Name = "Семейный", NumOfGenre=12},
-                        new Genre { Genre_Name = "Ужасы", NumOfGenre=13},
-                        new Genre { Genre_Name = "Фантастика", NumOfGenre=14},
-                        new Genre { Genre_Name = "Фэнтези", NumOfGenre=15}
+                        new Genre { Genre_Name = "Биография", NumOfGenre=2},
+                        new Genre { Genre_Name = "Боевик", NumOfGenre=3},
+                        new Genre { Genre_Name = "Вестерн", NumOfGenre=4},
+                        new Genre { Genre_Name = "Военный", NumOfGenre=5},
+                        new Genre { Genre_Name = "Детектив", NumOfGenre=6},
+                        new Genre { Genre_Name = "Документальный", NumOfGenre=7},
+                        new Genre { Genre_Name = "Драма", NumOfGenre=8},
+                        new Genre { Genre_Name = "Комедия", NumOfGenre=9},
+                        new Genre { Genre_Name = "Криминал", NumOfGenre=10},
+                        new Genre { Genre_Name = "Мелодрама", NumOfGenre=11},
+                        new Genre { Genre_Name = "Музыка", NumOfGenre=12},
+                        new Genre { Genre_Name = "Мультфильм", NumOfGenre=13},
+                        new Genre { Genre_Name = "Мюзикл", NumOfGenre=14},
+                        new Genre { Genre_Name = "Приключения", NumOfGenre=15},
+                        new Genre { Genre_Name = "Семейный", NumOfGenre=16},
+                        new Genre { Genre_Name = "Триллер", NumOfGenre=17},
+                        new Genre { Genre_Name = "Ужасы", NumOfGenre=18},
+                        new Genre { Genre_Name = "Фантастика", NumOfGenre=19},
+                        new Genre { Genre_Name = "Фэнтези", NumOfGenre=20}
                     };
                     genres = new Dictionary<string, Genre>();
                     foreach (Genre el in list)
@@ -1185,6 +1335,47 @@ namespace NewKinoHub.Models
                             " она присоединилась к гильдии киноактёров." +
                             " Обладательница именной звезды на Голливудской «Аллее Славы» за вклад в мировой кинематограф. "
                         },
+                        new Person
+                        {
+                            Name="Кайл Маккарли",
+                            OriginalName="Kyle McCarley",
+                            DateOfBirthday="5/12/1985",
+                            Height="1.83 м",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("5/12/1985")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Иллинойс, США",
+                            Spouse="Кэтлин Голт",
+                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Актёр,RoleInFilm.Сценарист},
+                            Awards="BTVA Video Game Voice Acting Award - Лучший вокальный ансамбль в видеоигре («NieR: Automata (2017)»)," +
+                            " Лучшее мужское вокальное исполнение в видеоигре («NieR: Automata (2017)»); " +
+                            "BTVA People's Choice Voice Acting Award, 2018 - Лучший вокальный ансамбль в видеоигре («NieR: Automata (2017)»); " +
+                            "BTVA People's Choice Voice Acting Award, 2016 - Лучший вокальный ансамбль в Аниме-телесериале/OVA («Durarara!!x2»)",                            
+                            Image="https://imageup.ru/img242/3740208/kail-makkarli.jpg",
+                            Description="В аниме он известен как голос Сигео Кагеямы из Mob Psycho 100," +
+                            " Микадзуки Августа из Mobile Suit Gundam: Iron-Blooded Orphans, Синдзи Мато из Fate / stay ночь:" +
+                            " Unlimited Blade Works, Риота Ватари из Your Lie in April, Килли из Blame, Наранча Гирга из Причудливое" +
+                            " приключение Джоджо: Vento Aureo, Джо Шимамура из Киборг 009: Зов правосудия и Хельбрам из Семь" +
+                            " смертных грехов. В видеоиграх он известен своими выступлениями в роли главных персонажей" +
+                            " 9S из Nier: Automata, Зерокена из Disgaea 5, Альма в Fire Emblem Echoes: Shadows of Valentia," +
+                            " Привратник в Fire Emblem: Three Houses и Гарри Поттер в Harry Potter: Wizards Unite."
+                        },
+                        new Person
+                        {
+                            Name="Такахиро Сакурай",
+                            OriginalName="Takahiro Sakurai",
+                            Height="1.76 м",
+                            DateOfBirthday="13/06/1974",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("13/06/1974")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Окадзаки, Айти (префектура), Япония",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Awards="Seiyu Awards, 2012 - «Премия зарубежных поклонников»",
+                            Image="https://imageup.ru/img89/3740211/takakhiro-sakurai.jpg",
+                            Description="Известные роли, которые сыграл Сакурай, включают Тентомона из серии Digimon Adventure," +
+                            " Зомби из One Punch Man, Стинга Эвклифа из Fairy Tail, Сасори из Наруто Шиппуден, Клауд Страйф в" +
+                            " Сборник Final Fantasy VII, Томиока Гиюу из Клинок, рассекающий демонов и Осомацу Мацуно" +
+                            " из Mr. Osomatsu. Сотрудничал с агентством развлечений 81 Produce," +
+                            " с 20 июля 2014 года состоит в агентстве INTENTION, учреждённом одним" +
+                            " из его хороших друзей, сэйю Кэнъити Судзумурой."
+                        }
                     };
                     persons = new Dictionary<string, Person>();
                     foreach (Person el in list)
