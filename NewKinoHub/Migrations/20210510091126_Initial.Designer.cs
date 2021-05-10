@@ -10,8 +10,8 @@ using NewKinoHub.Storage;
 namespace NewKinoHub.Migrations
 {
     [DbContext(typeof(MvcFilmContext))]
-    [Migration("20210509102308_m1")]
-    partial class m1
+    [Migration("20210510091126_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -89,6 +89,9 @@ namespace NewKinoHub.Migrations
                     b.Property<string>("Genre_Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NumOfGenre")
+                        .HasColumnType("int");
 
                     b.HasKey("GenreId");
 

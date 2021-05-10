@@ -11,6 +11,7 @@ namespace NewKinoHub.Storage.Entity
         public int GenreId { get; set; }
         [Required]
         public string Genre_Name { get; set; }
+        public int NumOfGenre { get; set; }
 
         public List<Media> Medias { get; set; } = new List<Media>(); 
     }

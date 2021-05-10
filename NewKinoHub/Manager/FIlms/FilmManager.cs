@@ -170,7 +170,7 @@ namespace KinoHab.Manager
             {
                 foreach(var f1 in f.Genres)
                 {
-                    if (f1.GenreId == filtr)
+                    if (f1.NumOfGenre == filtr)
                     {
                         p = true;
                     }
@@ -187,7 +187,7 @@ namespace KinoHab.Manager
         {
             var genres = _context.Genres;
             string Name = null;
-            foreach (var f in genres.Where(st=>st.GenreId == idFiltr))
+            foreach (var f in genres.Where(st=>st.NumOfGenre == idFiltr))
             {
                 Name = f.Genre_Name;
             }

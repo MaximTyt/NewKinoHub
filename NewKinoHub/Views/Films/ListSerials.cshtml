@@ -128,7 +128,7 @@
                         <span style="font-weight:bold">Жанр:</span>
                         @foreach (var genre in serial.Genres)
                         {
-                            <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = genre.GenreId }) class="textstyle">@genre.Genre_Name |</a>
+                            <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
                         }
                     </p>
 
