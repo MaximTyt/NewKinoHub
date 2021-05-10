@@ -2,7 +2,7 @@
 
 namespace NewKinoHub.Migrations
 {
-    public partial class m1 : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -25,7 +25,8 @@ namespace NewKinoHub.Migrations
                 {
                     GenreId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Genre_Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Genre_Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NumOfGenre = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

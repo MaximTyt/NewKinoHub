@@ -88,6 +88,9 @@ namespace NewKinoHub.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("NumOfGenre")
+                        .HasColumnType("int");
+
                     b.HasKey("GenreId");
 
                     b.ToTable("Genres");
