@@ -14,34 +14,20 @@
      <link rel="stylesheet" href="/css/headerlist2.css" />                      @*кнопки главного меню*@
      <link rel="stylesheet" href="~/css/upbutton.css" />                        @*кнопка наверх*@
      <link rel="stylesheet" href="~/css/searchbutton.css" />                    @*форма поиска*@
-     <link rel="stylesheet" href="~/css/titlestyle.css" media="screen">          @*стили для списка тайтлов*@
+     <link rel="stylesheet" href="~/css/titlestyle.css" media="screen">         @*стили для списка тайтлов*@
      <link rel="stylesheet" href="~/css/registration.css" media="screen" />     @*форма регистрации/входа*@
      <link rel="stylesheet" href="~/css/layout.css" media="screen" />           @*форма фильмов/сериалов*@
+     <link rel="stylesheet" href="~/css/bg_css/bg_serials.css" media="screen" />@*фон выбора жанров сериалов*@
+     <link rel="stylesheet" href="~/css/bg_css/bg_films.css" media="screen" />  @*фон выбора жанров фильмов*@
      <style>
          @@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&display=swap');
      </style>
-     <script language="JavaScript" type="text/javascript">
-         var bb = Math.floor(Math.random() * 6); /*цифра 6 - количество css файлов*/
-         bgpic = new Array();
-         bgpic[0] = '/css/bg_css/bg_films.css'  /*собственно сами файлы*/
-         bgpic[1] = '/css/bg_css/bg_film_serials.css' /*собственно сами файлы*/
-         bgpic[2] = '/css/bg_css/bg_mult.css' /*собственно сами файлы*/
-         bgpic[3] = '/css/bg_css/bg_mult_serials.css' /*собственно сами файлы*/
-         bgpic[4] = '/css/bg_css/bg_anime.css' /*собственно сами файлы*/
-         bgpic[5] = '/css/bg_css/bg_anime_serials.css' /*собственно сами файлы*/
-         /*function bgpic() {*/
-         document.write('<link rel="stylesheet" href=');
-         document.write("" + bgpic[bb] + ""); /*не трогать а то сломается*/
-         document.write(' media="screen"');
-                  /*}*/
-     </script>>
-
  </head>
  <body style="font-family: 'Arimo', sans-serif !important;" class="bodybg">
      @*начало блока с фильмами*@
      <div id="filmform">
          <a href="#"></a>
-         <div id="bg" style="background-size:100%; background-color: rgba(8,8,8,0.3);">
+         <div id="bg_films" style="background-size:100%; background-color: rgba(8,8,8,0.3);">
              <table style="position:center;">
                  <tbody>
                      <tr>
@@ -69,6 +55,7 @@
                          <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 14})>Мюзикл</a></td>
                          <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 15})>Приключения</a></td>
                      </tr>
+                     @* четвертая строчка жанров *@
                      <tr>
                          <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 16})>Семейный</a></td>
                          <td><a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = 17})>Триллер</a></td>
@@ -84,7 +71,7 @@
      @*начало блока с сериалами*@
      <div id="serialform">
          <a href="#"></a>
-         <div id="bg" style="background-size:100%;">
+         <div id="bg_serials" style="background-size:100%;">
              <table style="position:center;">
                  <tbody>
                      @* пустые<td></td> не удалять, они не лишние *@
@@ -113,6 +100,7 @@
                          <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 14})>Мюзикл</a></td>
                          <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 15})>Приключения</a></td>
                      </tr>
+                     @* четвертая строчка жанров *@
                      <tr>
                          <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 16})>Семейный</a></td>
                          <td><a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = 17})>Триллер</a></td>

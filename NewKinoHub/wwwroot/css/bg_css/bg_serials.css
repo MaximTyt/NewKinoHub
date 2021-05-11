@@ -1,0 +1,35 @@
+﻿@keyframes bg-сhange {
+    from {
+        background-image: url('../../lib/bg/bg_serials/Mandalorian.jpg');
+    }
+
+    20% {
+        background-image: url('../../lib/bg/bg_serials/LoveDeathRobots.png');
+    }
+
+    40% {
+        background-image: url('../../lib/bg/bg_serials/vandavision.jpg');
+    }
+
+    60% {
+        background-image: url('../../lib/bg/bg_serials/gumballs.jpg');
+    }
+
+    80% {
+        background-image: url('../../lib/bg/bg_serials/Mandalorian1.jpg');
+    }
+
+    to {
+        background-image: url('../../lib/bg/bg_serials/gravity_falls.jpg');
+    }
+
+}
+
+#bg_serials {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    animation: bg-сhange 90s infinite;
+}

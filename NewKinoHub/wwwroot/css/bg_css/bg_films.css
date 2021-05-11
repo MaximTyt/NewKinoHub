@@ -1,31 +1,31 @@
 ﻿@keyframes bg-сhange {
     from {
-        background-image: url('../../lib/bg/major-grom.jpg');
+        background-image: url('../../lib/bg/bg_films/your_name.jpg');
     }
 
     20% {
-        background-image: url('../../lib/bg/justice-league.jpg');
+        background-image: url('../../lib/bg/bg_films/raua.jpeg');
     }
 
     40% {
-        background-image: url('../../lib/bg/major-grom.jpg');
+        background-image: url('../../lib/bg/bg_films/ditya_pogody.jpg');
     }
 
     60% {
-        background-image: url('../../lib/bg/justice-league.jpg');
+        background-image: url('../../lib/bg/bg_films/your_name1.jpg');
     }
 
     80% {
-        background-image: url('../../lib/bg/major-grom.jpg');
+        background-image: url('../../lib/bg/bg_films/raua1.jpg');
     }
 
     to {
-        background-image: url('../../lib/bg/justice-league.jpg');
+        background-image: url('../../lib/bg/bg_films/soul.jpg');
     }
 
 }
 
-#bg {
+#bg_films {
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
