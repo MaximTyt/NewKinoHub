@@ -145,7 +145,10 @@ namespace NewKinoHub.Manager.Userss
 
         public int GetRights(Users User)
         {
-            return (int)User.Role;
+            if (User != null)
+                return (int)User.Role;
+            else
+                return 0;
         }
 
         //public static byte[] getByteImage(IFormFile file)
