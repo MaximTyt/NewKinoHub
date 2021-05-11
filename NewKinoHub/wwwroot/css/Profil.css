@@ -35,6 +35,16 @@ a.btn {
     .tablestyle{
         width:100% !important;
     }
+a.btn_register {
+    color: #ffffff;
+}
+
+    a.btn_register:hover {
+        background: linear-gradient(45deg, #ffffff 33%, #f7971e 66%, #f7971e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #f7971e;
+    }
 
 /*---------------------------------------------настройки профиля---------------------------------------------*/
 /*---------------------------------------------настройки профиля---------------------------------------------*/
