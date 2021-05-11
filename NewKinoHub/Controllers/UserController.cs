@@ -26,8 +26,20 @@ namespace NewKinoHub.Controllers
 
         public async Task<IActionResult> AddFilms(int id)
         {
-            await _user.AddFilms(id,User.Identity.Name);
+            await _user.AddFavoriteFilms(id,User.Identity.Name);
             return RedirectToAction("Film","Films", new { IdFilm = id });
+        }
+
+        public async Task<IActionResult> AddViewedFilms(int id)
+        {
+            await _user.AddViewedFilms(id, User.Identity.Name);
+            return RedirectToAction("Film", "Films", new { IdFilm = id });
+        }
+
+        public async Task<IActionResult> DeleteViewedFilms(int id)
+        {
+            await _user.DeleteViewedFilms(id, User.Identity.Name);
+            return RedirectToAction("Film", "Films", new { IdFilm = id });
         }
 
         public async Task<IActionResult> DeleteFavoriteFilms(int id)

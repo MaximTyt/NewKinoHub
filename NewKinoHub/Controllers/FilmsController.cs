@@ -1,5 +1,6 @@
 ﻿using KinoHab.Manager;
 using Microsoft.AspNetCore.Mvc;
+using NewKinoHub.Manager.Userss;
 using System.Threading.Tasks;
 
 namespace KinoHab.Controllers
@@ -7,10 +8,12 @@ namespace KinoHab.Controllers
     public class FilmsController : Controller
     {
         private readonly IFilmManager _film;
+        private readonly IUserManager _user;
 
-        public FilmsController(IFilmManager filmManager)
+        public FilmsController(IFilmManager filmManager, IUserManager userManager)
         {
             _film = filmManager;
+            _user = userManager;
 
         }
 
@@ -21,6 +24,7 @@ namespace KinoHab.Controllers
             ViewBag.Actor = _film.Cast(2);
             ViewBag.User = User.Identity.Name;
             ViewBag.Type = _film.TypeFilm("Serial");
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
             if (sort != null)
             {
                 var Sort = await _film.AllSorting(sort, await _film.GetUser(User.Identity.Name));
@@ -35,6 +39,7 @@ namespace KinoHab.Controllers
             ViewBag.Director = _film.Cast(0);
             ViewBag.Actor = _film.Cast(2);
             ViewBag.User = User.Identity.Name;
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
             ViewBag.Type = _film.TypeFilm("Film");
             if (sort != null)
             {
@@ -50,6 +55,7 @@ namespace KinoHab.Controllers
             ViewBag.Director = _film.Cast(0);
             ViewBag.SceenWriter = _film.Cast(1);
             ViewBag.Actor = _film.Cast(2);
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
             ViewBag.User = User.Identity.Name;
             
             return View(film);
@@ -63,6 +69,7 @@ namespace KinoHab.Controllers
             ViewBag.filtr = filtr;
             ViewBag.type = _film.TypeFilm(type);
             ViewBag.User = User.Identity.Name;
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
             var Filtr = await _film.Filtration(filtr,await _film.GetUser(User.Identity.Name));
             if (sort != null)
             {
@@ -70,6 +77,12 @@ namespace KinoHab.Controllers
                 return View(Sort);
             }
             return View(Filtr);
+        }
+
+        public async Task<IActionResult> DeleteFilm(int IdFilm)
+        {
+            await _film.DeleteFilm(IdFilm);
+            return RedirectToAction("ListFilms", "Films");
         }
     }
 }

@@ -15,8 +15,10 @@ namespace KinoHab.Manager
         string GetNameFiltr(int idFiltr);
         Task<ICollection<Media>> SortingFromFiltr(string sort, ICollection<Media> media);
         Task<ICollection<Media>> GetFilms(Users User);
-        Task<ICollection<Media>> GetFavoritFilmsForUser(Users User);
+        Task<ICollection<Media>> GetFavoriteFilmsForUser(Users User);
         Task<Users> GetUser(string UserEmail);
+        Task DeleteFilm(int IdFIlm);
+        Task<ICollection<Media>> GetViewedFilmsForUser(Users User);
 
     }
 }

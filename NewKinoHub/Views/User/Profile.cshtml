@@ -24,60 +24,77 @@
             </div>
         </div>
         @*--------------------Конец блока с настройками профиля--------------------*@
-    <table class="tablestyle">
-        <tbody>
-            <tr>
-                <td>
-                    @if (Model.Image != null)
-                    {
-                        <img class="avasize" src=@Model.Image /> @*поле с аватаркой пользователя*@
-                    }
-                    else
-                    {
-                        <img class="avasize" src="~/lib/images/2.jpeg" /> @*поле с аватаркой пользователя*@
-                    }
+        <table class="tablestyle">
+            <tbody>
+                <tr>
+                    <td>
+                        @if (Model.Image != null)
+                        {
+                            <img class="avasize" src=@Model.Image /> @*поле с аватаркой пользователя*@
+                        }
+                        else
+                        {
+                            <img class="avasize" src="~/lib/images/2.jpeg" /> @*поле с аватаркой пользователя*@
+                        }
 
 
-                    <h3 style="color:white; margin-top:4%;">Name: @Model.Nickname </h3>
+                        <h3 style="color:white; margin-top:4%;">Name: @Model.Nickname </h3>
 
-                    @if (Model.DateOfBirthday != null)
-                    {
-                        <div>
-                            <a class="colortext">@Model.DateOfBirthday</a>
+                        @if (Model.DateOfBirthday != null)
+                        {
+                            <div>
+                                <a class="colortext">@Model.DateOfBirthday</a>
+                            </div>
+                        }
+                    </td>
+                    <td>
+                        <div style="margin-top:10px;">
+                            <a class="btn" href="#profil">Редактировать профиль</a>
                         </div>
-                    }
-                </td>
-                <td>
-                    <div style="margin-top:10px;">
-                        <a class="btn" href="#profil">Редактировать профиль</a>
-                    </div>
-                    <div style="margin-top:10px;">
-                        <a class="btn" asp-area="" asp-controller="Users" asp-action="Profil">Избранное</a>
-                    </div>
-                    <div style="margin-top:10px;">
-                        <a class="btn" href=@Url.Action("Logout", "Account")>Выйти из аккаунта</a>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div style="margin-top:10px;">
+                        <div style="margin-top:10px;">
+                            <a class="btn" asp-area="" asp-controller="Users" asp-action="Profil">Избранное</a>
+                        </div>
+                        <div style="margin-top:10px;">
+                            <a class="btn" href=@Url.Action("Logout", "Account")>Выйти из аккаунта</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <a>Избранное :</a>
+        <div style="margin-top:10px;">
 
-        @*поле с избранными тайтлами*@
-        @if (Model.Favorites != null)
-        {
-            @foreach (var f in Model.Favorites.Medias)
+            @*поле с избранными тайтлами*@
+            @if (Model.Favorites != null)
             {
-                <div>
-                    <a class="colortext titlenamesize">@f.Name  </a>
-                </div>
-                <div style="margin-top:10px;">
-                    <a class="btn" href=@Url.Action("DeleteFavoriteFilms", "User", new { id = f.MediaID})>Удалить</a>
-                </div>
+                @foreach (var f in Model.Favorites.Medias)
+                {
+                    <div>
+                        <a class="colortext titlenamesize">@f.Name  </a>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <a class="btn" href=@Url.Action("DeleteFavoriteFilms", "User", new { id = f.MediaID})>Удалить</a>
+                    </div>
+                }
             }
-        }
-    </div>
+        </div>
+        <a>Просмотренное</a>
+        <div style="margin-top:10px;">
 
+            @*поле с избранными тайтлами*@
+            @if (Model.Viewed != null)
+            {
+                @foreach (var f in Model.Viewed.Medias)
+                {
+                    <div>
+                        <a class="colortext titlenamesize">@f.Name  </a>
+                    </div>
+                    <div style="margin-top:10px;">
+                        <a class="btn" href=@Url.Action("DeleteViewedFilms", "User", new { id = f.MediaID})>Удалить</a>
+                    </div>
+                }
+            }
 
-    </div>
+        </div>
+        </div>
 </body>

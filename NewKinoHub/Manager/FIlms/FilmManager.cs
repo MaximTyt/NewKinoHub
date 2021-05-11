@@ -23,7 +23,7 @@ namespace KinoHab.Manager
                                  .ToListAsync();
         }
 
-        public async Task<ICollection<Media>> GetFavoritFilmsForUser(Users User)
+        public async Task<ICollection<Media>> GetFavoriteFilmsForUser(Users User)
         {
             List<Media> FavoritesFilms = null;
             if (User != null && User.Favorites!= null)
@@ -34,12 +34,22 @@ namespace KinoHab.Manager
             return FavoritesFilms;
         }
 
+        public async Task<ICollection<Media>> GetViewedFilmsForUser(Users User)
+        {
+            List<Media> ViewedFilms = null;
+            if (User != null && User.Viewed != null)
+            {
+                ViewedFilms = User.Viewed.Medias;
+                return ViewedFilms;
+            }
+            return ViewedFilms;
+        }
         public async Task<ICollection<Media>> GetFilms(Users User)
         {
             var Films = await GetAllFilms();
             if (User != null && User.Favorites != null)
             {
-                var FavoritFilm = await GetFavoritFilmsForUser(User);
+                var FavoritFilm = await GetFavoriteFilmsForUser(User);
                 foreach (var f in Films)
                 {
                     foreach (var Fav in FavoritFilm)
@@ -47,6 +57,21 @@ namespace KinoHab.Manager
                         if (f.MediaID == Fav.MediaID)
                         {
                             f.IsFavorites = true;
+                        }
+                    }
+                }
+            }
+
+            if (User != null && User.Viewed != null)
+            {
+                var ViewedFilm = await GetViewedFilmsForUser(User);
+                foreach (var f in Films)
+                {
+                    foreach (var Fav in ViewedFilm)
+                    {
+                        if (f.MediaID == Fav.MediaID)
+                        {
+                            f.IsVieweds = true;
                         }
                     }
                 }
@@ -63,7 +88,7 @@ namespace KinoHab.Manager
                                  .FirstOrDefault(st => st.MediaID == filmId);
             if (User != null  && User.Favorites != null)
             {
-                var FavoritFilm = await GetFavoritFilmsForUser(User);
+                var FavoritFilm = await GetFavoriteFilmsForUser(User);
                 foreach (var Fav in FavoritFilm)
                 {
                     if (Films.MediaID == Fav.MediaID)
@@ -73,6 +98,18 @@ namespace KinoHab.Manager
                 }
                 
             }
+            if (User != null && User.Viewed != null)
+            {
+                var FavoritFilm = await GetViewedFilmsForUser(User);
+                foreach (var Fav in FavoritFilm)
+                {
+                    if (Films.MediaID == Fav.MediaID)
+                    {
+                        Films.IsVieweds = true;
+                    }
+                }
+
+            }
             return Films;
         }
         public async Task<Users> GetUser(string UserEmail)
@@ -80,8 +117,11 @@ namespace KinoHab.Manager
             return await _context.Users
                                  .Include(st => st.Favorites)
                                  .ThenInclude(st=>st.Medias)
+                                 .Include(st => st.Viewed)
+                                 .ThenInclude(st => st.Medias)
                                  .FirstOrDefaultAsync(st => st.Email == UserEmail);
         }
+
         public RoleInFilm Cast(int i)
         {
             RoleInFilm role = RoleInFilm.Актёр;
@@ -219,6 +259,20 @@ namespace KinoHab.Manager
             return media;
         }
 
+        public async Task DeleteFilm(int IdFIlm)
+        {
+            var itemToRemove = await _context.Media.Include(st=>st.Casts)
+                                                   .ThenInclude(st=>st.Person)
+                                                   .Include(st=>st.Images)
+                                                   .Include(st=>st.Genres)
+                                                   .SingleOrDefaultAsync(st => st.MediaID == IdFIlm);
 
+            if (itemToRemove != null)
+            {
+                _context.Media.Remove(itemToRemove);
+            }
+
+            await _context.SaveChangesAsync();
+        }
     }
 }
