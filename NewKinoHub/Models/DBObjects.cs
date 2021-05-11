@@ -159,7 +159,7 @@ namespace NewKinoHub.Models
                                 ImagesUrl ="https://imageup.ru/img155/3736819/zsl4.jpg"
                             }
                         }
-                    },
+                    }, //доделать каст
                     new Media
                     {
                         MediaType = MediaType.Film,
@@ -180,7 +180,7 @@ namespace NewKinoHub.Models
                         " Лунных демонов, и он приготовил для них ловушку.",
                         ScoreKP = "https://rating.kinopoisk.ru/1347949.gif",
                         Genres = new List<Genre>() { Genres["Аниме"], Genres["Мультфильм"], Genres["Боевик"], Genres["Фэнтези"] },
-                        Casts=new List<Cast>()
+                        Casts = new List<Cast>()
                         {
                             new Cast
                             {
@@ -214,7 +214,7 @@ namespace NewKinoHub.Models
                             {
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Сатоси Хино"],
-                            Character="Rengoku Kyôjurô, озвучка"
+                            Character="Kyojuro Rengoku, озвучка"
                             },
                         },
                         Images = new List<MediaImages>()
@@ -238,27 +238,27 @@ namespace NewKinoHub.Models
                         }
                     },
                     new Media
-                        {
-                            MediaType = MediaType.Film,
-                            Name = "Твоё имя",
-                            Img = "https://imageup.ru/img161/3733340/yourname.jpg",
-                            Video = "https://www.youtube.com/embed/tT7b5wR0IOM",
-                            SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3929305",
-                            Year = 2016,
-                            Country = "Япония",
-                            Age = 16,
-                            Score = 8.327,
-                            Release_Date = "3 июля 2016",
-                            Runtime = "01:50",
-                            ShortDescription = "«Я ищу тебя, хотя не знаю, кто ты». " +
+                    {
+                        MediaType = MediaType.Film,
+                        Name = "Твоё имя",
+                        Img = "https://imageup.ru/img161/3733340/yourname.jpg",
+                        Video = "https://www.youtube.com/embed/tT7b5wR0IOM",
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3929305",
+                        Year = 2016,
+                        Country = "Япония",
+                        Age = 16,
+                        Score = 8.327,
+                        Release_Date = "3 июля 2016",
+                        Runtime = "01:50",
+                        ShortDescription = "«Я ищу тебя, хотя не знаю, кто ты». " +
                             "Нежная сказка о первой любви, которая преодолевает пространство и время. Аниме – рекордсмен бокс-офиса.",
-                            Description = "Парень из Токио Таки и девушка из провинции Мицуха обнаруживают," +
+                        Description = "Парень из Токио Таки и девушка из провинции Мицуха обнаруживают," +
                             " что между ними существует странная связь. Во сне они меняются телами и проживают" +
                             " жизни друг друга. Но однажды эта способность исчезает так же внезапно, как появилась." +
                             " Таки решает во что бы то ни стало отыскать Мицуху.",
-                            ScoreKP = "https://rating.kinopoisk.ru/958722.gif",
-                            Genres = new List<Genre>() { Genres["Аниме"], Genres["Мультфильм"], Genres["Фэнтези"], Genres["Драма"], Genres["Мелодрама"], },
-                            Casts = new List<Cast>()
+                        ScoreKP = "https://rating.kinopoisk.ru/958722.gif",
+                        Genres = new List<Genre>() { Genres["Аниме"], Genres["Мультфильм"], Genres["Фэнтези"], Genres["Драма"], Genres["Мелодрама"], },
+                        Casts = new List<Cast>()
                             {
                             new Cast
                             {
@@ -295,7 +295,7 @@ namespace NewKinoHub.Models
                             Character="Sayaka Natori, озвучка"
                             }
                             },
-                            Images = new List<MediaImages>()
+                        Images = new List<MediaImages>()
                         {
                             new MediaImages
                             {
@@ -314,23 +314,23 @@ namespace NewKinoHub.Models
                                 ImagesUrl ="https://imageup.ru/img75/3736957/tvoeimia4.jpg"
                             }
                         }
-                        },
+                    },
                     new Media
-                        {
-                            MediaType = MediaType.Film,
-                            Name = "Майор Гром: Чумной Доктор",                            
-                            Img = "https://imageup.ru/img227/3732084/mayorgromchumnoydoktor.jpg",
-                            Video = "https://www.youtube.com/embed/aUi6fQRUP1o",
-                            SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/music-blog/2524",
-                            Year = 2021,
-                            Country = "Россия",
-                            Age = 12,
-                            Score = 7.391,
-                            Release_Date = "1 апреля 2021",
-                            Runtime = "02:16",
-                            ShortDescription = "Честный полицейский ловит мстителя в маске, убивающего" +
+                    {
+                        MediaType = MediaType.Film,
+                        Name = "Майор Гром: Чумной Доктор",
+                        Img = "https://imageup.ru/img227/3732084/mayorgromchumnoydoktor.jpg",
+                        Video = "https://www.youtube.com/embed/aUi6fQRUP1o",
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/music-blog/2524",
+                        Year = 2021,
+                        Country = "Россия",
+                        Age = 12,
+                        Score = 7.391,
+                        Release_Date = "1 апреля 2021",
+                        Runtime = "02:16",
+                        ShortDescription = "Честный полицейский ловит мстителя в маске, убивающего" +
                             " коррупционеров. Супергеройское кино по комиксу Bubble",
-                            Description = "Майор полиции Игорь Гром известен всему Санкт-Петербургу пробивным" +
+                        Description = "Майор полиции Игорь Гром известен всему Санкт-Петербургу пробивным" +
                             " характером и непримиримой позицией по отношению к преступникам всех мастей." +
                             " Неимоверная сила, аналитический склад ума и неподкупность — всё это делает майора" +
                             " Грома идеальным полицейским. Но всё резко меняется с появлением человека в маске" +
@@ -339,9 +339,51 @@ namespace NewKinoHub.Models
                             " денег и влияния. Общество взбудоражено. Полиция бессильна. Игорь впервые" +
                             " сталкивается с трудностями в расследовании, от итогов которого может зависеть" +
                             " судьба всего города.",
-                            ScoreKP = "https://rating.kinopoisk.ru/1109271.gif",
-                            Genres = new List<Genre>() { Genres["Боевик"], Genres["Криминал"], Genres["Комедия"], Genres["Детектив"] },
-                            Images = new List<MediaImages>
+                        ScoreKP = "https://rating.kinopoisk.ru/1109271.gif",
+                        Genres = new List<Genre>() { Genres["Боевик"], Genres["Криминал"], Genres["Комедия"], Genres["Детектив"] },
+                        Casts = new List<Cast>()
+                        {
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Режиссёр,
+                            Person = Persons["Олег Трофим"]
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Сценарист,
+                                Person=Persons["Артем Габрелянов"]
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Сценарист,
+                                Person=Persons["Роман Котков"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Тихон Жизневский"],
+                            Character = "Игорь Гром, майор полиции"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Любовь Аксенова"],
+                            Character = "Юлия Пчёлкина, журналистка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Алексей Маклаков"],
+                            Character = "Фёдор Прокопенко, полковник, начальник Игоря Грома"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Сергей Горошко"],
+                            Character = "Сергей Разумовский, основатель соцсети «Вместе»"
+                            },
+                        },
+                        Images = new List<MediaImages>
                         {
                             new MediaImages
                             {
@@ -360,10 +402,283 @@ namespace NewKinoHub.Models
                                 ImagesUrl ="https://imageup.ru/img198/3739204/mg4.jpg"
                             }
                         }
-
-
+                    },
+                    new Media
+                    {
+                        MediaType = MediaType.Film,
+                        Name = "Душа",
+                        Img = "https://imageup.ru/img214/3732232/soul.jpg",
+                        Video = "https://www.youtube.com/embed/vsb8762mE6Q",
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/13521150",
+                        Year = 2020,
+                        Country = "США",
+                        Age = 6,
+                        Score = 8.311,
+                        Release_Date = "11 октября 2020",
+                        Runtime = "01:46",
+                        ShortDescription = "Джазмен хочет сбежать с того света на концерт. Фантазия" +
+                        " о призвании и важных мелочах жизни от автора «Вверх»",
+                        Description = "Уже немолодой школьный учитель музыки Джо Гарднер всю жизнь" +
+                        " мечтал выступать на сцене в составе джазового ансамбля. Однажды он успешно" +
+                        " проходит прослушивание у легендарной саксофонистки и, возвращаясь домой вне" +
+                        " себя от счастья, падает в люк и умирает. Теперь у Джо одна дорога — в Великое" +
+                        " После, но он сбегает с идущего в вечность эскалатора и случайно попадает в Великое" +
+                        " До. Тут новенькие души обретают себя, и у будущих людей зарождаются увлечения," +
+                        " мечты и интересы. Джо становится наставником упрямой души 22, которая уже много" +
+                        " веков не может найти свою искру и отправиться на Землю.",
+                        ScoreKP = "https://rating.kinopoisk.ru/775273.gif",
+                        Genres = new List<Genre>() { Genres["Мультфильм"], Genres["Фэнтези"], Genres["Комедия"],
+                            Genres["Приключения"], Genres["Семейный"], Genres["Музыка"] },
+                        Casts = new List<Cast>()
+                        {
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Режиссёр,
+                            Person = Persons["Пит Доктер"]
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Сценарист,
+                                Person=Persons["Пит Доктер"]
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Сценарист,
+                                Person=Persons["Майк Джонс"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Джейми Фокс"],
+                            Character = "Joe, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Тина Фей"],
+                            Character = "22, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Грэм Нортон"],
+                            Character = "Moonwind, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Анджела Бассетт"],
+                            Character = "Dorothea, озвучка"
+                            },
+                        },
+                        Images = new List<MediaImages>
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img243/3739789/soul1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img31/3739793/soul2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img184/3739794/soul3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img130/3739795/soul4.jpg"
+                            }
                         }
-                    ) ;
+                    },
+                    new Media
+                    {
+                        MediaType = MediaType.Serial,
+                        Name = "Внешние отмели",
+                        NumOfSeason = 1,
+                        NumOfEpisodes = 11,
+                        Img = "https://imageup.ru/img111/3731964/outerbanks.jpg",
+                        Video = "https://www.youtube.com/embed/o0xdAiYsX18",
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/gromsserg/1011",
+                        Year = 2020,
+                        Country = "США",
+                        Age = 16,
+                        Score = 7.282,
+                        Release_Date = "15 апреля 2020",
+                        Runtime = "54 мин. серия",
+                        ShortDescription = "Будьте Осторожны В Том, Что Вы Ищете",
+                        Description = "Внешние отмели — 320-километровая полоса узких песчаных барьерных" +
+                        " островов побережья Северной Каролины, начинающихся у юго-восточного края Вирджиния-Бич" +
+                        " восточного побережья США. Именно здесь в разгар летнего сезона, который накрылся медным" +
+                        " тазом из-за бушующего урагана, четверо подростков с помощью случайно добытой карты отправляются" +
+                        " на поиски огромной партии золота, стоимость которой оценивается в четыреста миллионов долларов.",
+                        ScoreKP = "https://rating.kinopoisk.ru/1264562.gif",
+                        Genres = new List<Genre>() { Genres["Драма"], Genres["Детектив"], Genres["Приключения"], },
+                        Images = new List<MediaImages>
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img206/3739991/ob1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img253/3739993/ob2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img154/3739994/ob3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img16/3739995/ob4.jpg"
+                            }
+                        }
+                    }, //доделать каст
+                    new Media
+                    {
+                        MediaType = MediaType.Serial,
+                        Name = "Клинок, рассекающий демонов",
+                        NumOfSeason = 1,
+                        NumOfEpisodes = 26,
+                        Img = "https://imageup.ru/img234/3733520/demonslayer.jpg",
+                        Video = "https://www.youtube.com/embed/uz_Wg-0ulpk",
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/laferacis/1022",
+                        Year = 2019,
+                        Country = "Япония",
+                        Age = 18,
+                        Score = 8.073,
+                        Release_Date = "6 апреля 2019",
+                        Runtime = "25 мин. серия",
+                        ShortDescription = "Тем, кто не выдержал и сдался, остается лишь смотреть на успехи других!",
+                        Description = "Эпоха Тайсё. Ещё с древних времён ходят слухи, что в лесу обитают человекоподобные" +
+                        " демоны, которые питаются людьми и выискивают по ночам новых жертв. Тандзиро Камадо — старший" +
+                        " сын в семье, потерявший отца и взявший на себя заботу о родных. Однажды он уходит в соседний город," +
+                        " чтобы продать древесный уголь. Вернувшись утром, парень обнаруживает перед собой страшную картину:" +
+                        " вся родня зверски убита, а единственная выжившая - младшая сестра Нэдзуко, обращённая в демона," +
+                        " но пока не потерявшая человечность. С этого момента начинается долгое и опасное путешествие Тандзиро" +
+                        " и Нэдзуко, в котором мальчик намерен разыскать убийцу и узнать способ исцеления сестры.",
+                        ScoreKP = "https://rating.kinopoisk.ru/1220920.gif",
+                        Genres = new List<Genre>() { Genres["Аниме"], Genres["Мультфильм"], Genres["Боевик"], Genres["Фэнтези"] },
+                        Casts = new List<Cast>()
+                        {
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Режиссёр,
+                            Person = Persons["Харуо Сотодзаки"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Сценарист,
+                            Person = Persons["Кайл Маккарли"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Сценарист,
+                            Person = Persons["Коёхару Готогэ"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Нацуки Ханаэ"],
+                            Character="Kamado Tanjiro, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Ёсицугу Мацуока"],
+                            Character="Hashibira Inosuke, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Хиро Симоно"],
+                            Character="Agatsuma Zenitsu, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Такахиро Сакурай"],
+                            Character="Giyu Tomioka, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Сатоси Хино"],
+                            Character="Kyojuro Rengoku, озвучка"
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Аой Юки"],
+                            Character="Kiriya Ubuyashiki, озвучка"
+                            }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img93/3740187/kl1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img117/3740189/kl2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img37/3740190/kl3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img72/3740192/kl4.jpg"
+                            }
+                        }
+                    },
+                    new Media
+                    {
+                        MediaType = MediaType.Serial,
+                        Name = "Неуязвимый",
+                        NumOfSeason = 1,
+                        NumOfEpisodes = 8,
+                        Img = "https://imageup.ru/img112/3732606/invingible.jpg",
+                        Video = "https://www.youtube.com/embed/oBD-7njwAsQ",
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/gromsserg/1011",
+                        Year = 2021,
+                        Country = "США",
+                        Age = 18,
+                        Score = 8.368,
+                        Release_Date = "26 марта 2021",
+                        Runtime = "45 мин. серия",
+                        ShortDescription = "Основано на комиксах Роберта Киркмана",
+                        Description = "Сюжет посвящен обычному старшекласснику Марку Грэйсону," +
+                        " подрабатывающему после школы и ведущему вполне нормальную жизнь. За и сключением" +
+                        " одного момента: отец Марка, Норман, является самым могущественным супергероем на планете" +
+                        " по прозвищу Омни-мэн. В возрасте 17 лет Марк обнаруживает, что способности отца передались" +
+                        " ему по наследству, поскольку Норман принадлежит к расе Вильтрумитов — первооткрывателей галактики," +
+                        " прибывших с благожелательной и просветительской миссией.",
+                        ScoreKP = "https://rating.kinopoisk.ru/1171895.gif",
+                        Genres = new List<Genre>() { Genres["Мультфильм"], Genres["Ужасы"], Genres["Фантастика"], Genres["Фэнтези"],
+                            Genres["Боевик"], Genres["Триллер"], Genres["Драма"], Genres["Приключения"], },
+                        Images = new List<MediaImages>
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img162/3740236/inv1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img165/3740237/inv2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img140/3740239/inv3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img237/3740240/inv4.jpg"
+                            }
+                        }
+                    } //доделать каст
+                    );
             }
 
             if (!content.Users.Any())
@@ -392,20 +707,26 @@ namespace NewKinoHub.Models
                 {
                     var list = new Genre[]
                     {
-                        new Genre { Genre_Name = "Аниме" },
-                        new Genre { Genre_Name = "Боевик" },
-                        new Genre { Genre_Name = "Детектив" },
-                        new Genre { Genre_Name = "Драма" },
-                        new Genre { Genre_Name = "Комедия" },
-                        new Genre { Genre_Name = "Мелодрама"},
-                        new Genre { Genre_Name = "Мультфильм" },
-                        new Genre { Genre_Name = "Мюзикл"},
-                        new Genre { Genre_Name = "Криминал" },
-                        new Genre { Genre_Name = "Приключения"},
-                        new Genre { Genre_Name = "Семейный"},
-                        new Genre { Genre_Name = "Ужасы"},
-                        new Genre { Genre_Name = "Фантастика"},
-                        new Genre { Genre_Name = "Фэнтези"}
+                        new Genre { Genre_Name = "Аниме", NumOfGenre=1 },
+                        new Genre { Genre_Name = "Биография", NumOfGenre=2},
+                        new Genre { Genre_Name = "Боевик", NumOfGenre=3},
+                        new Genre { Genre_Name = "Вестерн", NumOfGenre=4},
+                        new Genre { Genre_Name = "Военный", NumOfGenre=5},
+                        new Genre { Genre_Name = "Детектив", NumOfGenre=6},
+                        new Genre { Genre_Name = "Документальный", NumOfGenre=7},
+                        new Genre { Genre_Name = "Драма", NumOfGenre=8},
+                        new Genre { Genre_Name = "Комедия", NumOfGenre=9},
+                        new Genre { Genre_Name = "Криминал", NumOfGenre=10},
+                        new Genre { Genre_Name = "Мелодрама", NumOfGenre=11},
+                        new Genre { Genre_Name = "Музыка", NumOfGenre=12},
+                        new Genre { Genre_Name = "Мультфильм", NumOfGenre=13},
+                        new Genre { Genre_Name = "Мюзикл", NumOfGenre=14},
+                        new Genre { Genre_Name = "Приключения", NumOfGenre=15},
+                        new Genre { Genre_Name = "Семейный", NumOfGenre=16},
+                        new Genre { Genre_Name = "Триллер", NumOfGenre=17},
+                        new Genre { Genre_Name = "Ужасы", NumOfGenre=18},
+                        new Genre { Genre_Name = "Фантастика", NumOfGenre=19},
+                        new Genre { Genre_Name = "Фэнтези", NumOfGenre=20}
                     };
                     genres = new Dictionary<string, Genre>();
                     foreach (Genre el in list)
@@ -415,7 +736,7 @@ namespace NewKinoHub.Models
             }
         }
 
-        
+
         private static Dictionary<string, Person> persons;
         public static Dictionary<string, Person> Persons
         {
@@ -482,7 +803,7 @@ namespace NewKinoHub.Models
                             Description= "Актриса и модель. Является победительницей конкурса" +
                             " «Мисс Израиль 2004» и участницей конкурса «Мисс Вселенная 2004».\n" +
                             "В начале ноября 2011 года родила дочь от супруга Ярона Версано, которую назвали Альмой.\n" +
-                            "Два года прослужила в качестве спортивного тренера в армии Израиля."                          
+                            "Два года прослужила в качестве спортивного тренера в армии Израиля."
                         },
                         new Person
                         {
@@ -572,7 +893,7 @@ namespace NewKinoHub.Models
                         new Person
                         {
                             Name="Макото Синкай",
-                            OriginalName="Makoto Niitsu",                            
+                            OriginalName="Makoto Niitsu",
                             DateOfBirthday="9/02/1973",
                             Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("9/02/1973")).TotalDays/365.2425)),
                             PlaceOfBirthday="Коуми, Нагано (префектура), Япония",
@@ -587,7 +908,7 @@ namespace NewKinoHub.Models
                             " другие точки соприкосновения с аудиторией, иные, чем у работ Хаяо Миядзаки.\n" +
                             "Отличительным признаком Синкая является отвлечённость от штампов и требований" +
                             " аниме-индустрии. Он тщательнейшим образом прорисовывает пейзажи и дальние планы.\n" +
-                            "В честь режиссёра был назван астероид.\n"                            
+                            "В честь режиссёра был назван астероид.\n"
                         },
                         new Person
                         {
@@ -669,8 +990,8 @@ namespace NewKinoHub.Models
                         new Person
                         {
                             Name="Харуо Сотодзаки",
-                            OriginalName="Haruo Sotozaki",                            
-                            DateOfBirthday="-",                            
+                            OriginalName="Haruo Sotozaki",
+                            DateOfBirthday="-",
                             PlaceOfBirthday="Хоккайдо, Япония",
                             RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Режиссёр},
                             Awards="Tokyo Anime Award, 2021 - Режиссёр («Клинок, рассекающий демонов»)",
@@ -686,12 +1007,12 @@ namespace NewKinoHub.Models
                             DateOfBirthday="5/05/1989",
                             Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("5/05/1989")).TotalDays/365.2425)),
                             PlaceOfBirthday="-",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},                            
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},
                             Image="https://imageup.ru/img71/3739216/koyoharu_gotouge.jpg",
                             Description="Автор и мангака 'Клинка, рассекающего демонов'." +
                             " В ноябре 2016 года Готоге начала выпускать свою первую продолжительную" +
                             " мангу Kimetsu no Yaiba('Клинок, рассекающий демонов')."
-                        },                        
+                        },
                         new Person
                         {
                             Name="Нацуки Ханаэ",
@@ -740,7 +1061,7 @@ namespace NewKinoHub.Models
                             Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("21/04/1980")).TotalDays/365.2425)),
                             PlaceOfBirthday="Хоккайдо, Япония",
                             RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
-                            Awards="Seiyu Awards, 2012 - «Лучшее исполнение песни» («Поющий принц»)",                            
+                            Awards="Seiyu Awards, 2012 - «Лучшее исполнение песни» («Поющий принц»)",
                             Image="https://imageup.ru/img219/3739474/hiro_shimono.jpg",
                             Description="Его известные роли включают Кейма Кацураги в Мир, который знает только Бог," +
                             " Конни Спрингер в Атака Титана , Най в Карневал , Аято Камина в Рахксефон, Акихиса Ёсии" +
@@ -772,6 +1093,289 @@ namespace NewKinoHub.Models
                             " анимация, игры и повествование. До июня 2011 года он был связан с Production Baobab . С июля" +
                             " 2011 года Hino присоединилась к Axl-One."
                         },
+                        new Person
+                        {
+                            Name="Олег Трофим",
+                            OriginalName="Трофим Олег Борисович",
+                            DateOfBirthday="12/10/1989",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("12/10/1989")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Нарьян-Мар, СССР (Россия)",
+                            Spouse="Виктория",
+                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Режиссёр,RoleInFilm.Сценарист},
+                            Image="https://imageup.ru/img50/3739738/oleg-trofim.jpg",
+                            Description="Стал автором и продюсером самого первого клипа группы «DownCast»" +
+                            " под названием «Немое кино». С февраля 2007 года музыкальное семейство ежегодно" +
+                            " устраивало концерты в клубе авторской песни «Арктика» в Ненецком Автономном Округе." +
+                            " В 2012 году Олег окончил Санкт-Петербургский государственный университет кино и телевидения" +
+                            " по специальности «Режиссура кино и телевидения», мастерскую Владимира Смирнова и Олега Рябоконя." +
+                            " К тому времени молодой человек уже снял около полусотни музыкальных клипов для петербургских" +
+                            " музыкантов. В 2017 году дебютировал в большом кино - фильм «Лёд». Режиссировал фильм «Майор Гром:" +
+                            " Чумной доктор» после ухода Владимира Беседина с поста режиссёра картины и главы Bubble Studios."
+                        },
+                        new Person
+                        {
+                            Name="Артем Габрелянов",
+                            OriginalName="Габрелянов Артем Арамович",
+                            DateOfBirthday="9/02/1987",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("9/02/1987")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Москва, СССР (Россия)",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},
+                            Image="https://imageup.ru/img195/3739750/artem_gabrelianov.jpg",
+                            Description="Основал в 2011 году Bubble Comics как подразделение медиакомпании «News Media Holdings»." +
+                            " Со временем Артём Габрелянов решил, что издательству стоит отказаться от юмористических комиксов" +
+                            " в пользу приключенческих и супергеройских. Является автором комиксов и графических романов Бесобой," +
+                            " Майор Гром, Красная Фурия, Время ворона, Инок и Метеора."
+                        },
+                        new Person
+                        {
+                            Name="Роман Котков",
+                            OriginalName="Котков Роман Игоревич",
+                            DateOfBirthday="28/04/1987",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("28/04/1987")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Москва, СССР (Россия)",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},
+                            Image="https://imageup.ru/img137/3739752/roman-kotkov.jpg",
+                            Description="Главный редактор издательства Bubble, ранее выпускающий редактор." +
+                            " Креативный продюссер и сценарист ожидаемого фильма «Майор Гром: Чумной доктор»." +
+                            " Работает в издательстве с 2014 года. Сперва выпускающим редактором, с 1 октября 2015" +
+                            " — главным редактором. Обсуждает варианты развития серий и в живую прорабатывает с авторами" +
+                            " диалоги. Является администратором сайта spidermedia.ru. Иногда пишет статьи о комиксах."
+                        },
+                        new Person
+                        {
+                            Name="Тихон Жизневский",
+                            OriginalName="Жизневский Тихон Игоревич",
+                            DateOfBirthday="30/08/1988",
+                            Height="1.91 м",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("30/08/1988")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Зеленоградск, Калининградская область, СССР (Россия)",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Image="https://imageup.ru/img100/3739753/tikhon-zhiznevskii.jpg",
+                            Description="В 2009 году окончил ВТУ им. Щукина, курс Марии Пантелеевой и Валерия Фокина." +
+                            " С 2009 года работал актёром Александринского театра. Дебютом в Александринском театре" +
+                            " стал ввод на роль участника хора фиванцев в спектакль «Эдип-царь» Софокла (реж. Т. Терзопулос)."
+                        },
+                        new Person
+                        {
+                            Name="Любовь Аксенова",
+                            OriginalName="Аксенова Любовь Павловна",
+                            DateOfBirthday="15/03/1990",
+                            Height="1.75 м",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("15/03/1990")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Москва, СССР (Россия)",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Spouse="Павел Аксенов",
+                            Image="https://imageup.ru/img194/3739757/liubov-aksenova.jpg",
+                            Description="В 2010 году окончила РАТИ-ГИТИС, мастерская А.И. Шейнина. В 2019 году стала" +
+                            " самой популярной актрисой года по версии сайта Кино-театр.ру. В 2019 году заняла второе место в ежегодном" +
+                            " рейтинге самых сексуальных женщин России, публикуемом журналом «Maxim»."
+                        },
+                        new Person
+                        {
+                            Name="Алексей Маклаков",
+                            OriginalName="Маклаков Алексей Константинович",
+                            DateOfBirthday="6/01/1961",
+                            Height="1.75 м",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("6/01/1961")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Тамбов, СССР (Россия)",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Spouse="Анна Романцева",
+                            Awards="«Заслуженный артист Российской Федерации»",
+                            Image="https://imageup.ru/img109/3739765/aleksei-maklakov.jpg",
+                            Description="Окончил Новосибирское театральное училище. Известность приобрёл благодаря роли прапорщика Шматко в телесериале «Солдаты»." +
+                            " Болельщик футбольного клуба «Спартак» (Москва)."
+                        },
+                        new Person
+                        {
+                            Name="Сергей Горошко",
+                            OriginalName="Горoшко Сергей Дмитриевич",
+                            DateOfBirthday="7/07/1997",
+                            Height="1.83 м",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("7/07/1997")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Дзержинск, Нижегородская область, Россия",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Awards="Лауреат высшей театральной премии Санкт-Петербурга «Золотой софит»",
+                            Image="https://imageup.ru/img171/3739768/sergei-goroshko.jpg",
+                            Description="В период с 2016 по 2020 год обучался в Российском государственном институте сценических" +
+                            " искусств в мастерской В. Фильштинского. Является соавтором театрального проекта FULCRO, состоящего" +
+                            " из команды актеров, выпускников петербургской театральной мастерской В. М. Фильштинского."
+                        },
+                        new Person
+                        {
+                            Name="Пит Доктер",
+                            OriginalName="Pete Docter",
+                            DateOfBirthday="10/08/1968",
+                            Height="1.94 м",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("10/08/1968")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Блумингтон, Миннесота, США",
+                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Сценарист, RoleInFilm.Режиссёр, RoleInFilm.Актёр},
+                            Spouse="Аманда Доктер",
+                            Awards="Оскар, 2021 год - Лучший анимационный фильм («Душа»); " +
+                            "Британская академия, 2021 год - Лучший анимационный фильм («Душа»); " +
+                            "Оскар, 2016 год - Лучший анимационный фильм («Головоломка»); " +
+                            "Сатурн, 2016 год - Лучший анимационный фильм («Головоломка»); " +
+                            "Оскар, 2010 год - Лучший анимационный фильм («Вверх»); " +
+                            "Британская академия, 2010 год - Лучший анимационный фильм («Вверх»); " +
+                            "Венецианский кинофестиваль, 2009 год - Премия Future Film Festival Digital Award - особое упоминание («Вверх»)",
+                            Image="https://imageup.ru/img114/3739806/pit-dokter.jpg",
+                            Description="Самые известные фильмы, над которыми он работал — «Корпорация монстров», «Вверх»," +
+                            " «Головоломка», «Душа». Также он ключевая фигура и сотрудник студии Pixar. Был шесть раз номинирован" +
+                            " на соискание премии «Оскара», трижды — на Annie Awards, из них выиграл две, и по разу на BAFTA Children’s" +
+                            " Film Award (выиграл) и Hochi Film Award (выиграл). Пит Доктер — фанат аниме, и одно время работал с Хаяо Миядзаки." +
+                            " Сам себя он называет «малыш из Миннесоты, который любит рисовать мультфильмы». Начал работать в Pixar с 21 года. Он также" +
+                            " является поклонником работы, проделанной его конкурентами из DreamWorks . Говоря о конкурентной среде, он сказал:" +
+                            " «Я думаю, что это гораздо более здоровая среда, когда больше разнообразия»."
+                        },
+                        new Person
+                        {
+                            Name="Майк Джонс",
+                            OriginalName="Mike Jones",
+                            DateOfBirthday="1/06/1971",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("1/06/1971")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Сан-Антонио, Техас, США",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},
+                            Image="https://imageup.ru/img25/3739826/mike-jones.jpg",
+                            Description="Он начал свою карьеру в качестве журналиста-развлекателя, работая" +
+                            " управляющим редактором Filmmaker Magazine и исполнительным редактором IndieWire. Его первый сценарий, EvenHand," +
+                            " был снят в 2001 г. и показанный на AFI Film Festival, Tribeca Film Festival и South by Southwest." +
+                            " Джонс сделал некредитованный переписанный фильм City of Ghosts, режиссер Мэтт Диллон, и с тех пор" +
+                            " написал сценарии для Columbia Pictures, United Artists, HBO, Warner Bros. Pictures, Sony Pictures Animation," +
+                            " Fox Searchlight и Metro-Goldwyn-Mayer."
+                        },
+                        new Person
+                        {
+                            Name="Джейми Фокс",
+                            OriginalName="Eric Marlon Bishop",
+                            Height="1.75 м",
+                            DateOfBirthday="13/12/1967",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("13/12/1967")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Террелл, Техас, США",
+                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Актёр, RoleInFilm.Сценарист,RoleInFilm.Режиссёр },
+                            Awards="Премия канала «MTV», 2013 год - Самый безумный эпизод («Джанго освобожденный»); " +
+                            "Оскар, 2005 год - Лучшая мужская роль («Рэй»); " +
+                            "Золотой глобус, 2005 год - Лучшая мужская роль (комедия или мюзикл) («Рэй»); " +
+                            "Британская академия, 2005 год - Лучшая мужская роль («Рэй»); " +
+                            "Премия Гильдии актеров, 2005 год - Лучшая мужская роль («Рэй»)",
+                            Image="https://imageup.ru/img208/3739831/dzheimi-foks.jpg",
+                            Description="В 1994 году он записал свой первый альбом (на студии FOX) Peep This," +
+                            " а в 2001 году получил престижную премию MTV Video Music Awards. Фокс сменил имя во" +
+                            " время участия в stand-up comedy, после того как узнал, что женщин-комедиантов" +
+                            " приглашали выступать первыми. Он выбрал себе имя в честь другого известного комика — Реда Фокса." +
+                            " В сентябре 2007 года была заложена звезда Джейми Фокса на Голливудской «Аллее славы»." +
+                            " После церемонии Джейми сказал: «Это был один из самых замечательных дней в моей жизни!»"
+                        },
+                        new Person
+                        {
+                            Name="Тина Фей",
+                            OriginalName="Elizabeth Stamatina Fey",
+                            Height="1.64 м",
+                            DateOfBirthday="18/05/1970",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("18/05/1970")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Аппер Дерби, Пенсильвания, США",
+                            Spouse="Джефф Ричмонд",
+                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Актёр, RoleInFilm.Сценарист},
+                            Awards="Эмми, 2016 год - Лучшая приглашенная актриса в комедийном сериале («Saturday Night Live»); " +
+                            "Премия Гильдии актеров, 2013 год - Лучшая актриса комедийного сериала («Студия 30»); " +
+                            "Золотой глобус, 2009 год - Лучшая женская роль на ТВ (комедия или мюзикл) («Студия 30»); " +
+                            "Эмми, 2009 год - Лучший комедийный сериал («Студия 30»), Лучшая приглашенная актриса в комедийном сериале («Saturday Night Live»); " +
+                            "Премия Гильдии актеров, 2009 год - Лучший актерский состав комедийного сериала («Студия 30»), Лучшая актриса комедийного сериала («Студия 30»); " +
+                            "Золотой глобус, 2008 год - Лучшая женская роль на ТВ (комедия или мюзикл) («Студия 30»); " +
+                            "Эмми, 2008 год - Лучший комедийный сериал («Студия 30»), Лучшая женская роль в комедийном сериале («Студия 30»); " +
+                            "Премия Гильдии актеров, 2008 год - Лучшая актриса комедийного сериала («Студия 30»); " +
+                            "Эмми, 2007 год - Лучший комедийный сериал («Студия 30»)",
+                            Image="https://imageup.ru/img144/3739834/tina-fei.jpg",
+                            Description="В 1992 году Фей с отличием окончила Виргинский университет, получив степень бакалавра в области театрального искусства. " +
+                            "У неё греческие, немецкие и шотландские корни. " +
+                            "В 2006 году, по окончании контракта, Тина покинула шоу «Субботним вечером в прямом эфире» ради своего собственного детища" +
+                            " — ситкома «Студия 30», в котором она является автором сценария и исполнительницей главной роли. Композитором проекта стал" +
+                            " её супруг — Джефф Ричмонд. Шоу было восторженно принято зрителями и критиками и шло на NBC семь сезонов."
+                        },
+                        new Person
+                        {
+                            Name="Грэм Нортон",
+                            OriginalName="Graham William Walker",
+                            Height="1.73 м",
+                            DateOfBirthday="4/04/1963",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("4/04/1963")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Дублин, Ирландия",
+                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Актёр, RoleInFilm.Сценарист },
+                            Awards="British Academy Television Awards, 2000-2002 - Лучшее развлекательное выступление («Итак, Грэм Нортон»); " +
+                            "Royal Television Society, 2001 - 	Лучший ведущий («Итак, Грэм Нортон»); " +
+                            "British Academy Television Awards, 2011,2012,2018 - Лучшее развлекательное выступление («Шоу Грэма Нортона»); " +
+                            "British Academy Television Awards, 2013 - Премия Lew Grade Award за развлекательную программу («Шоу Грэма Нортона»); " +
+                            "British Academy Television Awards, 2015 - Лучшая комедийная программа или Серия («Шоу Грэма Нортона»); " +
+                            "Национальная телевизионная премия, 2017 - Специальная награда («Шоу Грэма Нортона»)",
+                            Image="https://imageup.ru/img242/3739839/graham-walker.jpg",
+                            Description="В июне 2013 он получил почётную докторскую степень от Ирландского национального университета. " +
+                            "Первое появление Нортона в радиовещании произошло в Великобритании, где он получил" +
+                            " место постоянного комика на BBC Radio 4 в шоу Loose Ends, которое выходило утром по субботам. Нортон — открытый гей."
+                        },
+                        new Person
+                        {
+                            Name="Анджела Бассетт",
+                            OriginalName="Angela Bassett",
+                            Height="1.63 м",
+                            DateOfBirthday="16/08/1958",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("16/08/1958")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Гарлем, Нью-Йорк, США",
+                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Актёр, RoleInFilm.Режиссёр },
+                            Spouse="Кортни Б. Вэнс",
+                            Awards="Премия Гильдии актеров, 2019 год - Лучший актерский состав («Чёрная Пантера»); " +
+                            "Сатурн, 1996 год - Лучшая актриса («Странные дни»); " +
+                            "Золотой глобус, 1994 год - Лучшая женская роль (комедия или мюзикл) («На что способна любовь»)",
+                            Image="https://imageup.ru/img289/3739940/andzhela-bassett.jpg",
+                            Description="В 1980 году Анджела Бассетт закончила Йельский университет и получила" +
+                            " степень бакалавра по специальности «афро-американские исследования». В 1983 году" +
+                            " она также получила степень магистра изобразительных искусств в Йельской драматической" +
+                            " школе, несмотря на протесты со стороны отца, который не хотел чтобы она тратила своё" +
+                            " образование на театр. Анджела стала первой в своей семье, кто учился в колледже и аспирантуре" +
+                            ". В Йеле Бассетт встретила своего будущего мужа, актёра Кортни Б. Вэнса. В 1986 году она окончила" +
+                            " театральное училище, одноклассником Анджелы был актёр Чарльз Стэнли Даттон. В 1986 году Анджела Бассетт" +
+                            " впервые появилась на киноэкране, в роли репортёра в фильме «Иллюзия убийства» (1986), после этой роли" +
+                            " она присоединилась к гильдии киноактёров." +
+                            " Обладательница именной звезды на Голливудской «Аллее Славы» за вклад в мировой кинематограф. "
+                        },
+                        new Person
+                        {
+                            Name="Кайл Маккарли",
+                            OriginalName="Kyle McCarley",
+                            DateOfBirthday="5/12/1985",
+                            Height="1.83 м",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("5/12/1985")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Иллинойс, США",
+                            Spouse="Кэтлин Голт",
+                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Актёр,RoleInFilm.Сценарист},
+                            Awards="BTVA Video Game Voice Acting Award - Лучший вокальный ансамбль в видеоигре («NieR: Automata (2017)»)," +
+                            " Лучшее мужское вокальное исполнение в видеоигре («NieR: Automata (2017)»); " +
+                            "BTVA People's Choice Voice Acting Award, 2018 - Лучший вокальный ансамбль в видеоигре («NieR: Automata (2017)»); " +
+                            "BTVA People's Choice Voice Acting Award, 2016 - Лучший вокальный ансамбль в Аниме-телесериале/OVA («Durarara!!x2»)",                            
+                            Image="https://imageup.ru/img242/3740208/kail-makkarli.jpg",
+                            Description="В аниме он известен как голос Сигео Кагеямы из Mob Psycho 100," +
+                            " Микадзуки Августа из Mobile Suit Gundam: Iron-Blooded Orphans, Синдзи Мато из Fate / stay ночь:" +
+                            " Unlimited Blade Works, Риота Ватари из Your Lie in April, Килли из Blame, Наранча Гирга из Причудливое" +
+                            " приключение Джоджо: Vento Aureo, Джо Шимамура из Киборг 009: Зов правосудия и Хельбрам из Семь" +
+                            " смертных грехов. В видеоиграх он известен своими выступлениями в роли главных персонажей" +
+                            " 9S из Nier: Automata, Зерокена из Disgaea 5, Альма в Fire Emblem Echoes: Shadows of Valentia," +
+                            " Привратник в Fire Emblem: Three Houses и Гарри Поттер в Harry Potter: Wizards Unite."
+                        },
+                        new Person
+                        {
+                            Name="Такахиро Сакурай",
+                            OriginalName="Takahiro Sakurai",
+                            Height="1.76 м",
+                            DateOfBirthday="13/06/1974",
+                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("13/06/1974")).TotalDays/365.2425)),
+                            PlaceOfBirthday="Окадзаки, Айти (префектура), Япония",
+                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            Awards="Seiyu Awards, 2012 - «Премия зарубежных поклонников»",
+                            Image="https://imageup.ru/img89/3740211/takakhiro-sakurai.jpg",
+                            Description="Известные роли, которые сыграл Сакурай, включают Тентомона из серии Digimon Adventure," +
+                            " Зомби из One Punch Man, Стинга Эвклифа из Fairy Tail, Сасори из Наруто Шиппуден, Клауд Страйф в" +
+                            " Сборник Final Fantasy VII, Томиока Гиюу из Клинок, рассекающий демонов и Осомацу Мацуно" +
+                            " из Mr. Osomatsu. Сотрудничал с агентством развлечений 81 Produce," +
+                            " с 20 июля 2014 года состоит в агентстве INTENTION, учреждённом одним" +
+                            " из его хороших друзей, сэйю Кэнъити Судзумурой."
+                        }
                     };
                     persons = new Dictionary<string, Person>();
                     foreach (Person el in list)
