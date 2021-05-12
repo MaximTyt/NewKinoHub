@@ -1,0 +1,50 @@
+﻿
+<body>
+    <h1>Добавление фильма:</h1>
+    <div class="wrapper">
+        <form action="" method="post" enctype="multipart/form-data">
+
+            <label>Название:<sup>*</sup></label><br />
+            <input type="text" name="Name" required /><br />
+
+            <label>Аватарка(Только ссылка с сервера):<sup>*</sup></label><br />
+            <input type="text" name="mainPhoto" required><br />
+
+            <label>Год:<sup>*</sup></label><br />
+            <input type="text" name="Year" required /><br />
+
+            <label>Страна:<sup>*</sup></label><br />
+            <input type="text" name="Contry" required /><br />
+
+            <label>Дата выхода:<sup>*</sup></label><br />
+            <input type="text" name="Release_Date" required /><br />
+
+            <label>Возраст<sup>*</sup></label><br />
+            <input type="text" name="Age" required /><br />
+
+            <label>Время:<sup>*</sup></label><br />
+            <input type="text" name="RunTime" required /><br />
+
+            <label>Описание:<sup>*</sup></label><br />
+            <input type="text" name="Description" required /><br />
+
+            <label>Краткое описание:<sup>*</sup></label><br />
+            <input type="text" name="shortDiscription" required /><br />
+
+            <label>Рейтинг<sup>*</sup></label><br />
+            <input type="text" name="Score" required /><br />
+
+            <label>Рейтинг с кинопоиска<sup>*</sup></label><br />
+            <input type="text" name="ScoreKP" required /><br />
+
+            <label>Ссылка на трейлер(с Ютуба)<sup>*</sup></label><br />
+            <input type="text" name="Video" required /><br />
+
+            <label>Ссылка на музыку(Яндекс музыка)<sup>*</sup></label><br />
+            <input type="text" name="Music" required /><br />
+
+            <input type="submit" value="Подтвердить" formaction="~/Films/AddFilms">
+        </form>
+        <a href="#">Выйти</a>
+    </div>
+</body>
