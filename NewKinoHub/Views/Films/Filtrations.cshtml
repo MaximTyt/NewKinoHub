@@ -80,7 +80,7 @@
                     @if (film.IsFavorites == false && ViewBag.User != null)
 
                     {
-                        <td valign="top" align="right">
+                        <td valign="top" align="right" width="30">
                             <a>
                                 <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
                             </a>
@@ -90,7 +90,7 @@
                     {
                         if (ViewBag.User != null)
                         {
-                            <td valign="top" align="right">
+                            <td valign="top" align="right" width="30">
                                 <a>
                                     <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
                                 </a>
@@ -98,7 +98,7 @@
                         }
                         else
                         {
-                            <td valign="top" align="right">
+                            <td valign="top" align="right" width="30">
                                 <a>
                                     <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
                                 </a>
@@ -108,7 +108,7 @@
                     }
                     @if (film.IsVieweds == false && ViewBag.User != null)
                     {
-                        <td valign="top" align="right">
+                        <td valign="top" align="right" width="30">
                             <a>
                                 <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
                             </a>
@@ -118,7 +118,7 @@
                     {
                         if (ViewBag.User != null)
                         {
-                            <td valign="top" align="right">
+                            <td valign="top" align="right" width="30">
                                 <a>
                                     <img src="~/lib/images/Icons/eye.png" width="30" height="30" />
                                 </a>
@@ -126,7 +126,7 @@
                         }
                         else
                         {
-                            <td valign="top" align="right">
+                            <td valign="top" align="right" width="30">
                                 <a>
                                     <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
                                 </a>
@@ -136,9 +136,9 @@
                     }
                     @if (ViewBag.Role == 1)
                     {
-                        <td align="right">
+                        <td align="right" width="30">
                             <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = film.MediaID })>
-                                <img src="~/lib/images/Icons/close.png" width="30" height="30" />
+                                <img class="deleteicon" src="~/lib/images/Icons/close.png" />
                             </a>
                         </td>
                     }
