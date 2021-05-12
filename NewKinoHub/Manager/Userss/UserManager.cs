@@ -23,6 +23,8 @@ namespace NewKinoHub.Manager.Userss
             return await _context.Users
                                  .Include(st => st.Favorites)
                                  .ThenInclude(st => st.Medias)
+                                 .Include(st=>st.Viewed)
+                                 .ThenInclude(st => st.Medias)
                                  .FirstOrDefaultAsync(st => st.Email == Name);
 
         }
@@ -42,13 +44,36 @@ namespace NewKinoHub.Manager.Userss
                         .Include(st => st.Favorites)
                         .ThenInclude(st => st.Medias)
                         .FirstOrDefault(st => st.Email == Name)
-                        .Favorites.Medias
+                        .Favorites
+                        .Medias
                         .Remove(itemToRemove);
                 await _context.SaveChangesAsync();
             }
         }
 
-        public async Task AddFilms(int id, string Name)
+        public async Task DeleteViewedFilms(int idFilm, string Name)
+        {
+            var itemToRemove = _context.Users
+                                       .Include(st => st.Viewed)
+                                       .ThenInclude(st => st.Medias)
+                                       .FirstOrDefault(st => st.Email == Name)
+                                       .Viewed
+                                       .Medias
+                                       .SingleOrDefault(st => st.MediaID == idFilm);
+            if (itemToRemove != null)
+            {
+                _context.Users
+                        .Include(st => st.Viewed)
+                        .ThenInclude(st => st.Medias)
+                        .FirstOrDefault(st => st.Email == Name)
+                        .Viewed
+                        .Medias
+                        .Remove(itemToRemove);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task AddFavoriteFilms(int id, string Name)
         {
 
             if (_context.Users.Include(st => st.Favorites).ThenInclude(st => st.Medias).FirstOrDefault(st => st.Email == Name).Favorites == null)
@@ -57,15 +82,8 @@ namespace NewKinoHub.Manager.Userss
                 f.Medias.Add(_context.Media.FirstOrDefault(st => st.MediaID == id));
                 f.UserName = Name;
 
-                //_context.Users.Include(st => st.Favorites)
-                //        .ThenInclude(st => st.Medias)
-                //        .FirstOrDefault(st => st.Login == Name)
-                //        .Favorites = f;
-
                 _context.Users
-
                         .FirstOrDefault(st => st.Email == Name)
-
                         .Favorites = f;
                               
                               
@@ -73,21 +91,39 @@ namespace NewKinoHub.Manager.Userss
             }
             else
             {
-                //_context.Users.Include(st => st.Favorites)
-                //              .ThenInclude(st => st.Medias)
-                //              .FirstOrDefault(st => st.Login == Name)
-                //              .Favorites
-                //              .Medias
-                //              .Add(_context.Media.FirstOrDefault(st => st.MediaID == id));
-
                  _context.Users
-
                          .FirstOrDefault(st => st.Email == Name)
-                         .Favorites.Medias
+                         .Favorites
+                         .Medias
                          .Add(_context.Media.FirstOrDefault(st => st.MediaID == id));
             }
             await _context.SaveChangesAsync();
         }
+
+        public async Task AddViewedFilms(int id, string Name)
+        {
+
+            if (_context.Users.Include(st => st.Viewed).ThenInclude(st => st.Medias).FirstOrDefault(st => st.Email == Name).Viewed == null)
+            {
+                Viewed V = new Viewed();
+                V.Medias.Add(_context.Media.FirstOrDefault(st => st.MediaID == id));
+                V.UserName = Name;
+
+                _context.Users
+                        .FirstOrDefault(st => st.Email == Name)
+                        .Viewed = V;
+            }
+            else
+            {
+                _context.Users
+                        .FirstOrDefault(st => st.Email == Name)
+                        .Viewed
+                        .Medias
+                        .Add(_context.Media.FirstOrDefault(st => st.MediaID == id));
+            }
+            await _context.SaveChangesAsync();
+        }
+
         [HttpPost]
         public async Task EditAccount(string mainPhoto, string name, string DataB,string Email)
         {
@@ -107,6 +143,13 @@ namespace NewKinoHub.Manager.Userss
             await _context.SaveChangesAsync();
         }
 
+        public int GetRights(Users User)
+        {
+            if (User != null)
+                return (int)User.Role;
+            else
+                return 0;
+        }
 
         //public static byte[] getByteImage(IFormFile file)
         //{

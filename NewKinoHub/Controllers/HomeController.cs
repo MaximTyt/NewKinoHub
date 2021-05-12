@@ -1,23 +1,22 @@
 ﻿using KinoHab.Manager;
 using Microsoft.AspNetCore.Mvc;
 using NewKinoHub.Manager.Home;
+using NewKinoHub.Manager.Userss;
 using System.Threading.Tasks;
 
 namespace NewKinoHub.Controllers
 {
     public class HomeController : Controller
     {        
-       //[Authorize]
-       //public IActionResult Index()
-       //{
-       //    return Content(User.Identity.Name);
-       //}
+
         private readonly IHomeManager _media;
         private readonly IFilmManager _film;
-        public HomeController(IHomeManager mediaManager, IFilmManager FilmManager)
+        private readonly IUserManager _user;
+        public HomeController(IHomeManager mediaManager, IFilmManager FilmManager, IUserManager userManager)
         {
             _media = mediaManager;
             _film = FilmManager;
+            _user = userManager;
         }
 
         public IActionResult Index()
@@ -29,6 +28,7 @@ namespace NewKinoHub.Controllers
         {
             ViewBag.Director = _media.Cast(0);
             ViewBag.Actor = _media.Cast(2);
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
             ViewData["Getemployeedetails"] = Name;
             ViewBag.User = User.Identity.Name;
             var media = await _media.Search(Name,await _film.GetUser(User.Identity.Name));

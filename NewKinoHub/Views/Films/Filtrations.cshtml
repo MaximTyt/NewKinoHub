@@ -106,16 +106,42 @@
                         }
 
                     }
-                    <td>
-                        <a href="#">
-                            <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/eye.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/eye (1).png'; width = 30; height=30;" />  @*Добавлено в просмотренное : eye.png /// нет в просмотренном eye (1).png*@
-                        </a>
-                    </td>
-                    <td align="right">
-                        <a>
-                            <img src="~/lib/images/Icons/close.png" width="30" height="30" />
-                        </a>
-                    </td>
+                    @if (film.IsVieweds == false && ViewBag.User != null)
+                    {
+                        <td valign="top" align="right">
+                            <a>
+                                <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
+                            </a>
+                        </td>
+                    }
+                    else
+                    {
+                        if (ViewBag.User != null)
+                        {
+                            <td valign="top" align="right">
+                                <a>
+                                    <img src="~/lib/images/Icons/eye.png" width="30" height="30" />
+                                </a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td valign="top" align="right">
+                                <a>
+                                    <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
+                                </a>
+                            </td>
+                        }
+
+                    }
+                    @if (ViewBag.Role == 1)
+                    {
+                        <td align="right">
+                            <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = film.MediaID })>
+                                <img src="~/lib/images/Icons/close.png" width="30" height="30" />
+                            </a>
+                        </td>
+                    }
 
                 </tr>
             </tbody>

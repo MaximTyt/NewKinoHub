@@ -24,27 +24,74 @@
                                 <input type="radio" name="r" id="r2">
                                 <input type="radio" name="r" id="r3">
                                 <input type="radio" name="r" id="r4">
-                                <div class="slide s1">
-                                    <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[0].MediaID }) style="display:block;">
-                                        <img src=@Model.Item1[0].Img style="height:500px !important;">
-                                    </a>
-                                </div>
-                                <div class="slide">
-                                    <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[1].MediaID }) style="display:block;">
-                                        <img src=@Model.Item1[1].Img style="height:500px !important;">
-                                    </a>
-                                </div>
-                                <div class="slide">
-                                    <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[2].MediaID }) style="display:block;">
-                                        <img src=@Model.Item1[2].Img alt="" style="height:500px;">
-                                    </a>
-                                </div>
-                                @*<div class="slide">
-                                    <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[3].MediaID }) style="display:block;">
-                                        <img src=@Model.Item1[3].Img alt="" style="height:500px;">
-                                    </a>
-                                </div>*@
+                                @if (Model.Item1.Count() >= 1)
+                                {
+                                    <div class="slide s1">
+                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[0].MediaID }) style="display:block;">
+                                            <img src=@Model.Item1[0].Img style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="slide s1">
+                                        <a>
+                                            <img src="~/lib/images/2.jpeg" style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+
+                                @if (Model.Item1.Count() >= 2)
+                                {
+                                    <div class="slide">
+                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[1].MediaID }) style="display:block;">
+                                            <img src=@Model.Item1[1].Img style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="slide">
+                                        <a>
+                                            <img src="~/lib/images/2.jpeg" style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+                                @if (Model.Item1.Count() >= 3)
+                                {
+                                    <div class="slide">
+                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[2].MediaID }) style="display:block;">
+                                            <img src=@Model.Item1[2].Img style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="slide">
+                                        <a>
+                                            <img src="~/lib/images/2.jpeg" style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+
+                                @if (Model.Item1.Count() >= 4)
+                                {
+                                    <div class="slide">
+                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[3].MediaID }) style="display:block;">
+                                            <img src=@Model.Item1[3].Img style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="slide">
+                                        <a>
+                                            <img src="~/lib/images/2.jpeg" style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
                             </div>
+                            
                             <div class=" navigation">
                                 <label for="r1" class=" bar"></label>
                                 <label for="r2" class=" bar"></label>
@@ -60,29 +107,73 @@
                                 <input type="radio" name="r" id="r5" checked>
                                 <input type="radio" name="r" id="r6">
                                 <input type="radio" name="r" id="r7">
-                                <input type="radio" name="r" id="r8">                                
+                                <input type="radio" name="r" id="r8">
+                                @if (Model.Item2.Count() >= 1)
+                                {
                                     <div class="slide s1">
                                         <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[0].MediaID }) style="display:block;">
                                             <img src=@Model.Item2[0].Img style="height:500px !important;">
                                         </a>
                                     </div>
-                                        <div class="slide">
-                                            <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[1].MediaID }) style="display:block;">
-                                                <img src=@Model.Item2[1].Img alt="" style="height:500px;">
-                                            </a>
-                                       </div>
-                                    
-                                    @*<div class="slide">
-                <a href=@Url.Action("Serial", "Serials", new { SerialId = Model.Item2[2].MediaID }) style="display:block;">
-                    <img src=@Model.Item2[2].Img alt="" style="height:500px;">
-                </a>
-            </div>
-            <div class="slide">
-                <a href=@Url.Action("Serial", "Serials", new { SerialId = Model.Item2[3].MediaID }) style="display:block;">
-                    <img src=@Model.Item2[3].Img alt="" style="height:500px;">
-                </a>
-            </div>*@
-                                </div>
+                                }
+                                else
+                                {
+                                    <div class="slide s1">
+                                        <a>
+                                            <img src="~/lib/images/2.jpeg" style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+                                @if (Model.Item2.Count() >= 2)
+                                {
+                                    <div class="slide">
+                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[1].MediaID }) style="display:block;">
+                                            <img src=@Model.Item2[1].Img style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="slide">
+                                        <a>
+                                            <img src="~/lib/images/2.jpeg" style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+
+                                @if (Model.Item2.Count() >= 3)
+                                {
+                                    <div class="slide">
+                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[2].MediaID }) style="display:block;">
+                                            <img src=@Model.Item2[2].Img style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="slide">
+                                        <a>
+                                            <img src="~/lib/images/2.jpeg" style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+                                @if (Model.Item2.Count() >= 4)
+                                {
+                                    <div class="slide">
+                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[3].MediaID }) style="display:block;">
+                                            <img src=@Model.Item2[3].Img style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="slide">
+                                        <a>
+                                            <img src="~/lib/images/2.jpeg" style="height:500px !important;">
+                                        </a>
+                                    </div>
+                                }
+                            </div>
                             <div class=" navigation">
                                 <label for="r5" class=" bar"></label>
                                 <label for="r6" class=" bar"></label>
