@@ -84,7 +84,7 @@
                     @if (Model.IsFavorites == false && ViewBag.User != null)
 
                     {
-                        <td valign="top" align="right">
+                        <td valign="top" align="right" width="30">
                             <a href=@Url.Action("AddFilms", "User", new { Id = Model.MediaID })>
                                 <img src="~/lib/images/Icons/favourite.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite11.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite.png'; width = 30; height=30;" />
                             </a>
@@ -94,7 +94,7 @@
                     {
                         if (ViewBag.User != null)
                         {
-                            <td valign="top" align="right">
+                            <td valign="top" align="right" width="30">
                                 <a href=@Url.Action("DeleteFavoriteFilms", "User", new { Id = Model.MediaID, method = "Film"})>
                                     <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/favourite.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/favourite11.png'; width = 30; height=30;" />
                                 </a>
@@ -102,7 +102,7 @@
                         }
                         else
                         {
-                            <td valign="top" align="right">
+                            <td valign="top" align="right" width="30">
                                 <a>
                                     <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
                                 </a>
@@ -112,7 +112,7 @@
                     }
                     @if (Model.IsVieweds == false && ViewBag.User != null)
                     {
-                        <td valign="top" align="right">
+                        <td valign="top" align="right" width="30">
                             <a href=@Url.Action("AddViewedFilms", "User", new { Id = Model.MediaID })>
                                 <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/eye.png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/eye (1).png'; width = 30; height=30;" />
                             </a>
@@ -122,7 +122,7 @@
                     {
                         if (ViewBag.User != null)
                         {
-                            <td valign="top" align="right">
+                            <td valign="top" align="right" width="30">
                                 <a href=@Url.Action("DeleteViewedFilms", "User", new { Id = Model.MediaID, method = "Film"})>
                                     <img src="~/lib/images/Icons/eye.png" width="30" height="30" onmouseover="this.src = '/lib/images/Icons/eye (1).png'; width = 30; height=30;" onmouseout="this.src='/lib/images/Icons/eye.png'; width = 30; height=30;" />
                                 </a>
@@ -130,7 +130,7 @@
                         }
                         else
                         {
-                            <td valign="top" align="right">
+                            <td valign="top" align="right" width="30">
                                 <a>
                                     <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
                                 </a>
@@ -140,9 +140,9 @@
                     }
                     @if (ViewBag.Role == 1)
                     {
-                        <td align="right">
+                        <td valign="top" align="right" width="30">
                             <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = Model.MediaID })>
-                                <img src="~/lib/images/Icons/close.png" width="30" height="30" />
+                                <img class="deleteicon" src="~/lib/images/Icons/close.png" />
                             </a>
                         </td>
                     }
