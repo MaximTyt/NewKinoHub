@@ -1,50 +1,63 @@
-﻿
+﻿<head>
+    <link href="~/css/editadd.css" rel="stylesheet" type="text/css" />
+</head>
 <body>
-    <h1>Добавление фильма:</h1>
     <div class="wrapper">
-        <form action="" method="post" enctype="multipart/form-data">
-
-            <label>Название:<sup>*</sup></label><br />
-            <input type="text" name="Name" required /><br />
-
-            <label>Аватарка(Только ссылка с сервера):<sup>*</sup></label><br />
-            <input type="text" name="mainPhoto" required><br />
-
-            <label>Год:<sup>*</sup></label><br />
-            <input type="text" name="Year" required /><br />
-
-            <label>Страна:<sup>*</sup></label><br />
-            <input type="text" name="Contry" required /><br />
-
-            <label>Дата выхода:<sup>*</sup></label><br />
-            <input type="text" name="Release_Date" required /><br />
-
-            <label>Возраст<sup>*</sup></label><br />
-            <input type="text" name="Age" required /><br />
-
-            <label>Время:<sup>*</sup></label><br />
-            <input type="text" name="RunTime" required /><br />
-
-            <label>Описание:<sup>*</sup></label><br />
-            <input type="text" name="Description" required /><br />
-
-            <label>Краткое описание:<sup>*</sup></label><br />
-            <input type="text" name="shortDiscription" required /><br />
-
-            <label>Рейтинг<sup>*</sup></label><br />
-            <input type="text" name="Score" required /><br />
-
-            <label>Рейтинг с кинопоиска<sup>*</sup></label><br />
-            <input type="text" name="ScoreKP" required /><br />
-
-            <label>Ссылка на трейлер(с Ютуба)<sup>*</sup></label><br />
-            <input type="text" name="Video" required /><br />
-
-            <label>Ссылка на музыку(Яндекс музыка)<sup>*</sup></label><br />
-            <input type="text" name="Music" required /><br />
-
-            <input type="submit" value="Подтвердить" formaction="~/Films/AddFilms">
-        </form>
-        <a href="#">Выйти</a>
+        <h1 class="coloraddtext">Добавление фильма:</h1>
+            <form action="" method="post" enctype="multipart/form-data" style="width:100% !important;">
+                <table class="tablesize">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label class="colortext">Название:<sup>*</sup></label><br />
+                                <input type="text" name="Name" required /><br />
+                            </td>
+                        </tr>
+                        <tr class="trsize">
+                            <td valign="top" class="tdstyle">
+                                <label class="colortext">Аватарка(Только ссылка с сервера):<sup>*</sup></label><br />
+                                <input type="text" name="mainPhoto" required><br />
+                                <label class="colortext">Год:<sup>*</sup></label><br />
+                                <input type="text" name="Year" required /><br />
+                            </td>
+                            <td valign="top" class="tdstyle">
+                                <label class="colortext">Страна:<sup>*</sup></label><br />
+                                <input type="text" name="Contry" required /><br />
+                                <label class="colortext">Дата выхода:<sup>*</sup></label><br />
+                                <input type="text" name="Release_Date" required /><br />
+                            </td>
+                            <td valign="top" class="tdstyle">
+                                <label class="colortext">Возраст<sup>*</sup></label><br />
+                                <input type="text" name="Age" required /><br />
+                                <label class="colortext">Время:<sup>*</sup></label><br />
+                                <input type="text" name="RunTime" required /><br />
+                            </td>
+                        </tr>
+                        <tr class="trsize">
+                            <td colspan="2" valign="top" class="tdstyle">
+                                <label class="colortext">Описание:<sup>*</sup></label><br />
+                                <input style="height:100px;" type="text" name="Description" required /><br />
+                                <label class="colortext">Краткое описание:<sup>*</sup></label><br />
+                                <input style="height:100px;" type="text" name="shortDiscription" required /><br />
+                            </td>
+                            <td valign="top" class="tdstyle">
+                                <label class="colortext">Рейтинг<sup>*</sup></label><br />
+                                <input type="text" name="Score" required /><br />
+                                <label class="colortext">Рейтинг с кинопоиска<sup>*</sup></label><br />
+                                <input type="text" name="ScoreKP" required /><br />
+                                <label class="colortext">Ссылка на трейлер(с Ютуба)<sup>*</sup></label><br />
+                                <input type="text" name="Video" required /><br />
+                                <label class="colortext">Ссылка на музыку(Яндекс музыка)<sup>*</sup></label><br />
+                                <input type="text" name="Music" required /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="tdstyle">
+                                <input type="submit" value="Подтвердить" formaction="~/Films/AddFilms">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
     </div>
 </body>
