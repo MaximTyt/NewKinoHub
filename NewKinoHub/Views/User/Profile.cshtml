@@ -52,46 +52,41 @@
                             <a class="btn" href="#profil">Редактировать профиль</a>
                         </div>
                         <div style="margin-top:10px;">
-                            <a class="btn" asp-area="" asp-controller="Users" asp-action="Profil">Избранное</a>
-                        </div>
-                        <div style="margin-top:10px;">
                             <a class="btn" href=@Url.Action("Logout", "Account")>Выйти из аккаунта</a>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <a>Избранное :</a>
-        <div style="margin-top:10px;">
+        <h4 class="colortext">Избранное :</h4>
+        <div style="margin-top:10px; width:100%;" class="fav_block">
 
             @*поле с избранными тайтлами*@
             @if (Model.Favorites != null)
             {
                 @foreach (var f in Model.Favorites.Medias)
                 {
-                    <div>
-                        <a class="colortext titlenamesize">@f.Name  </a>
-                    </div>
-                    <div style="margin-top:10px;">
-                        <a class="btn" href=@Url.Action("DeleteFavoriteFilms", "User", new { id = f.MediaID})>Удалить</a>
-                    </div>
+            <div class="item">
+                <p class="titlenamesize">@f.Name</p>
+                <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src=@f.Img></a></p>
+                <a class="btn_delete" style="margin-top:10px;" href=@Url.Action("DeleteFavoriteFilms", "User", new { id = f.MediaID})>Удалить</a>
+            </div>
                 }
             }
         </div>
-        <a>Просмотренное</a>
-        <div style="margin-top:10px;">
+        <h4 class="colortext">Просмотренное:</h4>
+        <div style="margin-top:10px; width:100%;" class="fav_block">
 
-            @*поле с избранными тайтлами*@
+            @*поле с просмотренными тайтлами*@
             @if (Model.Viewed != null)
             {
                 @foreach (var f in Model.Viewed.Medias)
                 {
-                    <div>
-                        <a class="colortext titlenamesize">@f.Name  </a>
-                    </div>
-                    <div style="margin-top:10px;">
-                        <a class="btn" href=@Url.Action("DeleteViewedFilms", "User", new { id = f.MediaID})>Удалить</a>
-                    </div>
+            <div class="item">
+                <p class="titlenamesize">@f.Name</p>
+                <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src=@f.Img></a></p>
+                <a class="btn_delete" style="margin-top:10px;" href=@Url.Action("DeleteViewedFilms", "User", new { id = f.MediaID})>Удалить</a>
+            </div>
                 }
             }
 
