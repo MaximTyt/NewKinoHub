@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
 using System.Collections.Generic;
@@ -272,6 +273,85 @@ namespace KinoHab.Manager
                 _context.Media.Remove(itemToRemove);
             }
 
+            await _context.SaveChangesAsync();
+        }
+
+        [HttpPost]
+        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP,string Music, string Video)
+        {
+            Media Film = new Media();
+            Film.Img = mainPhoto;           
+            Film.Name = Name;       
+            Film.Year = Year;         
+            Film.Country = Contry;                   
+            Film.Release_Date = Release_Date;                      
+            Film.Age = Age;                    
+            Film.Runtime = RunTime;                      
+            Film.Description = Description;                  
+            Film.ShortDescription = shortDiscription;
+            Film.Score = Score;
+            Film.ScoreKP = ScoreKP;
+            Film.Video = Video;
+            Film.SoundTrackUrl = Music;
+
+            _context.Media.Add(Film);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDescription, double Score, string ScoreKP, string Music, string Video, int id)
+        {
+            if (mainPhoto != null)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == id).Img = mainPhoto;
+            }
+            if (Name != null)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == id).Name = Name;
+            }
+            if (Year != 0)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == id).Year = Year;
+            }
+            if (Contry != null)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == id).Country = Contry;
+            }
+            if (Release_Date != null)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == id).Release_Date = Release_Date;
+            }
+            if (Age != 0)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == id).Age = Age;
+            }
+            if (RunTime != null)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == id).Runtime = RunTime;
+            }
+            if (Description != null)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == id).Description = Description;
+            }
+            if (shortDescription != null)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == id).ShortDescription = shortDescription;
+            }
+            if (Score != 0)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == id).Score = Score;
+            }
+            if (ScoreKP != null)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == id).ScoreKP = ScoreKP;
+            }
+            if (Music != null)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == id).SoundTrackUrl = Music;
+            }
+            if (Video != null)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == id).Video = Video;
+            }
             await _context.SaveChangesAsync();
         }
     }

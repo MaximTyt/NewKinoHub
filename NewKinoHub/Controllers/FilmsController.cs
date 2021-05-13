@@ -84,5 +84,28 @@ namespace KinoHab.Controllers
             await _film.DeleteFilm(IdFilm);
             return RedirectToAction("ListFilms", "Films");
         }
+
+        [HttpPost]
+        public async Task<ActionResult> AddFilms(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP, string Music, string Video)
+        {
+            await _film.AddFilm(mainPhoto, Name, Year, Contry, Release_Date, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video);
+            return RedirectToAction("ListFilms", "Films");
+        }
+
+        public async Task<ActionResult> EditFilms(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP, string Music, string Video, int Id)
+        {
+            await _film.EditFilm(mainPhoto, Name, Year, Contry, Release_Date, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id);
+            return RedirectToAction("ListFilms", "Films");
+        }
+
+        public IActionResult AddFilm()
+        {
+            return View();
+        }
+        public async Task <IActionResult> EditFilm(int id)
+        {
+            var Film = await _film.GetFilmforId(id, await _film.GetUser(User.Identity.Name));
+            return View(Film);
+        }
     }
 }
