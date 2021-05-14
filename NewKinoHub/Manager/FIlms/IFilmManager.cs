@@ -18,6 +18,7 @@ namespace KinoHab.Manager
         Task<ICollection<Media>> GetFavoriteFilmsForUser(Users User);
         Task<Users> GetUser(string UserEmail);
         Task DeleteFilm(int IdFIlm);
+        Task AddReviews(int idFilm, string Email, string text);
         Task<ICollection<Media>> GetViewedFilmsForUser(Users User);
         Task AddFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDescription, double Score, string ScoreKP, string Music, string Video);
         Task EditFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDescription, double Score, string ScoreKP, string Music, string Video, int id);

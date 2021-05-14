@@ -16,5 +16,6 @@ namespace NewKinoHub.Manager.Userss
         int GetRights(Users User);
         Task AddViewedFilms(int id, string Name);
         Task DeleteViewedFilms(int idFilm, string Name);
+
     }
 }

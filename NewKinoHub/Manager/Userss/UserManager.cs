@@ -151,6 +151,11 @@ namespace NewKinoHub.Manager.Userss
                 return 0;
         }
 
+        public string GetNameUser(string Email)
+        {
+            return _context.Users.FirstOrDefault(st => st.Email == Email).Nickname;
+        }
+
         //public static byte[] getByteImage(IFormFile file)
         //{
         //    byte[] fileData = null;

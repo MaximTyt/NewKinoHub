@@ -12,12 +12,11 @@ namespace NewKinoHub.Storage.Entity
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ReviewId { get; set; }
-
-        [NotMapped]
-        public DateTime DateOfReview { get; set; }
+        public string DateOfReview { get; set; }
 
         [DataType(DataType.MultilineText)]        
         public string Description { get; set; }
+        public string Nickname { get; set; }
         public int MediaId { get; set; }
         public Media Media { get; set; }
 

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -82,11 +83,9 @@ namespace KinoHab.Manager
 
         public async Task<Media> GetIdFilms(int filmId, Users User)
         {
-            var Films = _context.Media.Include(st => st.Images)
-                                 .Include(st => st.Casts)
-                                 .ThenInclude(st => st.Person)
-                                 .Include(st => st.Genres)
-                                 .FirstOrDefault(st => st.MediaID == filmId);
+            var Films = _context.Media
+                                .Include(st => st.Genres)
+                                .FirstOrDefault(st => st.MediaID == filmId);
             if (User != null  && User.Favorites != null)
             {
                 var FavoritFilm = await GetFavoriteFilmsForUser(User);
@@ -152,17 +151,31 @@ namespace KinoHab.Manager
 
         public async Task<Media> GetFilmforId(int filmId, Users User)
         {
+            var Images = _context.MediaImages.Where(st => st.MediaId == filmId).ToList();
+            _context.Media.FirstOrDefault(st => st.MediaID == filmId).Images = Images;
+            var Casts = _context.Casts.Where(st => st.MediaId == filmId).ToList();
+
+            foreach(var c in Casts)
+            {
+               foreach(var p in _context.Persons)
+                {
+                    if(c.PersonId == p.Id)
+                    {
+                        c.Person = p;
+                    }
+                } 
+            }
+            _context.Media.FirstOrDefault(st => st.MediaID == filmId).Casts = Casts;
+            var Reviews = _context.Reviews.Where(st => st.MediaId == filmId).ToList();
+            _context.Media.FirstOrDefault(st => st.MediaID == filmId).Reviews = Reviews;
             if (User != null && User.Favorites != null)
             {
                 var Films = await GetIdFilms(filmId,User);
                 return Films;
             }
-            return await _context.Media
-                                 .Include(st => st.Images)
-                                 .Include(st => st.Casts)
-                                 .ThenInclude(st => st.Person)
-                                 .Include(st => st.Genres)
-                                 .FirstOrDefaultAsync(st => st.MediaID == filmId);
+            return  _context.Media
+                            .Include(st => st.Genres)
+                            .FirstOrDefault(st => st.MediaID == filmId);
         }
 
          public async Task<ICollection<Media>> AllSorting(string sort, Users User)
@@ -266,6 +279,7 @@ namespace KinoHab.Manager
                                                    .ThenInclude(st=>st.Person)
                                                    .Include(st=>st.Images)
                                                    .Include(st=>st.Genres)
+                                                   .Include(st=>st.Reviews)
                                                    .SingleOrDefaultAsync(st => st.MediaID == IdFIlm);
 
             if (itemToRemove != null)
@@ -352,6 +366,20 @@ namespace KinoHab.Manager
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == id).Video = Video;
             }
+            await _context.SaveChangesAsync();
+        }
+
+        [HttpPost]
+        public async  Task AddReviews(int idFilm, string Email, string text)
+        {
+            var NickName = _context.Users.FirstOrDefault(st => st.Email == Email).Nickname;
+            Review review = new Review();
+            review.Description = text;
+            review.MediaId = idFilm;
+            review.UsersId = _context.Users.FirstOrDefault(st => st.Email == Email).UserId;
+            review.Nickname = NickName;
+            review.DateOfReview = DateTime.Now.ToString();
+            _context.Media.FirstOrDefault(st => st.MediaID == idFilm).Reviews.Add(review);
             await _context.SaveChangesAsync();
         }
     }
