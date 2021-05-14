@@ -3,14 +3,18 @@
 <html style="font-size: 16px;">
 <head>
     <link rel="stylesheet" href="~/css/favorites.css" media="screen">
+    <link href="~/css/Profil.css" rel="stylesheet" />
     <script class="u-script" type="text/javascript" src="/js/jquery.js" defer=""></script>
 </head>
 
 <body>
-    <div style="position:fixed; top:20%; left:3%; ">
-        <a href="#" class="addfilm">Добавить Сериал</a>
-    </div>
     <div class="wrapper">
+        @if (ViewBag.Role == 1)
+        {
+            <div style="position:fixed; top:20%; left:3%; ">
+                <a href=@Url.Action("AddFilm", "Films") class="addfilm">Добавить сериал</a>
+            </div>
+        }
         <div style="margin-top:50px; margin-bottom:30px; width: 95%;">
             <table style="margin: 0 auto;">
                 <tbody>
@@ -65,13 +69,13 @@
                 </tbody>
             </table>
         </div>
-        @foreach (var serial in Model.Where(st=>st.MediaType == ViewBag.Type))
+        @foreach (var serial in Model.Where(st => st.MediaType == ViewBag.Type))
         {
             <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
                 <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
                     <img width="265" class="u-back-image u-expanded imagetitle" src=@serial.Img>
                 </a>
-                <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
+                <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
                     <table style="width: 780px;">
                         <tbody>
                             <tr>
@@ -136,6 +140,16 @@
                                     }
 
                                 }
+
+                                @if (ViewBag.Role == 1)
+                                {
+                                    <td align="right" width="30">
+                                        <a href=@Url.Action("EditFilm", "Films", new { Id = serial.MediaID })>
+                                            <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
+                                        </a>
+                                    </td>
+                                }
+
                                 @if (ViewBag.Role == 1)
                                 {
                                     <td align="right" width="30">
@@ -151,7 +165,7 @@
                     <p><span style="font-weight:bold">Год:</span> @serial.Year</p>
 
                     <p>
-                        <span style="font-weight:bold">Жанр:</span>
+                        <span style="font-weight:bold">Жанры:</span>
                         @foreach (var genre in serial.Genres)
                         {
                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>

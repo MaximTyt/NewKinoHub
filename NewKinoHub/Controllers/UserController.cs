@@ -42,10 +42,22 @@ namespace NewKinoHub.Controllers
             return RedirectToAction("Film", "Films", new { IdFilm = id });
         }
 
+        public async Task<IActionResult> DeleteViewedFilms1(int id)
+        {
+            await _user.DeleteViewedFilms(id, User.Identity.Name);
+            return RedirectToAction("Profile", "User");
+        }
+
         public async Task<IActionResult> DeleteFavoriteFilms(int id)
         {
             await _user.DeleteFavoriteFilms(id, User.Identity.Name);
             return RedirectToAction("Film", "Films", new { IdFilm = id });
+        }
+
+        public async Task<IActionResult> DeleteFavoriteFilms1(int id)
+        {
+            await _user.DeleteFavoriteFilms(id, User.Identity.Name);
+            return RedirectToAction("Profile", "User");
         }
 
         [HttpPost]

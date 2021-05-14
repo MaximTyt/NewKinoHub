@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
    
     <h1 style="font-weight: bold; color: aliceblue">@Model.Name</h1>
     <div style="width: 1100px; min-height: 380px;  background-color:azure; min-height : 580px; padding: 20px;">
@@ -23,7 +24,7 @@
                         <div style=" min-height: 20px; width:600px; float:left;">
                             <p><span style="font-weight:bold">Год:</span> @Model.Year</p>
                             <p>
-                                <span style="font-weight:bold">Жанр:</span>
+                                <span style="font-weight:bold">Жанры:</span>
                                 @foreach (var genre in Model.Genres)
                                 {
                                     @if (Model.MediaType == 0)
@@ -184,7 +185,8 @@
             </tbody>
         </table>
         <h2 style=" clear:both; margin-top:5%; margin-bottom:5%;">Скриншоты:</h2>
-        @if(Model.Images.Count != 0) {
+        @if (Model.Images.Count != 0)
+        {
             <div class="slider middle">
                 <div class="slides">
 
@@ -192,12 +194,12 @@
                     <input type="radio" name="r" id="r2">
                     <input type="radio" name="r" id="r3">
                     <input type="radio" name="r" id="r4">
-                
+
                     <div class="slide s1"><a href="@Model.Images[0].ImagesUrl" target="_blank"><img src=@Model.Images[0].ImagesUrl alt=""></a></div>
                     <div class="slide"><a href="@Model.Images[1].ImagesUrl" target="_blank"><img src=@Model.Images[1].ImagesUrl alt=""></a></div>
                     <div class="slide"><a href="@Model.Images[2].ImagesUrl" target="_blank"><img src=@Model.Images[2].ImagesUrl alt=""></a></div>
                     <div class="slide"><a href="@Model.Images[3].ImagesUrl" target="_blank"><img src=@Model.Images[3].ImagesUrl alt=""></a></div>
-                </div>  
+                </div>
 
                 <div class=" navigation">
                     <label for="r1" class=" bar"></label>
@@ -207,6 +209,34 @@
                 </div>
             </div>
         }
+        @if (ViewBag.User != null)
+        {
+        <div style="margin-top:10px;">
+            <a class="btn" href="#profil">Добавить отзыв</a>
+        </div>
+
+        <div id="profil">
+            <a href="#"></a>
+            <div>
+                <form action="" method="post" enctype="multipart/form-data">
+                    <p><b>Введите ваш отзыв:</b></p>
+                    <p><textarea rows="10" cols="45" name="text"></textarea></p>
+                    <input type="submit" value="Подтвердить" formaction=@Url.Action("AddReviews", "Films", new { IdFilm = Model.MediaID })>
+                </form>
+                <a href="#">Выйти</a>
+            </div>
+        </div>
+        }
+        @if (Model.Reviews != null)
+        {
+            @foreach (var Revi in Model.Reviews)
+            {
+                <p><b>Никнейм: @Revi.Nickname</b></p>
+                <p><b>Дата: @Revi.DateOfReview</b></p>
+                <p><textarea readonly> @Revi.Description </textarea></p>
+            }
+        }
+
     </div>
 </body>
 </html>

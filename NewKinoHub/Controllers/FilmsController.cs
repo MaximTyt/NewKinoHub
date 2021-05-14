@@ -107,5 +107,12 @@ namespace KinoHab.Controllers
             var Film = await _film.GetFilmforId(id, await _film.GetUser(User.Identity.Name));
             return View(Film);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> AddReviews(int IdFilm, string text)
+        {
+            await _film.AddReviews(IdFilm, User.Identity.Name, text);
+            return RedirectToAction("Film", "Films", new { IdFilm = IdFilm });
+        }
     }
 }
