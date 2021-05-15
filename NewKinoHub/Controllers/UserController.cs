@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NewKinoHub.Manager;
 using NewKinoHub.Manager.Userss;
 using System;
 using System.Collections.Generic;
@@ -20,6 +22,8 @@ namespace NewKinoHub.Controllers
         [Authorize]
         public async Task<IActionResult> Profile()
         {
+            if (_user.ImageNull(User.Identity.Name) != true)
+                ViewBag.Image = _user.GetImage(User.Identity.Name);
             var user = await _user.GetUsers(User.Identity.Name);
             return View(user);
         }
@@ -61,7 +65,7 @@ namespace NewKinoHub.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> EditAccount(string mainPhoto, string name, string DataB)
+        public async Task<ActionResult> EditAccount(IFormFile mainPhoto, string name, string DataB)
         {
             await _user.EditAccount(mainPhoto, name, DataB, User.Identity.Name);
             return RedirectToAction("Profile", "User");

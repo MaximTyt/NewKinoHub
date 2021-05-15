@@ -17,6 +17,7 @@ namespace NewKinoHub.Storage.Entity
         [DataType(DataType.MultilineText)]        
         public string Description { get; set; }
         public string Nickname { get; set; }
+        public byte[] ImgUser { get; set; }
         public int MediaId { get; set; }
         public Media Media { get; set; }
 

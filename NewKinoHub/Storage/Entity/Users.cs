@@ -16,7 +16,7 @@ namespace NewKinoHub.Storage.Entity
         public string Nickname { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string Image { get; set; }
+        public byte[] Image { get; set; }
         [Range(0, 1)]
         public Role Role { get; set; }
         public string DateOfBirthday { get; set; }

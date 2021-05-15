@@ -57,6 +57,7 @@ namespace KinoHab.Controllers
             ViewBag.Actor = _film.Cast(2);
             ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
             ViewBag.User = User.Identity.Name;
+            ViewBag.Review = _film.UserReview(User.Identity.Name, IdFilm);
             
             return View(film);
         }
@@ -91,7 +92,7 @@ namespace KinoHab.Controllers
             await _film.AddFilm(mainPhoto, Name, Year, Contry, Release_Date, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video);
             return RedirectToAction("ListFilms", "Films");
         }
-
+        [HttpPost]
         public async Task<ActionResult> EditFilms(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP, string Music, string Video, int Id)
         {
             await _film.EditFilm(mainPhoto, Name, Year, Contry, Release_Date, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id);
