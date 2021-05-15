@@ -23,5 +23,8 @@ namespace KinoHab.Manager
         Task AddFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDescription, double Score, string ScoreKP, string Music, string Video);
         Task EditFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDescription, double Score, string ScoreKP, string Music, string Video, int id);
         bool UserReview(string Email, int IdFilm);
+        Task DeleteReviews(int IdFilm, string Email);
+        Task EditReviews(int idFilm, int IdUser, string text);
+
     }
 }

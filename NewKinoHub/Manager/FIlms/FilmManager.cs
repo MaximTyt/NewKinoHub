@@ -398,5 +398,30 @@ namespace KinoHab.Manager
             _context.Media.FirstOrDefault(st => st.MediaID == idFilm).Reviews.Add(review);
             await _context.SaveChangesAsync();
         }
+
+        public async Task DeleteReviews(int IdFilm, string Email)
+        {
+            var itemToRemove = await _context.Reviews
+                                             .Include(st => st.User)
+                                             .Include(st => st.Media)
+                                             .SingleOrDefaultAsync(st => st.MediaId == IdFilm && st.UsersId == _context.Users.FirstOrDefault(st => st.Email == Email).UserId);
+            if (itemToRemove != null)
+            {
+                _context.Reviews.Remove(itemToRemove);
+            }
+
+            await _context.SaveChangesAsync();
+        }
+
+        [HttpPost]
+        public async Task EditReviews(int idFilm, int IdUser, string text)
+        {
+            if(text != null)
+            {
+                _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Description = text;
+                _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).DateOfReview = DateTime.Now.ToString();
+            }
+            await _context.SaveChangesAsync();
+        }
     }
 }

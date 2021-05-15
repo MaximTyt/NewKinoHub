@@ -19,6 +19,7 @@ namespace NewKinoHub.Manager.Userss
         Task DeleteViewedFilms(int idFilm, string Name);
         byte[] GetImage(string Email);
         bool ImageNull(string Email);
+        int GetUserId(string Email);
 
     }
 }
