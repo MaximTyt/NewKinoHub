@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NewKinoHub.Migrations
 {
@@ -123,7 +124,7 @@ namespace NewKinoHub.Migrations
                     Nickname = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     Role = table.Column<int>(type: "int", nullable: false),
                     DateOfBirthday = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FavoritesId = table.Column<int>(type: "int", nullable: true),
@@ -152,7 +153,7 @@ namespace NewKinoHub.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MediaID = table.Column<int>(type: "int", nullable: true),
+                    MediaId = table.Column<int>(type: "int", nullable: true),
                     PersonId = table.Column<int>(type: "int", nullable: true),
                     RoleInFilm = table.Column<int>(type: "int", nullable: false),
                     Character = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -161,8 +162,8 @@ namespace NewKinoHub.Migrations
                 {
                     table.PrimaryKey("PK_Casts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Casts_Media_MediaID",
-                        column: x => x.MediaID,
+                        name: "FK_Casts_Media_MediaId",
+                        column: x => x.MediaId,
                         principalTable: "Media",
                         principalColumn: "MediaID",
                         onDelete: ReferentialAction.Restrict);
@@ -224,7 +225,10 @@ namespace NewKinoHub.Migrations
                 {
                     ReviewId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    DateOfReview = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nickname = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImgUser = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     MediaId = table.Column<int>(type: "int", nullable: false),
                     UsersId = table.Column<int>(type: "int", nullable: false)
                 },
@@ -246,9 +250,9 @@ namespace NewKinoHub.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Casts_MediaID",
+                name: "IX_Casts_MediaId",
                 table: "Casts",
-                column: "MediaID");
+                column: "MediaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Casts_PersonId",

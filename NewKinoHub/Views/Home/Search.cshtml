@@ -3,11 +3,11 @@
 <html style="font-size: 16px;">
 <head>
     <link rel="stylesheet" href="~/css/favorites.css" media="screen">
+    <link href="~/css/Profil.css" rel="stylesheet" />
     <script class="u-script" type="text/javascript" src="/js/jquery.js" defer=""></script>
 </head>
 
 <body>
-  
     <div class="u-clearfix u-sheet u-sheet-1 wrapper">
         <div style="margin-top:50px; margin-bottom:30px;">
             <div style="width: 100%; max-width: 1125px; margin: 0 auto; color:white;">
@@ -47,7 +47,7 @@
                             <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
                                 <img width="265" class="u-back-image u-expanded imagetitle" src=@film.Img>
                             </a>
-                            <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
+                            <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
                                 <table style="width: 780px;">
                                     <tbody>
                                         <tr>
@@ -112,8 +112,17 @@
                                             @if (ViewBag.Role == 1)
                                             {
                                                 <td align="right" width="30">
+                                                    <a href=@Url.Action("EditFilm", "Films", new { Id = film.MediaID })>
+                                                        <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
+                                                    </a>
+                                                </td>
+                                            }
+
+                                            @if (ViewBag.Role == 1)
+                                            {
+                                                <td align="right" width="30">
                                                     <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = film.MediaID })>
-                                                        <img class="deleteicon" src="~/lib/images/Icons/close.png"/>
+                                                        <img class="deleteicon" src="~/lib/images/Icons/close.png" />
                                                     </a>
                                                 </td>
                                             }
@@ -123,9 +132,10 @@
                                 <p>Год: @film.Year</p>
 
                                 <p>
-                                    Жанр:@foreach (var genre in film.Genres)
+                                    <span style="font-weight:bold">Жанры:</span>
+                                    @foreach (var genre in film.Genres)
                                     {
-                                        <a>@genre.Genre_Name </a>
+                                        <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
                                     }
                                 </p>
                                 <p>
@@ -158,7 +168,7 @@
                             <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
                                 <img width="265" class="u-back-image u-expanded imagetitle" src=@serial.Img>
                             </a>
-                            <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; background-color: #f7971e; padding-left:10px;">
+                            <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
                                 <table style="width: 780px;">
                                     <tbody>
                                         <tr>
@@ -221,6 +231,14 @@
                                                 }
 
                                             }
+                                            @if (ViewBag.Role == 1)
+                                            {
+                                                <td align="right" width="30">
+                                                    <a href=@Url.Action("EditFilm", "Films", new { Id = serial.MediaID })>
+                                                        <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
+                                                    </a>
+                                                </td>
+                                            }
 
                                             @if (ViewBag.Role == 1)
                                             {
@@ -236,9 +254,10 @@
                                 <p>Год: @serial.Year</p>
 
                                 <p>
-                                    Жанр:@foreach (var genre in serial.Genres)
+                                    <span style="font-weight:bold">Жанры:</span>
+                                    @foreach (var genre in serial.Genres)
                                     {
-                                        <a>@genre.Genre_Name </a>
+                                        <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
                                     }
                                 </p>
                                 <p>

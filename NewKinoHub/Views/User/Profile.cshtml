@@ -12,12 +12,12 @@
                 <form action="" method="post" enctype="multipart/form-data">
 
                     <label>Никнейм:<sup>*</sup></label><br />
-                    <input value =@Model.Nickname type="text" name="name" /><br />
-                    <label>Аватарка(Только ссылка с сервера)<sup>*</sup></label><br />
-                    <input type="text" name="mainPhoto"><br />
+                    <input value=@Model.Nickname type="text" name="name" /><br />
+                    <label>Аватарка<sup>*</sup></label><br />
+                    <input type="file" name="mainPhoto"><br />
 
                     <label>Дата рождения:<sup>*</sup></label><br />
-                    <input value =@Model.DateOfBirthday type="text" name="DataB" /><br />
+                    <input value=@Model.DateOfBirthday type="text" name="DataB" /><br />
                     <input type="submit" value="Подтвердить" formaction="~/User/EditAccount">
                 </form>
                 <a href="#">Выйти</a>
@@ -30,7 +30,7 @@
                     <td>
                         @if (Model.Image != null)
                         {
-                            <img class="avasize" src=@Model.Image /> @*поле с аватаркой пользователя*@
+                            <img class="avasize" src= "data:image/jpeg;base64, @(Convert.ToBase64String(@ViewBag.Image))"/> @*поле с аватаркой пользователя*@
                         }
                         else
                         {
@@ -58,38 +58,49 @@
                 </tr>
             </tbody>
         </table>
-        <h4 class="colortext">Избранное :</h4>
-        <div style="margin-top:10px; width:100%;" class="fav_block">
+        @if (Model.Favorites != null && Model.Favorites.Medias.Count != 0)
+        {
+            <h4 class="colortext">Избранное :</h4>
+            <div style="margin-top:10px; width:100%;" class="fav_block">
 
-            @*поле с избранными тайтлами*@
-            @if (Model.Favorites != null)
-            {
+                @*поле с избранными тайтлами*@
+
                 @foreach (var f in Model.Favorites.Medias)
                 {
-            <div class="item">
-                <p class="titlenamesize">@f.Name</p>
-                <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src=@f.Img></a></p>
-                <a class="btn_delete" style="margin-top:10px;" href=@Url.Action("DeleteFavoriteFilms", "User", new { id = f.MediaID})>Удалить</a>
-            </div>
+                    <div class="item">
+                        <p class="titlenamesize"><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })>@f.Name</a></p>
+                        <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src=@f.Img></a></p>
+                        <a class="btn_delete" style="margin-top:10px;" href=@Url.Action("DeleteFavoriteFilms1", "User", new { id = f.MediaID })>Удалить</a>
+                    </div>
                 }
-            }
-        </div>
-        <h4 class="colortext">Просмотренное:</h4>
-        <div style="margin-top:10px; width:100%;" class="fav_block">
 
-            @*поле с просмотренными тайтлами*@
-            @if (Model.Viewed != null)
-            {
+            </div>
+        }
+        else
+        {
+            <h4 class="colortext">Ваш список с избранным пуст, добавьте что-нибудь :</h4>
+        }
+
+        @if (Model.Viewed != null && Model.Viewed.Medias.Count != 0)
+        {
+            <h4 class="colortext">Просмотренное:</h4>
+            <div style="margin-top:10px; width:100%;" class="fav_block">
+
+                @*поле с просмотренными тайтлами*@
+
                 @foreach (var f in Model.Viewed.Medias)
                 {
-            <div class="item">
-                <p class="titlenamesize">@f.Name</p>
-                <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src=@f.Img></a></p>
-                <a class="btn_delete" style="margin-top:10px;" href=@Url.Action("DeleteViewedFilms", "User", new { id = f.MediaID})>Удалить</a>
-            </div>
+                    <div class="item">
+                        <p class="titlenamesize"><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })>@f.Name</a></p>
+                        <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src=@f.Img></a></p>
+                        <a class="btn_delete" style="margin-top:10px;" href=@Url.Action("DeleteViewedFilms1", "User", new { id = f.MediaID })>Удалить</a>
+                    </div>
                 }
-            }
-
-        </div>
-        </div>
+            </div>
+        }
+        else
+        {
+            <h4 class="colortext">Ваш список с просмотренным пуст, добавьте что-нибудь :</h4>
+        }
+    </div>
 </body>

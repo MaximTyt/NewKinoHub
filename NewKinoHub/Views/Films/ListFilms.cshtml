@@ -165,7 +165,7 @@
                         <p><span style="font-weight:bold">Год:</span> @film.Year</p>
 
                         <p>
-                            <span style="font-weight:bold">Жанр:</span>
+                            <span style="font-weight:bold">Жанры:</span>
                             @foreach (var genre in film.Genres)
                             {
                                 <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>

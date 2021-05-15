@@ -44,7 +44,7 @@ namespace NewKinoHub.Migrations
                     b.Property<string>("Character")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MediaID")
+                    b.Property<int?>("MediaId")
                         .HasColumnType("int");
 
                     b.Property<int?>("PersonId")
@@ -55,7 +55,7 @@ namespace NewKinoHub.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MediaID");
+                    b.HasIndex("MediaId");
 
                     b.HasIndex("PersonId");
 
@@ -260,11 +260,20 @@ namespace NewKinoHub.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("DateOfReview")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("ImgUser")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<int>("MediaId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Nickname")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("UsersId")
                         .HasColumnType("int");
@@ -294,8 +303,8 @@ namespace NewKinoHub.Migrations
                     b.Property<int?>("FavoritesId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Nickname")
                         .HasColumnType("nvarchar(max)");
@@ -352,7 +361,7 @@ namespace NewKinoHub.Migrations
                 {
                     b.HasOne("NewKinoHub.Storage.Entity.Media", "Media")
                         .WithMany("Casts")
-                        .HasForeignKey("MediaID");
+                        .HasForeignKey("MediaId");
 
                     b.HasOne("NewKinoHub.Storage.Entity.Person", "Person")
                         .WithMany("Casts")
