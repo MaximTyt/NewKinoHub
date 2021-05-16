@@ -242,8 +242,21 @@
                 <p><b>Никнейм: @Revi.Nickname</b></p>
                 <p><b>Дата: @Revi.DateOfReview</b></p>
                 <p><textarea readonly> @Revi.Description </textarea></p>
+                if (Revi.UsersId == ViewBag.UserId || ViewBag.Role == 1)
+                {
+                    <div>
+                        <a href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID })>
+                            Удалить
+                        </a>
+                    </div>
+
+                    <div style="margin-top:10px;">
+                        <a class="btn" href="#">Редактировать</a>
+                    </div>
+                }
             }
         }
+
 
     </div>
 </body>
