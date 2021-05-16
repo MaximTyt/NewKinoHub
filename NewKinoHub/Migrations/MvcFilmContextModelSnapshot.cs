@@ -266,6 +266,9 @@ namespace NewKinoHub.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("ImgUser")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<int>("MediaId")
                         .HasColumnType("int");
 
@@ -300,8 +303,8 @@ namespace NewKinoHub.Migrations
                     b.Property<int?>("FavoritesId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Nickname")
                         .HasColumnType("nvarchar(max)");

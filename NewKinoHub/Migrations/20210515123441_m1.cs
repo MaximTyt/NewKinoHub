@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NewKinoHub.Migrations
 {
@@ -123,7 +124,7 @@ namespace NewKinoHub.Migrations
                     Nickname = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     Role = table.Column<int>(type: "int", nullable: false),
                     DateOfBirthday = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     FavoritesId = table.Column<int>(type: "int", nullable: true),
@@ -227,6 +228,7 @@ namespace NewKinoHub.Migrations
                     DateOfReview = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Nickname = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImgUser = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     MediaId = table.Column<int>(type: "int", nullable: false),
                     UsersId = table.Column<int>(type: "int", nullable: false)
                 },

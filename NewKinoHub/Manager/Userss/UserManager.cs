@@ -5,6 +5,7 @@ using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -125,12 +126,12 @@ namespace NewKinoHub.Manager.Userss
         }
 
         [HttpPost]
-        public async Task EditAccount(string mainPhoto, string name, string DataB,string Email)
+        public async Task EditAccount(IFormFile mainPhoto, string name, string DataB,string Email)
         {
 
             if(mainPhoto != null)
             {
-                _context.Users.FirstOrDefault(st => st.Email == Email).Image = mainPhoto;
+                _context.Users.FirstOrDefault(st => st.Email == Email).Image = SaveImage.getByteImage(mainPhoto);
             }
             if(DataB != null)
             {
@@ -151,22 +152,24 @@ namespace NewKinoHub.Manager.Userss
                 return 0;
         }
 
+        public byte [] GetImage(string Email)
+        {
+            return _context.Users.FirstOrDefault(st => st.Email == Email).Image;
+        }
+
         public string GetNameUser(string Email)
         {
             return _context.Users.FirstOrDefault(st => st.Email == Email).Nickname;
         }
 
-        //public static byte[] getByteImage(IFormFile file)
-        //{
-        //    byte[] fileData = null;
+        public bool ImageNull(string Email)
+        {
+            return _context.Users.FirstOrDefault(st => st.Email == Email).Image == null ? true : false;
+        }
 
-        //    using (var binaryReader = new BinaryReader(file.OpenReadStream()))
-        //    {
-        //        fileData = binaryReader.ReadBytes((int)file.Length);
-        //    }
-
-        //    return fileData;
-        //}
-
+        public int GetUserId(string Email)
+        {
+            return _context.Users.FirstOrDefault(st => st.Email == Email).UserId;
+        }
     }
 }

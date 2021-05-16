@@ -149,6 +149,20 @@ namespace KinoHab.Manager
             return role;
         }
 
+        public bool UserReview(string Email, int IdFilm)
+        {
+            if(_context.Reviews.FirstOrDefault(st=>st.UsersId == _context.Users.FirstOrDefault(st=>st.Email == Email).UserId) != null && _context.Reviews.FirstOrDefault(st => st.UsersId == _context.Users.FirstOrDefault(st => st.Email == Email).UserId).MediaId == IdFilm)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
         public async Task<Media> GetFilmforId(int filmId, Users User)
         {
             var Images = _context.MediaImages.Where(st => st.MediaId == filmId).ToList();
@@ -312,6 +326,7 @@ namespace KinoHab.Manager
             await _context.SaveChangesAsync();
         }
 
+        [HttpPost]
         public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDescription, double Score, string ScoreKP, string Music, string Video, int id)
         {
             if (mainPhoto != null)
@@ -378,8 +393,34 @@ namespace KinoHab.Manager
             review.MediaId = idFilm;
             review.UsersId = _context.Users.FirstOrDefault(st => st.Email == Email).UserId;
             review.Nickname = NickName;
+            review.ImgUser = _context.Users.FirstOrDefault(st => st.Email == Email).Image;
             review.DateOfReview = DateTime.Now.ToString();
             _context.Media.FirstOrDefault(st => st.MediaID == idFilm).Reviews.Add(review);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteReviews(int IdFilm, string Email)
+        {
+            var itemToRemove = await _context.Reviews
+                                             .Include(st => st.User)
+                                             .Include(st => st.Media)
+                                             .SingleOrDefaultAsync(st => st.MediaId == IdFilm && st.UsersId == _context.Users.FirstOrDefault(st => st.Email == Email).UserId);
+            if (itemToRemove != null)
+            {
+                _context.Reviews.Remove(itemToRemove);
+            }
+
+            await _context.SaveChangesAsync();
+        }
+
+        [HttpPost]
+        public async Task EditReviews(int idFilm, int IdUser, string text)
+        {
+            if(text != null)
+            {
+                _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Description = text;
+                _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).DateOfReview = DateTime.Now.ToString();
+            }
             await _context.SaveChangesAsync();
         }
     }

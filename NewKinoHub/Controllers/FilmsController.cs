@@ -57,6 +57,8 @@ namespace KinoHab.Controllers
             ViewBag.Actor = _film.Cast(2);
             ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
             ViewBag.User = User.Identity.Name;
+            ViewBag.UserId = _user.GetUserId(User.Identity.Name);
+            ViewBag.Review = _film.UserReview(User.Identity.Name, IdFilm);
             
             return View(film);
         }
@@ -91,7 +93,7 @@ namespace KinoHab.Controllers
             await _film.AddFilm(mainPhoto, Name, Year, Contry, Release_Date, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video);
             return RedirectToAction("ListFilms", "Films");
         }
-
+        [HttpPost]
         public async Task<ActionResult> EditFilms(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP, string Music, string Video, int Id)
         {
             await _film.EditFilm(mainPhoto, Name, Year, Contry, Release_Date, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id);
@@ -112,6 +114,18 @@ namespace KinoHab.Controllers
         public async Task<ActionResult> AddReviews(int IdFilm, string text)
         {
             await _film.AddReviews(IdFilm, User.Identity.Name, text);
+            return RedirectToAction("Film", "Films", new { IdFilm = IdFilm });
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> EditReviews(int IdFilm, string text)
+        {
+            await _film.EditReviews(IdFilm, _user.GetUserId(User.Identity.Name), text);
+            return RedirectToAction("Film", "Films", new { IdFilm = IdFilm });
+        }
+        public async Task<ActionResult> DeleteReviews(int IdFilm)
+        {
+            await _film.DeleteReviews(IdFilm, User.Identity.Name);
             return RedirectToAction("Film", "Films", new { IdFilm = IdFilm });
         }
     }

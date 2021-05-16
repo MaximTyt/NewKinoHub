@@ -13,8 +13,8 @@
 
                     <label>Никнейм:<sup>*</sup></label><br />
                     <input value=@Model.Nickname type="text" name="name" /><br />
-                    <label>Аватарка(Только ссылка с сервера)<sup>*</sup></label><br />
-                    <input type="text" name="mainPhoto"><br />
+                    <label>Аватарка<sup>*</sup></label><br />
+                    <input type="file" name="mainPhoto"><br />
 
                     <label>Дата рождения:<sup>*</sup></label><br />
                     <input value=@Model.DateOfBirthday type="text" name="DataB" /><br />
@@ -30,7 +30,7 @@
                     <td>
                         @if (Model.Image != null)
                         {
-                            <img class="avasize" src=@Model.Image /> @*поле с аватаркой пользователя*@
+                            <img class="avasize" src= "data:image/jpeg;base64, @(Convert.ToBase64String(@ViewBag.Image))"/> @*поле с аватаркой пользователя*@
                         }
                         else
                         {

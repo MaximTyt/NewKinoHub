@@ -2,7 +2,6 @@
 ﻿@*@model NewKinoHub.Storage.Entity.RegisterModel*@
 
 ﻿<!DOCTYPE html>
-
  <html lang="en">
  <head>
      <meta charset="utf-8" />
@@ -11,11 +10,9 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
      <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
      <link rel="stylesheet" href="~/css/site.css" />
-     <link rel="stylesheet" href="/css/headerlist2.css" />                      @*кнопки главного меню*@
      <link rel="stylesheet" href="~/css/upbutton.css" />                        @*кнопка наверх*@
-     <link rel="stylesheet" href="~/css/searchbutton.css" />                    @*форма поиска*@
      <link rel="stylesheet" href="~/css/titlestyle.css" media="screen">         @*стили для списка тайтлов*@
-     <link rel="stylesheet" href="~/css/layout.css" media="screen" />           @*форма фильмов/сериалов*@
+     <link rel="stylesheet" href="~/css/layout.css" media="screen" />           @*форма фильмов/сериалов; кнопки главного меню; форма поиска*@
      <link rel="stylesheet" href="~/css/bg_css/bg_serials.css" media="screen" />@*фон выбора жанров сериалов*@
      <link rel="stylesheet" href="~/css/bg_css/bg_films.css" media="screen" />  @*фон выбора жанров фильмов*@
      <style>
@@ -154,10 +151,10 @@
                                      </nav>
                                  </td>
                                  <td style="width: 100%; width: 150px !important;">
-                                     <form method="get" asp-controller="Home" asp-action="Search" style="width:250px !important;">
+                                     <form class="searchfo" method="get" asp-controller="Home" asp-action="Search" style="width:250px !important;">
                                          @*Блок поиска по сайту*@
-                                         <input type="search" placeholder="Search title..." value="@ViewData["Getemployeedetails"]" name="Name">       @*Блок поиска по сайту*@
-                                         <button type="submit" value="Search" class="button" />                        @*Блок поиска по сайту*@
+                                         <input class="searchin" type="search" placeholder="Search title..." value="@ViewData["Getemployeedetails"]" name="Name">       @*Блок поиска по сайту*@
+                                         <button type="submit" value="Search" class="searchbu" />                        @*Блок поиска по сайту*@
                                      </form>
                                  </td>
                                  <td style="width: 100%; max-width: 260px !important;">
