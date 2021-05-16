@@ -47,3 +47,74 @@ img.deleteicon:hover{
     width:30px !important;
     height:25px !important;
 }
+
+
+#editreviews {
+    background: rgba(102, 102, 102, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    color: white;
+    z-index: 20;
+}
+
+    #editreviews > a {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 21;
+    }
+
+        #editreviews > a:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+    #editreviews > div {
+        width: 900px;
+        height: 400px;
+        text-align: center;
+        padding: 15px;
+        border: 3px solid rgb(247,151,30);
+        border-radius: 10px;
+        color: white;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background-color: rgb(8,8,8);
+        z-index: 22;
+    }
+
+    #editreviews:target {
+        display: block;
+    }
+
+    #editreviews > div > a {
+        bottom: 0%;
+        width: 80%;
+        background-color: bisque;
+        font-size: 20px;
+        color: black;
+        font-weight: bold;
+        height: 36px;
+    }
+
+        #editreviews > div > a:hover {
+            background-color: rgb(247,151,30);
+            color: rgb(8,8,8) !important;
+        }
+
+    #editreviews > div > form {
+        width: 80%;
+    }
