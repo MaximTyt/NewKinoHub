@@ -4,24 +4,9 @@ tr.background {
     height: 100px;
     background-color: bisque;
 }
-img.avasize{
-    width:250px;
-    height:250px;
-    border-radius:50%;
-}
 
-.btn {
-    width:300px;
-    height: 40px;
-    background-color: rgb(8,8,8);
-    align-content: center;
-    color: white;
-}
 
-    .btn:hover {
-        background: rgb(247,151,30);
-        color: rgb(8,8,8);
-    }
+
 
 
 .btn_delete {

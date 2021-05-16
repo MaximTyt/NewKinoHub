@@ -21,13 +21,3 @@
         background: rgb(247,151,30);
         color: black;
     }
-
-    /*bg*/
-.listfilm {
-    background-image: url('../lib/images/major_grom_bg.png');
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-}
