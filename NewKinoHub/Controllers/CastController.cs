@@ -19,6 +19,7 @@ namespace NewKinoHub.Controllers
         public async Task<IActionResult> Person(int personId)
         {
             var person = await _cast.GetPersonforId(personId);
+            await _cast.AgeOfPerson(personId);
             return View(person);
         }
 
@@ -30,5 +31,6 @@ namespace NewKinoHub.Controllers
             var cast = await _cast.GetAllCast(castId);
             return View(cast);
         }
+
     }
 }
