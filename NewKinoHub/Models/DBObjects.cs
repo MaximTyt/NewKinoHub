@@ -158,6 +158,14 @@ namespace NewKinoHub.Models
                             {
                                 ImagesUrl ="https://imageup.ru/img155/3736819/zsl4.jpg"
                             }
+                        },
+                        Casts=new List<Cast>()
+                        {
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Режиссёр,
+                                Person=Persons["Роберт Данкан МакНил"]
+                            }
                         }
                     }, //доделать каст
                     new Media
@@ -753,7 +761,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Грин Бэй, Висконсин, США",
                             Spouse="Дебора Снайдер",
                             Awards="Сатурн, 2008 - Лучший режиссер («300 спартанцев»)",
-                            RolesInMedia = new RoleInFilm[3]{RoleInFilm.Режиссёр, RoleInFilm.Сценарист, RoleInFilm.Актёр},
+                            RolesInMedia = "Режиссёр, Сценарист, Актёр",
                             Image="https://imageup.ru/img214/3736505/zack_snyder.jpg",
                             Description="В марте 2017 года дочь Снайдера Отем покончила с собой.\n" +
                             "Зак с Деборой воспитывают семерых детей, двое из которых являются приемными."
@@ -779,7 +787,7 @@ namespace NewKinoHub.Models
                             " Премия Гильдии актеров, 1999 - Лучший актерский состав («Влюбленный Шекспир»);"+
                             " Оскар, 1998 - Лучший сценарий («Умница Уилл Хантинг»);"+
                             " Золотой глобус, 1998 - Лучший сценарий («Умница Уилл Хантинг»)",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Актёр,RoleInFilm.Режиссёр, RoleInFilm.Сценарист},
+                            RolesInMedia = "Актёр, Режиссёр, Сценарист",
                             Image="https://imageup.ru/img208/3736572/benafflec.jpg",
                             Description= "Актёр Кейси Аффлек — младший брат Бена.\n" +
                             "Недолгое время учился в Вермонтском университете и Оксидентал-колледже."
@@ -794,7 +802,7 @@ namespace NewKinoHub.Models
                             Spouse="Ярон Версано",
                             Awards="Премия канала «MTV», 2018 - Лучшая драка («Чудо-женщина»);" +
                             "Сатурн, 2018 - Лучшая актриса («Чудо-женщина»)",
-                            RolesInMedia = new RoleInFilm[2]{RoleInFilm.Актёр, RoleInFilm.Сценарист},
+                            RolesInMedia = "Актёр, Сценарист",
                             Image="https://imageup.ru/img152/3736581/galgadot.jpg",
                             Description= "Актриса и модель. Является победительницей конкурса" +
                             " «Мисс Израиль 2004» и участницей конкурса «Мисс Вселенная 2004».\n" +
@@ -810,7 +818,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Сент-Сейвьер, Джерси, Нормандские острова",
                             Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»);" +
                             "Премия канала «MTV», 2014 - Лучший герой («Человек из стали»)",
-                            RolesInMedia = new RoleInFilm[1]{RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Image="https://imageup.ru/img10/3736585/henrycavill.jpg",
                             Description="У актера есть четыре брата.\n" +
                             "Генри Кавилл является представителем Фонда охраны дикой природы имени Даррелла.\n" +
@@ -830,7 +838,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Гонолулу, Гавайи, США",
                             Spouse="Лиза Боне",
                             Awards="CinemaCon, 2011 - Восходящая звезда",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Актёр,RoleInFilm.Режиссёр, RoleInFilm.Сценарист},
+                            RolesInMedia = "Актёр, Режиссёр, Сценарист",
                             Image="https://imageup.ru/img226/3736588/jasonmamoa.jpg",
                             Description="У него есть двое детей от Лизы Боне — Лола Иолани (Lola Iolani) и Накоа Вульф Манакауапо Намакеаха Момоа.\n" +
                             "Лицевой шрам - 15 ноября 2008 года мужчина ударил Момоа по лицу разбитым пивным стаканом во время ссоры" +
@@ -844,7 +852,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday="30/09/1992",                           
                             PlaceOfBirthday="Хобокен, Нью-Джерси, США",
                             Awards="Каннский кинофестиваль, 2012 - Приз компании «Шопар» лучшему молодому актеру",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Актёр,RoleInFilm.Режиссёр, RoleInFilm.Сценарист},
+                            RolesInMedia = "Актёр, Режиссёр,Сценарист",
                             Image="https://imageup.ru/img148/3736601/ezramiller.jpg",
                             Description="Миллер описывает себя как квира, не идентифицируя свою личность с конкретным гендером и сексуальной ориентацией.\n" +
                             "С 2016 года играет роли Криденса Бэрбоуна в серии фильмов «Фантастические твари»" +
@@ -858,7 +866,7 @@ namespace NewKinoHub.Models
                             Height="1.91 м",
                             DateOfBirthday="8/09/1987",                            
                             PlaceOfBirthday="Балтимор, Мэрилэнд, США",
-                            RolesInMedia = new RoleInFilm[1]{RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Image="https://imageup.ru/img65/3736608/rayfisher.jpg",
                             Description="После средней школы Фишер учился в Американской музыкально-драматической академии в Нью-Йорке.\n" +
                             "Получив роль Киборга, Фишер сказал: «Я не знал, в какой степени DC и WB планировали использовать" +
@@ -875,7 +883,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Нью-Йорк, США",
                             Awards="Золотая малина, 2017 - Худший сценарий («Бэтмен против Супермена: На заре справедливости»);" +
                             "Оскар, 2013 - Лучший адаптированный сценарий («Операция «Арго»»)",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Сценарист,RoleInFilm.Режиссёр,RoleInFilm.Актёр},
+                            RolesInMedia = "Сценарист, Режиссёр, Актёр",
                             Image="https://imageup.ru/img11/3736631/christerrio.jpg",
                             Description="Крис Террио вырос на Статен-Айленде (Нью-Йорк), в католической" +
                             " семье итальянского и ирландского происхождения. В 1997 году окончил" +
@@ -888,7 +896,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday="9/02/1973",                            
                             PlaceOfBirthday="Коуми, Нагано (префектура), Япония",
                             Spouse="Мисака Тиэко",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Режиссёр,RoleInFilm.Сценарист,RoleInFilm.Актёр},
+                            RolesInMedia = "Режиссёр, Сценарист, Актёр",
                             Image="https://imageup.ru/img111/3736947/makotoshinkai.jpg",
                             Description="Настоящее имя — Макото Ниицу. Фильм Синкая «Твоё имя», вышедший в 2016 году," +
                             " некоторое время был самым кассовым аниме в мире за всю историю.\n" +
@@ -907,7 +915,7 @@ namespace NewKinoHub.Models
                             Height="1.68 м",
                             DateOfBirthday="19/05/1993",                            
                             PlaceOfBirthday="Сайтама, Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="11-я премия Seiyu Awards, 2017 - Лучшая мужская роль («Твоё имя»)",
                             Image="https://imageup.ru/img21/3739101/ryunosuke_kamiki.jpg",
                             Description="Его отец любил поезда, и его назвали Рюносукэ" +
@@ -929,7 +937,7 @@ namespace NewKinoHub.Models
                             Height="1.52 м",
                             DateOfBirthday="27/01/1998",                            
                             PlaceOfBirthday="Кагосима, Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="11-я премия Seiyu Awards, 2017 - Лучшая женская роль («Твоё имя»)",
                             Image="https://imageup.ru/img225/3739102/mone_kamishiraishi.jpg",
                             Description="Родилась в артистической семье, ее сестра Мока Камисираиси" +
@@ -945,7 +953,7 @@ namespace NewKinoHub.Models
                             Height="1.82 м",
                             DateOfBirthday="22/11/1993",                            
                             PlaceOfBirthday="Сайтама (префектура), Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="74-ю Mainichi Film Awards, 2020 - Лучшая мужская роль («Говорящие картинки»)",
                             Image="https://imageup.ru/img248/3739110/ryo_narita.jpg",
                             Description="В индустрию развлечений пришел в 2013 году" +
@@ -961,7 +969,7 @@ namespace NewKinoHub.Models
                             Height="1.45 м",
                             DateOfBirthday="27/03/1992",                            
                             PlaceOfBirthday="Тиба (префектура), Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="Newtype Anime Awards, 2011 - Лучшая женская роль;"+
                             "6-я премия Seiyu Awards, 2012 - Лучшая женская роль («Пуэлла Маги Мадока Магика»), («Госик»), («A-Channel»)"                            ,
                             Image="https://imageup.ru/img220/3739117/aoi_yuki.jpg",
@@ -979,7 +987,7 @@ namespace NewKinoHub.Models
                             OriginalName="Haruo Sotozaki",
                             DateOfBirthday="-",
                             PlaceOfBirthday="Хоккайдо, Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Режиссёр},
+                            RolesInMedia = "Режиссёр",
                             Awards="Tokyo Anime Award, 2021 - Режиссёр («Клинок, рассекающий демонов»)",
                             Image="https://imageup.ru/img109/3739209/haruo-sotozaki.jpg",
                             Description="Полнометражное аниме 'Клинок, рассекающий демонов. Бесконечный поезд'" +
@@ -992,7 +1000,7 @@ namespace NewKinoHub.Models
                             OriginalName="Koyoharu Gotouge",
                             DateOfBirthday="5/05/1989",                            
                             PlaceOfBirthday="-",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},
+                            RolesInMedia = "Сценарист",
                             Image="https://imageup.ru/img71/3739216/koyoharu_gotouge.jpg",
                             Description="Автор и мангака 'Клинка, рассекающего демонов'." +
                             " В ноябре 2016 года Готоге начала выпускать свою первую продолжительную" +
@@ -1005,7 +1013,7 @@ namespace NewKinoHub.Models
                             Height="1.73 м",
                             DateOfBirthday="26/06/1991",                            
                             PlaceOfBirthday="Канагава, Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2015 - Лучший начинающий актёр;" +
                             "Seiyu Awards, 2017 - «Лучшая индивидуальная работа»;" +
                             "Seiyu Awards, 2020 - Лучшая мужская роль",
@@ -1024,7 +1032,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday="17/09/1986",
                             Height="1.65 м",                            
                             PlaceOfBirthday="Хоккайдо, Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2012 - Лучший начинающий актёр;" +
                             "Seiyu Awards, 2016 - «Лучший актёр в главной роли»;",
                             Image="https://imageup.ru/img192/3739467/yoshitsugu_matsuoka.jpg",
@@ -1042,7 +1050,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday="21/04/1980",
                             Height="1.68 м",                            
                             PlaceOfBirthday="Хоккайдо, Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2012 - «Лучшее исполнение песни» («Поющий принц»)",
                             Image="https://imageup.ru/img219/3739474/hiro_shimono.jpg",
                             Description="Его известные роли включают Кейма Кацураги в Мир, который знает только Бог," +
@@ -1059,7 +1067,7 @@ namespace NewKinoHub.Models
                             Height="1.7 м",                            
                             PlaceOfBirthday="Сан-Франциско, Калифорния, США",
                             Spouse="Саки Накадзима",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2012 - «Лучшее исполнение песни» («Поющий принц»)",
                             Image="https://imageup.ru/img226/3739477/satoshi_hino.jpg",
                             Description="Хино родился в США и вырос в Токио . Он жил в Сан-Франциско до пяти лет." +
@@ -1081,7 +1089,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday="12/10/1989",                            
                             PlaceOfBirthday="Нарьян-Мар, СССР (Россия)",
                             Spouse="Виктория",
-                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Режиссёр,RoleInFilm.Сценарист},
+                            RolesInMedia = "Режиссёр, Сценарист",
                             Image="https://imageup.ru/img50/3739738/oleg-trofim.jpg",
                             Description="Стал автором и продюсером самого первого клипа группы «DownCast»" +
                             " под названием «Немое кино». С февраля 2007 года музыкальное семейство ежегодно" +
@@ -1098,7 +1106,7 @@ namespace NewKinoHub.Models
                             OriginalName="Габрелянов Артем Арамович",
                             DateOfBirthday="9/02/1987",                            
                             PlaceOfBirthday="Москва, СССР (Россия)",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},
+                            RolesInMedia = "Сценарист",
                             Image="https://imageup.ru/img195/3739750/artem_gabrelianov.jpg",
                             Description="Основал в 2011 году Bubble Comics как подразделение медиакомпании «News Media Holdings»." +
                             " Со временем Артём Габрелянов решил, что издательству стоит отказаться от юмористических комиксов" +
@@ -1111,7 +1119,7 @@ namespace NewKinoHub.Models
                             OriginalName="Котков Роман Игоревич",
                             DateOfBirthday="28/04/1987",                            
                             PlaceOfBirthday="Москва, СССР (Россия)",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},
+                            RolesInMedia = "Сценарист",
                             Image="https://imageup.ru/img137/3739752/roman-kotkov.jpg",
                             Description="Главный редактор издательства Bubble, ранее выпускающий редактор." +
                             " Креативный продюссер и сценарист ожидаемого фильма «Майор Гром: Чумной доктор»." +
@@ -1126,7 +1134,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday="30/08/1988",
                             Height="1.91 м",                            
                             PlaceOfBirthday="Зеленоградск, Калининградская область, СССР (Россия)",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Image="https://imageup.ru/img100/3739753/tikhon-zhiznevskii.jpg",
                             Description="В 2009 году окончил ВТУ им. Щукина, курс Марии Пантелеевой и Валерия Фокина." +
                             " С 2009 года работал актёром Александринского театра. Дебютом в Александринском театре" +
@@ -1139,7 +1147,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday="15/03/1990",
                             Height="1.75 м",                            
                             PlaceOfBirthday="Москва, СССР (Россия)",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Spouse="Павел Аксенов",
                             Image="https://imageup.ru/img194/3739757/liubov-aksenova.jpg",
                             Description="В 2010 году окончила РАТИ-ГИТИС, мастерская А.И. Шейнина. В 2019 году стала" +
@@ -1153,7 +1161,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday="6/01/1961",
                             Height="1.75 м",                            
                             PlaceOfBirthday="Тамбов, СССР (Россия)",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Spouse="Анна Романцева",
                             Awards="«Заслуженный артист Российской Федерации»",
                             Image="https://imageup.ru/img109/3739765/aleksei-maklakov.jpg",
@@ -1167,7 +1175,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday="7/07/1997",
                             Height="1.83 м",                            
                             PlaceOfBirthday="Дзержинск, Нижегородская область, Россия",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="Лауреат высшей театральной премии Санкт-Петербурга «Золотой софит»",
                             Image="https://imageup.ru/img171/3739768/sergei-goroshko.jpg",
                             Description="В период с 2016 по 2020 год обучался в Российском государственном институте сценических" +
@@ -1181,7 +1189,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday="10/08/1968",
                             Height="1.94 м",                            
                             PlaceOfBirthday="Блумингтон, Миннесота, США",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Сценарист, RoleInFilm.Режиссёр, RoleInFilm.Актёр},
+                            RolesInMedia = "Сценарист, Режиссёр, Актёр",
                             Spouse="Аманда Доктер",
                             Awards="Оскар, 2021 год - Лучший анимационный фильм («Душа»); " +
                             "Британская академия, 2021 год - Лучший анимационный фильм («Душа»); " +
@@ -1205,7 +1213,7 @@ namespace NewKinoHub.Models
                             OriginalName="Mike Jones",
                             DateOfBirthday="1/06/1971",                            
                             PlaceOfBirthday="Сан-Антонио, Техас, США",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},
+                            RolesInMedia = "Сценарист",
                             Image="https://imageup.ru/img25/3739826/mike-jones.jpg",
                             Description="Он начал свою карьеру в качестве журналиста-развлекателя, работая" +
                             " управляющим редактором Filmmaker Magazine и исполнительным редактором IndieWire. Его первый сценарий, EvenHand," +
@@ -1221,7 +1229,7 @@ namespace NewKinoHub.Models
                             Height="1.75 м",
                             DateOfBirthday="13/12/1967",                           
                             PlaceOfBirthday="Террелл, Техас, США",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Актёр, RoleInFilm.Сценарист,RoleInFilm.Режиссёр },
+                            RolesInMedia = "Актёр, Сценарист, Режиссёр",
                             Awards="Премия канала «MTV», 2013 год - Самый безумный эпизод («Джанго освобожденный»); " +
                             "Оскар, 2005 год - Лучшая мужская роль («Рэй»); " +
                             "Золотой глобус, 2005 год - Лучшая мужская роль (комедия или мюзикл) («Рэй»); " +
@@ -1243,7 +1251,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday="18/05/1970",                            
                             PlaceOfBirthday="Аппер Дерби, Пенсильвания, США",
                             Spouse="Джефф Ричмонд",
-                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Актёр, RoleInFilm.Сценарист},
+                            RolesInMedia = "Актёр, Сценарист",
                             Awards="Эмми, 2016 год - Лучшая приглашенная актриса в комедийном сериале («Saturday Night Live»); " +
                             "Премия Гильдии актеров, 2013 год - Лучшая актриса комедийного сериала («Студия 30»); " +
                             "Золотой глобус, 2009 год - Лучшая женская роль на ТВ (комедия или мюзикл) («Студия 30»); " +
@@ -1267,7 +1275,7 @@ namespace NewKinoHub.Models
                             Height="1.73 м",
                             DateOfBirthday="4/04/1963",                            
                             PlaceOfBirthday="Дублин, Ирландия",
-                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Актёр, RoleInFilm.Сценарист },
+                            RolesInMedia = "Актёр, Сценарист",
                             Awards="British Academy Television Awards, 2000-2002 - Лучшее развлекательное выступление («Итак, Грэм Нортон»); " +
                             "Royal Television Society, 2001 - 	Лучший ведущий («Итак, Грэм Нортон»); " +
                             "British Academy Television Awards, 2011,2012,2018 - Лучшее развлекательное выступление («Шоу Грэма Нортона»); " +
@@ -1286,7 +1294,7 @@ namespace NewKinoHub.Models
                             Height="1.63 м",
                             DateOfBirthday="16/08/1958",                           
                             PlaceOfBirthday="Гарлем, Нью-Йорк, США",
-                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Актёр, RoleInFilm.Режиссёр },
+                            RolesInMedia = "Актёр, Режиссёр",
                             Spouse="Кортни Б. Вэнс",
                             Awards="Премия Гильдии актеров, 2019 год - Лучший актерский состав («Чёрная Пантера»); " +
                             "Сатурн, 1996 год - Лучшая актриса («Странные дни»); " +
@@ -1311,7 +1319,7 @@ namespace NewKinoHub.Models
                             Height="1.83 м",                            
                             PlaceOfBirthday="Иллинойс, США",
                             Spouse="Кэтлин Голт",
-                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Актёр,RoleInFilm.Сценарист},
+                            RolesInMedia = "Актёр, Сценарист",
                             Awards="BTVA Video Game Voice Acting Award - Лучший вокальный ансамбль в видеоигре («NieR: Automata (2017)»)," +
                             " Лучшее мужское вокальное исполнение в видеоигре («NieR: Automata (2017)»); " +
                             "BTVA People's Choice Voice Acting Award, 2018 - Лучший вокальный ансамбль в видеоигре («NieR: Automata (2017)»); " +
@@ -1332,7 +1340,7 @@ namespace NewKinoHub.Models
                             Height="1.76 м",
                             DateOfBirthday="13/06/1974",                            
                             PlaceOfBirthday="Окадзаки, Айти (префектура), Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2012 - «Премия зарубежных поклонников»",
                             Image="https://imageup.ru/img89/3740211/takakhiro-sakurai.jpg",
                             Description="Известные роли, которые сыграл Сакурай, включают Тентомона из серии Digimon Adventure," +
@@ -1341,7 +1349,28 @@ namespace NewKinoHub.Models
                             " из Mr. Osomatsu. Сотрудничал с агентством развлечений 81 Produce," +
                             " с 20 июля 2014 года состоит в агентстве INTENTION, учреждённом одним" +
                             " из его хороших друзей, сэйю Кэнъити Судзумурой."
+                        },
+                        new Person
+                        {
+                            Name="Роберт Данкан МакНил",
+                            OriginalName="Robert Duncan McNeill",
+                            DateOfBirthday="9/11/1964",
+                            Height="1.85 м",
+                            PlaceOfBirthday="Роли, Северная Каролина, США",
+                            RolesInMedia="Режиссер, Актер, Продюсер, Сценарист",                            
+                            Image="https://imageup.ru/img232/3743274/robert-dankan-maknil.jpg",
+                            Awards="New York International Independent Film & Video Festival, 1999 - Лучший короткометражный фильм («Батарея»)",
+                            Description="Макнил начал свою режиссерскую карьеру с нескольких эпизодов «Вояджера»." +
+                            " Затем он написал, продюсировал и снял два отмеченных наградами короткометражных фильма," +
+                            " «Батарея» и « 9 мм любви», а также стал режиссером других эпизодических телешоу." +
+                            " С тех пор он выступал в качестве приглашенной звезды в телевизионных шоу, таких как The Outer Limits и Crossing Jordan." +
+                            " Макнил сосредоточился на своей режиссерской карьере, руководя эпизодами «Бухта Доусона», «Эвервуд»," +
+                            " «Звездный путь: Энтерпрайз», «Мертвый, как я», «Одинокие сердца», «Холм одного дерева», «Лас-Вегас»," +
+                            " «Саммерленд» и «Сверхъестественное». Его режиссерские работы в 2006–2007 годах включают эпизоды «Отчаянных домохозяек»," +
+                            " « Средний» , «Противостояние» , «Девять» , «Рыцари процветания», « В случае чрезвычайной ситуации»," +
+                            " « Что насчет Брайана» и « Мои мальчики»."
                         }
+                        
                     };
                     persons = new Dictionary<string, Person>();
                     foreach (Person el in list)

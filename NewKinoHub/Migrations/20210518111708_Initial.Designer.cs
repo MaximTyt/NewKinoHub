@@ -10,7 +10,7 @@ using NewKinoHub.Storage;
 namespace NewKinoHub.Migrations
 {
     [DbContext(typeof(MvcFilmContext))]
-    [Migration("20210516163857_Initial")]
+    [Migration("20210518111708_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -245,6 +245,9 @@ namespace NewKinoHub.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PlaceOfDeath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RolesInMedia")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Spouse")

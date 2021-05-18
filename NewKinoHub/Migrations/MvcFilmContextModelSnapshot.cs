@@ -245,6 +245,9 @@ namespace NewKinoHub.Migrations
                     b.Property<string>("PlaceOfDeath")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("RolesInMedia")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Spouse")
                         .HasColumnType("nvarchar(max)");
 

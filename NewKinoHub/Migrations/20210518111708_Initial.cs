@@ -42,6 +42,7 @@ namespace NewKinoHub.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OriginalName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RolesInMedia = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Height = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateOfBirthday = table.Column<string>(type: "nvarchar(max)", nullable: false),
