@@ -11,5 +11,6 @@ namespace NewKinoHub.Manager.Casts
         Task<Cast> GetPersonforId(int personId);
         Task<ICollection<Cast>> GetAllCast(int castId);
         RoleInFilm Cast(int i);
+        Task AgeOfPerson(int personId);
     }
 }

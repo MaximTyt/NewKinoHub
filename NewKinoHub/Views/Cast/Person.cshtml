@@ -32,6 +32,8 @@
                             <p>
                                 <span style="font-weight:bold">Дата рождения:</span> @Model.Person.DateOfBirthday
                             </p>
+                            @if (Model.Person.Age != -1)
+                            {
                             @if (Model.Person.Age % 10 == 2 || Model.Person.Age % 10 == 3 || Model.Person.Age % 10 == 4)
                             {
                                 <p> <span style="font-weight:bold">Возраст:</span> @Model.Person.Age года</p>
@@ -43,6 +45,7 @@
                             else
                             {
                                 <p> <span style="font-weight:bold">Возраст:</span> @Model.Person.Age лет</p>
+                            }
                             }
                             @if (Model.Person.DateOfDeath != null)
                             {

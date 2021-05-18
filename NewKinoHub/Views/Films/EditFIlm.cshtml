@@ -40,10 +40,11 @@
                     <tr class="trsize">
                         <td valign="top" colspan="2" class="tdstyle">
                             <label class="colortext">Описание:<sup>*</sup></label><br />
-                            <input style="height:100px;" value=@Model.Description type="text" name="Description" required /><br />
-
+                            @*<textarea style="height:100px;" value=@Model.Description type="text" name="Description" required /><br />*@
+                            <textarea style="height:100px;" type="text" name="Description" required> @Model.Description </textarea>
                             <label class="colortext">Краткое описание:<sup>*</sup></label><br />
-                            <input style="height:100px;" value=@Model.ShortDescription type="text" name="shortDiscription" required /><br />
+                            @*<textarea style="height:100px;" value=@Model.ShortDescription type="text" name="shortDiscription" required /></textarea>*@
+                            <textarea style="height:100px;" type="text" name="shortDiscription" required> @Model.ShortDescription </textarea>
                         </td>
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Рейтинг: @Model.Score <sup>*</sup></label><br />
