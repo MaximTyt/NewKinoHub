@@ -15,8 +15,8 @@
             <div>
                 <form class="addreviewsfo" action="" method="post" enctype="multipart/form-data">
                     <h4>Редактировать отзыв:</h4><br />
-                    <textarea class="addreviewste" rows="10" cols="75" name="text"></textarea><br />
-                    <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("AddReviews", "Films", new { IdFilm = Model.MediaID })>
+                    <textarea class="addreviewste" rows="10" cols="75" name="text">@Model.Reviews.</textarea><br />
+                    <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("EditReviews", "Films", new { IdFilm = Model.MediaID })>
                 </form>
                 <a href="#">Выйти</a>
             </div>
@@ -312,7 +312,7 @@
                                             <textarea rows="7" cols="75" class="viewreviewste" readonly> @Revi.Description </textarea>
                                         </td>
                                         <td valign="bottom" align="right" style="width:15%;">
-                                            <a class="btnreview" href="#editreviews">Редактировать</a><br />
+                                            <a class="btnreview"  href="#editreviews">Редактировать</a><br />
                                             <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID })>Удалить</a>
                                         </td>
                                     </tr>

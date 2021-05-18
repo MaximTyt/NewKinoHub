@@ -20,18 +20,18 @@
                             <input value=@Model.Img type="text" name="mainPhoto" required><br />
 
                             <label class="colortext">Год:<sup>*</sup></label><br />
-                            <input value="@Model.Year" type="text" name="Year" required /><br />
+                            <input value="@Model.Year" type="number" name="Year" min = "1950" step="1" required /><br />
                         </td>
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Страна:<sup>*</sup></label><br />
                             <input value=@Model.Country type="text" name="Contry" required /><br />
 
-                            <label class="colortext">Дата выхода:<sup>*</sup></label><br />
-                            <input value=@Model.Release_Date type="text" name="Release_Date" required /><br />
+                            <label class="colortext">Дата выхода: @Model.Release_Date<sup>*</sup></label><br />
+                            <input type="date" id="date" name="Release_Date" required /><br />
                         </td>
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Возраст<sup>*</sup></label><br />
-                            <input value="@Model.Age" type="text" name="Age" required /><br />
+                            <input value="@Model.Age" type="number" min = "0" step ="1" name="Age" required /><br />
 
                             <label class="colortext">Время:<sup>*</sup></label><br />
                             <input value=@Model.Runtime type="text" name="RunTime" required /><br />
@@ -46,8 +46,8 @@
                             <input style="height:100px;" value=@Model.ShortDescription type="text" name="shortDiscription" required /><br />
                         </td>
                         <td valign="top" class="tdstyle">
-                            <label class="colortext">Рейтинг<sup>*</sup></label><br />
-                            <input value=@Model.Score type="text" name="Score" required /><br />
+                            <label class="colortext">Рейтинг: @Model.Score <sup>*</sup></label><br />
+                            <input type="number" step="0.001" name="Score" min = "0" max="10" required /><br />
 
                             <label class="colortext">Рейтинг с кинопоиска<sup>*</sup></label><br />
                             <input value=@Model.ScoreKP type="text" name="ScoreKP" required /><br />

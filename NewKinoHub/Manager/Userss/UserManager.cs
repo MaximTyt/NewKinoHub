@@ -169,7 +169,9 @@ namespace NewKinoHub.Manager.Userss
 
         public int GetUserId(string Email)
         {
-            return _context.Users.FirstOrDefault(st => st.Email == Email).UserId;
+            if(Email != null)
+                 return _context.Users.FirstOrDefault(st => st.Email == Email).UserId;
+            return 0;
         }
     }
 }

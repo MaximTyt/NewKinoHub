@@ -151,7 +151,9 @@ namespace KinoHab.Manager
 
         public bool UserReview(string Email, int IdFilm)
         {
-            if(_context.Reviews.FirstOrDefault(st=>st.UsersId == _context.Users.FirstOrDefault(st=>st.Email == Email).UserId) != null && _context.Reviews.FirstOrDefault(st => st.UsersId == _context.Users.FirstOrDefault(st => st.Email == Email).UserId).MediaId == IdFilm)
+            if(_context.Reviews.FirstOrDefault(st=>st.UsersId == _context.Users.FirstOrDefault(st=>st.Email == Email).UserId) != null &&
+                _context.Reviews.FirstOrDefault(st=>st.MediaId == IdFilm) != null &&
+                _context.Reviews.FirstOrDefault(st=>st.MediaId == IdFilm).UsersId == _context.Users.FirstOrDefault(st=>st.Email == Email).UserId)
             {
                 return true;
             }
@@ -395,7 +397,7 @@ namespace KinoHab.Manager
             review.Nickname = NickName;
             review.ImgUser = _context.Users.FirstOrDefault(st => st.Email == Email).Image;
             review.DateOfReview = DateTime.Now.ToString();
-            _context.Media.FirstOrDefault(st => st.MediaID == idFilm).Reviews.Add(review);
+            _context.Reviews.Add(review);
             await _context.SaveChangesAsync();
         }
 
