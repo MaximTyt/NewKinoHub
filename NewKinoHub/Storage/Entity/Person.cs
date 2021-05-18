@@ -15,10 +15,8 @@ namespace NewKinoHub.Storage.Entity
         [Required]
         public string Name { get; set; }
         [Required]
-        public string OriginalName { get; set; }
-        //public string RolesInMedia { get; set; }
-        [NotMapped]
-        public RoleInFilm[] RolesInMedia { get; set; }
+        public string OriginalName { get; set; } 
+        public string RolesInMedia { get; set; }
         public string Height { get; set; }
         public string Image { get; set; }
         [Required]

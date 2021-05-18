@@ -26,9 +26,15 @@
                                 <label class="colortext">Дата выхода:<sup>*</sup></label><br />
                                 <input type="text" name="Release_Date" required /><br />
                             </td>
-                            <td valign="top" class="tdstyle">
-                                <label class="colortext">Возраст<sup>*</sup></label><br />
-                                <input type="text" name="Age" required /><br />
+                            <td valign="top" class="tdstyle"> 
+                                <label for="Age" class="colortext">Выберите возраст:<sup>*</sup></label><br />
+                                <select id="Age" name="Age">
+                                    <option value="0">0+</option>
+                                    <option value="6">6+</option>
+                                    <option value="12">12+</option>
+                                    <option value="16">16+</option>
+                                    <option value="18">18+</option>
+                                </select>
                                 <label class="colortext">Время:<sup>*</sup></label><br />
                                 <input type="text" name="RunTime" required /><br />
                             </td>
