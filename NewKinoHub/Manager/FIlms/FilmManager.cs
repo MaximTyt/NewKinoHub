@@ -314,7 +314,7 @@ namespace KinoHab.Manager
         }
 
         [HttpPost]
-        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP,string Music, string Video, string[] Images)
+        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images)
         {
             Media Film = new Media();
             if(NumOfSeason != 0)
@@ -340,7 +340,7 @@ namespace KinoHab.Manager
             Film.Name = Name;       
             Film.Year = Year;         
             Film.Country = Contry;                   
-            Film.Release_Date = Day.ToString() + month;
+            Film.Release_Date = GetReleaseDate(Day.ToString() + month);
             Film.Age = Age;                    
             Film.Runtime = RunTime;                      
             Film.Description = Description;                  
@@ -440,65 +440,65 @@ namespace KinoHab.Manager
         }
 
         [HttpPost]
-        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDescription, double Score, string ScoreKP, string Music, string Video, int id, string[] Images)
+        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images)
         {
             if (mainPhoto != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Img = mainPhoto;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Img = mainPhoto;
             }
             if (Name != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Name = Name;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Name = Name;
             }
             if (Year != 0)  
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Year = Year;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Year = Year;
             }
             if (Contry != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Country = Contry;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Country = Contry;
             }
             if (Day != 0 && month != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Release_Date = GetReleaseDate(month + " " + Day.ToString());
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Release_Date = GetReleaseDate(month + " " + Day.ToString());
             }
             if (Age != 0)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Age = Age;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Age = Age;
             }
             if (RunTime != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Runtime = RunTime;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Runtime = RunTime;
             }
             if (Description != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Description = Description;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Description = Description;
             }
-            if (shortDescription != null)
+            if (shortDiscription     != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).ShortDescription = shortDescription;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).ShortDescription = shortDiscription;
             }
             if (Score != null)
             {
 
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Score = double.Parse(Score.Replace(',','.'), new NumberFormatInfo());
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Score = double.Parse(Score.Replace(',','.'), new NumberFormatInfo());
             }
             if (ScoreKP != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).ScoreKP = ScoreKP;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).ScoreKP = ScoreKP;
             }
             if (Music != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).SoundTrackUrl = Music;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).SoundTrackUrl = Music;
             }
             if (Video != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Video = Video;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Video = Video;
             }
             if (Images!=null)
             {
                 var i = 0;
-                foreach(var Img in _context.MediaImages.Where(st=>st.MediaId==id))
+                foreach(var Img in _context.MediaImages.Where(st=>st.MediaId== Id))
                 {
                     if (i < 4)
                     {

@@ -84,19 +84,40 @@ namespace NewKinoHub.Manager.Home
                     Recommend[Genre.GenreId]++;
                 }
             }
-            int index = 0;
-            int? max = null;
-            for(var i = 0; i < Recommend.Length; i++)
+
+            while (Films.Count <= 3)
             {
-                int thisNum = Recommend[i];
-                if(!max.HasValue || thisNum > max.Value)
+                int index = 0;
+                int? max = null;
+                for (var i = 0; i < Recommend.Length; i++)
                 {
-                    max = thisNum;
-                    index = i;
+                    int thisNum = Recommend[i];
+                    if (!max.HasValue || thisNum > max.Value)
+                    {
+                        max = thisNum;
+                        index = i;
+                    }
+                }
+                if (index != 0)
+                {
+                    foreach (var f in _context.Genres.FirstOrDefault(st => st.GenreId == index).Medias)
+                    {
+                        if(_context.Favorites.FirstOrDefault(st=>st.UserName == User.Email).Medias.FirstOrDefault(st=>st.MediaID == f.MediaID) == null)
+                        {
+                            if(Films.FirstOrDefault(st=>st.MediaID == f.MediaID) == null)
+                            {
+                                Films.Add(f);
+                            }
+                        }
+                    }
+                }
+                Recommend[index] = 0;
+                int Exit = Recommend.Max<int>();
+                if(Exit == 0)
+                {
+                    return Films;
                 }
             }
-            if(index != 0)
-                Films = _context.Genres.FirstOrDefault(st => st.GenreId == index).Medias;
             return Films;
         }
     }
