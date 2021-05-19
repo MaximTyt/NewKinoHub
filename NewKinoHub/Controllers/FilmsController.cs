@@ -88,15 +88,15 @@ namespace KinoHab.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddFilms(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP, string Music, string Video)
+        public async Task<ActionResult> AddFilms(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP, string Music, string Video,string[] Images)
         {
-            await _film.AddFilm(mainPhoto, Name, Year, Contry, Release_Date, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video);
+            await _film.AddFilm(mainPhoto, Name, Year, Contry, Release_Date, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video, Images);
             return RedirectToAction("ListFilms", "Films");
         }
         [HttpPost]
-        public async Task<ActionResult> EditFilms(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP, string Music, string Video, int Id)
+        public async Task<ActionResult> EditFilms(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP, string Music, string Video, int Id, string[] Images)
         {
-            await _film.EditFilm(mainPhoto, Name, Year, Contry, Release_Date, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id);
+            await _film.EditFilm(mainPhoto, Name, Year, Contry, Release_Date, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id,Images);
             return RedirectToAction("ListFilms", "Films");
         }
 
