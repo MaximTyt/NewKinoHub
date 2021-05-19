@@ -32,8 +32,6 @@ namespace NewKinoHub.Controllers
         }
         public async Task<IActionResult> Search(string Name)
         {
-            ViewBag.Director = _media.Cast(0);
-            ViewBag.Actor = _media.Cast(2);
             ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
             ViewData["Getemployeedetails"] = Name;
             ViewBag.User = User.Identity.Name;

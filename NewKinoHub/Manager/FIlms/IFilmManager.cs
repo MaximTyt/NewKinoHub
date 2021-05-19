@@ -8,7 +8,6 @@ namespace KinoHab.Manager
     {
         Task<ICollection<Media>> GetAllFilms();
         Task<Media> GetFilmforId(int filmId,Users User);
-        RoleInFilm Cast(int i);
         MediaType TypeFilm(string i);
         Task<ICollection<Media>> AllSorting(string sort, Users User);
         Task<ICollection<Media>> Filtration(int filtr, Users User);
@@ -23,7 +22,7 @@ namespace KinoHab.Manager
         Task AddFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images);
         Task EditFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images);
         bool UserReview(string Email, int IdFilm);
-        Task DeleteReviews(int IdFilm, string Email);
+        Task DeleteReviews(int IdFilm, int IdUser);
         Task EditReviews(int idFilm, int IdUser, string text);
 
     }

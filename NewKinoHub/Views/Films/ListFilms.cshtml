@@ -176,7 +176,7 @@
                             <span style="font-weight:bold">Режиссер:</span>
                             @foreach (var director in film.Casts)
                             {
-                                if (director.RoleInFilm == ViewBag.Director)
+                                if ((int)director.RoleInFilm == 0)
                                 {
                                     <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
                                 }
@@ -188,7 +188,7 @@
                             <span style="font-weight:bold">Актеры:</span>
                             @foreach (var director in film.Casts)
                             {
-                                if (director.RoleInFilm == ViewBag.Actor)
+                                if ((int)director.RoleInFilm == 2)
                                 {
                                     <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name |</a>
                                 }

@@ -48,29 +48,11 @@ namespace NewKinoHub.Manager.Home
             {
                 films = films.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Film).ToList();
                 serials = serials.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Serial).ToList();
+
+                
                 film = (films.ToList(), serials.ToList());
             }
             return film;
-        }
-        public RoleInFilm Cast(int i)
-        {
-            RoleInFilm role = RoleInFilm.Актёр;
-            if (i == 0)
-            {
-                role = RoleInFilm.Режиссёр;
-                return role;
-            }
-            if (i == 1)
-            {
-                role = RoleInFilm.Сценарист;
-                return role;
-            }
-            if (i == 2)
-            {
-                role = RoleInFilm.Актёр;
-                return role;
-            }
-            return role;
         }
         public List<Media> Recommendation(Users User)
         {

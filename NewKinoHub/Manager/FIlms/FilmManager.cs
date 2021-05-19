@@ -123,22 +123,6 @@ namespace KinoHab.Manager
                                  .FirstOrDefaultAsync(st => st.Email == UserEmail);
         }
 
-        public RoleInFilm Cast(int i)
-        {
-            RoleInFilm role = RoleInFilm.Актёр;
-            if(i == 0)
-            {
-                role = RoleInFilm.Режиссёр;
-                return role;
-            }
-            if(i == 1)
-            {
-                role = RoleInFilm.Сценарист;
-                return role;
-            }
-            return role;
-        }
-
         public MediaType TypeFilm(string i)
         {
             MediaType role = MediaType.Film;
@@ -348,9 +332,7 @@ namespace KinoHab.Manager
             Film.Score = double.Parse(Score.Replace(',', '.'), new NumberFormatInfo());
             Film.ScoreKP = ScoreKP;
             Film.Video = Video;
-            Film.SoundTrackUrl = Music;
-            //for (var i = 0; i < 4; i++)
-            //    Film.Images[i].ImagesUrl = Images[i];
+            Film.SoundTrackUrl = Music; 
             Film.Images = new List<MediaImages>()
             {
                 new MediaImages
@@ -525,12 +507,12 @@ namespace KinoHab.Manager
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteReviews(int IdFilm, string Email)
+        public async Task DeleteReviews(int IdFilm, int IdUser)
         {
             var itemToRemove = await _context.Reviews
                                              .Include(st => st.User)
                                              .Include(st => st.Media)
-                                             .SingleOrDefaultAsync(st => st.MediaId == IdFilm && st.UsersId == _context.Users.FirstOrDefault(st => st.Email == Email).UserId);
+                                             .SingleOrDefaultAsync(st => st.MediaId == IdFilm && st.UsersId == IdUser);
             if (itemToRemove != null)
             {
                 _context.Reviews.Remove(itemToRemove);

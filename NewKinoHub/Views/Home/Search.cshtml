@@ -142,11 +142,23 @@
                                     <span style="font-weight:bold">Режиссер:</span>
                                     @foreach (var director in film.Casts)
                                     {
-                                        if (director.RoleInFilm == ViewBag.Director)
+                                        if ((int)director.RoleInFilm == 0)
                                         {
                                             <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
                                         }
                                     }
+                                </p>
+                                <p>
+                                    <span style="font-weight:bold">Актеры:</span>
+                                    @foreach (var director in film.Casts)
+                                    {
+                                        if ((int)director.RoleInFilm == 2)
+                                        {
+                                            <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name |</a>
+                                        }
+                                    }
+                                    <a href=@Url.Action("ListCast", "Cast", new { castId = film.MediaID}) class="textstyle">...</a>
+                                </p>
                                 <p>Страна: @film.Country</p>
                                 <p>Возраст: @film.Age+</p>
                                 <a><img src=@film.ScoreKP border='0'></a>
@@ -264,20 +276,23 @@
                                     <span style="font-weight:bold">Режиссер:</span>
                                     @foreach (var director in serial.Casts)
                                     {
-                                        if (director.RoleInFilm == ViewBag.Director)
+                                        if ((int)director.RoleInFilm == 0)
                                         {
                                             <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
                                         }
                                     }
                                 </p>
-
-                                @foreach (var director in serial.Casts)
-                                {
-                                    if (director.RoleInFilm == ViewBag.Director)
+                                <p>
+                                    <span style="font-weight:bold">Актеры:</span>
+                                    @foreach (var director in serial.Casts)
                                     {
-                                        <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                        if ((int)director.RoleInFilm == 2)
+                                        {
+                                            <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name |</a>
+                                        }
                                     }
-                                }
+                                    <a href=@Url.Action("ListCast", "Cast", new { castId = serial.MediaID}) class="textstyle">...</a>
+                                </p>
                                 <p>Страна: @serial.Country</p>
                                 <p>Возраст: @serial.Age+</p>
                                 <a><img src=@serial.ScoreKP border='0'></a>
