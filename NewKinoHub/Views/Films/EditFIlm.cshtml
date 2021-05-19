@@ -36,9 +36,52 @@
 
 
                         </td>
-                        <td valign="top" class="tdstyle">
-                            <label class="colortext">Возраст<sup>*</sup></label><br />
-                            <input value="@Model.Age" type="number" min = "0" step ="1" name="Age" required /><br />
+                        <td valign="top" class="tdstyle"> 
+
+                            <label for="Age" class="colortext">Выберите возраст:<sup>*</sup></label><br />
+                            <select id="Age" name="Age">
+                                @if (Model.Age == 0)
+                                {
+                                <option value="0" selected>0+</option>
+                                }
+                                else
+                                {
+                            <option value="0">0+</option>
+                                }
+                                @if (Model.Age == 6)
+                                {
+                                <option value="6" selected>6+</option>
+                                }
+                                else
+                                {
+                            <option value="6">6+</option>
+                                }
+                                @if (Model.Age == 12)
+                                {
+                                <option value="12" selected>12+</option>
+                                }
+                                else
+                                {
+                            <option value="12">12+</option>
+                                }
+                                @if (Model.Age == 16)
+                                {
+                                <option value="16" selected>16+</option>
+                                }
+                                else
+                                {
+                            <option value="16">16+</option>
+                                }
+                                @if (Model.Age == 18)
+                                {
+                                <option value="18" selected>18+</option>
+                                }
+                                else
+                                {
+                            <option value="18">18+</option>
+                                }
+                            </select>
+                      
 
                             <label class="colortext">Время:<sup>*</sup></label><br />
                             <input value=@Model.Runtime type="text" name="RunTime" required /><br />
@@ -63,6 +106,19 @@
 
                             <label class="colortext">Ссылка на музыку(Яндекс музыка)<sup>*</sup></label><br />
                             <input value=@Model.SoundTrackUrl type="text" name="Music" required /><br />
+
+                            <label class="colortext">Ссылка на кадр №1<sup>*</sup></label><br />
+                            <input value=@Model.Images[0].ImagesUrl type="text" name="Images[0]" required /><br />
+
+                            <label class="colortext">Ссылка на кадр №2<sup>*</sup></label><br />
+                            <input value=@Model.Images[1].ImagesUrl type="text" name="Images[1]" required /><br />
+
+                            <label class="colortext">Ссылка на кадр №3<sup>*</sup></label><br />
+                            <input  value=@Model.Images[2].ImagesUrl type="text" name="Images[2]" required /><br />
+
+                            <label class="colortext">Ссылка на кадр №4<sup>*</sup></label><br />
+                            <input value=@Model.Images[3].ImagesUrl type="text" name="Images[3]" required /><br />
+
                             @if (Model.NumOfEpisodes != null)
                             {
                                 <label class="colortext">Количество эпизодов(Необязательно):</label><br />

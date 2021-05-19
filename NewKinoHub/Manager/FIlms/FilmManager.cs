@@ -314,7 +314,7 @@ namespace KinoHab.Manager
         }
 
         [HttpPost]
-        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP,string Music, string Video, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type)
+        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP,string Music, string Video, string[] Images)
         {
             Media Film = new Media();
             if(NumOfSeason != 0)
@@ -349,7 +349,27 @@ namespace KinoHab.Manager
             Film.ScoreKP = ScoreKP;
             Film.Video = Video;
             Film.SoundTrackUrl = Music;
-
+            //for (var i = 0; i < 4; i++)
+            //    Film.Images[i].ImagesUrl = Images[i];
+            Film.Images = new List<MediaImages>()
+            {
+                new MediaImages
+                            {
+                                ImagesUrl = Images[0]
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl = Images[1]
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl = Images[2]
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl = Images[3]
+                            }
+            };
             _context.Media.Add(Film);
             await _context.SaveChangesAsync();
         }
@@ -420,7 +440,7 @@ namespace KinoHab.Manager
         }
 
         [HttpPost]
-        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDescription, string Score, string ScoreKP, string Music, string Video, int id,int Day,string month, int NumOfEpisodes, int NumOfSeason, int type)
+        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDescription, double Score, string ScoreKP, string Music, string Video, int id, string[] Images)
         {
             if (mainPhoto != null)
             {
@@ -474,6 +494,18 @@ namespace KinoHab.Manager
             if (Video != null)
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == id).Video = Video;
+            }
+            if (Images!=null)
+            {
+                var i = 0;
+                foreach(var Img in _context.MediaImages.Where(st=>st.MediaId==id))
+                {
+                    if (i < 4)
+                    {
+                        Img.ImagesUrl = Images[i];
+                        i++;
+                    }
+                }                
             }
             await _context.SaveChangesAsync();
         }

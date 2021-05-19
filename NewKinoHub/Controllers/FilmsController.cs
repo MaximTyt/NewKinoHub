@@ -88,15 +88,15 @@ namespace KinoHab.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddFilms(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month,int NumOfEpisodes,int NumOfSeason, int type)
+        public async Task<ActionResult> AddFilms(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month,int NumOfEpisodes,int NumOfSeason, int type, string[] Images)
         {
-            await _film.AddFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video, Day, month, NumOfEpisodes, NumOfSeason,type);
+            await _film.AddFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video, Day, month, NumOfEpisodes, NumOfSeason,type,Images);
             return RedirectToAction("ListFilms", "Films");
         }
         [HttpPost]
-        public async Task<ActionResult> EditFilms(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type)
+        public async Task<ActionResult> EditFilms(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images)
         {
-            await _film.EditFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id,Day,month, NumOfEpisodes, NumOfSeason,type);
+            await _film.EditFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id,Day,month, NumOfEpisodes, NumOfSeason,type, Images);
             return RedirectToAction("ListFilms", "Films");
         }
 

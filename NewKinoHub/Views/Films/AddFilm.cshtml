@@ -40,9 +40,14 @@
 
                             </td>
                             <td valign="top" class="tdstyle">
-                                <label class="colortext">Возраст<sup>*</sup></label><br />
-                                <input type="text" min="0" step="1" name="Age" required /><br />
-
+                                <label for="Age" class="colortext">Выберите возраст:<sup>*</sup></label><br />
+                                <select id="Age" name="Age">
+                                    <option value="0">0+</option>
+                                    <option value="6">6+</option>
+                                    <option value="12">12+</option>
+                                    <option value="16">16+</option>
+                                    <option value="18">18+</option>
+                                </select>
                                 <label class="colortext">Время:<sup>*</sup></label><br />
                                 <input type="text" name="RunTime" required /><br />
                             </td>
@@ -72,6 +77,14 @@
 
                                 <label class="colortext">Ссылка на музыку(Яндекс музыка)<sup>*</sup></label><br />
                                 <input type="text" name="Music" required /><br />
+                                <label class="colortext">Ссылка на кадр №1<sup>*</sup></label><br />
+                                <input type="text" name="Images[0]" required /><br />
+                                <label class="colortext">Ссылка на кадр №2<sup>*</sup></label><br />
+                                <input type="text" name="Images[1]" required /><br />
+                                <label class="colortext">Ссылка на кадр №3<sup>*</sup></label><br />
+                                <input type="text" name="Images[2]" required /><br />
+                                <label class="colortext">Ссылка на кадр №4<sup>*</sup></label><br />
+                                <input type="text" name="Images[3]" required /><br />
                             </td>
                         </tr>
                         <tr>
