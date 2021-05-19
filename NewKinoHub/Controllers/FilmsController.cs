@@ -88,15 +88,15 @@ namespace KinoHab.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddFilms(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP, string Music, string Video)
+        public async Task<ActionResult> AddFilms(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month,int NumOfEpisodes,int NumOfSeason, int type)
         {
-            await _film.AddFilm(mainPhoto, Name, Year, Contry, Release_Date, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video);
+            await _film.AddFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video, Day, month, NumOfEpisodes, NumOfSeason,type);
             return RedirectToAction("ListFilms", "Films");
         }
         [HttpPost]
-        public async Task<ActionResult> EditFilms(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP, string Music, string Video, int Id)
+        public async Task<ActionResult> EditFilms(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type)
         {
-            await _film.EditFilm(mainPhoto, Name, Year, Contry, Release_Date, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id);
+            await _film.EditFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id,Day,month, NumOfEpisodes, NumOfSeason,type);
             return RedirectToAction("ListFilms", "Films");
         }
 
@@ -123,9 +123,9 @@ namespace KinoHab.Controllers
             await _film.EditReviews(IdFilm, _user.GetUserId(User.Identity.Name), text);
             return RedirectToAction("Film", "Films", new { IdFilm = IdFilm });
         }
-        public async Task<ActionResult> DeleteReviews(int IdFilm)
+        public async Task<ActionResult> DeleteReviews(int IdFilm, string Email)
         {
-            await _film.DeleteReviews(IdFilm, User.Identity.Name);
+            await _film.DeleteReviews(IdFilm, Email);
             return RedirectToAction("Film", "Films", new { IdFilm = IdFilm });
         }
     }

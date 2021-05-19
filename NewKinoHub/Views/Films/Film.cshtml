@@ -10,17 +10,7 @@
 <body>
     <div class="wrapper">
         @*--------------------Начало блока с Редактировать отзыв--------------------*@
-        <div id="editreviews">
-            <a href="#"></a>
-            <div>
-                <form class="addreviewsfo" action="" method="post" enctype="multipart/form-data">
-                    <h4>Редактировать отзыв:</h4><br />
-                    <textarea class="addreviewste" rows="10" cols="75" name="text">@Model.Reviews.</textarea><br />
-                    <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("EditReviews", "Films", new { IdFilm = Model.MediaID })>
-                </form>
-                <a href="#">Выйти</a>
-            </div>
-        </div>
+       
         @*--------------------Конец блока с Редактировать отзыв--------------------*@
         <h1 style="font-weight: bold; color: aliceblue">@Model.Name</h1>
         <div style="width: 1100px; min-height: 380px;  background-color:azure; min-height : 580px; padding: 20px;">
@@ -292,11 +282,23 @@
                                         </td>
                                         <td valign="bottom" align="right" style="width:15%;">
                                             <a class="btnreview" href="#editreviews">Редактировать</a><br />
-                                            <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID })>Удалить</a>
+                                            <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID,Email = Revi.UsersId})>Удалить</a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
+
+                            <div id="editreviews">
+                                <a href="#"></a>
+                                <div>
+                                    <form class="addreviewsfo" action="" method="post" enctype="multipart/form-data">
+                                        <h4>Редактировать отзыв:</h4><br />
+                                        <textarea class="addreviewste" rows="10" cols="75" name="text">@Model.Reviews.</textarea><br />
+                                        <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("EditReviews", "Films", new { IdFilm = Model.MediaID })>
+                                    </form>
+                                    <a href="#">Выйти</a>
+                                </div>
+                            </div>
                         }
                         else
                         {
@@ -312,13 +314,24 @@
                                             <textarea rows="7" cols="75" class="viewreviewste" readonly> @Revi.Description </textarea>
                                         </td>
                                         <td valign="bottom" align="right" style="width:15%;">
-                                            <a class="btnreview"  href="#editreviews">Редактировать</a><br />
-                                            <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID })>Удалить</a>
+                                            <a class="btnreview" href="#editreviews">Редактировать</a><br />
+                                            <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID, Email = Revi.UsersId })>Удалить</a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         }
+                        <div id="editreviews">
+                            <a href="#"></a>
+                            <div>
+                                <form class="addreviewsfo" action="" method="post" enctype="multipart/form-data">
+                                    <h4>Редактировать отзыв:</h4><br />
+                                    <textarea class="addreviewste" rows="10" cols="75" name="text">@Revi.Description</textarea><br />
+                                    <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("EditReviews", "Films", new { IdFilm = Model.MediaID })>
+                                </form>
+                                <a href="#">Выйти</a>
+                            </div>
+                        </div>
                     }
                 }
             }

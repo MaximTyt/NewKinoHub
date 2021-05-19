@@ -1,4 +1,4 @@
-﻿@model (List<NewKinoHub.Storage.Entity.Media>, List<NewKinoHub.Storage.Entity.Media>)
+﻿@model (List<NewKinoHub.Storage.Entity.Media>, List<NewKinoHub.Storage.Entity.Media>, List<NewKinoHub.Storage.Entity.Media>)
 
 <html style="font-size: 16px;">
 <head>
@@ -91,7 +91,7 @@
                                     </div>
                                 }
                             </div>
-                            
+
                             <div class=" navigation">
                                 <label for="r1" class=" bar"></label>
                                 <label for="r2" class=" bar"></label>
@@ -182,11 +182,28 @@
                             </div>
                         </div>
                     </td>
-
                 </tr>
             </tbody>
         </table>
         <script src="~/js/bootstrap/bootstrap.bundle.min.js"></script>
+        @if (Model.Item3 != null)
+        {
+            <h4 class="colortext">Рекомендации :</h4>
+            <div style="margin-top:10px; width:100%;" class="fav_block">
+
+                @*поле с избранными тайтлами*@
+
+                @foreach (var f in Model.Item3)
+                {
+                    <div class="item">
+                        <p class="titlenamesize"><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })>@f.Name</a></p>
+                        <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src=@f.Img></a></p>
+                        <a class="btn_delete" style="margin-top:10px;" href=@Url.Action("DeleteFavoriteFilms1", "User", new { id = f.MediaID })>Удалить</a>
+                    </div>
+                }
+
+            </div>
+        }
     </div>
 </body>
 </html>

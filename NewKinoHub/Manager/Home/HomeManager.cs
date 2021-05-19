@@ -17,7 +17,7 @@ namespace NewKinoHub.Manager.Home
         {
             _context = context;
         }
-        public (List<Media>, List<Media>) GetNewPopularFilms()
+        public (List<Media>, List<Media>,List<Media>) GetNewPopularFilms(string Email)
         {
             var films = from x in _context.Media.Where(st => st.MediaType == MediaType.Film).Include(st => st.Genres) select x;
             var serials = from x in _context.Media.Where(st =>st.MediaType == MediaType.Serial).Include(st => st.Genres) select x;
@@ -26,8 +26,9 @@ namespace NewKinoHub.Manager.Home
 
             films = films.OrderByDescending(st => st.Score);
             serials = serials.OrderByDescending(st => st.Score);
-            (List<Media>, List<Media>) media = (films.ToList(), serials.ToList());
 
+            (List<Media>, List<Media>, List<Media>) media = (films.ToList(), serials.ToList(),null);
+            
             return media;
         }
 
@@ -70,6 +71,33 @@ namespace NewKinoHub.Manager.Home
                 return role;
             }
             return role;
+        }
+        public List<Media> Recommendation(Users User)
+        {
+            int[] Recommend = new int[21];
+            List<Media> Films = new List<Media>();
+            
+            foreach(var f in _context.Users.FirstOrDefault(st=>st.UserId == User.UserId).Favorites.Medias)
+            {
+                foreach(var Genre in f.Genres)
+                {
+                    Recommend[Genre.GenreId]++;
+                }
+            }
+            int index = 0;
+            int? max = null;
+            for(var i = 0; i < Recommend.Length; i++)
+            {
+                int thisNum = Recommend[i];
+                if(!max.HasValue || thisNum > max.Value)
+                {
+                    max = thisNum;
+                    index = i;
+                }
+            }
+            if(index != 0)
+                Films = _context.Genres.FirstOrDefault(st => st.GenreId == index).Medias;
+            return Films;
         }
     }
 }

@@ -19,9 +19,12 @@ namespace NewKinoHub.Controllers
             _user = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var film = _media.GetNewPopularFilms();
+
+            var film = _media.GetNewPopularFilms(User.Identity.Name);
+            var film2 =_media.Recommendation(await _user.GetUsers(User.Identity.Name));
+            film.Item3 = film2;
             return View(film);
         }
         public async Task<IActionResult> Search(string Name)
@@ -34,6 +37,7 @@ namespace NewKinoHub.Controllers
             var media = await _media.Search(Name,await _film.GetUser(User.Identity.Name));
             return View(media);
         }
+
     }
 }
 

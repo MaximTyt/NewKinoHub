@@ -173,5 +173,9 @@ namespace NewKinoHub.Manager.Userss
                  return _context.Users.FirstOrDefault(st => st.Email == Email).UserId;
             return 0;
         }
+        public bool FavoritesNull(string Email)
+        {
+            return _context.Users.Include(st=>st.Favorites).FirstOrDefault(st => st.Email == Email).Favorites == null ? true : false;
+        }
     }
 }

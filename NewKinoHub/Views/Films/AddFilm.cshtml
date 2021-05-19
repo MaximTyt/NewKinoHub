@@ -10,43 +10,66 @@
                         <tr>
                             <td>
                                 <label class="colortext">Название:<sup>*</sup></label><br />
-                                <input type="text" name="Name" required /><br />
+                                <textarea style="height:50px;" type="text" name="Name" required></textarea>
                             </td>
                         </tr>
                         <tr class="trsize">
                             <td valign="top" class="tdstyle">
                                 <label class="colortext">Аватарка(Только ссылка с сервера):<sup>*</sup></label><br />
                                 <input type="text" name="mainPhoto" required><br />
+
                                 <label class="colortext">Год:<sup>*</sup></label><br />
-                                <input type="text" name="Year" required /><br />
+                                <input type="number" name="Year" min="1950" step="1" required /><br />
                             </td>
                             <td valign="top" class="tdstyle">
                                 <label class="colortext">Страна:<sup>*</sup></label><br />
                                 <input type="text" name="Contry" required /><br />
+
                                 <label class="colortext">Дата выхода:<sup>*</sup></label><br />
-                                <input type="text" name="Release_Date" required /><br />
+                                <label class="colortext">День:<sup>*</sup></label><br />
+                                <input type="number" name="Day" min="1" max="31" step="1" required /><br />
+
+                                <label class="colortext">Месяц и год:<sup>*</sup></label><br />
+                                <input type="month" id="month" name="month" required /><br />
+
+                                <label class="colortext">Выберите тип:<sup>*</sup></label><br />
+                                <select id="type" name="type">
+                                    <option value="0">Фильм</option>
+                                    <option value="1">Сериал</option>
+                                </select>
+
                             </td>
                             <td valign="top" class="tdstyle">
                                 <label class="colortext">Возраст<sup>*</sup></label><br />
-                                <input type="text" name="Age" required /><br />
+                                <input type="text" min="0" step="1" name="Age" required /><br />
+
                                 <label class="colortext">Время:<sup>*</sup></label><br />
                                 <input type="text" name="RunTime" required /><br />
                             </td>
                         </tr>
                         <tr class="trsize">
-                            <td colspan="2" valign="top" class="tdstyle">
+                            <td valign="top" colspan="2" class="tdstyle">
                                 <label class="colortext">Описание:<sup>*</sup></label><br />
-                                <input style="height:100px;" type="text" name="Description" required /><br />
+                                <textarea style="height:100px;" type="text" name="Description" required> </textarea>
                                 <label class="colortext">Краткое описание:<sup>*</sup></label><br />
-                                <input style="height:100px;" type="text" name="shortDiscription" required /><br />
+                                <textarea style="height:100px;" type="text" name="shortDiscription" required> </textarea>
+
+                                <label class="colortext">Количество эпизодов(Необязательно):</label><br />
+                                <input  type="number" step="1" min="0" name ="NumOfEpisodes" > <br />
+                                <label class="colortext">Количество сезонов(Необязательно):</label><br />
+                                <input  type="number" step="1" min="0" name="NumOfSeason" > <br />
                             </td>
+
                             <td valign="top" class="tdstyle">
-                                <label class="colortext">Рейтинг<sup>*</sup></label><br />
-                                <input type="text" name="Score" required /><br />
+                                <label class="colortext">Рейтинг:<sup>*</sup></label><br />
+                                <input type="number" step="0.001" name="Score" min="0" max="10" required /><br />
+
                                 <label class="colortext">Рейтинг с кинопоиска<sup>*</sup></label><br />
                                 <input type="text" name="ScoreKP" required /><br />
+
                                 <label class="colortext">Ссылка на трейлер(с Ютуба)<sup>*</sup></label><br />
                                 <input type="text" name="Video" required /><br />
+
                                 <label class="colortext">Ссылка на музыку(Яндекс музыка)<sup>*</sup></label><br />
                                 <input type="text" name="Music" required /><br />
                             </td>

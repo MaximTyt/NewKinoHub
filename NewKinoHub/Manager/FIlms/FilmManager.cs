@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace KinoHab.Manager
 {
@@ -151,19 +152,25 @@ namespace KinoHab.Manager
 
         public bool UserReview(string Email, int IdFilm)
         {
-            if(_context.Reviews.FirstOrDefault(st=>st.UsersId == _context.Users.FirstOrDefault(st=>st.Email == Email).UserId) != null &&
-                _context.Reviews.FirstOrDefault(st=>st.MediaId == IdFilm) != null &&
-                _context.Reviews.FirstOrDefault(st=>st.MediaId == IdFilm).UsersId == _context.Users.FirstOrDefault(st=>st.Email == Email).UserId)
+            bool p = false;
+            if (Email != null) {
+                foreach (var rev in _context.Reviews.Where(st =>st.MediaId == IdFilm))
+                {
+                    if(rev.UsersId == _context.Users.FirstOrDefault(st=>st.Email == Email).UserId)
+                    {
+                        p = true;
+                    }
+                }
+            }
+            if(p)
             {
-                return true;
+                return p;
             }
             else
             {
-                return false;
+                return p;
             }
         }
-
-
 
         public async Task<Media> GetFilmforId(int filmId, Users User)
         {
@@ -307,19 +314,38 @@ namespace KinoHab.Manager
         }
 
         [HttpPost]
-        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP,string Music, string Video)
+        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP,string Music, string Video, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type)
         {
             Media Film = new Media();
+            if(NumOfSeason != 0)
+            {
+                Film.NumOfSeason = NumOfSeason;
+            }
+            if (NumOfEpisodes != 0)
+            {
+                Film.NumOfEpisodes = NumOfEpisodes;
+            }
+            if(type == 0)
+            {
+                Film.MediaType = MediaType.Film;
+            }
+            else
+            {
+                if(type == 1)
+                {
+                    Film.MediaType = MediaType.Serial;
+                }
+            }
             Film.Img = mainPhoto;           
             Film.Name = Name;       
             Film.Year = Year;         
             Film.Country = Contry;                   
-            Film.Release_Date = Release_Date;                      
+            Film.Release_Date = Day.ToString() + month;
             Film.Age = Age;                    
             Film.Runtime = RunTime;                      
             Film.Description = Description;                  
             Film.ShortDescription = shortDiscription;
-            Film.Score = Score;
+            Film.Score = double.Parse(Score.Replace(',', '.'), new NumberFormatInfo());
             Film.ScoreKP = ScoreKP;
             Film.Video = Video;
             Film.SoundTrackUrl = Music;
@@ -328,8 +354,73 @@ namespace KinoHab.Manager
             await _context.SaveChangesAsync();
         }
 
+        public string GetReleaseDate(string Date)
+        {
+            if(Date.IndexOf("-01") != -1)
+            {
+                Date = Date.Replace("-01", " Январь");
+                return Date;
+            }
+            if (Date.IndexOf("-02") != -1)
+            {
+                Date = Date.Replace("-02", " Февраль");
+                return Date;
+            }
+            if (Date.IndexOf("-03") != -1)
+            {
+                Date = Date.Replace("-03", " Март");
+                return Date;
+            }
+            if (Date.IndexOf("-04") != -1)
+            {
+                Date = Date.Replace("-04", " Апрель");
+                return Date;
+            }
+            if (Date.IndexOf("-05") != -1)
+            {
+                Date = Date.Replace("-05", " Май");
+                return Date;
+            }
+            if (Date.IndexOf("-06") != -1)
+            {
+                Date = Date.Replace("-06", " Июнь");
+                return Date;
+            }
+            if (Date.IndexOf("-07") != -1)
+            {
+                Date = Date.Replace("-07", " Июль");
+                return Date;
+            }
+            if (Date.IndexOf("-08") != -1)
+            {
+                Date = Date.Replace("-08", " Август");
+                return Date;
+            }
+            if (Date.IndexOf("-09") != -1)
+            {
+                Date = Date.Replace("-09", " Сентябрь");
+                return Date;
+            }
+            if (Date.IndexOf("-10") != -1)
+            {
+                Date = Date.Replace("-10", " Октябрь");
+                return Date;
+            }
+            if (Date.IndexOf("-11") != -1)
+            {
+                Date = Date.Replace("-11", " Ноябрь");
+                return Date;
+            }
+            if (Date.IndexOf("-12") != -1)
+            {
+                Date = Date.Replace("-12", " Декабрь");
+                return Date;
+            }
+            return Date;
+        }
+
         [HttpPost]
-        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDescription, double Score, string ScoreKP, string Music, string Video, int id)
+        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDescription, string Score, string ScoreKP, string Music, string Video, int id,int Day,string month, int NumOfEpisodes, int NumOfSeason, int type)
         {
             if (mainPhoto != null)
             {
@@ -339,7 +430,7 @@ namespace KinoHab.Manager
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == id).Name = Name;
             }
-            if (Year != 0)
+            if (Year != 0)  
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == id).Year = Year;
             }
@@ -347,9 +438,9 @@ namespace KinoHab.Manager
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == id).Country = Contry;
             }
-            if (Release_Date != null)
+            if (Day != 0 && month != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Release_Date = Release_Date;
+                _context.Media.FirstOrDefault(st => st.MediaID == id).Release_Date = GetReleaseDate(month + " " + Day.ToString());
             }
             if (Age != 0)
             {
@@ -367,9 +458,10 @@ namespace KinoHab.Manager
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == id).ShortDescription = shortDescription;
             }
-            if (Score != 0)
+            if (Score != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Score = Score;
+
+                _context.Media.FirstOrDefault(st => st.MediaID == id).Score = double.Parse(Score.Replace(',','.'), new NumberFormatInfo());
             }
             if (ScoreKP != null)
             {
