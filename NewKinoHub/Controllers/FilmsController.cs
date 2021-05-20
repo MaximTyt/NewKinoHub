@@ -79,9 +79,9 @@ namespace KinoHab.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddFilms(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month,int NumOfEpisodes,int NumOfSeason, int type, string[] Images)
+        public async Task<ActionResult> AddFilms(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month,int NumOfEpisodes,int NumOfSeason, int type, string[] Images, string[] genres)
         {
-            await _film.AddFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video, Day, month, NumOfEpisodes, NumOfSeason,type,Images);
+            await _film.AddFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video, Day, month, NumOfEpisodes, NumOfSeason,type,Images,genres);
             return RedirectToAction("ListFilms", "Films");
         }
         [HttpPost]

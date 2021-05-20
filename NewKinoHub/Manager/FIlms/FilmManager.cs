@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Globalization;
+using NewKinoHub.Models;
 
 namespace KinoHab.Manager
 {
@@ -297,11 +298,13 @@ namespace KinoHab.Manager
             await _context.SaveChangesAsync();
         }
 
+
+
         [HttpPost]
-        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images)
+        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres)
         {
             Media Film = new Media();
-            if(NumOfSeason != 0)
+            if (NumOfSeason != 0)
             {
                 Film.NumOfSeason = NumOfSeason;
             }
@@ -309,49 +312,53 @@ namespace KinoHab.Manager
             {
                 Film.NumOfEpisodes = NumOfEpisodes;
             }
-            if(type == 0)
+            if (type == 0)
             {
                 Film.MediaType = MediaType.Film;
             }
             else
             {
-                if(type == 1)
+                if (type == 1)
                 {
                     Film.MediaType = MediaType.Serial;
                 }
             }
-            Film.Img = mainPhoto;           
-            Film.Name = Name;       
-            Film.Year = Year;         
-            Film.Country = Contry;                   
+            Film.Img = mainPhoto;
+            Film.Name = Name;
+            Film.Year = Year;
+            Film.Country = Contry;
             Film.Release_Date = GetReleaseDate(Day.ToString() + month);
-            Film.Age = Age;                    
-            Film.Runtime = RunTime;                      
-            Film.Description = Description;                  
+            Film.Age = Age;
+            Film.Runtime = RunTime;
+            Film.Description = Description;
             Film.ShortDescription = shortDiscription;
             Film.Score = double.Parse(Score.Replace(',', '.'), new NumberFormatInfo());
             Film.ScoreKP = ScoreKP;
             Film.Video = Video;
-            Film.SoundTrackUrl = Music; 
+            Film.SoundTrackUrl = Music;
             Film.Images = new List<MediaImages>()
             {
                 new MediaImages
-                            {
-                                ImagesUrl = Images[0]
-                            },
-                            new MediaImages
-                            {
-                                ImagesUrl = Images[1]
-                            },
-                            new MediaImages
-                            {
-                                ImagesUrl = Images[2]
-                            },
-                            new MediaImages
-                            {
-                                ImagesUrl = Images[3]
-                            }
+                 {
+                     ImagesUrl = Images[0]
+                 },
+                 new MediaImages
+                 {
+                     ImagesUrl = Images[1]
+                 },
+                 new MediaImages
+                 {
+                     ImagesUrl = Images[2]
+                 },
+                 new MediaImages
+                 {
+                     ImagesUrl = Images[3]
+                 }
             };
+            for (var i = 0; i < genres.Length; i++)
+            {                
+                Film.Genres.Add(DBObjects.Genres[genres[i]]);
+            }
             _context.Media.Add(Film);
             await _context.SaveChangesAsync();
         }
@@ -477,6 +484,8 @@ namespace KinoHab.Manager
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == Id).Video = Video;
             }
+               _context.Media.FirstOrDefault(st => st.MediaID == Id).MediaType = (MediaType)type;
+            
             if (Images!=null)
             {
                 var i = 0;
@@ -489,6 +498,7 @@ namespace KinoHab.Manager
                     }
                 }                
             }
+            
             await _context.SaveChangesAsync();
         }
 
