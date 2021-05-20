@@ -48,10 +48,10 @@ namespace NewKinoHub.Manager.Casts
         }
         public async Task AgeOfPerson(int personId)
         {
-            if (_context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfBirthday != "-" && _context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfDeath == null)
-                _context.Casts.FirstOrDefault(st => st.Id == personId).Person.Age = Convert.ToInt32(Math.Truncate((DateTime.Now.Date - Convert.ToDateTime(_context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfBirthday)).TotalDays / 365.2425));
-            else if (_context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfBirthday != "-" && _context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfDeath != null)
-                _context.Casts.FirstOrDefault(st => st.Id == personId).Person.Age = Convert.ToInt32(Math.Truncate((Convert.ToDateTime(_context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfDeath) - Convert.ToDateTime(_context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfBirthday)).TotalDays / 365.2425));
+            if (_context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfBirthday.Year !=0001 && _context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfDeath.Year == 0001)
+                _context.Casts.FirstOrDefault(st => st.Id == personId).Person.Age = Convert.ToInt32(Math.Truncate((DateTime.Now.Date - _context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfBirthday).TotalDays / 365.2425));
+            else if (_context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfBirthday.Year != 0001 && _context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfDeath.Year != 0001)
+                _context.Casts.FirstOrDefault(st => st.Id == personId).Person.Age = Convert.ToInt32(Math.Truncate((_context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfDeath - _context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfBirthday).TotalDays / 365.2425));
             else
                 _context.Casts.FirstOrDefault(st => st.Id == personId).Person.Age = -1;
             await _context.SaveChangesAsync();

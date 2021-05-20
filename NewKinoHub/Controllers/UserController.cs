@@ -65,7 +65,7 @@ namespace NewKinoHub.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> EditAccount(IFormFile mainPhoto, string name, string DataB)
+        public async Task<ActionResult> EditAccount(IFormFile mainPhoto, string name, DateTime DataB)
         {
             await _user.EditAccount(mainPhoto, name, DataB, User.Identity.Name);
             return RedirectToAction("Profile", "User");

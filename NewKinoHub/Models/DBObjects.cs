@@ -780,17 +780,18 @@ namespace NewKinoHub.Models
             }
 
             if (!content.Users.Any())
-            {
+            {                
                 content.AddRange(
+
                     new Users
                     {
                         Nickname = "admin",
                         Email = "admin@gmail.com",
                         Password = "123",
                         Role = Role.Admin,
-                        DateOfBirthday = "10/08/2001",
+                        DateOfBirthday = new DateTime(2001,08,10)
                     }
-                    );
+                    ) ;
             }
             content.SaveChanges();
         }
@@ -846,8 +847,8 @@ namespace NewKinoHub.Models
                         new Person{
                             Name="Зак Снайдер",
                             OriginalName="Zachary Edward Snyder",
-                            Height="1.7 м",
-                            DateOfBirthday="1/03/1966",                            
+                            Height=1.7,
+                            DateOfBirthday = new DateTime(1966,03,01),                            
                             PlaceOfBirthday="Грин Бэй, Висконсин, США",
                             Spouse="Дебора Снайдер",
                             Awards="Сатурн, 2008 - Лучший режиссер («300 спартанцев»)",
@@ -859,8 +860,8 @@ namespace NewKinoHub.Models
                         new Person{
                             Name="Бен Аффлек",
                             OriginalName="Benjamin Geza Affleck-Boldt",
-                            Height="1.92 м",
-                            DateOfBirthday="15/08/1972",                            
+                            Height=1.92,
+                            DateOfBirthday=new DateTime(1972,08,15),                            
                             PlaceOfBirthday="Беркли, Калифорния, США",
                             Spouse="Дженнифер Гарнер (развод)",
                             Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»);" +
@@ -886,8 +887,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Галь Гадот",
                             OriginalName="Gal Gadot",
-                            Height="1.78 м",
-                            DateOfBirthday="30/04/1985",                            
+                            Height=1.78,
+                            DateOfBirthday=new DateTime(1985,04,30),                            
                             PlaceOfBirthday = "Петах-Тиква, Израиль",
                             Spouse="Ярон Версано",
                             Awards="Премия канала «MTV», 2018 - Лучшая драка («Чудо-женщина»);" +
@@ -903,8 +904,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Генри Кавилл",
                             OriginalName="Henry William Dalgliesh Cavill",
-                            Height="1.85 м",
-                            DateOfBirthday="5/05/1983",                            
+                            Height=1.85,
+                            DateOfBirthday=new DateTime(1983,05,05),                            
                             PlaceOfBirthday="Сент-Сейвьер, Джерси, Нормандские острова",
                             Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»);" +
                             "Премия канала «MTV», 2014 - Лучший герой («Человек из стали»)",
@@ -923,8 +924,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Джейсон Момоа",
                             OriginalName="Joseph Jason Namakaeha Momoa",
-                            Height="1.93 м",
-                            DateOfBirthday="1/08/1979",                            
+                            Height=1.93,
+                            DateOfBirthday=new DateTime(1979,08,01),                            
                             PlaceOfBirthday="Гонолулу, Гавайи, США",
                             Spouse="Лиза Боне",
                             Awards="CinemaCon, 2011 - Восходящая звезда",
@@ -938,8 +939,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Эзра Миллер",
                             OriginalName="Ezra Matthew Miller",
-                            Height="1.8 м",
-                            DateOfBirthday="30/09/1992",                           
+                            Height=1.8,
+                            DateOfBirthday=new DateTime(1992,09,30),                           
                             PlaceOfBirthday="Хобокен, Нью-Джерси, США",
                             Awards="Каннский кинофестиваль, 2012 - Приз компании «Шопар» лучшему молодому актеру",
                             RolesInMedia = "Актёр, Режиссёр,Сценарист",
@@ -953,8 +954,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Рэй Фишер",
                             OriginalName="Ray Fisher",
-                            Height="1.91 м",
-                            DateOfBirthday="8/09/1987",                            
+                            Height=1.91,
+                            DateOfBirthday=new DateTime(1987,09,08),                            
                             PlaceOfBirthday="Балтимор, Мэрилэнд, США",
                             RolesInMedia = "Актёр",
                             Image="https://imageup.ru/img65/3736608/rayfisher.jpg",
@@ -969,7 +970,7 @@ namespace NewKinoHub.Models
                         {
                             Name="Крис Террио",
                             OriginalName="Chris Terrio",
-                            DateOfBirthday="31/12/1976",                            
+                            DateOfBirthday=new DateTime(1976,12,31),                            
                             PlaceOfBirthday="Нью-Йорк, США",
                             Awards="Золотая малина, 2017 - Худший сценарий («Бэтмен против Супермена: На заре справедливости»);" +
                             "Оскар, 2013 - Лучший адаптированный сценарий («Операция «Арго»»)",
@@ -983,7 +984,7 @@ namespace NewKinoHub.Models
                         {
                             Name="Макото Синкай",
                             OriginalName="Makoto Niitsu",
-                            DateOfBirthday="9/02/1973",                            
+                            DateOfBirthday=new DateTime(1973,02,09),                            
                             PlaceOfBirthday="Коуми, Нагано (префектура), Япония",
                             Spouse="Мисака Тиэко",
                             RolesInMedia = "Режиссёр, Сценарист, Актёр",
@@ -1002,8 +1003,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Рюносукэ Камики",
                             OriginalName="Ryunosuke Kamiki",
-                            Height="1.68 м",
-                            DateOfBirthday="19/05/1993",                            
+                            Height=1.68,
+                            DateOfBirthday=new DateTime(1993,05,19),                            
                             PlaceOfBirthday="Сайтама, Япония",
                             RolesInMedia = "Актёр",
                             Awards="11-я премия Seiyu Awards, 2017 - Лучшая мужская роль («Твоё имя»)",
@@ -1024,8 +1025,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Монэ Камисираиси",
                             OriginalName="Mone Kamishiraishi",
-                            Height="1.52 м",
-                            DateOfBirthday="27/01/1998",                            
+                            Height=1.52,
+                            DateOfBirthday=new DateTime(1998,01,27),                            
                             PlaceOfBirthday="Кагосима, Япония",
                             RolesInMedia = "Актриса",
                             Awards="11-я премия Seiyu Awards, 2017 - Лучшая женская роль («Твоё имя»)",
@@ -1040,8 +1041,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Рё Нарита",
                             OriginalName="Ryo Narita",
-                            Height="1.82 м",
-                            DateOfBirthday="22/11/1993",                            
+                            Height=1.82,
+                            DateOfBirthday=new DateTime(1993,11,22),                            
                             PlaceOfBirthday="Сайтама (префектура), Япония",
                             RolesInMedia = "Актёр",
                             Awards="74-ю Mainichi Film Awards, 2020 - Лучшая мужская роль («Говорящие картинки»)",
@@ -1056,8 +1057,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Аой Юки",
                             OriginalName="Aoi Yuki",
-                            Height="1.45 м",
-                            DateOfBirthday="27/03/1992",                            
+                            Height=1.45,
+                            DateOfBirthday=new DateTime(1992,03,27),                            
                             PlaceOfBirthday="Тиба (префектура), Япония",
                             RolesInMedia = "Актриса",
                             Awards="Newtype Anime Awards, 2011 - Лучшая женская роль;"+
@@ -1074,8 +1075,7 @@ namespace NewKinoHub.Models
                         new Person
                         {
                             Name="Харуо Сотодзаки",
-                            OriginalName="Haruo Sotozaki",
-                            DateOfBirthday="-",
+                            OriginalName="Haruo Sotozaki",                            
                             PlaceOfBirthday="Хоккайдо, Япония",
                             RolesInMedia = "Режиссёр",
                             Awards="Tokyo Anime Award, 2021 - Режиссёр («Клинок, рассекающий демонов»)",
@@ -1088,7 +1088,7 @@ namespace NewKinoHub.Models
                         {
                             Name="Коёхару Готогэ",
                             OriginalName="Koyoharu Gotouge",
-                            DateOfBirthday="5/05/1989",                            
+                            DateOfBirthday=new DateTime(1989,05,05),                            
                             PlaceOfBirthday="-",
                             RolesInMedia = "Сценарист",
                             Image="https://imageup.ru/img71/3739216/koyoharu_gotouge.jpg",
@@ -1100,8 +1100,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Нацуки Ханаэ",
                             OriginalName="Natsuki Hanae",
-                            Height="1.73 м",
-                            DateOfBirthday="26/06/1991",                            
+                            Height=1.73,
+                            DateOfBirthday=new DateTime(1991,06,26),                            
                             PlaceOfBirthday="Канагава, Япония",
                             RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2015 - Лучший начинающий актёр;" +
@@ -1119,8 +1119,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Ёсицугу Мацуока",
                             OriginalName="Yoshitsugu Matsuoka",
-                            DateOfBirthday="17/09/1986",
-                            Height="1.65 м",                            
+                            DateOfBirthday=new DateTime(1986,09,17),
+                            Height=1.65,                            
                             PlaceOfBirthday="Хоккайдо, Япония",
                             RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2012 - Лучший начинающий актёр;" +
@@ -1137,8 +1137,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Хиро Симоно",
                             OriginalName="Hiro Shimono",
-                            DateOfBirthday="21/04/1980",
-                            Height="1.68 м",                            
+                            DateOfBirthday=new DateTime(1980,04,21),
+                            Height=1.68,                            
                             PlaceOfBirthday="Хоккайдо, Япония",
                             RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2012 - «Лучшее исполнение песни» («Поющий принц»)",
@@ -1153,8 +1153,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Сатоси Хино",
                             OriginalName="Satoshi Hino",
-                            DateOfBirthday="4/08/1978",
-                            Height="1.7 м",                            
+                            DateOfBirthday=new DateTime(1978,08,04),
+                            Height=1.7,                            
                             PlaceOfBirthday="Сан-Франциско, Калифорния, США",
                             Spouse="Саки Накадзима",
                             RolesInMedia = "Актёр",
@@ -1176,7 +1176,7 @@ namespace NewKinoHub.Models
                         {
                             Name="Олег Трофим",
                             OriginalName="Трофим Олег Борисович",
-                            DateOfBirthday="12/10/1989",                            
+                            DateOfBirthday=new DateTime(1989,10,12),                            
                             PlaceOfBirthday="Нарьян-Мар, СССР (Россия)",
                             Spouse="Виктория",
                             RolesInMedia = "Режиссёр, Сценарист",
@@ -1194,7 +1194,7 @@ namespace NewKinoHub.Models
                         {
                             Name="Артем Габрелянов",
                             OriginalName="Габрелянов Артем Арамович",
-                            DateOfBirthday="9/02/1987",                            
+                            DateOfBirthday=new DateTime(1987,02,09),                            
                             PlaceOfBirthday="Москва, СССР (Россия)",
                             RolesInMedia = "Сценарист",
                             Image="https://imageup.ru/img195/3739750/artem_gabrelianov.jpg",
@@ -1207,7 +1207,7 @@ namespace NewKinoHub.Models
                         {
                             Name="Роман Котков",
                             OriginalName="Котков Роман Игоревич",
-                            DateOfBirthday="28/04/1987",                            
+                            DateOfBirthday=new DateTime(1987,04,28),                            
                             PlaceOfBirthday="Москва, СССР (Россия)",
                             RolesInMedia = "Сценарист",
                             Image="https://imageup.ru/img137/3739752/roman-kotkov.jpg",
@@ -1221,8 +1221,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Тихон Жизневский",
                             OriginalName="Жизневский Тихон Игоревич",
-                            DateOfBirthday="30/08/1988",
-                            Height="1.91 м",                            
+                            DateOfBirthday=new DateTime(1988,08,30),
+                            Height=1.91,                            
                             PlaceOfBirthday="Зеленоградск, Калининградская область, СССР (Россия)",
                             RolesInMedia = "Актёр",
                             Image="https://imageup.ru/img100/3739753/tikhon-zhiznevskii.jpg",
@@ -1234,8 +1234,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Любовь Аксенова",
                             OriginalName="Аксенова Любовь Павловна",
-                            DateOfBirthday="15/03/1990",
-                            Height="1.75 м",                            
+                            DateOfBirthday=new DateTime(1990,03,15),
+                            Height=1.75,                            
                             PlaceOfBirthday="Москва, СССР (Россия)",
                             RolesInMedia = "Актриса",
                             Spouse="Павел Аксенов",
@@ -1248,8 +1248,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Алексей Маклаков",
                             OriginalName="Маклаков Алексей Константинович",
-                            DateOfBirthday="6/01/1961",
-                            Height="1.75 м",                            
+                            DateOfBirthday=new DateTime(1961,01,06),
+                            Height=1.75,                            
                             PlaceOfBirthday="Тамбов, СССР (Россия)",
                             RolesInMedia = "Актёр",
                             Spouse="Анна Романцева",
@@ -1262,8 +1262,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Сергей Горошко",
                             OriginalName="Горoшко Сергей Дмитриевич",
-                            DateOfBirthday="7/07/1997",
-                            Height="1.83 м",                            
+                            DateOfBirthday=new DateTime(1997,07,07),
+                            Height=1.83,                            
                             PlaceOfBirthday="Дзержинск, Нижегородская область, Россия",
                             RolesInMedia = "Актёр",
                             Awards="Лауреат высшей театральной премии Санкт-Петербурга «Золотой софит»",
@@ -1276,8 +1276,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Пит Доктер",
                             OriginalName="Pete Docter",
-                            DateOfBirthday="10/08/1968",
-                            Height="1.94 м",                            
+                            DateOfBirthday=new DateTime(1968,08,10),
+                            Height=1.94,                            
                             PlaceOfBirthday="Блумингтон, Миннесота, США",
                             RolesInMedia = "Сценарист, Режиссёр, Актёр",
                             Spouse="Аманда Доктер",
@@ -1301,7 +1301,7 @@ namespace NewKinoHub.Models
                         {
                             Name="Майк Джонс",
                             OriginalName="Mike Jones",
-                            DateOfBirthday="1/06/1971",                            
+                            DateOfBirthday=new DateTime(1971,06,01),                            
                             PlaceOfBirthday="Сан-Антонио, Техас, США",
                             RolesInMedia = "Сценарист",
                             Image="https://imageup.ru/img25/3739826/mike-jones.jpg",
@@ -1316,8 +1316,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Джейми Фокс",
                             OriginalName="Eric Marlon Bishop",
-                            Height="1.75 м",
-                            DateOfBirthday="13/12/1967",                           
+                            Height=1.75,
+                            DateOfBirthday=new DateTime(1967,12,13),                           
                             PlaceOfBirthday="Террелл, Техас, США",
                             RolesInMedia = "Актёр, Сценарист, Режиссёр",
                             Awards="Премия канала «MTV», 2013 год - Самый безумный эпизод («Джанго освобожденный»); " +
@@ -1337,8 +1337,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Тина Фей",
                             OriginalName="Elizabeth Stamatina Fey",
-                            Height="1.64 м",
-                            DateOfBirthday="18/05/1970",                            
+                            Height=1.64,
+                            DateOfBirthday=new DateTime(1970,05,18),                            
                             PlaceOfBirthday="Аппер Дерби, Пенсильвания, США",
                             Spouse="Джефф Ричмонд",
                             RolesInMedia = "Актриса, Сценарист",
@@ -1362,8 +1362,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Грэм Нортон",
                             OriginalName="Graham William Walker",
-                            Height="1.73 м",
-                            DateOfBirthday="4/04/1963",                            
+                            Height=1.73,
+                            DateOfBirthday=new DateTime(1963,04,04),                            
                             PlaceOfBirthday="Дублин, Ирландия",
                             RolesInMedia = "Актёр, Сценарист",
                             Awards="British Academy Television Awards, 2000-2002 - Лучшее развлекательное выступление («Итак, Грэм Нортон»); " +
@@ -1381,8 +1381,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Анджела Бассетт",
                             OriginalName="Angela Bassett",
-                            Height="1.63 м",
-                            DateOfBirthday="16/08/1958",                           
+                            Height=1.63,
+                            DateOfBirthday=new DateTime(1958,08,16),                           
                             PlaceOfBirthday="Гарлем, Нью-Йорк, США",
                             RolesInMedia = "Актриса, Режиссёр",
                             Spouse="Кортни Б. Вэнс",
@@ -1405,8 +1405,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Кайл Маккарли",
                             OriginalName="Kyle McCarley",
-                            DateOfBirthday="5/12/1985",
-                            Height="1.83 м",                            
+                            DateOfBirthday=new DateTime(1985,12,05),
+                            Height=1.83,                            
                             PlaceOfBirthday="Иллинойс, США",
                             Spouse="Кэтлин Голт",
                             RolesInMedia = "Актёр, Сценарист",
@@ -1427,8 +1427,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Такахиро Сакурай",
                             OriginalName="Takahiro Sakurai",
-                            Height="1.76 м",
-                            DateOfBirthday="13/06/1974",                            
+                            Height=1.76,
+                            DateOfBirthday=new DateTime(1974,06,13),                            
                             PlaceOfBirthday="Окадзаки, Айти (префектура), Япония",
                             RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2012 - «Премия зарубежных поклонников»",
@@ -1444,8 +1444,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Роберт Данкан МакНил",
                             OriginalName="Robert Duncan McNeill",
-                            DateOfBirthday="9/11/1964",
-                            Height="1.85 м",
+                            DateOfBirthday=new DateTime(1964,11,09),
+                            Height=1.85,
                             PlaceOfBirthday="Роли, Северная Каролина, США",
                             RolesInMedia="Режиссер, Актер, Продюсер, Сценарист",                            
                             Image="https://imageup.ru/img232/3743274/robert-dankan-maknil.jpg",
@@ -1464,8 +1464,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Джей Чандрашекхар",
                             OriginalName="Jayanth Jambulingam Chandrasekhar",
-                            DateOfBirthday="9/04/1968",
-                            Height="1.84 м",
+                            DateOfBirthday=new DateTime(1968,04,09),
+                            Height=1.84,
                             PlaceOfBirthday="Чикаго, Иллинойс, США",
                             RolesInMedia="Режиссер, Актер, Сценарист, Продюсер, Монтажер",
                             Spouse="Сьюзэн Кларк",
@@ -1486,8 +1486,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Алан Тьюдик",
                             OriginalName="Alan Wray Tudyk",
-                            DateOfBirthday="16/03/1971",
-                            Height="1.8 м",
+                            DateOfBirthday=new DateTime(1971,03,16),
+                            Height=1.8,
                             PlaceOfBirthday="Эль-Пасо, Техас, США",
                             RolesInMedia="Актер, Режиссер, Сценарист, Продюсер",
                             Spouse="Чарисса Бартон",
@@ -1510,8 +1510,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Сара Томко",
                             OriginalName="Sara Tomko",
-                            DateOfBirthday="19/10/1983",
-                            Height="1.65 м",                            
+                            DateOfBirthday=new DateTime(1983,10,19),
+                            Height=1.65,                            
                             RolesInMedia="Актриса, Продюсер",                            
                             Image="https://imageup.ru/img211/3743704/sara-tomko.jpg",                            
                             Description="Известна по ролям в Засланец из космоса (2021), Девочки! Девочки! Девочки! Или: Когда Тэмми Увядает (2018) и Подлый Пит (2015)."
@@ -1520,7 +1520,7 @@ namespace NewKinoHub.Models
                         {
                             Name="Кори Рейнольдс",
                             OriginalName="Corey Reynolds",
-                            DateOfBirthday="3/07/1974",
+                            DateOfBirthday=new DateTime(1974,07,03),
                             PlaceOfBirthday="Ричмонд, Вирджиния, США",
                             Spouse="Тара Рене Шемански",                            
                             RolesInMedia="Актер, Продюсер",
@@ -1534,7 +1534,7 @@ namespace NewKinoHub.Models
                         new Person{
                             Name="Джонас Пейт",
                             OriginalName="Jonas James Pate",                            
-                            DateOfBirthday="15/01/1970",
+                            DateOfBirthday=new DateTime(1970,01,15),
                             PlaceOfBirthday="Рейфорд, Северная Каролина, США",
                             Spouse="Дебора Снайдер",
                             Awards="Cognac Festival du Film Policier,1998 - Специальный приз Жюри («Детектор лжи»); " +
@@ -1553,7 +1553,7 @@ namespace NewKinoHub.Models
                         {
                             Name="Шеннон Берк",
                             OriginalName="Shannon Burke",
-                            DateOfBirthday="11/09/1966",
+                            DateOfBirthday=new DateTime(1966,09,11),
                             PlaceOfBirthday="Уилметт, Иллинойс, США",                            
                             RolesInMedia="Сценарист, Продюсер, Писатель",
                             Image="https://imageup.ru/img202/3743824/shannon-burke.jpg",
@@ -1567,8 +1567,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Чейз Стоукс",
                             OriginalName="Chase Stokes",
-                            Height="1.85 м",
-                            DateOfBirthday="16/09/1992",
+                            Height=1.85,
+                            DateOfBirthday=new DateTime(1992,09,16),
                             PlaceOfBirthday="Аннаполис, Мэриленд, США",
                             RolesInMedia="Актер",
                             Image="https://imageup.ru/img222/3743827/chase-stokes.jpg",
@@ -1583,8 +1583,8 @@ namespace NewKinoHub.Models
                         {
                             Name="Мэдлин Клайн",
                             OriginalName="Madelyn Cline",
-                            Height="1.68 м",
-                            DateOfBirthday="21/12/1997",
+                            Height=1.68,
+                            DateOfBirthday=new DateTime(1997,12,21),
                             PlaceOfBirthday="Чарльстон, Южная Каролина, США",
                             RolesInMedia="Актриса",
                             Image="https://imageup.ru/img281/3743932/medlin-klain.jpg",
@@ -1598,7 +1598,7 @@ namespace NewKinoHub.Models
                         {
                             Name="Руди Панкоу",
                             OriginalName="Rudy Pankow",                            
-                            DateOfBirthday="12/08/1998",
+                            DateOfBirthday=new DateTime(1998,08,12),
                             PlaceOfBirthday="Кетчикан, Аляска, США",
                             RolesInMedia="Актёр",
                             Image="https://imageup.ru/img181/3743970/rudi-pankou.jpg",
@@ -1610,8 +1610,7 @@ namespace NewKinoHub.Models
                          new Person
                         {
                             Name="Джефф Аллен",
-                            OriginalName="Jeff Allen",
-                            DateOfBirthday="-",
+                            OriginalName="Jeff Allen",                            
                             PlaceOfBirthday="-",
                             RolesInMedia="Режиссёр",
                             Image="https://imageup.ru/img70/3743969/dzheff-allen.jpg",                            
@@ -1621,10 +1620,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Роберт Киркман",
                             OriginalName="Robert Kirkman",
-                            DateOfBirthday="30/11/1978",
+                            DateOfBirthday=new DateTime(1978,11,30),
                             PlaceOfBirthday="Ричмонд, Кентукки, США",
                             RolesInMedia="Продюсер, Сценарист, Актёр",
-                            Height="1.85 м",
+                            Height=1.85,
                             Image="https://imageup.ru/img23/3743975/robert-kirkman.jpg",
                             Awards="CinEuphoria Awards, 2020 - Почетная Награда («Ходячие мертвецы»)",
                             Description="Наиболее известен своей работой над серией комиксов Ходячие мертвецы и Неуязвимый для Image Comics и Marvel Team-Up и Marvel Zombies для Marvel Comics." +
@@ -1635,9 +1634,9 @@ namespace NewKinoHub.Models
                         {
                             Name="Стивен Ён",
                             OriginalName="Yeon Sang-yeop",
-                            Height="1.75 м",
+                            Height=1.75,
                             Spouse="Джоана Пак",
-                            DateOfBirthday="21/12/1983",
+                            DateOfBirthday=new DateTime(1983,12,21),
                             PlaceOfBirthday="Сеул, Южная Корея",
                             RolesInMedia="Актёр, Продюсер",
                             Image="https://imageup.ru/img156/3743979/stiven-ian.jpg",
@@ -1660,10 +1659,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Сандра О",
                             OriginalName="Sandra Miju Oh",
-                            DateOfBirthday="20/07/1971",
+                            DateOfBirthday=new DateTime(1971,07,20),
                             PlaceOfBirthday="Непиан, Онтарио, Канада",
                             RolesInMedia="Актриса, Продюсер, Сценарист",
-                            Height="1.65 м",
+                            Height=1.65,
                             Image="https://imageup.ru/img169/3743982/sandra-o.jpg",
                             Awards="Золотой глобус, 2019 - Лучшая женская роль на ТВ (драма) («Убивая Еву»); " +
                             "Премия Гильдии актеров, 2019 - Лучшая актриса драматического сериала («Убивая Еву»); " +
@@ -1683,11 +1682,11 @@ namespace NewKinoHub.Models
                         {
                             Name="Дж.К. Симмонс",
                             OriginalName="Jonathan Kimble Simmons",
-                            DateOfBirthday="9/01/1955",
+                            DateOfBirthday=new DateTime(1955,01,09),
                             PlaceOfBirthday="Детройт, Мичиган, США",
                             RolesInMedia="Актёр",
                             Spouse="Мишель Шумахер",
-                            Height="1.8 м",
+                            Height=1.8,
                             Image="https://imageup.ru/img272/3743989/dzhk-simmons.jpg",
                             Awards="Оскар, 2015 - Лучшая мужская роль второго плана («Одержимость»); " +
                             "Золотой глобус, 2015 - Лучшая мужская роль второго плана («Одержимость»); " +
@@ -1704,10 +1703,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Крис Шеридан",
                             OriginalName="Christopher Sheridan",
-                            DateOfBirthday="19/09/1967",
+                            DateOfBirthday=new DateTime(1967,09,19),
                             PlaceOfBirthday="Филиппины",
                             RolesInMedia="Актёр, Продюсер, Сценарист",
-                            Height="1.91 м",
+                            Height=1.91,
                             Image="https://imageup.ru/img102/3743993/kris-sheridan.jpeg",
                             Awards="Austin Film Festival, 2006 - Премия за документальный фильм («Похищение: История Мегуми Йокоты»); " +
                             "DVD Exclusive Awards, 2006 - Лучший сценарий (для премьерного фильма на DVD) («Стьюи Гриффин: Нерассказанная история»); " +
