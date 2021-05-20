@@ -1,13 +1,11 @@
 ﻿
 img.imagetitle {
-    border: none;
-    animation: move-highlight 4s linear infinite;
+    border: 5px solid rgb(247,151,30,0);
     /*картинка тайтла в списке тайтлов*/
 }
     img.imagetitle:hover {
         border: 5px solid rgb(247,151,30,0.7);
         border-radius: 10px;
-        animation-play-state: paused;
     }
 
 .bgtitleopacity {

@@ -116,10 +116,6 @@
                                                     <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
                                                 </a>
                                             </td>
-                                            }
-
-                                            @if (ViewBag.Role == 1)
-                                            {
                                             <td align="right" width="30">
                                                 <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = film.MediaID })>
                                                     <img class="deleteicon" src="~/lib/images/Icons/close.png" />
@@ -166,9 +162,7 @@
                                 @if (ViewBag.Role == 1)
                                 {
 
-                                <a href=@Url.Action("ListCasts", "Cast", new { IdFilm = film.MediaID })>
-                                    Весь каст
-                                </a>
+                                <a class="allcastlist" href=@Url.Action("ListCasts", "Cast", new { IdFilm = film.MediaID })>Весь каст</a>
 
                                 }
                             </div>

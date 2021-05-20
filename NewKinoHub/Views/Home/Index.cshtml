@@ -188,17 +188,16 @@
         <script src="~/js/bootstrap/bootstrap.bundle.min.js"></script>
         @if (Model.Item3 != null)
         {
-            <h4 class="colortext">Рекомендации :</h4>
+            <h3 class="colortext">Рекомендации :</h3>
             <div style="margin-top:10px; width:100%;" class="fav_block">
 
-                @*поле с избранными тайтлами*@
+                @*поле с рекомендованными тайтлами*@
 
                 @foreach (var f in Model.Item3)
                 {
                     <div class="item">
                         <p class="titlenamesize"><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })>@f.Name</a></p>
                         <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src=@f.Img></a></p>
-                        <a class="btn_delete" style="margin-top:10px;" href=@Url.Action("DeleteFavoriteFilms1", "User", new { id = f.MediaID })>Удалить</a>
                     </div>
                 }
 
