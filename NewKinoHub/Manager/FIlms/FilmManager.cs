@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace KinoHab.Manager
 {
@@ -25,7 +26,7 @@ namespace KinoHab.Manager
                                  .ToListAsync();
         }
 
-        public async Task<ICollection<Media>> GetFavoriteFilmsForUser(Users User)
+        public ICollection<Media> GetFavoriteFilmsForUser(Users User)
         {
             List<Media> FavoritesFilms = null;
             if (User != null && User.Favorites!= null)
@@ -36,7 +37,7 @@ namespace KinoHab.Manager
             return FavoritesFilms;
         }
 
-        public async Task<ICollection<Media>> GetViewedFilmsForUser(Users User)
+        public ICollection<Media> GetViewedFilmsForUser(Users User)
         {
             List<Media> ViewedFilms = null;
             if (User != null && User.Viewed != null)
@@ -51,7 +52,7 @@ namespace KinoHab.Manager
             var Films = await GetAllFilms();
             if (User != null && User.Favorites != null)
             {
-                var FavoritFilm = await GetFavoriteFilmsForUser(User);
+                var FavoritFilm = GetFavoriteFilmsForUser(User);
                 foreach (var f in Films)
                 {
                     foreach (var Fav in FavoritFilm)
@@ -66,7 +67,7 @@ namespace KinoHab.Manager
 
             if (User != null && User.Viewed != null)
             {
-                var ViewedFilm = await GetViewedFilmsForUser(User);
+                var ViewedFilm = GetViewedFilmsForUser(User);
                 foreach (var f in Films)
                 {
                     foreach (var Fav in ViewedFilm)
@@ -83,12 +84,12 @@ namespace KinoHab.Manager
 
         public async Task<Media> GetIdFilms(int filmId, Users User)
         {
-            var Films = _context.Media
-                                .Include(st => st.Genres)
-                                .FirstOrDefault(st => st.MediaID == filmId);
+            var Films = await _context.Media
+                                      .Include(st => st.Genres)
+                                      .FirstOrDefaultAsync(st => st.MediaID == filmId);
             if (User != null  && User.Favorites != null)
             {
-                var FavoritFilm = await GetFavoriteFilmsForUser(User);
+                var FavoritFilm = GetFavoriteFilmsForUser(User);
                 foreach (var Fav in FavoritFilm)
                 {
                     if (Films.MediaID == Fav.MediaID)
@@ -100,7 +101,7 @@ namespace KinoHab.Manager
             }
             if (User != null && User.Viewed != null)
             {
-                var FavoritFilm = await GetViewedFilmsForUser(User);
+                var FavoritFilm = GetViewedFilmsForUser(User);
                 foreach (var Fav in FavoritFilm)
                 {
                     if (Films.MediaID == Fav.MediaID)
@@ -122,22 +123,6 @@ namespace KinoHab.Manager
                                  .FirstOrDefaultAsync(st => st.Email == UserEmail);
         }
 
-        public RoleInFilm Cast(int i)
-        {
-            RoleInFilm role = RoleInFilm.Актёр;
-            if(i == 0)
-            {
-                role = RoleInFilm.Режиссёр;
-                return role;
-            }
-            if(i == 1)
-            {
-                role = RoleInFilm.Сценарист;
-                return role;
-            }
-            return role;
-        }
-
         public MediaType TypeFilm(string i)
         {
             MediaType role = MediaType.Film;
@@ -151,17 +136,25 @@ namespace KinoHab.Manager
 
         public bool UserReview(string Email, int IdFilm)
         {
-            if(_context.Reviews.FirstOrDefault(st=>st.UsersId == _context.Users.FirstOrDefault(st=>st.Email == Email).UserId) != null && _context.Reviews.FirstOrDefault(st => st.UsersId == _context.Users.FirstOrDefault(st => st.Email == Email).UserId).MediaId == IdFilm)
+            bool p = false;
+            if (Email != null) {
+                foreach (var rev in _context.Reviews.Where(st =>st.MediaId == IdFilm))
+                {
+                    if(rev.UsersId == _context.Users.FirstOrDefault(st=>st.Email == Email).UserId)
+                    {
+                        p = true;
+                    }
+                }
+            }
+            if(p)
             {
-                return true;
+                return p;
             }
             else
             {
-                return false;
+                return p;
             }
         }
-
-
 
         public async Task<Media> GetFilmforId(int filmId, Users User)
         {
@@ -262,7 +255,7 @@ namespace KinoHab.Manager
             return Name;
         }
 
-        public async Task<ICollection<Media>> SortingFromFiltr(string sort, ICollection<Media> media)
+        public ICollection<Media> SortingFromFiltr(string sort, ICollection<Media> media)
         {
             if (sort == "YearOld")
             {
@@ -305,81 +298,196 @@ namespace KinoHab.Manager
         }
 
         [HttpPost]
-        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDiscription, double Score, string ScoreKP,string Music, string Video)
+        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images)
         {
             Media Film = new Media();
+            if(NumOfSeason != 0)
+            {
+                Film.NumOfSeason = NumOfSeason;
+            }
+            if (NumOfEpisodes != 0)
+            {
+                Film.NumOfEpisodes = NumOfEpisodes;
+            }
+            if(type == 0)
+            {
+                Film.MediaType = MediaType.Film;
+            }
+            else
+            {
+                if(type == 1)
+                {
+                    Film.MediaType = MediaType.Serial;
+                }
+            }
             Film.Img = mainPhoto;           
             Film.Name = Name;       
             Film.Year = Year;         
             Film.Country = Contry;                   
-            Film.Release_Date = Release_Date;                      
+            Film.Release_Date = GetReleaseDate(Day.ToString() + month);
             Film.Age = Age;                    
             Film.Runtime = RunTime;                      
             Film.Description = Description;                  
             Film.ShortDescription = shortDiscription;
-            Film.Score = Score;
+            Film.Score = double.Parse(Score.Replace(',', '.'), new NumberFormatInfo());
             Film.ScoreKP = ScoreKP;
             Film.Video = Video;
-            Film.SoundTrackUrl = Music;
-
+            Film.SoundTrackUrl = Music; 
+            Film.Images = new List<MediaImages>()
+            {
+                new MediaImages
+                            {
+                                ImagesUrl = Images[0]
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl = Images[1]
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl = Images[2]
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl = Images[3]
+                            }
+            };
             _context.Media.Add(Film);
             await _context.SaveChangesAsync();
         }
 
+        public string GetReleaseDate(string Date)
+        {
+            if(Date.IndexOf("-01") != -1)
+            {
+                Date = Date.Replace("-01", " Январь");
+                return Date;
+            }
+            if (Date.IndexOf("-02") != -1)
+            {
+                Date = Date.Replace("-02", " Февраль");
+                return Date;
+            }
+            if (Date.IndexOf("-03") != -1)
+            {
+                Date = Date.Replace("-03", " Март");
+                return Date;
+            }
+            if (Date.IndexOf("-04") != -1)
+            {
+                Date = Date.Replace("-04", " Апрель");
+                return Date;
+            }
+            if (Date.IndexOf("-05") != -1)
+            {
+                Date = Date.Replace("-05", " Май");
+                return Date;
+            }
+            if (Date.IndexOf("-06") != -1)
+            {
+                Date = Date.Replace("-06", " Июнь");
+                return Date;
+            }
+            if (Date.IndexOf("-07") != -1)
+            {
+                Date = Date.Replace("-07", " Июль");
+                return Date;
+            }
+            if (Date.IndexOf("-08") != -1)
+            {
+                Date = Date.Replace("-08", " Август");
+                return Date;
+            }
+            if (Date.IndexOf("-09") != -1)
+            {
+                Date = Date.Replace("-09", " Сентябрь");
+                return Date;
+            }
+            if (Date.IndexOf("-10") != -1)
+            {
+                Date = Date.Replace("-10", " Октябрь");
+                return Date;
+            }
+            if (Date.IndexOf("-11") != -1)
+            {
+                Date = Date.Replace("-11", " Ноябрь");
+                return Date;
+            }
+            if (Date.IndexOf("-12") != -1)
+            {
+                Date = Date.Replace("-12", " Декабрь");
+                return Date;
+            }
+            return Date;
+        }
+
         [HttpPost]
-        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDescription, double Score, string ScoreKP, string Music, string Video, int id)
+        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images)
         {
             if (mainPhoto != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Img = mainPhoto;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Img = mainPhoto;
             }
             if (Name != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Name = Name;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Name = Name;
             }
-            if (Year != 0)
+            if (Year != 0)  
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Year = Year;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Year = Year;
             }
             if (Contry != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Country = Contry;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Country = Contry;
             }
-            if (Release_Date != null)
+            if (Day != 0 && month != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Release_Date = Release_Date;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Release_Date = GetReleaseDate(month + " " + Day.ToString());
             }
             if (Age != 0)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Age = Age;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Age = Age;
             }
             if (RunTime != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Runtime = RunTime;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Runtime = RunTime;
             }
             if (Description != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Description = Description;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Description = Description;
             }
-            if (shortDescription != null)
+            if (shortDiscription     != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).ShortDescription = shortDescription;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).ShortDescription = shortDiscription;
             }
-            if (Score != 0)
+            if (Score != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Score = Score;
+
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Score = double.Parse(Score.Replace(',','.'), new NumberFormatInfo());
             }
             if (ScoreKP != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).ScoreKP = ScoreKP;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).ScoreKP = ScoreKP;
             }
             if (Music != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).SoundTrackUrl = Music;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).SoundTrackUrl = Music;
             }
             if (Video != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == id).Video = Video;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Video = Video;
+            }
+            if (Images!=null)
+            {
+                var i = 0;
+                foreach(var Img in _context.MediaImages.Where(st=>st.MediaId== Id))
+                {
+                    if (i < 4)
+                    {
+                        Img.ImagesUrl = Images[i];
+                        i++;
+                    }
+                }                
             }
             await _context.SaveChangesAsync();
         }
@@ -395,16 +503,16 @@ namespace KinoHab.Manager
             review.Nickname = NickName;
             review.ImgUser = _context.Users.FirstOrDefault(st => st.Email == Email).Image;
             review.DateOfReview = DateTime.Now.ToString();
-            _context.Media.FirstOrDefault(st => st.MediaID == idFilm).Reviews.Add(review);
+            _context.Reviews.Add(review);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteReviews(int IdFilm, string Email)
+        public async Task DeleteReviews(int IdFilm, int IdUser)
         {
             var itemToRemove = await _context.Reviews
                                              .Include(st => st.User)
                                              .Include(st => st.Media)
-                                             .SingleOrDefaultAsync(st => st.MediaId == IdFilm && st.UsersId == _context.Users.FirstOrDefault(st => st.Email == Email).UserId);
+                                             .SingleOrDefaultAsync(st => st.MediaId == IdFilm && st.UsersId == IdUser);
             if (itemToRemove != null)
             {
                 _context.Reviews.Remove(itemToRemove);

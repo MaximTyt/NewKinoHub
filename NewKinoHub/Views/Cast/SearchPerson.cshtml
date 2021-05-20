@@ -1,0 +1,63 @@
+﻿@model ICollection<NewKinoHub.Storage.Entity.Person>
+
+<body>
+    <div>
+        <form class="searchfo" method="post" href=@Url.Action("SearchPerson","Cast", new { IdFilm = ViewBag.IdFilm}) style="width:250px !important;">
+            @*Блок поиска по сайту*@
+            <input class="searchin" type="search" placeholder="Search title..." value="@ViewData["Geetemployeedetails"]" name="Name">       @*Блок поиска по сайту*@
+            <button type="submit" value="Search" class="searchbu" />                        @*Блок поиска по сайту*@
+        </form>
+    </div>
+
+    @if (Model != null)
+    {
+        @foreach (var cast in Model)
+        {
+            <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
+                <a href=@Url.Action("Person", "Persons", new { personId = cast.Id }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                    <img height="395" width="265" class="u-back-image u-expanded imagetitle" src=@cast.Image>
+                </a>
+                <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
+                    <p style="font-weight: bold; right:100%; left:0%;"> @cast.Name </p>
+                    <p><span style="font-weight:bold">Карьера:</span> @cast.RolesInMedia</p>
+                    @if (cast.DateOfBirthday.Year != 0001)
+                    {
+                        <p>
+                            <span style="font-weight:bold">Дата рождения:</span> @cast.DateOfBirthday.ToShortDateString()
+                        </p>
+                    }
+                    @if (cast.Age != -1)
+                    {
+                        @if (cast.Age % 10 == 2 || cast.Age % 10 == 3 || cast.Age % 10 == 4)
+                        {
+                            <p> <span style="font-weight:bold">Возраст:</span> @cast.Age года</p>
+                        }
+                        else if (cast.Age % 10 == 1)
+                        {
+                            <p> <span style="font-weight:bold">Возраст:</span> @cast.Age год</p>
+                        }
+                        else
+                        {
+                            <p> <span style="font-weight:bold">Возраст:</span> @cast.Age лет</p>
+                        }
+                    }
+
+                    @if (cast.DateOfDeath.Year != 0001)
+                    {
+                        <p> <span style="font-weight:bold">Дата смерти:</span> @cast.DateOfDeath.ToShortDateString()</p>
+                    }
+                </div>
+                <div style=" clear:both;"></div>
+            </div>
+
+            <div style="margin-top:10px;">
+                <a class="btn" href=@Url.Action("AddSearchPerson","Cast", new { IdFilm = ViewBag.IdFilm, IdPerson = cast.Id})>Добавить</a>
+            </div>
+
+        }
+    }
+    else
+    {
+
+    }
+</body>

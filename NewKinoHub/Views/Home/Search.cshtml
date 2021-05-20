@@ -56,75 +56,75 @@
                                             </td>
                                             @if (film.IsFavorites == false && ViewBag.User != null)
                                             {
-                                                <td valign="top" align="right" width="30">
-                                                    <a>
-                                                        <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
-                                                    </a>
-                                                </td>
+                                            <td valign="top" align="right" width="30">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                             }
                                             else
                                             {
                                                 if (ViewBag.User != null)
                                                 {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
+                                            <td valign="top" align="right" width="30">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                                 }
                                                 else
                                                 {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
+                                            <td valign="top" align="right" width="30">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                                 }
                                             }
                                             @if (film.IsVieweds == false && ViewBag.User != null)
                                             {
-                                                <td valign="top" align="right" width="30">
-                                                    <a>
-                                                        <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
-                                                    </a>
-                                                </td>
+                                            <td valign="top" align="right" width="30">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                             }
                                             else
                                             {
                                                 if (ViewBag.User != null)
                                                 {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/eye.png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
+                                            <td valign="top" align="right" width="30">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/eye.png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                                 }
                                                 else
                                                 {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
+                                            <td valign="top" align="right" width="30">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                                 }
 
                                             }
                                             @if (ViewBag.Role == 1)
                                             {
-                                                <td align="right" width="30">
-                                                    <a href=@Url.Action("EditFilm", "Films", new { Id = film.MediaID })>
-                                                        <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
-                                                    </a>
-                                                </td>
+                                            <td align="right" width="30">
+                                                <a href=@Url.Action("EditFilm", "Films", new { Id = film.MediaID })>
+                                                    <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
+                                                </a>
+                                            </td>
                                             }
 
                                             @if (ViewBag.Role == 1)
                                             {
-                                                <td align="right" width="30">
-                                                    <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = film.MediaID })>
-                                                        <img class="deleteicon" src="~/lib/images/Icons/close.png" />
-                                                    </a>
-                                                </td>
+                                            <td align="right" width="30">
+                                                <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = film.MediaID })>
+                                                    <img class="deleteicon" src="~/lib/images/Icons/close.png" />
+                                                </a>
+                                            </td>
                                             }
                                         </tr>
                                     </tbody>
@@ -135,22 +135,42 @@
                                     <span style="font-weight:bold">Жанры:</span>
                                     @foreach (var genre in film.Genres)
                                     {
-                                        <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
+                                    <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
                                     }
                                 </p>
                                 <p>
                                     <span style="font-weight:bold">Режиссер:</span>
                                     @foreach (var director in film.Casts)
                                     {
-                                        if (director.RoleInFilm == ViewBag.Director)
+                                        if ((int)director.RoleInFilm == 0 && director.Person != null)
                                         {
-                                            <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                    <a href=@Url.Action("Person", "Persons", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
                                         }
                                     }
+                                </p>
+                                <p>
+                                    <span style="font-weight:bold">Актеры:</span>
+                                    @foreach (var director in film.Casts)
+                                    {
+                                        if ((int)director.RoleInFilm == 2 && director.Person != null)
+                                        {
+                                    <a href=@Url.Action("Person", "Persons", new { personId = director.Id }) class="textstyle">@director.Person.Name |</a>
+                                        }
+                                    }
+                                    <a href=@Url.Action("ListCast", "Cast", new { castId = film.MediaID}) class="textstyle">...</a>
+                                </p>
                                 <p>Страна: @film.Country</p>
                                 <p>Возраст: @film.Age+</p>
                                 <a><img src=@film.ScoreKP border='0'></a>
                                 <p>Краткое описание: @film.ShortDescription</p>
+                                @if (ViewBag.Role == 1)
+                                {
+
+                                <a href=@Url.Action("ListCasts", "Cast", new { IdFilm = film.MediaID })>
+                                    Весь каст
+                                </a>
+
+                                }
                             </div>
                             <div style=" clear:both;"></div>
                         </div>
@@ -177,76 +197,76 @@
                                             </td>
                                             @if (serial.IsFavorites == false && ViewBag.User != null)
                                             {
-                                                <td valign="top" align="right" width="30">
-                                                    <a>
-                                                        <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
-                                                    </a>
-                                                </td>
+                                            <td valign="top" align="right" width="30">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                             }
                                             else
                                             {
                                                 if (ViewBag.User != null)
                                                 {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
+                                            <td valign="top" align="right" width="30">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                                 }
                                                 else
                                                 {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
+                                            <td valign="top" align="right" width="30">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                                 }
                                             }
 
                                             @if (serial.IsVieweds == false && ViewBag.User != null)
                                             {
-                                                <td valign="top" align="right" width="30">
-                                                    <a>
-                                                        <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
-                                                    </a>
-                                                </td>
+                                            <td valign="top" align="right" width="30">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                             }
                                             else
                                             {
                                                 if (ViewBag.User != null)
                                                 {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/eye.png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
+                                            <td valign="top" align="right" width="30">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/eye.png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                                 }
                                                 else
                                                 {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
+                                            <td valign="top" align="right" width="30">
+                                                <a>
+                                                    <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                                 }
 
                                             }
                                             @if (ViewBag.Role == 1)
                                             {
-                                                <td align="right" width="30">
-                                                    <a href=@Url.Action("EditFilm", "Films", new { Id = serial.MediaID })>
-                                                        <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
-                                                    </a>
-                                                </td>
+                                            <td align="right" width="30">
+                                                <a href=@Url.Action("EditFilm", "Films", new { Id = serial.MediaID })>
+                                                    <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
+                                                </a>
+                                            </td>
                                             }
 
                                             @if (ViewBag.Role == 1)
                                             {
-                                                <td align="right" width="30">
-                                                    <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = serial.MediaID })>
-                                                        <img src="~/lib/images/Icons/close.png" width="30" height="30" />
-                                                    </a>
-                                                </td>
+                                            <td align="right" width="30">
+                                                <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = serial.MediaID })>
+                                                    <img src="~/lib/images/Icons/close.png" width="30" height="30" />
+                                                </a>
+                                            </td>
                                             }
                                         </tr>
                                     </tbody>
@@ -257,31 +277,42 @@
                                     <span style="font-weight:bold">Жанры:</span>
                                     @foreach (var genre in serial.Genres)
                                     {
-                                        <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
+                                    <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
                                     }
                                 </p>
                                 <p>
                                     <span style="font-weight:bold">Режиссер:</span>
                                     @foreach (var director in serial.Casts)
                                     {
-                                        if (director.RoleInFilm == ViewBag.Director)
+                                        if ((int)director.RoleInFilm == 0 && director.Person!= null)
                                         {
-                                            <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                    <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name</a>
                                         }
                                     }
                                 </p>
-
-                                @foreach (var director in serial.Casts)
-                                {
-                                    if (director.RoleInFilm == ViewBag.Director)
+                                <p>
+                                    <span style="font-weight:bold">Актеры:</span>
+                                    @foreach (var director in serial.Casts)
                                     {
-                                        <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                        if ((int)director.RoleInFilm == 2 && director.Person != null)
+                                        {
+                                    <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId}) class="textstyle">@director.Person.Name |</a>
+                                        }
                                     }
-                                }
+                                    <a href=@Url.Action("ListActors", "Cast", new { FilmId = serial.MediaID}) class="textstyle">...</a>
+                                </p>
                                 <p>Страна: @serial.Country</p>
                                 <p>Возраст: @serial.Age+</p>
                                 <a><img src=@serial.ScoreKP border='0'></a>
                                 <p>Краткое описание: @serial.ShortDescription</p>
+                                @if (ViewBag.Role == 1)
+                                {
+
+                                <a href=@Url.Action("ListCasts", "Cast", new { IdFilm = serial.MediaID })>
+                                    Весь каст
+                                </a>
+
+                                }
                             </div>
                             <div style=" clear:both;"></div>
                         </div>

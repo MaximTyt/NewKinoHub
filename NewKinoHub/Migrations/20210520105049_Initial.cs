@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NewKinoHub.Migrations
 {
-    public partial class m1 : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -42,11 +42,12 @@ namespace NewKinoHub.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OriginalName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Height = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RolesInMedia = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Height = table.Column<double>(type: "float", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    DateOfBirthday = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DateOfBirthday = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
-                    DateOfDeath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateOfDeath = table.Column<DateTime>(type: "datetime2", nullable: false),
                     PlaceOfBirthday = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PlaceOfDeath = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Spouse = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -126,7 +127,7 @@ namespace NewKinoHub.Migrations
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     Role = table.Column<int>(type: "int", nullable: false),
-                    DateOfBirthday = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DateOfBirthday = table.Column<DateTime>(type: "datetime2", nullable: false),
                     FavoritesId = table.Column<int>(type: "int", nullable: true),
                     ViewedId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -153,8 +154,8 @@ namespace NewKinoHub.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    MediaId = table.Column<int>(type: "int", nullable: true),
-                    PersonId = table.Column<int>(type: "int", nullable: true),
+                    MediaId = table.Column<int>(type: "int", nullable: false),
+                    PersonId = table.Column<int>(type: "int", nullable: false),
                     RoleInFilm = table.Column<int>(type: "int", nullable: false),
                     Character = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -166,13 +167,13 @@ namespace NewKinoHub.Migrations
                         column: x => x.MediaId,
                         principalTable: "Media",
                         principalColumn: "MediaID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Casts_Persons_PersonId",
                         column: x => x.PersonId,
                         principalTable: "Persons",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

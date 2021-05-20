@@ -8,8 +8,8 @@ namespace NewKinoHub.Manager.Home
 {
     public interface IHomeManager
     {
-        (List<Media>,List<Media>) GetNewPopularFilms();
+        (List<Media>,List<Media>,List<Media>) GetNewPopularFilms(string Email);
         Task<(List<Media>, List<Media>)> Search(string Name, Users User);
-        RoleInFilm Cast(int i);
+        List<Media> Recommendation(Users User);
     }
 }

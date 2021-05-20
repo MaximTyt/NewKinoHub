@@ -10,17 +10,7 @@
 <body>
     <div class="wrapper">
         @*--------------------Начало блока с Редактировать отзыв--------------------*@
-        <div id="editreviews">
-            <a href="#"></a>
-            <div>
-                <form class="addreviewsfo" action="" method="post" enctype="multipart/form-data">
-                    <h4>Редактировать отзыв:</h4><br />
-                    <textarea class="addreviewste" rows="10" cols="75" name="text"></textarea><br />
-                    <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("AddReviews", "Films", new { IdFilm = Model.MediaID })>
-                </form>
-                <a href="#">Выйти</a>
-            </div>
-        </div>
+       
         @*--------------------Конец блока с Редактировать отзыв--------------------*@
         <h1 style="font-weight: bold; color: aliceblue">@Model.Name</h1>
         <div style="width: 1100px; min-height: 380px;  background-color:azure; min-height : 580px; padding: 20px;">
@@ -54,20 +44,20 @@
                                     <span style="font-weight:bold">Режиссер:</span>
                                     @foreach (var director in Model.Casts)
                                     {
-                                        if (director.RoleInFilm == ViewBag.Director)
+                                        if ((int)director.RoleInFilm == 0 && director.Person != null)
                                         {
-                                            <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name</a>
                                         }
                                     }
                                 </p>
 
                                 <p>
-                                    <span style="font-weight:bold">Сценарист:</span>
+                                    <span style="font-weight:bold">Сценарист(ы):</span>
                                     @foreach (var director in Model.Casts)
                                     {
-                                        if (director.RoleInFilm == ViewBag.SceenWriter)
+                                        if ((int)director.RoleInFilm == 1 && director.Person != null)
                                         {
-                                            <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name|</a>
                                         }
                                     }
                                 </p>
@@ -76,12 +66,12 @@
                                     <span style="font-weight:bold">Актеры:</span>
                                     @foreach (var director in Model.Casts)
                                     {
-                                        if (director.RoleInFilm == ViewBag.Actor)
+                                        if ((int)director.RoleInFilm == 2 && director.Person != null)
                                         {
-                                            <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name |</a>
+                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId}) class="textstyle">@director.Person.Name |</a>
                                         }
                                     }
-                                    <a href=@Url.Action("ListCast", "Cast", new { castId = Model.MediaID}) class="textstyle">...</a>
+                                    <a href=@Url.Action("ListActors", "Cast", new { FilmId = Model.MediaID}) class="textstyle">...</a>
                                 </p>
 
                                 <p><span style="font-weight:bold">Страна:</span> @Model.Country</p>
@@ -90,6 +80,14 @@
                                 <p><span style="font-weight:bold">Дата выхода:</span> @Model.Release_Date</p>
                                 <p><span style="font-weight:bold">Возраст:</span> @Model.Age+</p>
                                 <p><span style="font-weight:bold">Время:</span> @Model.Runtime</p>
+                                @if (ViewBag.Role == 1)
+                                {
+                                 
+                                        <a href=@Url.Action("ListCasts", "Cast", new { IdFilm = Model.MediaID })>
+                                            Весь каст
+                                        </a>
+                                    
+                                }
                             </div>
                         </td>
 
@@ -155,6 +153,15 @@
                         {
                             <td valign="top" align="right" width="30">
                                 <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = Model.MediaID })>
+                                    <img class="deleteicon" src="~/lib/images/Icons/close.png" />
+                                </a>
+                            </td>
+                        }
+                       
+                        @if (ViewBag.Role == 1)
+                        {
+                            <td valign="top" align="right" width="30">
+                                <a href=@Url.Action("SearchOrAddCast", "Cast", new { IdFilm = Model.MediaID })> 
                                     <img class="deleteicon" src="~/lib/images/Icons/close.png" />
                                 </a>
                             </td>
@@ -292,7 +299,7 @@
                                         </td>
                                         <td valign="bottom" align="right" style="width:15%;">
                                             <a class="btnreview" href="#editreviews">Редактировать</a><br />
-                                            <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID })>Удалить</a>
+                                            <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID,IdUser = Revi.UsersId})>Удалить</a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -313,12 +320,23 @@
                                         </td>
                                         <td valign="bottom" align="right" style="width:15%;">
                                             <a class="btnreview" href="#editreviews">Редактировать</a><br />
-                                            <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID })>Удалить</a>
+                                            <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID, IdUser = Revi.UsersId })>Удалить</a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         }
+                        <div id="editreviews">
+                            <a href="#"></a>
+                            <div>
+                                <form class="addreviewsfo" action="" method="post" enctype="multipart/form-data">
+                                    <h4>Редактировать отзыв:</h4><br />
+                                    <textarea class="addreviewste" rows="10" cols="75" name="text">@Revi.Description</textarea>
+                                    <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("EditReviews", "Films", new { IdFilm = Model.MediaID })><br />
+                                </form>
+                                <a href="#">Выйти</a>
+                            </div>
+                        </div>
                     }
                 }
             }

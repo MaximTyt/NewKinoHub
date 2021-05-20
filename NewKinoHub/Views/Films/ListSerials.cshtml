@@ -176,9 +176,9 @@
                         <span style="font-weight:bold">Режиссер:</span>
                         @foreach (var director in serial.Casts)
                         {
-                            if (director.RoleInFilm == ViewBag.Director)
+                            if ((int)director.RoleInFilm == 0 && director.Person != null)
                             {
-                                <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name</a>
                             }
                         }
                     </p>
@@ -187,18 +187,26 @@
                         <span style="font-weight:bold">Актеры:</span>
                         @foreach (var director in serial.Casts)
                         {
-                            if (director.RoleInFilm == ViewBag.Actor)
+                            if ((int)director.RoleInFilm == 2 && director.Person != null)
                             {
-                                <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name |</a>
+                                <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name |</a>
                             }
                         }
-                        <a href=@Url.Action("ListCast", "Cast", new { castId = serial.MediaID}) class="textstyle">...</a>
+                        <a href=@Url.Action("ListActors", "Cast", new { FilmId = serial.MediaID}) class="textstyle">...</a>
                     </p>
 
                     <p><span style="font-weight:bold">Страна:</span> @serial.Country</p>
                     <p><span style="font-weight:bold">Возраст:</span> @serial.Age+</p>
                     <a><img src=@serial.ScoreKP border='0'></a>
                     <p><span style="font-weight:bold">Краткое описание:</span> @serial.ShortDescription</p>
+                    @if (ViewBag.Role == 1)
+                    {
+
+                        <a href=@Url.Action("ListCasts", "Cast", new { IdFilm = serial.MediaID })>
+                            Весь каст
+                        </a>
+
+                    }
                 </div>
                 <div style=" clear:both;"></div>
             </div>

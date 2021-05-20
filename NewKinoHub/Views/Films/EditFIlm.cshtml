@@ -11,7 +11,8 @@
                     <tr>
                         <td>
                             <label class="colortext">Название:<sup>*</sup></label><br />
-                            <input value=@Model.Name type="text" name="Name" required /><br />
+                            @*<input value=@Model.Name type="text" name="Name" required /><br />*@
+                        <textarea style="height:50px;" type="text" name="Name" required>@Model.Name </textarea>
                         </td>
                     </tr>
                     <tr class="trsize">
@@ -20,18 +21,67 @@
                             <input value=@Model.Img type="text" name="mainPhoto" required><br />
 
                             <label class="colortext">Год:<sup>*</sup></label><br />
-                            <input value="@Model.Year" type="text" name="Year" required /><br />
+                            <input value="@Model.Year" type="number" name="Year" min = "1950" step="1" required /><br />
                         </td>
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Страна:<sup>*</sup></label><br />
                             <input value=@Model.Country type="text" name="Contry" required /><br />
 
-                            <label class="colortext">Дата выхода:<sup>*</sup></label><br />
-                            <input value=@Model.Release_Date type="text" name="Release_Date" required /><br />
+                            <label class="colortext">Дата выхода:@Model.Release_Date <sup>*</sup></label><br />
+                            <label class="colortext">День:<sup>*</sup></label><br />
+                            <input type="number" name="Day" min="1" max="31" step="1"  /><br />
+
+                            <label class="colortext">Месяц и год:<sup>*</sup></label><br />
+                            <input type="month" id="month" name="month" /><br />
+
+
                         </td>
-                        <td valign="top" class="tdstyle">
-                            <label class="colortext">Возраст<sup>*</sup></label><br />
-                            <input value="@Model.Age" type="text" name="Age" required /><br />
+                        <td valign="top" class="tdstyle"> 
+
+                            <label for="Age" class="colortext">Выберите возраст:<sup>*</sup></label><br />
+                            <select id="Age" name="Age">
+                                @if (Model.Age == 0)
+                                {
+                                <option value="0" selected>0+</option>
+                                }
+                                else
+                                {
+                            <option value="0">0+</option>
+                                }
+                                @if (Model.Age == 6)
+                                {
+                                <option value="6" selected>6+</option>
+                                }
+                                else
+                                {
+                            <option value="6">6+</option>
+                                }
+                                @if (Model.Age == 12)
+                                {
+                                <option value="12" selected>12+</option>
+                                }
+                                else
+                                {
+                            <option value="12">12+</option>
+                                }
+                                @if (Model.Age == 16)
+                                {
+                                <option value="16" selected>16+</option>
+                                }
+                                else
+                                {
+                            <option value="16">16+</option>
+                                }
+                                @if (Model.Age == 18)
+                                {
+                                <option value="18" selected>18+</option>
+                                }
+                                else
+                                {
+                            <option value="18">18+</option>
+                                }
+                            </select>
+                      
 
                             <label class="colortext">Время:<sup>*</sup></label><br />
                             <input value=@Model.Runtime type="text" name="RunTime" required /><br />
@@ -40,14 +90,13 @@
                     <tr class="trsize">
                         <td valign="top" colspan="2" class="tdstyle">
                             <label class="colortext">Описание:<sup>*</sup></label><br />
-                            <input style="height:100px;" value=@Model.Description type="text" name="Description" required /><br />
-
+                            <textarea style="height:100px;" type="text" name="Description" required> @Model.Description </textarea>
                             <label class="colortext">Краткое описание:<sup>*</sup></label><br />
-                            <input style="height:100px;" value=@Model.ShortDescription type="text" name="shortDiscription" required /><br />
+                            <textarea style="height:100px;" type="text" name="shortDiscription" required> @Model.ShortDescription </textarea>
                         </td>
                         <td valign="top" class="tdstyle">
-                            <label class="colortext">Рейтинг<sup>*</sup></label><br />
-                            <input value=@Model.Score type="text" name="Score" required /><br />
+                            <label class="colortext">Рейтинг: @Model.Score <sup>*</sup></label><br />
+                            <input type="number" step="0.001" name="Score" min="0" max="10" /><br />
 
                             <label class="colortext">Рейтинг с кинопоиска<sup>*</sup></label><br />
                             <input value=@Model.ScoreKP type="text" name="ScoreKP" required /><br />
@@ -57,6 +106,29 @@
 
                             <label class="colortext">Ссылка на музыку(Яндекс музыка)<sup>*</sup></label><br />
                             <input value=@Model.SoundTrackUrl type="text" name="Music" required /><br />
+
+                            <label class="colortext">Ссылка на кадр №1<sup>*</sup></label><br />
+                            <input value=@Model.Images[0].ImagesUrl type="text" name="Images[0]" required /><br />
+
+                            <label class="colortext">Ссылка на кадр №2<sup>*</sup></label><br />
+                            <input value=@Model.Images[1].ImagesUrl type="text" name="Images[1]" required /><br />
+
+                            <label class="colortext">Ссылка на кадр №3<sup>*</sup></label><br />
+                            <input  value=@Model.Images[2].ImagesUrl type="text" name="Images[2]" required /><br />
+
+                            <label class="colortext">Ссылка на кадр №4<sup>*</sup></label><br />
+                            <input value=@Model.Images[3].ImagesUrl type="text" name="Images[3]" required /><br />
+
+                            @if (Model.NumOfEpisodes != null)
+                            {
+                                <label class="colortext">Количество эпизодов(Необязательно):</label><br />
+                                <input type="number" step="1" min="0" name="NumOfEpisodes"> <br />
+                            }
+                            @if (Model.NumOfSeason != null)
+                            {
+                                <label class="colortext">Количество сезонов(Необязательно):</label><br />
+                                <input type="number" step="1" min="0" name="NumOfSeason"> <br />
+                            }
                         </td>
                     </tr>
                     <tr class="trsize">

@@ -8,22 +8,21 @@ namespace KinoHab.Manager
     {
         Task<ICollection<Media>> GetAllFilms();
         Task<Media> GetFilmforId(int filmId,Users User);
-        RoleInFilm Cast(int i);
         MediaType TypeFilm(string i);
         Task<ICollection<Media>> AllSorting(string sort, Users User);
         Task<ICollection<Media>> Filtration(int filtr, Users User);
         string GetNameFiltr(int idFiltr);
-        Task<ICollection<Media>> SortingFromFiltr(string sort, ICollection<Media> media);
+        ICollection<Media> SortingFromFiltr(string sort, ICollection<Media> media);
         Task<ICollection<Media>> GetFilms(Users User);
-        Task<ICollection<Media>> GetFavoriteFilmsForUser(Users User);
+        ICollection<Media> GetFavoriteFilmsForUser(Users User);
         Task<Users> GetUser(string UserEmail);
         Task DeleteFilm(int IdFIlm);
         Task AddReviews(int idFilm, string Email, string text);
-        Task<ICollection<Media>> GetViewedFilmsForUser(Users User);
-        Task AddFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDescription, double Score, string ScoreKP, string Music, string Video);
-        Task EditFilm(string mainPhoto, string Name, int Year, string Contry, string Release_Date, int Age, string RunTime, string Description, string shortDescription, double Score, string ScoreKP, string Music, string Video, int id);
+        ICollection<Media> GetViewedFilmsForUser(Users User);
+        Task AddFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images);
+        Task EditFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images);
         bool UserReview(string Email, int IdFilm);
-        Task DeleteReviews(int IdFilm, string Email);
+        Task DeleteReviews(int IdFilm, int IdUser);
         Task EditReviews(int idFilm, int IdUser, string text);
 
     }

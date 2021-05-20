@@ -15,16 +15,14 @@ namespace NewKinoHub.Storage.Entity
         [Required]
         public string Name { get; set; }
         [Required]
-        public string OriginalName { get; set; }
-        //public string RolesInMedia { get; set; }
-        [NotMapped]
-        public RoleInFilm[] RolesInMedia { get; set; }
-        public string Height { get; set; }
-        public string Image { get; set; }
-        [Required]
-        public string DateOfBirthday { get; set; }
+        public string OriginalName { get; set; } 
+        public string RolesInMedia { get; set; }
+        [Range(0.49,2.5)]
+        public double Height { get; set; }
+        public string Image { get; set; }        
+        public DateTime DateOfBirthday { get; set; }
         public int Age { get; set; }
-        public string DateOfDeath { get; set; } 
+        public DateTime DateOfDeath { get; set; } 
         public string PlaceOfBirthday { get; set; }
         public string PlaceOfDeath { get; set; }
         public string Spouse { get; set; }

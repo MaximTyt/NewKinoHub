@@ -17,7 +17,7 @@ namespace NewKinoHub.Manager.Home
         {
             _context = context;
         }
-        public (List<Media>, List<Media>) GetNewPopularFilms()
+        public (List<Media>, List<Media>,List<Media>) GetNewPopularFilms(string Email)
         {
             var films = from x in _context.Media.Where(st => st.MediaType == MediaType.Film).Include(st => st.Genres) select x;
             var serials = from x in _context.Media.Where(st =>st.MediaType == MediaType.Serial).Include(st => st.Genres) select x;
@@ -26,8 +26,9 @@ namespace NewKinoHub.Manager.Home
 
             films = films.OrderByDescending(st => st.Score);
             serials = serials.OrderByDescending(st => st.Score);
-            (List<Media>, List<Media>) media = (films.ToList(), serials.ToList());
 
+            (List<Media>, List<Media>, List<Media>) media = (films.ToList(), serials.ToList(),null);
+            
             return media;
         }
 
@@ -47,29 +48,59 @@ namespace NewKinoHub.Manager.Home
             {
                 films = films.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Film).ToList();
                 serials = serials.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Serial).ToList();
+
+                
                 film = (films.ToList(), serials.ToList());
             }
             return film;
         }
-        public RoleInFilm Cast(int i)
+        public List<Media> Recommendation(Users User)
         {
-            RoleInFilm role = RoleInFilm.Актёр;
-            if (i == 0)
+            int[] Recommend = new int[21];
+            List<Media> Films = new List<Media>();
+            
+            foreach(var f in _context.Users.FirstOrDefault(st=>st.UserId == User.UserId).Favorites.Medias)
             {
-                role = RoleInFilm.Режиссёр;
-                return role;
+                foreach(var Genre in f.Genres)
+                {
+                    Recommend[Genre.GenreId]++;
+                }
             }
-            if (i == 1)
+
+            while (Films.Count <= 3)
             {
-                role = RoleInFilm.Сценарист;
-                return role;
+                int index = 0;
+                int? max = null;
+                for (var i = 0; i < Recommend.Length; i++)
+                {
+                    int thisNum = Recommend[i];
+                    if (!max.HasValue || thisNum > max.Value)
+                    {
+                        max = thisNum;
+                        index = i;
+                    }
+                }
+                if (index != 0)
+                {
+                    foreach (var f in _context.Genres.FirstOrDefault(st => st.GenreId == index).Medias)
+                    {
+                        if(_context.Favorites.FirstOrDefault(st=>st.UserName == User.Email).Medias.FirstOrDefault(st=>st.MediaID == f.MediaID) == null)
+                        {
+                            if(Films.FirstOrDefault(st=>st.MediaID == f.MediaID) == null)
+                            {
+                                Films.Add(f);
+                            }
+                        }
+                    }
+                }
+                Recommend[index] = 0;
+                int Exit = Recommend.Max<int>();
+                if(Exit == 0)
+                {
+                    return Films;
+                }
             }
-            if (i == 2)
-            {
-                role = RoleInFilm.Актёр;
-                return role;
-            }
-            return role;
+            return Films;
         }
     }
 }

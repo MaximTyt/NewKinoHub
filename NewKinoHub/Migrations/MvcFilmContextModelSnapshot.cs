@@ -44,10 +44,10 @@ namespace NewKinoHub.Migrations
                     b.Property<string>("Character")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MediaId")
+                    b.Property<int>("MediaId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PersonId")
+                    b.Property<int>("PersonId")
                         .HasColumnType("int");
 
                     b.Property<int>("RoleInFilm")
@@ -215,18 +215,17 @@ namespace NewKinoHub.Migrations
                     b.Property<string>("Awards")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DateOfBirthday")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateOfBirthday")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("DateOfDeath")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateOfDeath")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Height")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<double>("Height")
+                        .HasColumnType("float");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
@@ -243,6 +242,9 @@ namespace NewKinoHub.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PlaceOfDeath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RolesInMedia")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Spouse")
@@ -294,8 +296,8 @@ namespace NewKinoHub.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("DateOfBirthday")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateOfBirthday")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -361,11 +363,15 @@ namespace NewKinoHub.Migrations
                 {
                     b.HasOne("NewKinoHub.Storage.Entity.Media", "Media")
                         .WithMany("Casts")
-                        .HasForeignKey("MediaId");
+                        .HasForeignKey("MediaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("NewKinoHub.Storage.Entity.Person", "Person")
                         .WithMany("Casts")
-                        .HasForeignKey("PersonId");
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Media");
 

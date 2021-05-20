@@ -126,14 +126,14 @@ namespace NewKinoHub.Manager.Userss
         }
 
         [HttpPost]
-        public async Task EditAccount(IFormFile mainPhoto, string name, string DataB,string Email)
+        public async Task EditAccount(IFormFile mainPhoto, string name, DateTime DataB,string Email)
         {
 
             if(mainPhoto != null)
             {
                 _context.Users.FirstOrDefault(st => st.Email == Email).Image = SaveImage.getByteImage(mainPhoto);
             }
-            if(DataB != null)
+            if (DataB.Year != 0001)
             {
                 _context.Users.FirstOrDefault(st => st.Email == Email).DateOfBirthday = DataB;
             }
@@ -169,7 +169,13 @@ namespace NewKinoHub.Manager.Userss
 
         public int GetUserId(string Email)
         {
-            return _context.Users.FirstOrDefault(st => st.Email == Email).UserId;
+            if(Email != null)
+                 return _context.Users.FirstOrDefault(st => st.Email == Email).UserId;
+            return 0;
+        }
+        public bool FavoritesNull(string Email)
+        {
+            return _context.Users.Include(st=>st.Favorites).FirstOrDefault(st => st.Email == Email).Favorites == null ? true : false;
         }
     }
 }

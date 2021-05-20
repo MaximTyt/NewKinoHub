@@ -118,6 +118,63 @@ namespace NewKinoHub.Models
                     },
                     new Media
                     {
+                        MediaType = MediaType.Film,
+                        Name = "Он вам не Димон",
+                        Img = "https://imageup.ru/img3/3744133/on-vam-ne-dimon.jpg",
+                        Video = "https://www.youtube.com/embed/qrwlk7_GF9g",
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1035",
+                        Year = 2017,
+                        Country = "Россия",
+                        Age = 12,
+                        Score = 9.072,
+                        Release_Date = "2 марта 2017",
+                        Runtime = "49 мин.",
+                        ShortDescription = "Секретные дворцы, виноградники и яхты Дмитрия Медведева",
+                        Description = "Рассказ о недвижимом имуществе председателя Правительства Российской Федерации Дмитрия Медведева.",
+                        ScoreKP = "https://rating.kinopoisk.ru/1043713.gif",
+                        Genres = new List<Genre>() { Genres["Документальный"] },
+                        Casts = new List<Cast>()
+                        {
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Режиссёр,
+                            Person = Persons["Алексей Навальный"]
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Сценарист,
+                                Person=Persons["Алексей Навальный"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Алексей Навальный"],
+                            Character = "самого себя"
+                            }                            
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img129/3744102/ne-dimon1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img272/3744103/ne-dimon2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img110/3744104/ne-dimon3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img255/3744105/ne-dimon4.jpg"
+                            }
+                        }
+
+                    },
+                    new Media
+                    {
                         MediaType = MediaType.Serial,
                         Name = "Засланец из космоса",
                         NumOfSeason = 1,
@@ -158,8 +215,44 @@ namespace NewKinoHub.Models
                             {
                                 ImagesUrl ="https://imageup.ru/img155/3736819/zsl4.jpg"
                             }
+                        },
+                        Casts=new List<Cast>()
+                        {
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Режиссёр,
+                                Person=Persons["Роберт Данкан МакНил"]
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Режиссёр,
+                                Person=Persons["Джей Чандрашекхар"]
+                            },
+                             new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Сценарист,
+                                Person=Persons["Крис Шеридан"]
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Актёр,
+                                Person=Persons["Алан Тьюдик"],
+                                Character="Harry Vanderspeigle"
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Актёр,
+                                Person=Persons["Сара Томко"],
+                                Character="Asta Twelvetrees"
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Актёр,
+                                Person=Persons["Кори Рейнольдс"],
+                                Character="Sheriff Mike Thompson"
+                            }
                         }
-                    }, //доделать каст
+                    },
                     new Media
                     {
                         MediaType = MediaType.Film,
@@ -532,8 +625,39 @@ namespace NewKinoHub.Models
                             {
                                 ImagesUrl ="https://imageup.ru/img16/3739995/ob4.jpg"
                             }
+                        },
+                        Casts = new List<Cast>()
+                        {
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Режиссёр,
+                                Person=Persons["Джонас Пейт"]
+                            },                           
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Сценарист,
+                                Person=Persons["Шеннон Берк"]
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Актёр,
+                                Person=Persons["Чейз Стоукс"],
+                                Character="John B"
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Актёр,
+                                Person=Persons["Мэдлин Клайн"],
+                                 Character="Sarah Cameron"
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Актёр,
+                                Person=Persons["Руди Панкоу"],
+                                Character="JJ"
+                            }
                         }
-                    }, //доделать каст
+                    }, 
                     new Media
                     {
                         MediaType = MediaType.Serial,
@@ -676,23 +800,55 @@ namespace NewKinoHub.Models
                             {
                                 ImagesUrl ="https://imageup.ru/img237/3740240/inv4.jpg"
                             }
+                        },
+                        Casts = new List<Cast>()
+                        {
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Режиссёр,
+                                Person=Persons["Джефф Аллен"]
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Сценарист,
+                                Person=Persons["Роберт Киркман"]
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Актёр,
+                                Person=Persons["Стивен Ён"],
+                                Character="Mark Grayson / Invincible"
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Актёр,
+                                Person=Persons["Сандра О"],
+                                Character="Debbie Grayson"
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Актёр,
+                                Person=Persons["Дж.К. Симмонс"],
+                                Character="Nolan Grayson / Omni-Man"
+                            }
                         }
-                    } //доделать каст
+                    } 
                     );
             }
 
             if (!content.Users.Any())
-            {
+            {                
                 content.AddRange(
+
                     new Users
                     {
                         Nickname = "admin",
                         Email = "admin@gmail.com",
                         Password = "123",
                         Role = Role.Admin,
-                        DateOfBirthday = "10/08/2001",
+                        DateOfBirthday = new DateTime(2001,08,10)
                     }
-                    );
+                    ) ;
             }
             content.SaveChanges();
         }
@@ -748,13 +904,12 @@ namespace NewKinoHub.Models
                         new Person{
                             Name="Зак Снайдер",
                             OriginalName="Zachary Edward Snyder",
-                            Height="1.7 м",
-                            DateOfBirthday="1/03/1966",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("1/03/1966")).TotalDays/365.2425)),
+                            Height=1.7,
+                            DateOfBirthday = new DateTime(1966,03,01),                            
                             PlaceOfBirthday="Грин Бэй, Висконсин, США",
                             Spouse="Дебора Снайдер",
                             Awards="Сатурн, 2008 - Лучший режиссер («300 спартанцев»)",
-                            RolesInMedia = new RoleInFilm[3]{RoleInFilm.Режиссёр, RoleInFilm.Сценарист, RoleInFilm.Актёр},
+                            RolesInMedia = "Режиссёр, Сценарист, Актёр",
                             Image="https://imageup.ru/img214/3736505/zack_snyder.jpg",
                             Description="В марте 2017 года дочь Снайдера Отем покончила с собой.\n" +
                             "Зак с Деборой воспитывают семерых детей, двое из которых являются приемными."
@@ -762,9 +917,8 @@ namespace NewKinoHub.Models
                         new Person{
                             Name="Бен Аффлек",
                             OriginalName="Benjamin Geza Affleck-Boldt",
-                            Height="1.92 м",
-                            DateOfBirthday="15/08/1972",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("15/08/1972")).TotalDays/365.2425)),
+                            Height=1.92,
+                            DateOfBirthday=new DateTime(1972,08,15),                            
                             PlaceOfBirthday="Беркли, Калифорния, США",
                             Spouse="Дженнифер Гарнер (развод)",
                             Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»);" +
@@ -781,7 +935,7 @@ namespace NewKinoHub.Models
                             " Премия Гильдии актеров, 1999 - Лучший актерский состав («Влюбленный Шекспир»);"+
                             " Оскар, 1998 - Лучший сценарий («Умница Уилл Хантинг»);"+
                             " Золотой глобус, 1998 - Лучший сценарий («Умница Уилл Хантинг»)",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Актёр,RoleInFilm.Режиссёр, RoleInFilm.Сценарист},
+                            RolesInMedia = "Актёр, Режиссёр, Сценарист",
                             Image="https://imageup.ru/img208/3736572/benafflec.jpg",
                             Description= "Актёр Кейси Аффлек — младший брат Бена.\n" +
                             "Недолгое время учился в Вермонтском университете и Оксидентал-колледже."
@@ -790,14 +944,13 @@ namespace NewKinoHub.Models
                         {
                             Name="Галь Гадот",
                             OriginalName="Gal Gadot",
-                            Height="1.78 м",
-                            DateOfBirthday="30/04/1985",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("30/04/1985")).TotalDays/365.2425)),
+                            Height=1.78,
+                            DateOfBirthday=new DateTime(1985,04,30),                            
                             PlaceOfBirthday = "Петах-Тиква, Израиль",
                             Spouse="Ярон Версано",
                             Awards="Премия канала «MTV», 2018 - Лучшая драка («Чудо-женщина»);" +
                             "Сатурн, 2018 - Лучшая актриса («Чудо-женщина»)",
-                            RolesInMedia = new RoleInFilm[2]{RoleInFilm.Актёр, RoleInFilm.Сценарист},
+                            RolesInMedia = "Актриса, Сценарист",
                             Image="https://imageup.ru/img152/3736581/galgadot.jpg",
                             Description= "Актриса и модель. Является победительницей конкурса" +
                             " «Мисс Израиль 2004» и участницей конкурса «Мисс Вселенная 2004».\n" +
@@ -808,13 +961,12 @@ namespace NewKinoHub.Models
                         {
                             Name="Генри Кавилл",
                             OriginalName="Henry William Dalgliesh Cavill",
-                            Height="1.85 м",
-                            DateOfBirthday="5/05/1983",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("5/05/1983")).TotalDays/365.2425)),
+                            Height=1.85,
+                            DateOfBirthday=new DateTime(1983,05,05),                            
                             PlaceOfBirthday="Сент-Сейвьер, Джерси, Нормандские острова",
                             Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»);" +
                             "Премия канала «MTV», 2014 - Лучший герой («Человек из стали»)",
-                            RolesInMedia = new RoleInFilm[1]{RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Image="https://imageup.ru/img10/3736585/henrycavill.jpg",
                             Description="У актера есть четыре брата.\n" +
                             "Генри Кавилл является представителем Фонда охраны дикой природы имени Даррелла.\n" +
@@ -829,13 +981,12 @@ namespace NewKinoHub.Models
                         {
                             Name="Джейсон Момоа",
                             OriginalName="Joseph Jason Namakaeha Momoa",
-                            Height="1.93 м",
-                            DateOfBirthday="1/08/1979",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("1/08/1979")).TotalDays/365.2425)),
+                            Height=1.93,
+                            DateOfBirthday=new DateTime(1979,08,01),                            
                             PlaceOfBirthday="Гонолулу, Гавайи, США",
                             Spouse="Лиза Боне",
                             Awards="CinemaCon, 2011 - Восходящая звезда",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Актёр,RoleInFilm.Режиссёр, RoleInFilm.Сценарист},
+                            RolesInMedia = "Актёр, Режиссёр, Сценарист",
                             Image="https://imageup.ru/img226/3736588/jasonmamoa.jpg",
                             Description="У него есть двое детей от Лизы Боне — Лола Иолани (Lola Iolani) и Накоа Вульф Манакауапо Намакеаха Момоа.\n" +
                             "Лицевой шрам - 15 ноября 2008 года мужчина ударил Момоа по лицу разбитым пивным стаканом во время ссоры" +
@@ -845,12 +996,11 @@ namespace NewKinoHub.Models
                         {
                             Name="Эзра Миллер",
                             OriginalName="Ezra Matthew Miller",
-                            Height="1.8 м",
-                            DateOfBirthday="30/09/1992",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("30/09/1992")).TotalDays/365.2425)),
+                            Height=1.8,
+                            DateOfBirthday=new DateTime(1992,09,30),                           
                             PlaceOfBirthday="Хобокен, Нью-Джерси, США",
                             Awards="Каннский кинофестиваль, 2012 - Приз компании «Шопар» лучшему молодому актеру",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Актёр,RoleInFilm.Режиссёр, RoleInFilm.Сценарист},
+                            RolesInMedia = "Актёр, Режиссёр,Сценарист",
                             Image="https://imageup.ru/img148/3736601/ezramiller.jpg",
                             Description="Миллер описывает себя как квира, не идентифицируя свою личность с конкретным гендером и сексуальной ориентацией.\n" +
                             "С 2016 года играет роли Криденса Бэрбоуна в серии фильмов «Фантастические твари»" +
@@ -861,11 +1011,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Рэй Фишер",
                             OriginalName="Ray Fisher",
-                            Height="1.91 м",
-                            DateOfBirthday="8/09/1987",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("8/09/1987")).TotalDays/365.2425)),
+                            Height=1.91,
+                            DateOfBirthday=new DateTime(1987,09,08),                            
                             PlaceOfBirthday="Балтимор, Мэрилэнд, США",
-                            RolesInMedia = new RoleInFilm[1]{RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Image="https://imageup.ru/img65/3736608/rayfisher.jpg",
                             Description="После средней школы Фишер учился в Американской музыкально-драматической академии в Нью-Йорке.\n" +
                             "Получив роль Киборга, Фишер сказал: «Я не знал, в какой степени DC и WB планировали использовать" +
@@ -878,12 +1027,11 @@ namespace NewKinoHub.Models
                         {
                             Name="Крис Террио",
                             OriginalName="Chris Terrio",
-                            DateOfBirthday="31/12/1976",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("31/12/1976")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1976,12,31),                            
                             PlaceOfBirthday="Нью-Йорк, США",
                             Awards="Золотая малина, 2017 - Худший сценарий («Бэтмен против Супермена: На заре справедливости»);" +
                             "Оскар, 2013 - Лучший адаптированный сценарий («Операция «Арго»»)",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Сценарист,RoleInFilm.Режиссёр,RoleInFilm.Актёр},
+                            RolesInMedia = "Сценарист, Режиссёр, Актёр",
                             Image="https://imageup.ru/img11/3736631/christerrio.jpg",
                             Description="Крис Террио вырос на Статен-Айленде (Нью-Йорк), в католической" +
                             " семье итальянского и ирландского происхождения. В 1997 году окончил" +
@@ -893,11 +1041,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Макото Синкай",
                             OriginalName="Makoto Niitsu",
-                            DateOfBirthday="9/02/1973",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("9/02/1973")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1973,02,09),                            
                             PlaceOfBirthday="Коуми, Нагано (префектура), Япония",
                             Spouse="Мисака Тиэко",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Режиссёр,RoleInFilm.Сценарист,RoleInFilm.Актёр},
+                            RolesInMedia = "Режиссёр, Сценарист, Актёр",
                             Image="https://imageup.ru/img111/3736947/makotoshinkai.jpg",
                             Description="Настоящее имя — Макото Ниицу. Фильм Синкая «Твоё имя», вышедший в 2016 году," +
                             " некоторое время был самым кассовым аниме в мире за всю историю.\n" +
@@ -913,11 +1060,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Рюносукэ Камики",
                             OriginalName="Ryunosuke Kamiki",
-                            Height="1.68 м",
-                            DateOfBirthday="19/05/1993",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("19/05/1993")).TotalDays/365.2425)),
+                            Height=1.68,
+                            DateOfBirthday=new DateTime(1993,05,19),                            
                             PlaceOfBirthday="Сайтама, Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="11-я премия Seiyu Awards, 2017 - Лучшая мужская роль («Твоё имя»)",
                             Image="https://imageup.ru/img21/3739101/ryunosuke_kamiki.jpg",
                             Description="Его отец любил поезда, и его назвали Рюносукэ" +
@@ -936,11 +1082,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Монэ Камисираиси",
                             OriginalName="Mone Kamishiraishi",
-                            Height="1.52 м",
-                            DateOfBirthday="27/01/1998",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("27/01/1998")).TotalDays/365.2425)),
+                            Height=1.52,
+                            DateOfBirthday=new DateTime(1998,01,27),                            
                             PlaceOfBirthday="Кагосима, Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актриса",
                             Awards="11-я премия Seiyu Awards, 2017 - Лучшая женская роль («Твоё имя»)",
                             Image="https://imageup.ru/img225/3739102/mone_kamishiraishi.jpg",
                             Description="Родилась в артистической семье, ее сестра Мока Камисираиси" +
@@ -953,11 +1098,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Рё Нарита",
                             OriginalName="Ryo Narita",
-                            Height="1.82 м",
-                            DateOfBirthday="22/11/1993",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("22/11/1993")).TotalDays/365.2425)),
+                            Height=1.82,
+                            DateOfBirthday=new DateTime(1993,11,22),                            
                             PlaceOfBirthday="Сайтама (префектура), Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="74-ю Mainichi Film Awards, 2020 - Лучшая мужская роль («Говорящие картинки»)",
                             Image="https://imageup.ru/img248/3739110/ryo_narita.jpg",
                             Description="В индустрию развлечений пришел в 2013 году" +
@@ -970,11 +1114,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Аой Юки",
                             OriginalName="Aoi Yuki",
-                            Height="1.45 м",
-                            DateOfBirthday="27/03/1992",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("27/03/1992")).TotalDays/365.2425)),
+                            Height=1.45,
+                            DateOfBirthday=new DateTime(1992,03,27),                            
                             PlaceOfBirthday="Тиба (префектура), Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актриса",
                             Awards="Newtype Anime Awards, 2011 - Лучшая женская роль;"+
                             "6-я премия Seiyu Awards, 2012 - Лучшая женская роль («Пуэлла Маги Мадока Магика»), («Госик»), («A-Channel»)"                            ,
                             Image="https://imageup.ru/img220/3739117/aoi_yuki.jpg",
@@ -989,10 +1132,9 @@ namespace NewKinoHub.Models
                         new Person
                         {
                             Name="Харуо Сотодзаки",
-                            OriginalName="Haruo Sotozaki",
-                            DateOfBirthday="-",
+                            OriginalName="Haruo Sotozaki",                            
                             PlaceOfBirthday="Хоккайдо, Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Режиссёр},
+                            RolesInMedia = "Режиссёр",
                             Awards="Tokyo Anime Award, 2021 - Режиссёр («Клинок, рассекающий демонов»)",
                             Image="https://imageup.ru/img109/3739209/haruo-sotozaki.jpg",
                             Description="Полнометражное аниме 'Клинок, рассекающий демонов. Бесконечный поезд'" +
@@ -1003,10 +1145,9 @@ namespace NewKinoHub.Models
                         {
                             Name="Коёхару Готогэ",
                             OriginalName="Koyoharu Gotouge",
-                            DateOfBirthday="5/05/1989",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("5/05/1989")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1989,05,05),                            
                             PlaceOfBirthday="-",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},
+                            RolesInMedia = "Сценарист",
                             Image="https://imageup.ru/img71/3739216/koyoharu_gotouge.jpg",
                             Description="Автор и мангака 'Клинка, рассекающего демонов'." +
                             " В ноябре 2016 года Готоге начала выпускать свою первую продолжительную" +
@@ -1016,11 +1157,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Нацуки Ханаэ",
                             OriginalName="Natsuki Hanae",
-                            Height="1.73 м",
-                            DateOfBirthday="26/06/1991",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("26/06/1991")).TotalDays/365.2425)),
+                            Height=1.73,
+                            DateOfBirthday=new DateTime(1991,06,26),                            
                             PlaceOfBirthday="Канагава, Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2015 - Лучший начинающий актёр;" +
                             "Seiyu Awards, 2017 - «Лучшая индивидуальная работа»;" +
                             "Seiyu Awards, 2020 - Лучшая мужская роль",
@@ -1036,11 +1176,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Ёсицугу Мацуока",
                             OriginalName="Yoshitsugu Matsuoka",
-                            DateOfBirthday="17/09/1986",
-                            Height="1.65 м",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("17/09/1986")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1986,09,17),
+                            Height=1.65,                            
                             PlaceOfBirthday="Хоккайдо, Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2012 - Лучший начинающий актёр;" +
                             "Seiyu Awards, 2016 - «Лучший актёр в главной роли»;",
                             Image="https://imageup.ru/img192/3739467/yoshitsugu_matsuoka.jpg",
@@ -1055,11 +1194,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Хиро Симоно",
                             OriginalName="Hiro Shimono",
-                            DateOfBirthday="21/04/1980",
-                            Height="1.68 м",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("21/04/1980")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1980,04,21),
+                            Height=1.68,                            
                             PlaceOfBirthday="Хоккайдо, Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2012 - «Лучшее исполнение песни» («Поющий принц»)",
                             Image="https://imageup.ru/img219/3739474/hiro_shimono.jpg",
                             Description="Его известные роли включают Кейма Кацураги в Мир, который знает только Бог," +
@@ -1072,12 +1210,11 @@ namespace NewKinoHub.Models
                         {
                             Name="Сатоси Хино",
                             OriginalName="Satoshi Hino",
-                            DateOfBirthday="4/08/1978",
-                            Height="1.7 м",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("4/08/1978")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1978,08,04),
+                            Height=1.7,                            
                             PlaceOfBirthday="Сан-Франциско, Калифорния, США",
                             Spouse="Саки Накадзима",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2012 - «Лучшее исполнение песни» («Поющий принц»)",
                             Image="https://imageup.ru/img226/3739477/satoshi_hino.jpg",
                             Description="Хино родился в США и вырос в Токио . Он жил в Сан-Франциско до пяти лет." +
@@ -1096,11 +1233,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Олег Трофим",
                             OriginalName="Трофим Олег Борисович",
-                            DateOfBirthday="12/10/1989",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("12/10/1989")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1989,10,12),                            
                             PlaceOfBirthday="Нарьян-Мар, СССР (Россия)",
                             Spouse="Виктория",
-                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Режиссёр,RoleInFilm.Сценарист},
+                            RolesInMedia = "Режиссёр, Сценарист",
                             Image="https://imageup.ru/img50/3739738/oleg-trofim.jpg",
                             Description="Стал автором и продюсером самого первого клипа группы «DownCast»" +
                             " под названием «Немое кино». С февраля 2007 года музыкальное семейство ежегодно" +
@@ -1115,10 +1251,9 @@ namespace NewKinoHub.Models
                         {
                             Name="Артем Габрелянов",
                             OriginalName="Габрелянов Артем Арамович",
-                            DateOfBirthday="9/02/1987",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("9/02/1987")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1987,02,09),                            
                             PlaceOfBirthday="Москва, СССР (Россия)",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},
+                            RolesInMedia = "Сценарист",
                             Image="https://imageup.ru/img195/3739750/artem_gabrelianov.jpg",
                             Description="Основал в 2011 году Bubble Comics как подразделение медиакомпании «News Media Holdings»." +
                             " Со временем Артём Габрелянов решил, что издательству стоит отказаться от юмористических комиксов" +
@@ -1129,10 +1264,9 @@ namespace NewKinoHub.Models
                         {
                             Name="Роман Котков",
                             OriginalName="Котков Роман Игоревич",
-                            DateOfBirthday="28/04/1987",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("28/04/1987")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1987,04,28),                            
                             PlaceOfBirthday="Москва, СССР (Россия)",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},
+                            RolesInMedia = "Сценарист",
                             Image="https://imageup.ru/img137/3739752/roman-kotkov.jpg",
                             Description="Главный редактор издательства Bubble, ранее выпускающий редактор." +
                             " Креативный продюссер и сценарист ожидаемого фильма «Майор Гром: Чумной доктор»." +
@@ -1144,11 +1278,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Тихон Жизневский",
                             OriginalName="Жизневский Тихон Игоревич",
-                            DateOfBirthday="30/08/1988",
-                            Height="1.91 м",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("30/08/1988")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1988,08,30),
+                            Height=1.91,                            
                             PlaceOfBirthday="Зеленоградск, Калининградская область, СССР (Россия)",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Image="https://imageup.ru/img100/3739753/tikhon-zhiznevskii.jpg",
                             Description="В 2009 году окончил ВТУ им. Щукина, курс Марии Пантелеевой и Валерия Фокина." +
                             " С 2009 года работал актёром Александринского театра. Дебютом в Александринском театре" +
@@ -1158,11 +1291,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Любовь Аксенова",
                             OriginalName="Аксенова Любовь Павловна",
-                            DateOfBirthday="15/03/1990",
-                            Height="1.75 м",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("15/03/1990")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1990,03,15),
+                            Height=1.75,                            
                             PlaceOfBirthday="Москва, СССР (Россия)",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актриса",
                             Spouse="Павел Аксенов",
                             Image="https://imageup.ru/img194/3739757/liubov-aksenova.jpg",
                             Description="В 2010 году окончила РАТИ-ГИТИС, мастерская А.И. Шейнина. В 2019 году стала" +
@@ -1173,11 +1305,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Алексей Маклаков",
                             OriginalName="Маклаков Алексей Константинович",
-                            DateOfBirthday="6/01/1961",
-                            Height="1.75 м",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("6/01/1961")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1961,01,06),
+                            Height=1.75,                            
                             PlaceOfBirthday="Тамбов, СССР (Россия)",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Spouse="Анна Романцева",
                             Awards="«Заслуженный артист Российской Федерации»",
                             Image="https://imageup.ru/img109/3739765/aleksei-maklakov.jpg",
@@ -1188,11 +1319,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Сергей Горошко",
                             OriginalName="Горoшко Сергей Дмитриевич",
-                            DateOfBirthday="7/07/1997",
-                            Height="1.83 м",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("7/07/1997")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1997,07,07),
+                            Height=1.83,                            
                             PlaceOfBirthday="Дзержинск, Нижегородская область, Россия",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="Лауреат высшей театральной премии Санкт-Петербурга «Золотой софит»",
                             Image="https://imageup.ru/img171/3739768/sergei-goroshko.jpg",
                             Description="В период с 2016 по 2020 год обучался в Российском государственном институте сценических" +
@@ -1203,11 +1333,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Пит Доктер",
                             OriginalName="Pete Docter",
-                            DateOfBirthday="10/08/1968",
-                            Height="1.94 м",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("10/08/1968")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1968,08,10),
+                            Height=1.94,                            
                             PlaceOfBirthday="Блумингтон, Миннесота, США",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Сценарист, RoleInFilm.Режиссёр, RoleInFilm.Актёр},
+                            RolesInMedia = "Сценарист, Режиссёр, Актёр",
                             Spouse="Аманда Доктер",
                             Awards="Оскар, 2021 год - Лучший анимационный фильм («Душа»); " +
                             "Британская академия, 2021 год - Лучший анимационный фильм («Душа»); " +
@@ -1229,10 +1358,9 @@ namespace NewKinoHub.Models
                         {
                             Name="Майк Джонс",
                             OriginalName="Mike Jones",
-                            DateOfBirthday="1/06/1971",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("1/06/1971")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1971,06,01),                            
                             PlaceOfBirthday="Сан-Антонио, Техас, США",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Сценарист},
+                            RolesInMedia = "Сценарист",
                             Image="https://imageup.ru/img25/3739826/mike-jones.jpg",
                             Description="Он начал свою карьеру в качестве журналиста-развлекателя, работая" +
                             " управляющим редактором Filmmaker Magazine и исполнительным редактором IndieWire. Его первый сценарий, EvenHand," +
@@ -1245,11 +1373,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Джейми Фокс",
                             OriginalName="Eric Marlon Bishop",
-                            Height="1.75 м",
-                            DateOfBirthday="13/12/1967",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("13/12/1967")).TotalDays/365.2425)),
+                            Height=1.75,
+                            DateOfBirthday=new DateTime(1967,12,13),                           
                             PlaceOfBirthday="Террелл, Техас, США",
-                            RolesInMedia = new RoleInFilm[3]{ RoleInFilm.Актёр, RoleInFilm.Сценарист,RoleInFilm.Режиссёр },
+                            RolesInMedia = "Актёр, Сценарист, Режиссёр",
                             Awards="Премия канала «MTV», 2013 год - Самый безумный эпизод («Джанго освобожденный»); " +
                             "Оскар, 2005 год - Лучшая мужская роль («Рэй»); " +
                             "Золотой глобус, 2005 год - Лучшая мужская роль (комедия или мюзикл) («Рэй»); " +
@@ -1267,12 +1394,11 @@ namespace NewKinoHub.Models
                         {
                             Name="Тина Фей",
                             OriginalName="Elizabeth Stamatina Fey",
-                            Height="1.64 м",
-                            DateOfBirthday="18/05/1970",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("18/05/1970")).TotalDays/365.2425)),
+                            Height=1.64,
+                            DateOfBirthday=new DateTime(1970,05,18),                            
                             PlaceOfBirthday="Аппер Дерби, Пенсильвания, США",
                             Spouse="Джефф Ричмонд",
-                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Актёр, RoleInFilm.Сценарист},
+                            RolesInMedia = "Актриса, Сценарист",
                             Awards="Эмми, 2016 год - Лучшая приглашенная актриса в комедийном сериале («Saturday Night Live»); " +
                             "Премия Гильдии актеров, 2013 год - Лучшая актриса комедийного сериала («Студия 30»); " +
                             "Золотой глобус, 2009 год - Лучшая женская роль на ТВ (комедия или мюзикл) («Студия 30»); " +
@@ -1293,11 +1419,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Грэм Нортон",
                             OriginalName="Graham William Walker",
-                            Height="1.73 м",
-                            DateOfBirthday="4/04/1963",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("4/04/1963")).TotalDays/365.2425)),
+                            Height=1.73,
+                            DateOfBirthday=new DateTime(1963,04,04),                            
                             PlaceOfBirthday="Дублин, Ирландия",
-                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Актёр, RoleInFilm.Сценарист },
+                            RolesInMedia = "Актёр, Сценарист",
                             Awards="British Academy Television Awards, 2000-2002 - Лучшее развлекательное выступление («Итак, Грэм Нортон»); " +
                             "Royal Television Society, 2001 - 	Лучший ведущий («Итак, Грэм Нортон»); " +
                             "British Academy Television Awards, 2011,2012,2018 - Лучшее развлекательное выступление («Шоу Грэма Нортона»); " +
@@ -1313,11 +1438,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Анджела Бассетт",
                             OriginalName="Angela Bassett",
-                            Height="1.63 м",
-                            DateOfBirthday="16/08/1958",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("16/08/1958")).TotalDays/365.2425)),
+                            Height=1.63,
+                            DateOfBirthday=new DateTime(1958,08,16),                           
                             PlaceOfBirthday="Гарлем, Нью-Йорк, США",
-                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Актёр, RoleInFilm.Режиссёр },
+                            RolesInMedia = "Актриса, Режиссёр",
                             Spouse="Кортни Б. Вэнс",
                             Awards="Премия Гильдии актеров, 2019 год - Лучший актерский состав («Чёрная Пантера»); " +
                             "Сатурн, 1996 год - Лучшая актриса («Странные дни»); " +
@@ -1338,12 +1462,11 @@ namespace NewKinoHub.Models
                         {
                             Name="Кайл Маккарли",
                             OriginalName="Kyle McCarley",
-                            DateOfBirthday="5/12/1985",
-                            Height="1.83 м",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("5/12/1985")).TotalDays/365.2425)),
+                            DateOfBirthday=new DateTime(1985,12,05),
+                            Height=1.83,                            
                             PlaceOfBirthday="Иллинойс, США",
                             Spouse="Кэтлин Голт",
-                            RolesInMedia = new RoleInFilm[2]{ RoleInFilm.Актёр,RoleInFilm.Сценарист},
+                            RolesInMedia = "Актёр, Сценарист",
                             Awards="BTVA Video Game Voice Acting Award - Лучший вокальный ансамбль в видеоигре («NieR: Automata (2017)»)," +
                             " Лучшее мужское вокальное исполнение в видеоигре («NieR: Automata (2017)»); " +
                             "BTVA People's Choice Voice Acting Award, 2018 - Лучший вокальный ансамбль в видеоигре («NieR: Automata (2017)»); " +
@@ -1361,11 +1484,10 @@ namespace NewKinoHub.Models
                         {
                             Name="Такахиро Сакурай",
                             OriginalName="Takahiro Sakurai",
-                            Height="1.76 м",
-                            DateOfBirthday="13/06/1974",
-                            Age=Convert.ToInt32(Math.Truncate((DateTime.Now.Date-Convert.ToDateTime("13/06/1974")).TotalDays/365.2425)),
+                            Height=1.76,
+                            DateOfBirthday=new DateTime(1974,06,13),                            
                             PlaceOfBirthday="Окадзаки, Айти (префектура), Япония",
-                            RolesInMedia = new RoleInFilm[1]{ RoleInFilm.Актёр},
+                            RolesInMedia = "Актёр",
                             Awards="Seiyu Awards, 2012 - «Премия зарубежных поклонников»",
                             Image="https://imageup.ru/img89/3740211/takakhiro-sakurai.jpg",
                             Description="Известные роли, которые сыграл Сакурай, включают Тентомона из серии Digimon Adventure," +
@@ -1374,7 +1496,304 @@ namespace NewKinoHub.Models
                             " из Mr. Osomatsu. Сотрудничал с агентством развлечений 81 Produce," +
                             " с 20 июля 2014 года состоит в агентстве INTENTION, учреждённом одним" +
                             " из его хороших друзей, сэйю Кэнъити Судзумурой."
-                        }
+                        },
+                        new Person
+                        {
+                            Name="Роберт Данкан МакНил",
+                            OriginalName="Robert Duncan McNeill",
+                            DateOfBirthday=new DateTime(1964,11,09),
+                            Height=1.85,
+                            PlaceOfBirthday="Роли, Северная Каролина, США",
+                            RolesInMedia="Режиссер, Актер, Продюсер, Сценарист",                            
+                            Image="https://imageup.ru/img232/3743274/robert-dankan-maknil.jpg",
+                            Awards="New York International Independent Film & Video Festival, 1999 - Лучший короткометражный фильм («Батарея»)",
+                            Description="Макнил начал свою режиссерскую карьеру с нескольких эпизодов «Вояджера»." +
+                            " Затем он написал, продюсировал и снял два отмеченных наградами короткометражных фильма," +
+                            " «Батарея» и « 9 мм любви», а также стал режиссером других эпизодических телешоу." +
+                            " С тех пор он выступал в качестве приглашенной звезды в телевизионных шоу, таких как The Outer Limits и Crossing Jordan." +
+                            " Макнил сосредоточился на своей режиссерской карьере, руководя эпизодами «Бухта Доусона», «Эвервуд»," +
+                            " «Звездный путь: Энтерпрайз», «Мертвый, как я», «Одинокие сердца», «Холм одного дерева», «Лас-Вегас»," +
+                            " «Саммерленд» и «Сверхъестественное». Его режиссерские работы в 2006–2007 годах включают эпизоды «Отчаянных домохозяек»," +
+                            " « Средний» , «Противостояние» , «Девять» , «Рыцари процветания», « В случае чрезвычайной ситуации»," +
+                            " « Что насчет Брайана» и « Мои мальчики»."
+                        },
+                        new Person
+                        {
+                            Name="Джей Чандрашекхар",
+                            OriginalName="Jayanth Jambulingam Chandrasekhar",
+                            DateOfBirthday=new DateTime(1968,04,09),
+                            Height=1.84,
+                            PlaceOfBirthday="Чикаго, Иллинойс, США",
+                            RolesInMedia="Режиссер, Актер, Сценарист, Продюсер, Монтажер",
+                            Spouse="Сьюзэн Кларк",
+                            Image="https://imageup.ru/img177/3744140/dzhei-chandrashekkhar.jpg",
+                            Awards="CinEuphoria Awards, 2020 - Merit - Honorary Award («Голдберги»); " +
+                            "OFTA Television Award, 2012 - Лучшая режиссура в комедийном сериале («Сообщество»); " +
+                            "SXSW Film Festival, 2001 - Полночные фильмы («Суперполицейские»)" +
+                            "Hamptons International Film Festival, 1996 - Лучший американский независимый фильм («Puddle Cruiser»);",
+                            Description="Известен по сериалам «Сообщество» (2009 – 2015) и «Реальные пацаны» (2010 – 2011)," +
+                            " «Чак» (2007 – 2012), «Задержка в развитии» (2003) и «Новенькая» (2011 – 2018), а также по фильмам «Суперполицейские» (2001)," +
+                            " «Клуб страха» (2004), «Детородные» (2012) и «Суперполицейские 2» (2018). В 2005 году Чандрасекхар поставил Герцогов Хаззарда. Комедийный боевик" +
+                            " по мотивам одноименного американского телесериала 1970-х стал дебютом поп-певицы Джессики Симпсон как актрисы. Несмотря на финансовый успех," +
+                            " фильм получил негативные отзывы критиков. Он стал признанным режиссером телевизионных комедий, снимая эпизоды Undeclared," +
+                            " Happy Endings, Chuck, Community, Psych и Задержка развития. Он говорит, что чем раньше режиссер" +
+                            " присоединяется к шоу, тем большее влияние он или она окажет на его внешний вид."
+                        },
+                        new Person
+                        {
+                            Name="Алан Тьюдик",
+                            OriginalName="Alan Wray Tudyk",
+                            DateOfBirthday=new DateTime(1971,03,16),
+                            Height=1.8,
+                            PlaceOfBirthday="Эль-Пасо, Техас, США",
+                            RolesInMedia="Актер, Режиссер, Сценарист, Продюсер",
+                            Spouse="Чарисса Бартон",
+                            Image="https://imageup.ru/img52/3743689/alan-tiudik.jpg",
+                            Awards="BTVA People's Choice Voice Acting Award, 2017 - Лучший вокальный ансамбль в телесериале («Звёздная принцесса и силы зла»); " +
+                            "BTVA People's Choice Voice Acting Award, 2017 - Лучший вокальный ансамбль в художественном фильме («Моана»); " +
+                            "BTVA People's Choice Voice Acting Award, 2017 - Лучшее мужское вокальное исполнение в художественном фильме («Изгой-один: Звёздные войны. Истории»); " +
+                            "BTVA People's Choice Voice Acting Award, 2014 - Лучший вокальный ансамбль в художественном фильме («Холодное сердце»); " +
+                            "BTVA Feature Film Voice Acting Award, 2014 - Лучший вокальный ансамбль в художественном фильме («Холодное сердце»); " +
+                            "BTVA Feature Film Voice Acting Award, 2013 - Лучший вокальный ансамбль в художественном фильме («Ральф»); " +
+                            "BTVA People's Choice Voice Acting Award, 2013 - Лучший вокальный ансамбль в художественном фильме («Ральф»)",
+                            Description=" В колледже с 1990 по 1991 год он изучал драматургию, а также участвовал в театральных постановках." +
+                            " В 1993 году поступил в Джульярдскую школу, но в 1996 году бросил обучение, так и не получив диплома. В 1997 году" +
+                            " он дебютировал в кино, снявшись в фильме «35 миль от нормального». В начале своей карьеры он также часто появлялся в пьесах Бродвея. " +
+                            "Известен по ролям Саймона в чёрной комедии «Смерть на похоронах»" +
+                            " и Стива в «Вышибалах», а также роли Хобана Уошбурна («Уоша») в научно-фантастическом сериале «Светлячок» и фильме «Миссия „Серенити“»," +
+                            " снятом как продолжение сериала."
+                        },
+                        new Person
+                        {
+                            Name="Сара Томко",
+                            OriginalName="Sara Tomko",
+                            DateOfBirthday=new DateTime(1983,10,19),
+                            Height=1.65,                            
+                            RolesInMedia="Актриса, Продюсер",                            
+                            Image="https://imageup.ru/img211/3743704/sara-tomko.jpg",                            
+                            Description="Известна по ролям в Засланец из космоса (2021), Девочки! Девочки! Девочки! Или: Когда Тэмми Увядает (2018) и Подлый Пит (2015)."
+                        },
+                        new Person
+                        {
+                            Name="Кори Рейнольдс",
+                            OriginalName="Corey Reynolds",
+                            DateOfBirthday=new DateTime(1974,07,03),
+                            PlaceOfBirthday="Ричмонд, Вирджиния, США",
+                            Spouse="Тара Рене Шемански",                            
+                            RolesInMedia="Актер, Продюсер",
+                            Image="https://imageup.ru/img73/3743716/kori-reinolds.jpg",
+                            Description="Первый актёрский опыт Кори Рейнольдс получил ещё в школе. В 16 лет переехал в Калифорнию в надежде на успех." +
+                            " Играл в различных эстрадных постановках. Впоследствии перебрался в Нью-Йорк, где после многочисленных проб получил роль Сиуида" +
+                            " Стаббса в бродвейском мюзикле «Лак для волос», за которую в 2003 году номинировался на премию «Тони» в категории «Лучшая мужская роль второго" +
+                            " плана в мюзикле». На волне театральных успехов Рейнольдс попробовал себя в кино и на телевидении. В России наиболее известен своей ролью сержанта Дэвида Гэбриэла" +
+                            " в телевизионном сериале «Ищейка»."
+                        },                        
+                        new Person{
+                            Name="Джонас Пейт",
+                            OriginalName="Jonas James Pate",                            
+                            DateOfBirthday=new DateTime(1970,01,15),
+                            PlaceOfBirthday="Рейфорд, Северная Каролина, США",
+                            Spouse="Дебора Снайдер",
+                            Awards="Cognac Festival du Film Policier,1998 - Специальный приз Жюри («Детектор лжи»); " +
+                            "Stockholm Film Festival, 1997 - Лучший сценарий («Детектор лжи»)",                            
+                            RolesInMedia = "Режиссер, Продюсер, Сценарист",
+                            Image="https://imageup.ru/img84/3743733/dzhonas-peit.jpg",
+                            Description="В 1996 году Пейт начал свою карьеру, написав и направив триллер фильм под названием Могила с братом Джошем." +
+                            " После показа на кинофестивале Sundance фильм получил множество положительных отзывов. В следующем году они вместе работали над фильмом Обманщик." +
+                            " Впоследствии он вместе со своим братом стал соавтором фэнтезибоевик телешоу Добро против Зла (1999)." +
+                            " С 2003 по 2004 год он был со-исполнительным продюсером на телеканале L.A. Драгнет, для которого он также написал серию." +
+                            " В 2005 году он стал соавтором научно-фантастического сериала Поверхность, который транслировался до 2006 года." +
+                            " В 2020 году губернатор Рой Купер назначил его" +
+                            " в Консультативный совет губернатора по вопросам кино, телевидения и цифрового потокового вещания."
+                        },
+                        new Person
+                        {
+                            Name="Шеннон Берк",
+                            OriginalName="Shannon Burke",
+                            DateOfBirthday=new DateTime(1966,09,11),
+                            PlaceOfBirthday="Уилметт, Иллинойс, США",                            
+                            RolesInMedia="Сценарист, Продюсер, Писатель",
+                            Image="https://imageup.ru/img202/3743824/shannon-burke.jpg",
+                            Description="Учился в Университет Северной Каролины-Чапел-Хилл. После окончания он стал фельдшером" +
+                            " Пожарная служба Нью-Йорка. Берк использовал этот опыт в своих романах. Safelight (2004) и Черные мухи (2008)." +
+                            " К 2015 году Берк опубликовал три романа: Safelight (2004), Черные мухи (2008) и В дикую страну (2015). Также он" +
+                            " принимал участие в различных кино- и телепроектах, в том числе работал над сценарием к фильму Сириана (2005), и он является" +
+                            " соавтором и исполнительным продюсером сериала Netflix Внешние отмели."
+                        },
+                        new Person
+                        {
+                            Name="Чейз Стоукс",
+                            OriginalName="Chase Stokes",
+                            Height=1.85,
+                            DateOfBirthday=new DateTime(1992,09,16),
+                            PlaceOfBirthday="Аннаполис, Мэриленд, США",
+                            RolesInMedia="Актер",
+                            Image="https://imageup.ru/img222/3743827/chase-stokes.jpg",
+                            Awards="Премия канала «MTV», 2021 - Лучший поцелуй («Внешние отмели»)",
+                            Description="В начале своей актерской карьеры у Стокса были небольшие роли, в том числе Очень странные дела, Дневные дивы и Расскажи мне свои секреты." +
+                            " Он проходил прослушивание во Внешних отмелях в 2019 году и первоначально отклонил предложение, но передумал после прочтения сценария. Он также первоначально" +
+                            " прослушивался на роль Топпера, прежде чем читать для Джона Б. Первый сезон был выпущен 15 апреля 2020 года и получил положительные отзывы, а второй" +
+                            " сезон был подтвержден в июле. В том же месяце было объявлено, что он будет играть TJ в Один и нас лжёт. В сентябре 2020 года Стоукс и Мэделин Клайн снялись" +
+                            " в видеоклипе на сингл Kygo и Донны Саммер 'Hot Stuff'."
+                        },
+                        new Person
+                        {
+                            Name="Мэдлин Клайн",
+                            OriginalName="Madelyn Cline",
+                            Height=1.68,
+                            DateOfBirthday=new DateTime(1997,12,21),
+                            PlaceOfBirthday="Чарльстон, Южная Каролина, США",
+                            RolesInMedia="Актриса",
+                            Image="https://imageup.ru/img281/3743932/medlin-klain.jpg",
+                            Awards="Премия канала «MTV», 2021 - Лучший поцелуй («Внешние отмели»)",
+                            Description="Она начала с небольших ролей, таких как Хлоя в Стертая личность и Тейлор Уоттс в Вице-директора. У нее также были небольшие повторяющиеся роли" +
+                            " в Древние и Очень странные дела. В 2018 году она сыграла Сару Кэмерон в оригинальном сериале Netflix Внешние отмели, первый сезон которого был выпущен 15 апреля 2020 года." +
+                            " Шоу получило положительные отзывы, и второй сезон был подтвержден в июле 2020 года. В сентябре 2020 года Клайн и Чейз Стоукс снялись в видеоклипе на сингл Kygo" +
+                            " и Донны Саммер 'Hot Stuff'."
+                        },
+                         new Person
+                        {
+                            Name="Руди Панкоу",
+                            OriginalName="Rudy Pankow",                            
+                            DateOfBirthday=new DateTime(1998,08,12),
+                            PlaceOfBirthday="Кетчикан, Аляска, США",
+                            RolesInMedia="Актёр",
+                            Image="https://imageup.ru/img181/3743970/rudi-pankou.jpg",
+                            Awards="Humboldt International Film Festival, 2019 - Почетное упоминание («Девиант» (2018))",
+                            Description="Панков изначально собирался пойти в кулинарную школу, но решил стать актером и поступил в актерский институт в 2016–17 годах. " +
+                            "После этого Панков поступил в студию Майкла Вулсона, чтобы улучшить свои актерские способности. После окончания актерского курса он начал играть в театре," +
+                            " чтобы набраться опыта. Панков наиболее известен своей ролью Джей-Джея Мейбанка во Внешних отмелях. Другие шоу, в которых он выступал: Политик, Девиант и Космические волны."
+                        },
+                         new Person
+                        {
+                            Name="Джефф Аллен",
+                            OriginalName="Jeff Allen",                            
+                            PlaceOfBirthday="-",
+                            RolesInMedia="Режиссёр",
+                            Image="https://imageup.ru/img70/3743969/dzheff-allen.jpg",                            
+                            Description="Известен как режиссёр по таким работам Неуязвимый (2021), Команда 'Мстители'(2012-2019), Великий Человек-паук (2012-2017), Шэгги и Скуби-Ду ключ найдут! (2006-2008)."
+                        },
+                          new Person
+                        {
+                            Name="Роберт Киркман",
+                            OriginalName="Robert Kirkman",
+                            DateOfBirthday=new DateTime(1978,11,30),
+                            PlaceOfBirthday="Ричмонд, Кентукки, США",
+                            RolesInMedia="Продюсер, Сценарист, Актёр",
+                            Height=1.85,
+                            Image="https://imageup.ru/img23/3743975/robert-kirkman.jpg",
+                            Awards="CinEuphoria Awards, 2020 - Почетная Награда («Ходячие мертвецы»)",
+                            Description="Наиболее известен своей работой над серией комиксов Ходячие мертвецы и Неуязвимый для Image Comics и Marvel Team-Up и Marvel Zombies для Marvel Comics." +
+                            " Вместе с Тоддом Макфарлейном работал над созданием серии Haunt, и с ним же входит в число пяти владельцев Image Comics и единственным из них, кто не был" +
+                            " соучредителем издательства. Киркман участвует в создании телесериала «Ходячие мертвецы», снятого по мотивам комикса его авторства и написал сценарий к четвёртому эпизоду, «Vatos»."
+                        },
+                          new Person
+                        {
+                            Name="Стивен Ён",
+                            OriginalName="Yeon Sang-yeop",
+                            Height=1.75,
+                            Spouse="Джоана Пак",
+                            DateOfBirthday=new DateTime(1983,12,21),
+                            PlaceOfBirthday="Сеул, Южная Корея",
+                            RolesInMedia="Актёр, Продюсер",
+                            Image="https://imageup.ru/img156/3743979/stiven-ian.jpg",
+                            Awards="NMFC Award, 2021 - Лучший ансамбль («Минари»); " +
+                            "NCFCA Award, 2021 - Лучший актер («Минари»); " +
+                            "NTFCA Award, 2021 - Лучший актер («Минари»); " +                           
+                            "CinEuphoria Awards, 2020 - Почетная Награда («Ходячие мертвецы»); " +
+                            "Denver International Film Festival, 2020 - Премия за выдающиеся актерские достижения («Минари»); " +
+                            "Middleburg Film Festival, 2020 - Ансамбль в ролях Премия Spotlight («Минари»); " +                            
+                            "Chunsa Film Art Awards, 2019 - Лучший актер второго плана («Пылающий» (2018))", 
+                            Description="Получил высшее образование в Kalamazoo College в Каламазу, где изучал психологию. По окончании колледжа получил степень бакалавра. " +
+                            "Известнен по роли Гленна Ри в телесериале «Ходячие мертвецы». За главную роль Джейкоба Ли в картине «Минари» Ён получил номинации на премии" +
+                            " Американской киноакадемии «Оскар» и Американской Гильдии киноактёров в категории «Лучший актёр»," +
+                            " став первым американским актёром корейского происхождения, номинированным на эти награды. Помимо съёмок в фильмах и телесериалах сериалах" +
+                            " Ён занимается озвучиванием персонажей компьютерных игр и мультфильмов. Ещё до своего переезда в Лос-Анджелес он озвучивал корейских солдат" +
+                            " в играх Crysis и Crysis Warhead. В 2013 году Ён озвучивал персонажа по имени Ван в мультсериале «Аватар: Легенда о Корре». Он также озвучил" +
+                            " главного героя анимационного фильма Chew, созданного по одноимённому комиксу, и персонажа Кита в мультсериале «Вольтрон: Легендарный Защитник»."
+                        },
+                           new Person
+                        {
+                            Name="Сандра О",
+                            OriginalName="Sandra Miju Oh",
+                            DateOfBirthday=new DateTime(1971,07,20),
+                            PlaceOfBirthday="Непиан, Онтарио, Канада",
+                            RolesInMedia="Актриса, Продюсер, Сценарист",
+                            Height=1.65,
+                            Image="https://imageup.ru/img169/3743982/sandra-o.jpg",
+                            Awards="Золотой глобус, 2019 - Лучшая женская роль на ТВ (драма) («Убивая Еву»); " +
+                            "Премия Гильдии актеров, 2019 - Лучшая актриса драматического сериала («Убивая Еву»); " +
+                            "Премия Гильдии актеров, 2007 - Лучший актерский состав драматического сериала («Анатомия страсти»); " +
+                            "Золотой глобус, 2006 - Лучшая актриса второго плана мини-сериала или фильма на ТВ («Анатомия страсти»); " +
+                            "Премия Гильдии актеров, 2006 - Лучшая актриса драматического сериала («Анатомия страсти»); " +
+                            "Премия Гильдии актеров, 2005 - Лучший актерский состав («На обочине»)",
+                            Description="В 1993 году Сандра О сыграла главную роль в канадском телефильме «Дневник Эвелин Ло»," +
+                            " обойдя при этом более 1000 претендентов. Эта роль принесла ей похвалу от критиков и номинацию на премию «Джемини»" +
+                            " за лучшую женскую роль на телевидении. В следующем году она выиграла канадский «Оскар» за исполнение главной роли в фильме «Двойная радость»." +
+                            "Наиболее известна по своей роли доктора Кристины Янг в сериале канала ABC «Анатомия страсти», которая принесла ей премии «Золотой глобус»" +
+                            " и Гильдии актёров США за лучшую женскую роль в драматическом сериале. 12 июля 2018 года вошла в историю, став первой актрисой азиатского происхождения," +
+                            " получившей номинацию на телевизионную премию «Эмми» в категории «Лучшая женская роль в драматическом телесериале» за роль в «Убивая Еву». За эту же роль получила" +
+                            " премию «Золотой глобус» за лучшую женскую роль в телевизионном сериале — драма."
+                        },
+                            new Person
+                        {
+                            Name="Дж.К. Симмонс",
+                            OriginalName="Jonathan Kimble Simmons",
+                            DateOfBirthday=new DateTime(1955,01,09),
+                            PlaceOfBirthday="Детройт, Мичиган, США",
+                            RolesInMedia="Актёр",
+                            Spouse="Мишель Шумахер",
+                            Height=1.8,
+                            Image="https://imageup.ru/img272/3743989/dzhk-simmons.jpg",
+                            Awards="Оскар, 2015 - Лучшая мужская роль второго плана («Одержимость»); " +
+                            "Золотой глобус, 2015 - Лучшая мужская роль второго плана («Одержимость»); " +
+                            "Британская академия, 2015 - Лучшая мужская роль второго плана («Одержимость»); " +
+                            "Премия Гильдии актеров, 2015 - Лучшая мужская роль второго плана («Одержимость»)",                            
+                            Description="Больше всего известен по ролям доктора Шкоды в сериале «Закон и порядок», неонациста Шиллингера" +
+                            " в тюремной драме HBO «Тюрьма Оз», Дж. Джоны Джеймсона в серии фильмов «Человек-паук» и подрывника Газа Панкейка в фильме братьев" +
+                            " Коэнов «Игры джентльменов». Был удостоен множества наград, в том числе «Золотого глобуса», BAFTA и «Оскар» за роль дирижёра-тирана в психологической драме «Одержимость» (2014). " +
+                            "Симмонс снимался во всей серии фильмов о Человеке-Пауке, где исполнил роль Дж. Джоны Джеймсона. голосом Симмонса заговорил жёлтый M&M’s из" +
+                            " известной серии реклам о двух драже. Джон исполнял роль президента-антикоммуниста Говарда Акермана в видеоигре Command & Conquer: Red Alert 3," +
+                            " основателя и президента Aperture Science Кэйва Джонсона в видеоигре Portal 2 и нескольких персонажей мультсериала «Симпсоны»."
+                        },
+                        new Person
+                        {
+                            Name="Крис Шеридан",
+                            OriginalName="Christopher Sheridan",
+                            DateOfBirthday=new DateTime(1967,09,19),
+                            PlaceOfBirthday="Филиппины",
+                            RolesInMedia="Актёр, Продюсер, Сценарист",
+                            Height=1.91,
+                            Image="https://imageup.ru/img102/3743993/kris-sheridan.jpeg",
+                            Awards="Austin Film Festival, 2006 - Премия за документальный фильм («Похищение: История Мегуми Йокоты»); " +
+                            "DVD Exclusive Awards, 2006 - Лучший сценарий (для премьерного фильма на DVD) («Стьюи Гриффин: Нерассказанная история»); " +
+                            "Omaha Film Festival, 2006 - Лучший документальный фильм («Похищение: История Мегуми Йокоты»); " +
+                            "Slamdance Film Festival, 2006 - Лучший документальный фильм («Похищение: История Мегуми Йокоты»); " +
+                            "Heartland International Film Festival, 1997 - Награда 'Хрустальное сердце' («Walk This Way»)",
+                            Description="Его первая работа появилась в 1992 году, когда его наняли помощником сценариста в ситкоме Fox Shaky Ground." +
+                            " После этого он был нанят ассистентом в ситкоме Fox Living Single, где в конечном итоге стал сценаристом. Он оставался в" +
+                            " сериале до его отмены в 1998 году. После того, как шоу было отменено и Шеридан стал безработным, он начал писать для мультсериала Гриффины." +
+                            " Хотя поначалу он был настроен скептически, он согласился на эту работу, поскольку у него не было других вариантов. Шеридан был одним" +
+                            " из первых нанятых сценаристов и продолжал писать для сериала на протяжении его одиннадцатого сезона. За свою работу" +
+                            " над Family Guy он был номинирован на пять Primetime Emmy Awards, British Academy Television Award и выиграл DVD Exclusive Award." +
+                            " Шеридан также написал эпизоды Тита и Да, дорогой."
+                         },
+                        new Person{
+                            Name="Алексей Навальный",
+                            OriginalName="Навальный Алексей Анатольевич",
+                            Height=1.88,
+                            DateOfBirthday = new DateTime(1976,06,04),
+                            PlaceOfBirthday="Бутынь, Одинцовский район, Московская область, РСФСР, СССР",
+                            Spouse="Юлия Борисовна Навальная",                            
+                            RolesInMedia = "Режиссёр, Сценарист, Политик",
+                            Image="https://imageup.ru/img161/3736570/pirate.jpg",
+                            Description="Российский оппозиционный лидер, юрист, политический и общественный деятель, получивший известность своими" +
+                            " расследованиями о коррупции в России. Позиционирует себя в качестве главного оппонента коррумпированному руководству" +
+                            " России во главе с Владимиром Путиным. Создатель «Фонда борьбы с коррупцией», объединяющего дочерние проекты:" +
+                            " «Умное голосование», «Профсоюз Навального», «РосПил», «РосЖКХ», «РосЯма», «РосВыборы», «Добрая машина правды». " +
+                            "Автор двух популярных YouTube-каналов: «Алексей Навальный» и «Навальный LIVE»."
+                        },
+
                     };
                     persons = new Dictionary<string, Person>();
                     foreach (Person el in list)
