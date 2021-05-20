@@ -1526,7 +1526,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Чикаго, Иллинойс, США",
                             RolesInMedia="Режиссер, Актер, Сценарист, Продюсер, Монтажер",
                             Spouse="Сьюзэн Кларк",
-                            Image="https://imageup.ru/img99/3743671/dzhei-chandrashekkhar.jpg",
+                            Image="https://imageup.ru/img177/3744140/dzhei-chandrashekkhar.jpg",
                             Awards="CinEuphoria Awards, 2020 - Merit - Honorary Award («Голдберги»); " +
                             "OFTA Television Award, 2012 - Лучшая режиссура в комедийном сериале («Сообщество»); " +
                             "SXSW Film Festival, 2001 - Полночные фильмы («Суперполицейские»)" +

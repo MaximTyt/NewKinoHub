@@ -23,6 +23,7 @@ namespace NewKinoHub.Controllers
         {
             ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
             var persons = await _person.GetPersons();
+            await _person.AgeOfPerson();
             return View(persons);
         }
 
@@ -30,6 +31,7 @@ namespace NewKinoHub.Controllers
         {
             ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
             var person = await _person.GetPersonForId(personId);
+            await _person.AgeOfPerson(personId);
             return View(person);
         }
 

@@ -17,6 +17,33 @@
             </a>
             <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
                 <p style="font-weight: bold; right:100%; left:0%;"> @Person.Name </p>
+                <p><span style="font-weight:bold">Карьера:</span> @Person.RolesInMedia </p>
+                @if (Person.DateOfBirthday.Year != 0001)
+                {
+                    <p>
+                        <span style="font-weight:bold">Дата рождения:</span> @Person.DateOfBirthday.ToShortDateString()
+                    </p>
+                }
+                @if (Person.Age != -1)
+                {
+                    @if (Person.Age % 10 == 2 || Person.Age % 10 == 3 || Person.Age % 10 == 4)
+                    {
+                        <p> <span style="font-weight:bold">Возраст:</span> @Person.Age года</p>
+                    }
+                    else if (Person.Age % 10 == 1)
+                    {
+                        <p> <span style="font-weight:bold">Возраст:</span> @Person.Age год</p>
+                    }
+                    else
+                    {
+                        <p> <span style="font-weight:bold">Возраст:</span> @Person.Age лет</p>
+                    }
+                }
+
+                @if (Person.DateOfDeath.Year != 0001)
+                {
+                    <p> <span style="font-weight:bold">Дата смерти:</span> @Person.DateOfDeath.ToShortDateString()</p>
+                }
                 @if (ViewBag.Role == 1)
                 {
                     <td valign="top" align="right" width="30">

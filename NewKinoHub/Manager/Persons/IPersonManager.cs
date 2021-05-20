@@ -11,5 +11,7 @@ namespace NewKinoHub.Manager.Persons
         Task<ICollection<Person>> GetPersons();
         Task<Person> GetPersonForId(int IdPerson);
         Task DeletePerson(int IdPerson);
+        Task AgeOfPerson(int personId);
+        Task AgeOfPerson();
     }
 }
