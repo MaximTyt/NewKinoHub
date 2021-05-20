@@ -28,28 +28,28 @@
 
                             <p>
                             <p><span style="font-weight:bold">Карьера:</span> @Model.Person.RolesInMedia </p>
-
-                            <p>
-                                <span style="font-weight:bold">Дата рождения:</span> @Model.Person.DateOfBirthday
-                            </p>
+                            @if (Model.Person.DateOfBirthday.Year != 0001)
+                            {
+                                <p><span style="font-weight:bold">Дата рождения:</span> @Model.Person.DateOfBirthday.ToShortDateString() </p>
+                            }
                             @if (Model.Person.Age != -1)
                             {
-                            @if (Model.Person.Age % 10 == 2 || Model.Person.Age % 10 == 3 || Model.Person.Age % 10 == 4)
-                            {
-                                <p> <span style="font-weight:bold">Возраст:</span> @Model.Person.Age года</p>
+                                @if (Model.Person.Age % 10 == 2 || Model.Person.Age % 10 == 3 || Model.Person.Age % 10 == 4)
+                                {
+                                    <p> <span style="font-weight:bold">Возраст:</span> @Model.Person.Age года</p>
+                                }
+                                else if (Model.Person.Age % 10 == 1)
+                                {
+                                    <p> <span style="font-weight:bold">Возраст:</span> @Model.Person.Age год</p>
+                                }
+                                else
+                                {
+                                    <p> <span style="font-weight:bold">Возраст:</span> @Model.Person.Age лет</p>
+                                }
                             }
-                            else if (Model.Person.Age % 10 == 1)
+                            @if (Model.Person.DateOfDeath.Year != 0001)
                             {
-                                <p> <span style="font-weight:bold">Возраст:</span> @Model.Person.Age год</p>
-                            }
-                            else
-                            {
-                                <p> <span style="font-weight:bold">Возраст:</span> @Model.Person.Age лет</p>
-                            }
-                            }
-                            @if (Model.Person.DateOfDeath != null)
-                            {
-                                <p> <span style="font-weight:bold">Дата смерти:</span> @Model.Person.DateOfDeath</p>
+                                <p> <span style="font-weight:bold">Дата смерти:</span> @Model.Person.DateOfDeath.ToShortDateString()</p>
                             }
                             <p><span style="font-weight:bold">Место рождения:</span> @Model.Person.PlaceOfBirthday</p>
                             @if (Model.Person.Spouse != null)
