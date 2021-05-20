@@ -118,6 +118,63 @@ namespace NewKinoHub.Models
                     },
                     new Media
                     {
+                        MediaType = MediaType.Film,
+                        Name = "Он вам не Димон",
+                        Img = "https://imageup.ru/img3/3744133/on-vam-ne-dimon.jpg",
+                        Video = "https://www.youtube.com/embed/qrwlk7_GF9g",
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1035",
+                        Year = 2017,
+                        Country = "Россия",
+                        Age = 12,
+                        Score = 9.072,
+                        Release_Date = "2 марта 2017",
+                        Runtime = "49 мин.",
+                        ShortDescription = "Секретные дворцы, виноградники и яхты Дмитрия Медведева",
+                        Description = "Рассказ о недвижимом имуществе председателя Правительства Российской Федерации Дмитрия Медведева.",
+                        ScoreKP = "https://rating.kinopoisk.ru/1043713.gif",
+                        Genres = new List<Genre>() { Genres["Документальный"] },
+                        Casts = new List<Cast>()
+                        {
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Режиссёр,
+                            Person = Persons["Алексей Навальный"]
+                            },
+                            new Cast
+                            {
+                                RoleInFilm=RoleInFilm.Сценарист,
+                                Person=Persons["Алексей Навальный"]
+                            },
+                            new Cast
+                            {
+                            RoleInFilm = RoleInFilm.Актёр,
+                            Person = Persons["Алексей Навальный"],
+                            Character = "самого себя"
+                            }                            
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img129/3744102/ne-dimon1.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img272/3744103/ne-dimon2.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img110/3744104/ne-dimon3.jpg"
+                            },
+                            new MediaImages
+                            {
+                                ImagesUrl ="https://imageup.ru/img255/3744105/ne-dimon4.jpg"
+                            }
+                        }
+
+                    },
+                    new Media
+                    {
                         MediaType = MediaType.Serial,
                         Name = "Засланец из космоса",
                         NumOfSeason = 1,
@@ -1721,6 +1778,21 @@ namespace NewKinoHub.Models
                             " над Family Guy он был номинирован на пять Primetime Emmy Awards, British Academy Television Award и выиграл DVD Exclusive Award." +
                             " Шеридан также написал эпизоды Тита и Да, дорогой."
                          },
+                        new Person{
+                            Name="Алексей Навальный",
+                            OriginalName="Навальный Алексей Анатольевич",
+                            Height=1.88,
+                            DateOfBirthday = new DateTime(1976,06,04),
+                            PlaceOfBirthday="Бутынь, Одинцовский район, Московская область, РСФСР, СССР",
+                            Spouse="Юлия Борисовна Навальная",                            
+                            RolesInMedia = "Режиссёр, Сценарист, Политик",
+                            Image="https://imageup.ru/img161/3736570/pirate.jpg",
+                            Description="Российский оппозиционный лидер, юрист, политический и общественный деятель, получивший известность своими" +
+                            " расследованиями о коррупции в России. Позиционирует себя в качестве главного оппонента коррумпированному руководству" +
+                            " России во главе с Владимиром Путиным. Создатель «Фонда борьбы с коррупцией», объединяющего дочерние проекты:" +
+                            " «Умное голосование», «Профсоюз Навального», «РосПил», «РосЖКХ», «РосЯма», «РосВыборы», «Добрая машина правды». " +
+                            "Автор двух популярных YouTube-каналов: «Алексей Навальный» и «Навальный LIVE»."
+                        },
 
                     };
                     persons = new Dictionary<string, Person>();
