@@ -19,7 +19,33 @@
                 </a>
                 <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
                     <p style="font-weight: bold; right:100%; left:0%;"> @cast.Name </p>
-                    <p><span style="font-weight:bold">Страна:</span> @cast.RolesInMedia</p>
+                    <p><span style="font-weight:bold">Карьера:</span> @cast.RolesInMedia</p>
+                    @if (cast.DateOfBirthday.Year != 0001)
+                    {
+                        <p>
+                            <span style="font-weight:bold">Дата рождения:</span> @cast.DateOfBirthday.ToShortDateString()
+                        </p>
+                    }
+                    @if (cast.Age != -1)
+                    {
+                        @if (cast.Age % 10 == 2 || cast.Age % 10 == 3 || cast.Age % 10 == 4)
+                        {
+                            <p> <span style="font-weight:bold">Возраст:</span> @cast.Age года</p>
+                        }
+                        else if (cast.Age % 10 == 1)
+                        {
+                            <p> <span style="font-weight:bold">Возраст:</span> @cast.Age год</p>
+                        }
+                        else
+                        {
+                            <p> <span style="font-weight:bold">Возраст:</span> @cast.Age лет</p>
+                        }
+                    }
+
+                    @if (cast.DateOfDeath.Year != 0001)
+                    {
+                        <p> <span style="font-weight:bold">Дата смерти:</span> @cast.DateOfDeath.ToShortDateString()</p>
+                    }
                 </div>
                 <div style=" clear:both;"></div>
             </div>

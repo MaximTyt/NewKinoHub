@@ -22,8 +22,7 @@ namespace NewKinoHub.Controllers
         public async Task<IActionResult> Person(int personId)
         {
             var person = await _cast.GetPersonforId(personId);
-            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
-            await _cast.AgeOfPerson(personId);
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));            
             return View(person);
         }
 
@@ -42,7 +41,7 @@ namespace NewKinoHub.Controllers
 
         [HttpPost]
         public async Task<IActionResult> AddCast(int IdFilm, string Character, int RoleInFilm, string Name, string OriginalName,
-            string RolesInMedia, string Height, string Image, string DateOfBirthday, string DateOfDeath, string PlaceOfBirthday,
+            string RolesInMedia, double Height, string Image, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
             string PlaceOfDeath, string Spouse, string Awards, string Description)
         {
             await _cast.AddCast(IdFilm, Character, RoleInFilm, Name, OriginalName, RolesInMedia, Height, Image, DateOfBirthday, DateOfDeath, PlaceOfBirthday, 

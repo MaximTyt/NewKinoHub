@@ -56,21 +56,11 @@ namespace NewKinoHub.Manager.Casts
                 return role;
             }
             return role;
-        }
-        public async Task AgeOfPerson(int personId)
-        {
-            //    if (_context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfBirthday != "-" && _context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfDeath == null)
-            //    _context.Casts.FirstOrDefault(st => st.Id == personId).Person.Age = Convert.ToInt32(Math.Truncate((DateTime.Now.Date - Convert.ToDateTime(_context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfBirthday)).TotalDays / 365.2425));
-            //else if (_context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfBirthday != "-" && _context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfDeath != null)
-            //    _context.Casts.FirstOrDefault(st => st.Id == personId).Person.Age = Convert.ToInt32(Math.Truncate((Convert.ToDateTime(_context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfDeath) - Convert.ToDateTime(_context.Casts.FirstOrDefault(st => st.Id == personId).Person.DateOfBirthday)).TotalDays / 365.2425));
-            //else
-            //    _context.Casts.FirstOrDefault(st => st.Id == personId).Person.Age = -1;
-            //await _context.SaveChangesAsync();
-        }
+        }        
 
         [HttpPost]
         public async Task AddCast(int IdFilm, string Character, int RoleInFilm, string Name, string OriginalName, 
-            string RolesInMedia, string Height,string Image,string DateOfBirthday,string DateOfDeath,string PlaceOfBirthday,
+            string RolesInMedia, double Height,string Image,DateTime DateOfBirthday, DateTime DateOfDeath,string PlaceOfBirthday,
             string PlaceOfDeath,string Spouse,string Awards,string Description)
         {
             Cast Cast = new Cast

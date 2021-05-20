@@ -28,10 +28,12 @@
 
                             <p>
                             <p><span style="font-weight:bold">Карьера:</span> @Model.RolesInMedia </p>
-
+                            @if (Model.DateOfBirthday.Year != 0001)
+                            {
                             <p>
-                                <span style="font-weight:bold">Дата рождения:</span> @Model.DateOfBirthday
+                                <span style="font-weight:bold">Дата рождения:</span> @Model.DateOfBirthday.ToShortDateString()
                             </p>
+                            }
                             @if (Model.Age != -1)
                             {
                                 @if (Model.Age % 10 == 2 || Model.Age % 10 == 3 || Model.Age % 10 == 4)
@@ -48,9 +50,9 @@
                                 }
                             }
 
-                            @if (Model.DateOfDeath != null)
+                            @if (Model.DateOfDeath.Year != 0001)
                             {
-                                <p> <span style="font-weight:bold">Дата смерти:</span> @Model.DateOfDeath</p>
+                                <p> <span style="font-weight:bold">Дата смерти:</span> @Model.DateOfDeath.ToShortDateString()</p>
                             }
                             <p><span style="font-weight:bold">Место рождения:</span> @Model.PlaceOfBirthday</p>
                             @if (Model.Spouse != null)
