@@ -82,18 +82,11 @@
                                 <p><span style="font-weight:bold">Время:</span> @Model.Runtime</p>
                                 @if (ViewBag.Role == 1)
                                 {
-                                 
-                                        <a href=@Url.Action("ListCasts", "Cast", new { IdFilm = Model.MediaID })>
-                                            Весь каст
-                                        </a>
-                                    
+                                    <a class="allcasttitle" href=@Url.Action("ListCasts", "Cast", new { IdFilm = Model.MediaID })>Весь каст</a>
                                 }
                             </div>
                         </td>
-
-
                         @if (Model.IsFavorites == false && ViewBag.User != null)
-
                         {
                             <td valign="top" align="right" width="30">
                                 <a href=@Url.Action("AddFilms", "User", new { Id = Model.MediaID })>
@@ -114,12 +107,9 @@
                             else
                             {
                                 <td valign="top" align="right" width="30">
-                                    <a>
-                                        <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
-                                    </a>
+                                    <a><img src="~/lib/images/Icons/favourite.png" width="30" height="30" /></a>
                                 </td>
                             }
-
                         }
                         @if (Model.IsVieweds == false && ViewBag.User != null)
                         {
@@ -142,9 +132,7 @@
                             else
                             {
                                 <td valign="top" align="right" width="30">
-                                    <a>
-                                        <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
-                                    </a>
+                                    <a><img src="~/lib/images/Icons/eye (1).png" width="30" height="30" /></a>
                                 </td>
                             }
 
@@ -152,21 +140,16 @@
                         @if (ViewBag.Role == 1)
                         {
                             <td valign="top" align="right" width="30">
+                                <a href=@Url.Action("SearchOrAddCast", "Cast", new { IdFilm = Model.MediaID })>
+                                    <img class="deleteicon" src="~/lib/images/Icons/people.png" />
+                                </a>
+                            </td>
+                            <td valign="top" align="right" width="30">
                                 <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = Model.MediaID })>
                                     <img class="deleteicon" src="~/lib/images/Icons/close.png" />
                                 </a>
                             </td>
                         }
-                       
-                        @if (ViewBag.Role == 1)
-                        {
-                            <td valign="top" align="right" width="30">
-                                <a href=@Url.Action("SearchOrAddCast", "Cast", new { IdFilm = Model.MediaID })> 
-                                    <img class="deleteicon" src="~/lib/images/Icons/close.png" />
-                                </a>
-                            </td>
-                        }
-
                     </tr>
                 </tbody>
             </table>

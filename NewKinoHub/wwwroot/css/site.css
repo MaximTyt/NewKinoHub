@@ -101,7 +101,16 @@ body {
     background: rgb(8,8,8);
     background: linear-gradient(180deg, rgba(8,8,8,1) 0%, rgba(26,25,23,1) 50%, rgba(0,0,0,1) 100%);
 }
-
+/*вывод в плитку*/
+.fav_block {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+/*вывод в плитку*/
+.item {
+}
+/*вывод в плитку*/
 
 .addfilm {
     width: 90px;
@@ -168,4 +177,56 @@ img.avareviewssize {
     width: 90px;
     height: 90px;
     border-radius: 50%;
+}
+
+.allcasttitle{
+    color: rgb(8,8,8);
+}
+    .allcasttitle:hover {
+        background: linear-gradient(135deg, #000000 50%, #f7971e 70%, #f7971e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #f7971e;
+    }
+
+.allcastlist {
+    color: rgb(8,8,8);
+}
+
+    .allcastlist:hover {
+        background: linear-gradient(135deg, #000000 50%, #ffffff 70%, #ffffff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #f7971e;
+    }
+
+.btn_delete {
+    text-decoration: none !important;
+    width: 20%;
+    font-size: 10px;
+    min-width: 100px;
+    height: 30px;
+    /*background-color: rgb(8,8,8);*/
+    text-align: center;
+    color: white;
+}
+
+    .btn_delete:hover {
+        /* background: rgb(247,151,30);*/
+        color: rgb(247,151,30);
+    }
+
+
+.colortext {
+    color: white !important;
+}
+
+.titlenamesize {
+    width: 200px;
+    font-size: 15px;
+    height: 45px;
+    background: linear-gradient(45deg, #ffffff 33%, #f7971e 66%, #f7971e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #f7971e;
 }
