@@ -1,0 +1,78 @@
+﻿<head>
+    <link href="~/css/editadd.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="coloraddtext">Добавление:</h1>
+            <form action="" method="post" enctype="multipart/form-data" style="width:100% !important;">
+                <table class="tablesize">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <label class="colortext">Name:<sup>*</sup></label><br />
+                                <textarea style="height:50px;" type="text" name="Name" required></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="colortext">Настоящее имя:<sup>*</sup></label><br />
+                                <textarea style="height:50px;" type="text" name="OriginalName" required></textarea>
+                            </td>
+                        </tr>
+                        <tr class="trsize">
+                            <td valign="top" class="tdstyle">
+                                <label class="colortext">Аватарка(Только ссылка с сервера):<sup>*</sup></label><br />
+                                <input type="text" name="Image" required><br />
+
+                                <label class="colortext">Персонаж в фильме(необязательно):<sup>*</sup></label><br />
+                                <input type="text" name="Character" /><br />
+                            </td>
+                            <td valign="top" class="tdstyle">
+                                <label class="colortext">Роли в киноиндустрии:<sup>*</sup></label><br />
+                                <input type="text" name="RolesInMedia" required /><br />
+
+                                <label class="colortext">Рост<sup>*</sup></label><br />
+                                <input type="text" name="Height" required /><br />
+
+                                <label class="colortext">Дата рождения:<sup>*</sup></label><br />
+                                <input type="text" name="DateOfBirthday" required /><br />
+
+                                <label class="colortext">Дата смерти(необязательно):<sup>*</sup></label><br />
+                                <input type="text" name="DateOfDeath" /><br />
+
+                                <label class="colortext">Место рождения:<sup>*</sup></label><br />
+                                <input type="text" name="PlaceOfBirthday" required /><br />
+
+                                <label class="colortext">Место смерти(необязательно):<sup>*</sup></label><br />
+                                <input type="text" name="PlaceOfDeath" /><br />
+
+                                <label class="colortext">Партнер:<sup>*</sup></label><br />
+                                <input type="text" name="Spouse" required/><br />
+                            </td>
+                            <td valign="top" class="tdstyle">
+                                <label for="RoleInFilm" class="colortext">Роль в фильме:<sup>*</sup></label><br />
+                                <select id="RoleInFilm" name="RoleInFilm">
+                                    <option value=0>Режиссер</option>
+                                    <option value=1>Сценарист</option>
+                                    <option value=2>Актер</option>
+                                </select>
+
+                                <label class="colortext">Награды:<sup>*</sup></label><br />
+                                <input type="text" name="Awards" required /><br />
+                            </td>
+                        </tr>
+                        <tr class="trsize">
+                            <td valign="top" colspan="2" class="tdstyle">
+                                <label class="colortext">Описание:<sup>*</sup></label><br />
+                                <textarea style="height:100px;" type="text" name="Description" required> </textarea>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="tdstyle">
+                                <input type="submit" value="Подтвердить" formaction=@Url.Action("AddCast", "Cast", new { IdFilm = ViewBag.IdFilm })>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+    </div>
+</body>

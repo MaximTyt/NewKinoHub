@@ -26,7 +26,7 @@ namespace KinoHab.Manager
                                  .ToListAsync();
         }
 
-        public async Task<ICollection<Media>> GetFavoriteFilmsForUser(Users User)
+        public ICollection<Media> GetFavoriteFilmsForUser(Users User)
         {
             List<Media> FavoritesFilms = null;
             if (User != null && User.Favorites!= null)
@@ -37,7 +37,7 @@ namespace KinoHab.Manager
             return FavoritesFilms;
         }
 
-        public async Task<ICollection<Media>> GetViewedFilmsForUser(Users User)
+        public ICollection<Media> GetViewedFilmsForUser(Users User)
         {
             List<Media> ViewedFilms = null;
             if (User != null && User.Viewed != null)
@@ -52,7 +52,7 @@ namespace KinoHab.Manager
             var Films = await GetAllFilms();
             if (User != null && User.Favorites != null)
             {
-                var FavoritFilm = await GetFavoriteFilmsForUser(User);
+                var FavoritFilm = GetFavoriteFilmsForUser(User);
                 foreach (var f in Films)
                 {
                     foreach (var Fav in FavoritFilm)
@@ -67,7 +67,7 @@ namespace KinoHab.Manager
 
             if (User != null && User.Viewed != null)
             {
-                var ViewedFilm = await GetViewedFilmsForUser(User);
+                var ViewedFilm = GetViewedFilmsForUser(User);
                 foreach (var f in Films)
                 {
                     foreach (var Fav in ViewedFilm)
@@ -84,12 +84,12 @@ namespace KinoHab.Manager
 
         public async Task<Media> GetIdFilms(int filmId, Users User)
         {
-            var Films = _context.Media
-                                .Include(st => st.Genres)
-                                .FirstOrDefault(st => st.MediaID == filmId);
+            var Films = await _context.Media
+                                      .Include(st => st.Genres)
+                                      .FirstOrDefaultAsync(st => st.MediaID == filmId);
             if (User != null  && User.Favorites != null)
             {
-                var FavoritFilm = await GetFavoriteFilmsForUser(User);
+                var FavoritFilm = GetFavoriteFilmsForUser(User);
                 foreach (var Fav in FavoritFilm)
                 {
                     if (Films.MediaID == Fav.MediaID)
@@ -101,7 +101,7 @@ namespace KinoHab.Manager
             }
             if (User != null && User.Viewed != null)
             {
-                var FavoritFilm = await GetViewedFilmsForUser(User);
+                var FavoritFilm = GetViewedFilmsForUser(User);
                 foreach (var Fav in FavoritFilm)
                 {
                     if (Films.MediaID == Fav.MediaID)
@@ -255,7 +255,7 @@ namespace KinoHab.Manager
             return Name;
         }
 
-        public async Task<ICollection<Media>> SortingFromFiltr(string sort, ICollection<Media> media)
+        public ICollection<Media> SortingFromFiltr(string sort, ICollection<Media> media)
         {
             if (sort == "YearOld")
             {

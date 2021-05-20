@@ -66,7 +66,7 @@ namespace KinoHab.Controllers
             var Filtr = await _film.Filtration(filtr,await _film.GetUser(User.Identity.Name));
             if (sort != null)
             {
-                var Sort = await _film.SortingFromFiltr(sort,Filtr);
+                var Sort = _film.SortingFromFiltr(sort,Filtr);
                 return View(Sort);
             }
             return View(Filtr);

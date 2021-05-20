@@ -12,13 +12,13 @@ namespace KinoHab.Manager
         Task<ICollection<Media>> AllSorting(string sort, Users User);
         Task<ICollection<Media>> Filtration(int filtr, Users User);
         string GetNameFiltr(int idFiltr);
-        Task<ICollection<Media>> SortingFromFiltr(string sort, ICollection<Media> media);
+        ICollection<Media> SortingFromFiltr(string sort, ICollection<Media> media);
         Task<ICollection<Media>> GetFilms(Users User);
-        Task<ICollection<Media>> GetFavoriteFilmsForUser(Users User);
+        ICollection<Media> GetFavoriteFilmsForUser(Users User);
         Task<Users> GetUser(string UserEmail);
         Task DeleteFilm(int IdFIlm);
         Task AddReviews(int idFilm, string Email, string text);
-        Task<ICollection<Media>> GetViewedFilmsForUser(Users User);
+        ICollection<Media> GetViewedFilmsForUser(Users User);
         Task AddFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images);
         Task EditFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images);
         bool UserReview(string Email, int IdFilm);

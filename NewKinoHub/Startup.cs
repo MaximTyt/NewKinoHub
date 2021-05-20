@@ -10,6 +10,7 @@ using NewKinoHub.Manager;
 using NewKinoHub.Manager.Accounts;
 using NewKinoHub.Manager.Casts;
 using NewKinoHub.Manager.Home;
+using NewKinoHub.Manager.Persons;
 using NewKinoHub.Manager.Userss;
 using NewKinoHub.Models;
 using NewKinoHub.Storage;
@@ -39,6 +40,7 @@ namespace NewKinoHub
             services.AddTransient<ICastManager, CastManager>();
             services.AddTransient<IAccountManager, AccountManager>();
             services.AddTransient<IUserManager, UserManager>();
+            services.AddTransient<IPersonManager, PersonManager>();
             services.AddMvc();
             // установка конфигурации подключения
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

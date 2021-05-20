@@ -12,7 +12,7 @@
         @foreach (var cast in Model)
         {
             <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                <a href=@Url.Action("Person", "Cast", new { personId = cast.Id }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                <a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
                     <img height="395" width="265" class="u-back-image u-expanded imagetitle" src=@cast.Person.Image>
                 </a>
                 <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
@@ -25,10 +25,6 @@
                 
                         </p>
                     }
-                    @*<p><span style="font-weight:bold">Страна:</span> @film.Country</p>
-                    <p><span style="font-weight:bold">Возраст:</span> @film.Age+</p>
-                    <a><img src=@film.ScoreKP border='0'></a>
-                    <p><span style="font-weight:bold">Краткое описание:</span> @film.ShortDescription</p>*@
                 </div>
                 <div style=" clear:both;"></div>
             </div>

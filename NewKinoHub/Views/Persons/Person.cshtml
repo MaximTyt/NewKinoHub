@@ -1,0 +1,87 @@
+﻿@model NewKinoHub.Storage.Entity.Person
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="~/css/carouseltitle.css" rel="stylesheet" /> @*не переносить в layout*@
+</head>
+
+<body>
+
+   <div class="wrapper">
+    
+    <div style="width: 1100px; min-height: 380px;  background-color:azure; min-height : 580px; padding: 20px;">
+        <div>
+            <a style="display:block; width : 250px; float : left; margin-right : 20px; margin-bottom: 40px;">
+                <img width="265" class="u-back-image u-expanded" src=@Model.Image>
+            </a>
+        </div>
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        <div style=" min-height: 20px; width:600px; float:left;">
+
+                            <h1 style="font-weight: bold; color: black">@Model.Name</h1>
+                            <p><span style="font-weight:bold">OriginalName:</span> @Model.OriginalName</p>
+
+                            <p>
+                            <p><span style="font-weight:bold">Карьера:</span> @Model.RolesInMedia </p>
+
+                            <p>
+                                <span style="font-weight:bold">Дата рождения:</span> @Model.DateOfBirthday
+                            </p>
+                            @if (Model.Age != -1)
+                            {
+                                @if (Model.Age % 10 == 2 || Model.Age % 10 == 3 || Model.Age % 10 == 4)
+                                {
+                                    <p> <span style="font-weight:bold">Возраст:</span> @Model.Age года</p>
+                                }
+                                else if (Model.Age % 10 == 1)
+                                {
+                                    <p> <span style="font-weight:bold">Возраст:</span> @Model.Age год</p>
+                                }
+                                else
+                                {
+                                    <p> <span style="font-weight:bold">Возраст:</span> @Model.Age лет</p>
+                                }
+                            }
+
+                            @if (Model.DateOfDeath != null)
+                            {
+                                <p> <span style="font-weight:bold">Дата смерти:</span> @Model.DateOfDeath</p>
+                            }
+                            <p><span style="font-weight:bold">Место рождения:</span> @Model.PlaceOfBirthday</p>
+                            @if (Model.Spouse != null)
+                            {
+                                <p> <span style="font-weight:bold">Супруг(а):</span> @Model.Spouse</p>
+                            }
+                            @if (Model.Awards != null)
+                            {
+                                <p> <span style="font-weight:bold">Награды:</span> @Model.Awards</p>
+                            }
+
+
+
+
+
+                        </div>
+                    </td>
+                    @if (ViewBag.Role == 1)
+                    {
+                        <td valign="top" align="right" width="30">
+                            <a href=@Url.Action("DeletePerson", "Persons", new { IdPerson = Model.Id})>
+                                <img class="deleteicon" src="~/lib/images/Icons/close.png" />
+                            </a>
+                        </td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+        <h2 style=" clear:both;">Интересные факты</h2>
+        <p style=" clear:both;">@Model.Description</p>
+        </div>
+    </div>
+</body>
+</html>

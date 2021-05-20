@@ -44,9 +44,9 @@
                                     <span style="font-weight:bold">Режиссер:</span>
                                     @foreach (var director in Model.Casts)
                                     {
-                                        if ((int)director.RoleInFilm == 0)
+                                        if ((int)director.RoleInFilm == 0 && director.Person != null)
                                         {
-                                            <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name</a>
                                         }
                                     }
                                 </p>
@@ -55,9 +55,9 @@
                                     <span style="font-weight:bold">Сценарист(ы):</span>
                                     @foreach (var director in Model.Casts)
                                     {
-                                        if ((int)director.RoleInFilm == 1)
+                                        if ((int)director.RoleInFilm == 1 && director.Person != null)
                                         {
-                                            <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name|</a>
+                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name|</a>
                                         }
                                     }
                                 </p>
@@ -66,12 +66,12 @@
                                     <span style="font-weight:bold">Актеры:</span>
                                     @foreach (var director in Model.Casts)
                                     {
-                                        if ((int)director.RoleInFilm == 2)
+                                        if ((int)director.RoleInFilm == 2 && director.Person != null)
                                         {
-                                            <a href=@Url.Action("Person", "Cast", new { personId = director.Id }) class="textstyle">@director.Person.Name |</a>
+                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId}) class="textstyle">@director.Person.Name |</a>
                                         }
                                     }
-                                    <a href=@Url.Action("ListCast", "Cast", new { castId = Model.MediaID}) class="textstyle">...</a>
+                                    <a href=@Url.Action("ListActors", "Cast", new { FilmId = Model.MediaID}) class="textstyle">...</a>
                                 </p>
 
                                 <p><span style="font-weight:bold">Страна:</span> @Model.Country</p>
@@ -80,6 +80,14 @@
                                 <p><span style="font-weight:bold">Дата выхода:</span> @Model.Release_Date</p>
                                 <p><span style="font-weight:bold">Возраст:</span> @Model.Age+</p>
                                 <p><span style="font-weight:bold">Время:</span> @Model.Runtime</p>
+                                @if (ViewBag.Role == 1)
+                                {
+                                 
+                                        <a href=@Url.Action("ListCasts", "Cast", new { IdFilm = Model.MediaID })>
+                                            Весь каст
+                                        </a>
+                                    
+                                }
                             </div>
                         </td>
 
@@ -145,6 +153,15 @@
                         {
                             <td valign="top" align="right" width="30">
                                 <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = Model.MediaID })>
+                                    <img class="deleteicon" src="~/lib/images/Icons/close.png" />
+                                </a>
+                            </td>
+                        }
+                       
+                        @if (ViewBag.Role == 1)
+                        {
+                            <td valign="top" align="right" width="30">
+                                <a href=@Url.Action("SearchOrAddCast", "Cast", new { IdFilm = Model.MediaID })> 
                                     <img class="deleteicon" src="~/lib/images/Icons/close.png" />
                                 </a>
                             </td>

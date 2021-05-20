@@ -1,0 +1,36 @@
+﻿@model ICollection<NewKinoHub.Storage.Entity.Person>
+
+<html style="font-size: 16px;">
+<head>
+    <link rel="stylesheet" href="~/css/favorites.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/js/jquery.js" defer=""></script>
+</head>
+
+<body>
+    <div class="u-clearfix u-sheet u-sheet-1 wrapper">
+
+        @foreach (var Person in Model)
+        {
+        <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
+            <a href=@Url.Action("Person", "Persons", new { personId = Person.Id }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                <img height="395" width="265" class="u-back-image u-expanded imagetitle" src=@Person.Image>
+            </a>
+            <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
+                <p style="font-weight: bold; right:100%; left:0%;"> @Person.Name </p>
+                @if (ViewBag.Role == 1)
+                {
+                    <td valign="top" align="right" width="30">
+                        <a href=@Url.Action("DeletePerson", "Persons", new { IdPerson = Person.Id})>
+                            <img class="deleteicon" src="~/lib/images/Icons/close.png" />
+                        </a>
+                    </td>
+                }
+            </div>
+
+            
+            <div style=" clear:both;"></div>
+        </div>
+        }
+    </div>
+</body>
+</html>
