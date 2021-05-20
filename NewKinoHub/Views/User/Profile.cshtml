@@ -16,8 +16,9 @@
                     <label>Аватарка<sup>*</sup></label><br />
                     <input type="file" name="mainPhoto"><br />
 
-                    <label>Дата рождения:<sup>*</sup></label><br />
-                    <input value=@Model.DateOfBirthday type="text" name="DataB" /><br />
+                    <label>Дата рождения<sup>*</sup>: @Model.DateOfBirthday.ToShortDateString()</label><br />
+                    @*<input value=@Model.DateOfBirthday type="text" name="DataB" /><br />*@
+                    <input type="date" id="DataB" name="DataB" /><br />
                     <input type="submit" value="Подтвердить" formaction="~/User/EditAccount">
                 </form>
                 <a href="#">Выйти</a>
@@ -40,10 +41,10 @@
 
                         <h3 style="color:white; margin-top:4%;">Nickname: @Model.Nickname </h3>
 
-                        @if (Model.DateOfBirthday != null)
+                        @if (Model.DateOfBirthday.Year!=0001 )
                         {
                             <div>
-                                <a class="colortext">@Model.DateOfBirthday</a>
+                                <a class="colortext">Дата рождения: @Model.DateOfBirthday.ToShortDateString()</a>
                             </div>
                         }
                     </td>
