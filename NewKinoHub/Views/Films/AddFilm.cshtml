@@ -5,26 +5,23 @@
     <div class="wrapper">
         <h1 class="coloraddtext">Добавление:</h1>
             <form action="" method="post" enctype="multipart/form-data" style="width:100% !important;">
-                <table class="tablesize">
+                <table class="tablesize" cellpadding="10">
                     <tbody>
-                        <tr>
-                            <td>
+                        <tr class="trsizea">
+                            <td valign="top" align="left" class="tdstyle">
                                 <label class="colortext">Название:<sup>*</sup></label><br />
-                                <textarea style="height:50px;" type="text" name="Name" required></textarea>
-                            </td>
-                        </tr>
-                        <tr class="trsize">
-                            <td valign="top" class="tdstyle">
+                                <textarea class="namesizeeditadd" type="text" name="Name" required></textarea><br />
+
                                 <label class="colortext">Аватарка(Только ссылка с сервера):<sup>*</sup></label><br />
                                 <input type="text" name="mainPhoto" required><br />
 
                                 <label class="colortext">Год:<sup>*</sup></label><br />
                                 <input type="number" name="Year" min="1950" step="1" required /><br />
+
+                                <label class="colortext">Страна:<sup>*</sup></label><br />
+                                <textarea class="namesizeeditadd" type="text" name="Contry" required></textarea>
                             </td>
                             <td valign="top" class="tdstyle">
-                                <label class="colortext">Страна:<sup>*</sup></label><br />
-                                <input type="text" name="Contry" required /><br />
-
                                 <label class="colortext">Дата выхода:<sup>*</sup></label><br />
                                 <label class="colortext">День:<sup>*</sup></label><br />
                                 <input type="number" name="Day" min="1" max="31" step="1" required /><br />
@@ -56,25 +53,24 @@
                                     <option value="12">12+</option>
                                     <option value="16">16+</option>
                                     <option value="18">18+</option>
-                                </select>
+                                </select><br />
                                 <label class="colortext">Время:<sup>*</sup></label><br />
                                 <input type="text" name="RunTime" required /><br />
                             </td>
                         </tr>
-                        <tr class="trsize">
-                            <td valign="top" colspan="2" class="tdstyle">
+                        <tr class="trsizeb" style="margin-left: 15px;">
+                            <td valign="top" align="left" class="tdstyle">
                                 <label class="colortext">Описание:<sup>*</sup></label><br />
-                                <textarea style="height:100px;" type="text" name="Description" required> </textarea>
+                                <textarea class="descriptionsize" type="text" name="Description" required> </textarea><br />
                                 <label class="colortext">Краткое описание:<sup>*</sup></label><br />
-                                <textarea style="height:100px;" type="text" name="shortDiscription" required> </textarea>
-
-                                <label class="colortext">Количество эпизодов(Необязательно):</label><br />
-                                <input  type="number" step="1" min="0" name ="NumOfEpisodes" > <br />
-                                <label class="colortext">Количество сезонов(Необязательно):</label><br />
-                                <input  type="number" step="1" min="0" name="NumOfSeason" > <br />
+                                <textarea class="descriptionsize" type="text" name="shortDiscription" required> </textarea>
                             </td>
-
                             <td valign="top" class="tdstyle">
+                                <label class="colortext">Количество эпизодов(Необязательно):</label><br />
+                                <input type="number" step="1" min="0" name="NumOfEpisodes"> <br />
+                                <label class="colortext">Количество сезонов(Необязательно):</label><br />
+                                <input type="number" step="1" min="0" name="NumOfSeason"> <br />
+
                                 <label class="colortext">Рейтинг:<sup>*</sup></label><br />
                                 <input type="text" step="0.001" name="Score" min="0" max="10" required /><br />
 
@@ -86,6 +82,8 @@
 
                                 <label class="colortext">Ссылка на музыку(Яндекс музыка)<sup>*</sup></label><br />
                                 <input type="text" name="Music" required /><br />
+                            </td>
+                            <td valign="top" class="tdstyle">
                                 <label class="colortext">Ссылка на кадр №1<sup>*</sup></label><br />
                                 <input type="text" name="Images[0]" required /><br />
                                 <label class="colortext">Ссылка на кадр №2<sup>*</sup></label><br />
@@ -96,9 +94,9 @@
                                 <input type="text" name="Images[3]" required /><br />
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="trsizec">
                             <td colspan="3" class="tdstyle">
-                                <input type="submit" value="Подтвердить" formaction="~/Films/AddFilms">
+                                <input class="btn" type="submit" value="Подтвердить" formaction="~/Films/AddFilms">
                             </td>
                         </tr>
                     </tbody>
