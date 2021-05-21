@@ -4,10 +4,16 @@
 <body>
     <div class="wrapper">
         <div style="margin-top:10px;">
-            <a class="btn" href=@Url.Action("SearchPerson","Cast", new { ViewBag.IdFilm})>Найти актера по поиску</a>
+            <a class="btn" href=@Url.Action("SearchPerson","Cast", new { ViewBag.IdFilm, role = 2})>Найти и добавить актера</a>
         </div>
         <div style="margin-top:10px;">
-            <a class="btn" href=@Url.Action("AddCasts","Cast", new { ViewBag.IdFilm})>Добавить нового актера</a>
+            <a class="btn" href=@Url.Action("SearchPerson","Cast", new { ViewBag.IdFilm,role = 0})>Найти и добавить режиссера</a>
+        </div>
+        <div style="margin-top:10px;">
+            <a class="btn" href=@Url.Action("SearchPerson","Cast", new { ViewBag.IdFilm,role = 1})>Найти и добавить cценариста</a>
+        </div>
+        <div style="margin-top:10px;">
+            <a class="btn" href=@Url.Action("AddCasts","Cast", new { ViewBag.IdFilm})>Добавить нового актера\режиссера\сценариста</a>
         </div>
     </div>
 </body>

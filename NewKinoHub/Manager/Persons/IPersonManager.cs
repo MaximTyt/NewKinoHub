@@ -13,5 +13,8 @@ namespace NewKinoHub.Manager.Persons
         Task DeletePerson(int IdPerson);
         Task AgeOfPerson(int personId);
         Task AgeOfPerson();
+        Task EditPerson(int personId, string Name, string OriginalName,
+           string RolesInMedia, double Height, string Image, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+           string PlaceOfDeath, string Spouse, string Awards, string Description);
     }
 }

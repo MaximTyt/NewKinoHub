@@ -40,5 +40,22 @@ namespace NewKinoHub.Controllers
             await _person.DeletePerson(IdPerson);
             return RedirectToAction("ListPersons", "Persons");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int personId, string Name, string OriginalName,
+            string RolesInMedia, double Height, string Image, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+            string PlaceOfDeath, string Spouse, string Awards, string Description)
+        {
+            await _person.EditPerson(personId, Name, OriginalName,
+            RolesInMedia,  Height,  Image,  DateOfBirthday,  DateOfDeath,  PlaceOfBirthday,
+             PlaceOfDeath,  Spouse,  Awards,  Description);
+            return RedirectToAction("Person", "Persons", new { personId });
+        }
+
+        public async Task<IActionResult> EditPerson(int personId)
+        {
+            var person = await _person.GetPersonForId(personId);
+            return View(person);
+        }
     }
 }

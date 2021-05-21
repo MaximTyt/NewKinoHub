@@ -112,14 +112,14 @@ namespace NewKinoHub.Manager.Casts
             return person;
         }
 
-        public async Task AddSearchPerson(int IdFilm, int IdPerson)
+        public async Task AddSearchPerson(int IdFilm, int IdPerson, int role)
         {
             Cast Cast = new Cast
             {
                 Person = await _context.Persons.FirstOrDefaultAsync(st => st.Id == IdPerson),
                 MediaId = IdFilm,
                 PersonId = IdPerson,
-                RoleInFilm = _context.Casts.FirstOrDefault(st => st.PersonId == IdPerson).RoleInFilm
+                RoleInFilm = (RoleInFilm)role
                 
             };
             _context.Media.FirstOrDefault(st => st.MediaID == IdFilm).Casts.Add(Cast);

@@ -85,9 +85,30 @@ namespace KinoHab.Manager
 
         public async Task<Media> GetIdFilms(int filmId, Users User)
         {
+
+
             var Films = await _context.Media
                                       .Include(st => st.Genres)
                                       .FirstOrDefaultAsync(st => st.MediaID == filmId);
+
+            var Images = _context.MediaImages.Where(st => st.MediaId == filmId).ToList();
+            Films.Images = Images;
+
+            var Casts = _context.Casts.Where(st => st.MediaId == filmId).ToList();
+
+            foreach (var c in Casts)
+            {
+                foreach (var p in _context.Persons)
+                {
+                    if (c.PersonId == p.Id)
+                    {
+                        c.Person = p;
+                    }
+                }
+            }
+
+            Films.Casts = Casts;
+
             if (User != null  && User.Favorites != null)
             {
                 var FavoritFilm = GetFavoriteFilmsForUser(User);
@@ -116,12 +137,19 @@ namespace KinoHab.Manager
         }
         public async Task<Users> GetUser(string UserEmail)
         {
-            return await _context.Users
-                                 .Include(st => st.Favorites)
-                                 .ThenInclude(st=>st.Medias)
-                                 .Include(st => st.Viewed)
-                                 .ThenInclude(st => st.Medias)
-                                 .FirstOrDefaultAsync(st => st.Email == UserEmail);
+            if (UserEmail != null)
+            {
+                var User = await _context.Users.FirstOrDefaultAsync(st => st.Email == UserEmail);
+                var Favorites = await _context.Favorites.Include(st => st.Medias).FirstOrDefaultAsync(st => st.UserName == UserEmail);
+                User.Favorites = Favorites;
+                var Vieweds = await _context.Vieweds.Include(st => st.Medias).FirstOrDefaultAsync(st => st.UserName == UserEmail);
+                User.Viewed = Vieweds;
+                return User;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public MediaType TypeFilm(string i)
@@ -159,8 +187,18 @@ namespace KinoHab.Manager
 
         public async Task<Media> GetFilmforId(int filmId, Users User)
         {
+            if (User != null && User.Favorites != null)
+            {
+                var Films = await GetIdFilms(filmId, User);
+                return Films;
+            }
+
+            var Filmss = await _context.Media
+                                       .Include(st => st.Genres)
+                                       .FirstOrDefaultAsync(st => st.MediaID == filmId);
+
             var Images = _context.MediaImages.Where(st => st.MediaId == filmId).ToList();
-            _context.Media.FirstOrDefault(st => st.MediaID == filmId).Images = Images;
+            Filmss.Images = Images;
             var Casts = _context.Casts.Where(st => st.MediaId == filmId).ToList();
 
             foreach(var c in Casts)
@@ -173,18 +211,14 @@ namespace KinoHab.Manager
                     }
                 } 
             }
-            _context.Media.FirstOrDefault(st => st.MediaID == filmId).Casts = Casts;
+
+            Filmss.Casts = Casts;
             var Reviews = _context.Reviews.Where(st => st.MediaId == filmId).ToList();
-            _context.Media.FirstOrDefault(st => st.MediaID == filmId).Reviews = Reviews;
-            if (User != null && User.Favorites != null)
-            {
-                var Films = await GetIdFilms(filmId,User);
-                return Films;
-            }
-            return  _context.Media
-                            .Include(st => st.Genres)
-                            .FirstOrDefault(st => st.MediaID == filmId);
+            Filmss.Reviews = Reviews;
+
+            return Filmss;
         }
+                            
 
          public async Task<ICollection<Media>> AllSorting(string sort, Users User)
          {

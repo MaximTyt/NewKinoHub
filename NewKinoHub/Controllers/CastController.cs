@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NewKinoHub.Manager.Casts;
+using NewKinoHub.Manager.Persons;
 using NewKinoHub.Manager.Userss;
 using NewKinoHub.Storage.Entity;
 using System;
@@ -13,11 +14,13 @@ namespace NewKinoHub.Controllers
     {
         private readonly ICastManager _cast;
         private readonly IUserManager _user;
+        private readonly IPersonManager _person;
 
-        public CastController(ICastManager castManager, IUserManager userManager)
+        public CastController(ICastManager castManager, IUserManager userManager, IPersonManager personManager)
         {
             _cast = castManager;
             _user = userManager;
+            _person = personManager;
 
         }
         public async Task<IActionResult> Person(int personId)
@@ -62,32 +65,25 @@ namespace NewKinoHub.Controllers
             return View();
         }
 
-        public IActionResult SearchPerson(int IdFilm, string Name)
+        public async Task<IActionResult> SearchPerson(int IdFilm, string Name, int role)
         {
-            var person = _cast.Search(Name);
+            var person = await _person.GetPersons();
             ViewBag.IdFilm = IdFilm;
+            ViewBag.Role = role;
             ViewData["Geetemployeedetails"] = Name;
-            if(Name == null)
+            if(Name != null)
             {
-                person = null;
+                person = _cast.Search(Name);
             }
             return View(person);
         }
 
-        public async Task<IActionResult> AddSearchPerson(int IdFilm,int IdPerson)
+        public async Task<IActionResult> AddSearchPerson(int IdFilm,int IdPerson, int role)
         {
             ViewBag.IdFilm = IdFilm;
-            await _cast.AddSearchPerson(IdFilm, IdPerson);
+            await _cast.AddSearchPerson(IdFilm, IdPerson, role);
             return RedirectToAction("Film", "Films", new { IdFilm });
         }
-
-        //public IActionResult Search(int IdFilm, string Name)
-        //{
-        //    ViewBag.IdFilm = IdFilm;
-        //    ViewData["Getemployeedetails"] = Name;
-        //    var person = _cast.Search(Name);
-        //    return View(person);
-        //}
 
         public async Task<IActionResult> DeleteCast(int IdFilm,int IdCast)
         {

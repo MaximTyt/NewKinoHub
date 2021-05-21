@@ -19,15 +19,23 @@ namespace NewKinoHub.Manager.Userss
         {
             _context = context;
         }
+
         public async Task<Users> GetUsers(string Name)
         {
-            return await _context.Users
-                                 .Include(st => st.Favorites)
-                                 .ThenInclude(st => st.Medias)
-                                 .Include(st=>st.Viewed)
-                                 .ThenInclude(st => st.Medias)
-                                 .FirstOrDefaultAsync(st => st.Email == Name);
 
+            if (Name != null)
+            {
+                var User = await _context.Users.FirstOrDefaultAsync(st => st.Email == Name);
+                var Favorites = await _context.Favorites.Include(st => st.Medias).FirstOrDefaultAsync(st => st.UserName == Name);
+                User.Favorites = Favorites;
+                var Vieweds = await _context.Vieweds.Include(st => st.Medias).FirstOrDefaultAsync(st => st.UserName == Name);
+                User.Viewed = Vieweds;
+                return User;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public async Task DeleteFavoriteFilms(int idFilm, string Name)
