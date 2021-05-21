@@ -10,7 +10,7 @@ using NewKinoHub.Storage;
 namespace NewKinoHub.Migrations
 {
     [DbContext(typeof(MvcFilmContext))]
-    [Migration("20210520105049_Initial")]
+    [Migration("20210521185848_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -142,8 +142,8 @@ namespace NewKinoHub.Migrations
                     b.Property<int?>("NumOfSeason")
                         .HasColumnType("int");
 
-                    b.Property<string>("Release_Date")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Release_Date")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Runtime")
                         .IsRequired()

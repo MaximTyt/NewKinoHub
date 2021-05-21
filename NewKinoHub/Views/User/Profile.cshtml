@@ -9,18 +9,20 @@
         <div id="profil">
             <a href="#"></a>
             <div>
-                <form action="" method="post" enctype="multipart/form-data">
+                <center>
+                    <form action="" method="post" enctype="multipart/form-data">
 
-                    <label>Никнейм:<sup>*</sup></label><br />
-                    <input value=@Model.Nickname type="text" name="name" /><br />
-                    <label>Аватарка<sup>*</sup></label><br />
-                    <input type="file" name="mainPhoto"><br />
+                        <label>Никнейм:<sup>*</sup></label><br />
+                        <input value=@Model.Nickname type="text" name="name" /><br /><br />
+                        <label>Аватарка<sup>*</sup></label><br />
+                        <input type="file" name="mainPhoto"><br /><br />
 
-                    <label>Дата рождения<sup>*</sup>: @Model.DateOfBirthday.ToShortDateString()</label><br />
-                    <input type="date" id="DataB" name="DataB" /><br />
-                    <input type="submit" value="Подтвердить" formaction="~/User/EditAccount">
-                </form>
-                <a href="#">Выйти</a>
+                        <label>Дата рождения<sup>*</sup>: @Model.DateOfBirthday.ToShortDateString()</label><br />
+                        <input type="date" id="DataB" name="DataB" /><br /><br />
+                        <input class="btn" type="submit" value="Подтвердить" formaction="~/User/EditAccount">
+                    </form>
+                    <a class="btn" style="bottom:0%;" href="#">Выйти</a>
+                </center>
             </div>
         </div>
         @*--------------------Конец блока с настройками профиля--------------------*@
@@ -60,7 +62,7 @@
         </table>
         @if (Model.Favorites != null && Model.Favorites.Medias.Count != 0)
         {
-            <h4 class="colortext">Избранное :</h4>
+            <h4 class="colortext border-top">Избранное :</h4>
             <div style="margin-top:10px; width:100%;" class="fav_block">
 
                 @*поле с избранными тайтлами*@
@@ -83,7 +85,7 @@
 
         @if (Model.Viewed != null && Model.Viewed.Medias.Count != 0)
         {
-            <h4 class="colortext">Просмотренное:</h4>
+            <h4 class="colortext border-top">Просмотренное:</h4>
             <div style="margin-top:10px; width:100%;" class="fav_block">
 
                 @*поле с просмотренными тайтлами*@

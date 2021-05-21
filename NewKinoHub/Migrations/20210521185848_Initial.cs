@@ -88,7 +88,7 @@ namespace NewKinoHub.Migrations
                     Age = table.Column<int>(type: "int", nullable: false),
                     ScoreKP = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Score = table.Column<double>(type: "float", nullable: false),
-                    Release_Date = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Release_Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Runtime = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ShortDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),

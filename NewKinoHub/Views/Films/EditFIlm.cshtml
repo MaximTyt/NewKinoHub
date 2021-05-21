@@ -24,13 +24,8 @@
                             <textarea class="namesizeeditadd" type="text" name="Contry" required>@Model.Country </textarea><br />
                         </td>
                         <td valign="top" class="tdstyle">
-                            <label class="colortext">Дата выхода:@Model.Release_Date <sup>*</sup></label><br />
-                            <label class="colortext">День:<sup>*</sup></label><br />
-                            <input type="number" name="Day" min="1" max="31" step="1" /><br />
-
-
-                            <label class="colortext">Месяц и год:<sup>*</sup></label><br />
-                            <input type="month" id="month" name="month" /><br />
+                            <label class="colortext">Дата выхода:@Model.Release_Date.ToShortDateString() <sup>*</sup></label><br />
+                            <input type="date" id="Release_Date" name="Release_Date" /><br />                            
 
                             <label for="MediaType" class="colortext">Выберите тип:<sup>*</sup></label><br />
                             <select id="type" name="type">

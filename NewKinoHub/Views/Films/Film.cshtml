@@ -74,7 +74,7 @@
                                 <p><span style="font-weight:bold">Страна:</span> @Model.Country</p>
 
                                 <a><img src=@Model.ScoreKP border='0'></a>
-                                <p><span style="font-weight:bold">Дата выхода:</span> @Model.Release_Date</p>
+                                <p><span style="font-weight:bold">Дата выхода:</span> @Model.Release_Date.ToShortDateString()</p>
                                 <p><span style="font-weight:bold">Возраст:</span> @Model.Age+</p>
                                 <p><span style="font-weight:bold">Время:</span> @Model.Runtime</p>
                                 @if (ViewBag.Role == 1)
@@ -209,6 +209,7 @@
                 </div>
             }
 
+
             @if (ViewBag.User != null && ViewBag.Review != true)
             {
                 <div style="margin: 10px 0px 10px 0px; height:400px;">
@@ -219,9 +220,17 @@
                     </form>
                 </div>
             }
+            
+            <h2 style=" clear:both; margin-top:5%; margin-bottom:5%;">Отзывы:</h2>
+            @if (ViewBag.User == null)
+            {
+                <p><span style="font-weight:bold">Чтобы оставить отзыв, необходимо войти в аккаунт</span></p>                
+            }
+
 
             @if (Model.Reviews != null)
             {
+
                 @foreach (var Revi in Model.Reviews)
                 {
                     if (Revi.UsersId != ViewBag.UserId && ViewBag.Role != 1)
