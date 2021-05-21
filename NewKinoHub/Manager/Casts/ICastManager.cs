@@ -17,6 +17,6 @@ namespace NewKinoHub.Manager.Casts
             string PlaceOfDeath, string Spouse, string Awards, string Description);
         Task DeleteCast(int IdCast);
         List<Person> Search(string Name);
-        Task AddSearchPerson(int IdFilm, int IdPerson);
+        Task AddSearchPerson(int IdFilm, int IdPerson,int role);
     }
 }

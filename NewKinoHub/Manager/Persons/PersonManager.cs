@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
 using System;
@@ -64,6 +65,63 @@ namespace NewKinoHub.Manager.Persons
                 else
                     Person.Age = -1;
             }
+            await _context.SaveChangesAsync();
+        }
+
+        [HttpPost]
+        public async Task EditPerson(int personId, string Name, string OriginalName,
+           string RolesInMedia, double Height, string Image, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+           string PlaceOfDeath, string Spouse, string Awards, string Description)
+        {
+            if(Name != null)
+            {
+                _context.Persons.FirstOrDefault(st=>st.Id == personId).Name = Name;
+            }
+            if (OriginalName != null)
+            {
+                _context.Persons.FirstOrDefault(st => st.Id == personId).OriginalName = OriginalName;
+            }
+            if (RolesInMedia != null)
+            {
+                _context.Persons.FirstOrDefault(st => st.Id == personId).RolesInMedia = RolesInMedia;
+            }
+            if (Height != 0)
+            {
+                _context.Persons.FirstOrDefault(st => st.Id == personId).Height = Height;
+            }
+            if (Image != null)
+            {
+                _context.Persons.FirstOrDefault(st => st.Id == personId).Image = Image;
+            }
+            if (DateOfBirthday.Year != 0001)
+            {
+                _context.Persons.FirstOrDefault(st => st.Id == personId).DateOfBirthday = DateOfBirthday;
+            }
+            if (DateOfDeath.Year != 0001)
+            {
+                _context.Persons.FirstOrDefault(st => st.Id == personId).DateOfDeath = DateOfDeath;
+            }
+            if (PlaceOfBirthday != null)
+            {
+                _context.Persons.FirstOrDefault(st => st.Id == personId).PlaceOfBirthday = PlaceOfBirthday;
+            }
+            if (PlaceOfDeath != null)
+            {
+                _context.Persons.FirstOrDefault(st => st.Id == personId).PlaceOfDeath = PlaceOfDeath;
+            }
+            if (Spouse != null)
+            {
+                _context.Persons.FirstOrDefault(st => st.Id == personId).Spouse = Spouse;
+            }
+            if (Awards != null)
+            {
+                _context.Persons.FirstOrDefault(st => st.Id == personId).Awards = Awards;
+            }
+            if (Description != null)
+            {
+                _context.Persons.FirstOrDefault(st => st.Id == personId).Description = Description;
+            }
+
             await _context.SaveChangesAsync();
         }
     }

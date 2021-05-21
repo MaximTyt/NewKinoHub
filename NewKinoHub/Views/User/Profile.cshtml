@@ -17,7 +17,6 @@
                     <input type="file" name="mainPhoto"><br />
 
                     <label>Дата рождения<sup>*</sup>: @Model.DateOfBirthday.ToShortDateString()</label><br />
-                    @*<input value=@Model.DateOfBirthday type="text" name="DataB" /><br />*@
                     <input type="date" id="DataB" name="DataB" /><br />
                     <input type="submit" value="Подтвердить" formaction="~/User/EditAccount">
                 </form>

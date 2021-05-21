@@ -46,7 +46,7 @@
                                     {
                                         if ((int)director.RoleInFilm == 0 && director.Person != null)
                                         {
-                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name</a>
+                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name |</a>
                                         }
                                     }
                                 </p>
@@ -57,7 +57,7 @@
                                     {
                                         if ((int)director.RoleInFilm == 1 && director.Person != null)
                                         {
-                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name|</a>
+                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name |</a>
                                         }
                                     }
                                 </p>

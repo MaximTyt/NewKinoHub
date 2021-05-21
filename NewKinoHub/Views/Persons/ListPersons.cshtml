@@ -49,7 +49,7 @@
                             @if (ViewBag.Role == 1)
                             {
                                 <td align="right" valign="top" width="30">
-                                    <a href="#">
+                                    <a href=@Url.Action("EditPerson", "Persons", new { IdPerson = Person.Id})>
                                         <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
                                     </a>
                                 </td>
