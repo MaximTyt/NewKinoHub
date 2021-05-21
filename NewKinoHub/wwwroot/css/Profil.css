@@ -78,20 +78,7 @@ a.btn_register {
         display: block;
     }
 
-    #profil > div > a {
-        bottom:0%;
-        width:80%;
-        background-color: bisque;
-        font-size: 20px;
-        color: black;
-        font-weight: bold;
-        height: 36px;
-    }
 
-        #profil > div > a:hover {
-            background-color: rgb(247,151,30);
-            color: rgb(8,8,8) !important;
-        }
 
     #profil > div > form {
         width:80%;
