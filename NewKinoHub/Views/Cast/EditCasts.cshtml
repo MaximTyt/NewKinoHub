@@ -1,0 +1,54 @@
+﻿@model NewKinoHub.Storage.Entity.Cast
+<head>
+    <link href="~/css/editadd.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="coloraddtext">Добавление:</h1>
+            <form action="" method="post" enctype="multipart/form-data" style="width:100% !important;">
+                <table class="tablesize" cellpadding="10">
+                    <tbody>
+                        <tr class="trsizea">
+                            <td valign="top" class="tdstyle">
+                                <label class="colortext">Персонаж в фильме(необязательно):</label><br />
+                                <input value =@Model.Character type="text" name="Character" /><br />
+                            </td>
+                            <td valign="top" class="tdstyle">
+                                <label for="RoleInFilm" class="colortext">Роль в фильме:<sup>*</sup></label><br />
+                                <select id="RoleInFilm" name="RoleInFilm">
+                                    @if ((int)Model.RoleInFilm == 0)
+                                    {
+                                        <option value="0" selected>Режиссер</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="0">Режиссер</option>
+                                    }
+                                    @if ((int)Model.RoleInFilm == 1)
+                                    {
+                                        <option value="1" selected>Сценарист</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="1">Сценарист</option>
+                                    }
+                                    @if ((int)Model.RoleInFilm == 2)
+                                    {
+                                        <option value="2" selected>Актер</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="2">Актер</option>
+                                    }
+                                </select>
+                            </td>
+                        <tr class="trsizec">
+                            <td colspan="3" class="tdstyle">
+                                <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("EditCast", "Cast", new { IdCast = ViewBag.IdCast, IdFilm = ViewBag.IdFilm})>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+    </div>
+</body>

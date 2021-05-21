@@ -21,7 +21,7 @@
                                 @if (ViewBag.Role == 1)
                                 {
                                     <td align="right" valign="top" width="30">
-                                        <a href="#">
+                                        <a href=@Url.Action("EditCasts", "Cast", new { IdCast = director.Id, IdFilm = director.MediaId })>
                                             <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
                                         </a>
                                     </td>
@@ -55,7 +55,7 @@
                                 @if (ViewBag.Role == 1)
                                 {
                                     <td align="right" valign="top" width="30">
-                                        <a href="#">
+                                        <a href=@Url.Action("EditCasts", "Cast", new { IdCast = screenwriter.Id, IdFilm = screenwriter.MediaId })>
                                             <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
                                         </a>
                                     </td>
@@ -90,7 +90,7 @@
                                 @if (ViewBag.Role == 1)
                                 {
                                     <td align="right" valign="top" width="30">
-                                        <a href="#">
+                                        <a href=@Url.Action("EditCasts", "Cast", new { IdCast = actor.Id, IdFilm = actor.MediaId })>
                                             <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
                                         </a>
                                     </td>

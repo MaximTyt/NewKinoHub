@@ -90,6 +90,19 @@ namespace NewKinoHub.Manager.Casts
             await _context.SaveChangesAsync();
         }
 
+        [HttpPost]
+        public async Task EditCast(int IdCast,int IdFilm, string Character, int RoleInFilm)
+        {
+            if(Character != null)
+            {
+                _context.Casts.FirstOrDefault(st => st.Id == IdCast && st.MediaId == IdFilm);
+            }
+
+            _context.Casts.FirstOrDefault(st => st.Id == IdCast).RoleInFilm = (RoleInFilm)RoleInFilm;
+
+            await _context.SaveChangesAsync();
+        }
+
         public async Task DeleteCast(int IdCast)
         {
             var itemToRemove = await _context.Casts
@@ -99,6 +112,11 @@ namespace NewKinoHub.Manager.Casts
                 _context.Casts.Remove(itemToRemove);
             }
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<Cast> GetCastForId(int IdCast,int IdFilm)
+        {
+            return await _context.Casts.FirstOrDefaultAsync(st => st.Id == IdCast && st.MediaId == IdFilm);
         }
 
         [HttpPost]

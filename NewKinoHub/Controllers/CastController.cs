@@ -36,7 +36,7 @@ namespace NewKinoHub.Controllers
             var cast = await _cast.GetAllActors(FilmId);            
             return View(cast);
         }
-        public async Task<IActionResult> ListCasts(int IdFilm,int i)
+        public async Task<IActionResult> ListCasts(int IdFilm)
         {            
             ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));            
             var cast = await _cast.GetAllCast(IdFilm);
@@ -53,10 +53,25 @@ namespace NewKinoHub.Controllers
             return RedirectToAction("Film","Films", new {IdFilm});
         }
 
+        [HttpPost]
+        public async Task<IActionResult> EditCast(int IdCast,int IdFilm, string Character, int RoleInFilm)
+        {
+            await _cast.EditCast(IdCast,IdFilm, Character, RoleInFilm);
+            return RedirectToAction("ListCasts", "Cast", new { IdFilm });
+        }
+
         public IActionResult AddCasts(int IdFilm)
         {
             ViewBag.IdFilm = IdFilm;
             return View();
+        }
+
+        public async Task<IActionResult> EditCasts(int IdCast, int IdFilm)
+        {
+            ViewBag.IdCast = IdCast;
+            ViewBag.IdFilm = IdFilm;
+            var cast = await _cast.GetCastForId(IdCast, IdFilm);
+            return View(cast);
         }
 
         public IActionResult SearchOrAddCast(int IdFilm)
