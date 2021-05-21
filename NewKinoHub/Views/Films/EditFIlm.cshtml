@@ -29,11 +29,74 @@
 
                             <label class="colortext">Дата выхода:@Model.Release_Date <sup>*</sup></label><br />
                             <label class="colortext">День:<sup>*</sup></label><br />
-                            <input type="number" name="Day" min="1" max="31" step="1"  /><br />
+                            <input type="number" name="Day" min="1" max="31" step="1" /><br />
 
                             <label class="colortext">Месяц и год:<sup>*</sup></label><br />
                             <input type="month" id="month" name="month" /><br />
 
+                            <label for="MediaType" class="colortext">Выберите тип:<sup>*</sup></label><br />
+                            <select id="type" name="type">
+                                @if (Model.MediaType == 0)
+                                {
+                                <option value="0" selected>Фильм</option>
+                                }
+                                else
+                                {
+                                    <option value="0">Фильм</option>
+                                }
+                                @if (Model.MediaType != 0)
+                                {
+                                <option value="1" selected>Сериал</option>
+                                }
+                                else
+                                {
+                                <option value="1">Сериал</option>
+                                }
+                            </select>
+
+                            <label for="Genres" class="colortext">Выберите жанры:<sup>*</sup></label><br />
+                            @*<select multiple id="Genres" name="Genres">
+                                @if (Model.Genres[0].Genre_Name == "Аниме")
+                                {
+                                    <option value="Аниме" selected>Аниме</option>
+                                } 
+                                else
+                                {
+                                    <option value="Аниме">Аниме</option>
+                                }
+                                @if (Model.Genres[1].Genre_Name == "Боевик")
+                                {
+                                <option value="Боевик" selected>Боевик</option>
+                                }
+                                else
+                                { 
+                                    <option value="Боевик">Боевик</option>
+                                }
+                                @if (Model.Genres[3].Genre_Name == "Криминал")
+                                {
+                            <option value="Криминал" selected>Криминал</option>
+                                }
+                                else
+                                { 
+                                <option value="Криминал">Криминал</option>
+                                }
+                                @if (Model.Genres[2].Genre_Name == "Ужасы")
+                                {
+                                <option value="Ужасы" selected>Ужасы</option>
+                                }
+                                else
+                                { 
+                                    <option value="Ужасы">Ужасы</option>
+                                }
+                                @if (Model.Genres[3].Genre_Name == "Фэнтези")
+                                {
+                                <option value="Фэнтези" selected>Фэнтези</option>
+                                }
+                                else
+                                { 
+                                    <option value="Фэнтези">Фэнтези</option>
+                                }
+                            </select>*@
 
                         </td>
                         <td valign="top" class="tdstyle"> 

@@ -1,12 +1,13 @@
 ﻿<head>
     <link href="~/css/Profil.css" rel="stylesheet" />
 </head>
-
-
-
-<div style="margin-top:10px;">
-    <a class="btn" href=@Url.Action("SearchPerson","Cast", new { ViewBag.IdFilm})>Найти актера по поиску</a>
-</div>
-<div style="margin-top:10px;">
-    <a class="btn" href=@Url.Action("AddCasts","Cast", new { ViewBag.IdFilm})>Добавить нового актера</a>
-</div>
+<body>
+    <div class="wrapper">
+        <div style="margin-top:10px;">
+            <a class="btn" href=@Url.Action("SearchPerson","Cast", new { ViewBag.IdFilm})>Найти актера по поиску</a>
+        </div>
+        <div style="margin-top:10px;">
+            <a class="btn" href=@Url.Action("AddCasts","Cast", new { ViewBag.IdFilm})>Добавить нового актера</a>
+        </div>
+    </div>
+</body>

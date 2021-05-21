@@ -2,10 +2,6 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <link href="~/css/carouseltitle.css" rel="stylesheet" /> @*не переносить в layout*@
-</head>
 
 <body>
 
@@ -30,9 +26,9 @@
                             <p><span style="font-weight:bold">Карьера:</span> @Model.RolesInMedia </p>
                             @if (Model.DateOfBirthday.Year != 0001)
                             {
-                            <p>
-                                <span style="font-weight:bold">Дата рождения:</span> @Model.DateOfBirthday.ToShortDateString()
-                            </p>
+                                <p>
+                                    <span style="font-weight:bold">Дата рождения:</span> @Model.DateOfBirthday.ToShortDateString()
+                                </p>
                             }
                             @if (Model.Age != -1)
                             {
@@ -72,6 +68,11 @@
                     </td>
                     @if (ViewBag.Role == 1)
                     {
+                        <td align="right" valign="top" width="30">
+                            <a href="#">
+                                <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
+                            </a>
+                        </td>
                         <td valign="top" align="right" width="30">
                             <a href=@Url.Action("DeletePerson", "Persons", new { IdPerson = Model.Id})>
                                 <img class="deleteicon" src="~/lib/images/Icons/close.png" />

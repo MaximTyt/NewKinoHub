@@ -1,26 +1,22 @@
 ﻿@keyframes bg-сhange {
     from {
-        background-image: url('../../lib/bg/bg_films/your_name.jpg');
+        background-image: url('../../lib/bg/your_name.jpg');
     }
-
     20% {
-        background-image: url('../../lib/bg/bg_films/raua.jpeg');
+        background-image: url('../../lib/bg/vandavision.jpg');
     }
-
     40% {
-        background-image: url('../../lib/bg/bg_films/ditya_pogody.jpg');
+        background-image: url('../../lib/bg/ditya_pogody.jpg');
     }
-
     60% {
-        background-image: url('../../lib/bg/bg_films/your_name1.jpg');
+        background-image: url('../../lib/bg/Mandalorian.jpg');
     }
-
     80% {
-        background-image: url('../../lib/bg/bg_films/raua1.jpg');
+        background-image: url('../../lib/bg/raua1.jpg');
     }
 
     to {
-        background-image: url('../../lib/bg/bg_films/soul.jpg');
+        background-image: url('../../lib/bg/soul.jpg');
     }
 
 }
@@ -31,5 +27,5 @@
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    animation: bg-сhange 90s infinite;
+    animation: bg-сhange 100s infinite;
 }

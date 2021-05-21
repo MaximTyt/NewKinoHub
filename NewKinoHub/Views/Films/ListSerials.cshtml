@@ -163,7 +163,6 @@
                         </tbody>
                     </table>
                     <p><span style="font-weight:bold">Год:</span> @serial.Year</p>
-
                     <p>
                         <span style="font-weight:bold">Жанры:</span>
                         @foreach (var genre in serial.Genres)
@@ -171,7 +170,6 @@
                             <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
                         }
                     </p>
-
                     <p>
                         <span style="font-weight:bold">Режиссер:</span>
                         @foreach (var director in serial.Casts)
@@ -182,7 +180,6 @@
                             }
                         }
                     </p>
-
                     <p>
                         <span style="font-weight:bold">Актеры:</span>
                         @foreach (var director in serial.Casts)
@@ -194,19 +191,14 @@
                         }
                         <a href=@Url.Action("ListActors", "Cast", new { FilmId = serial.MediaID}) class="textstyle">...</a>
                     </p>
-
                     <p><span style="font-weight:bold">Страна:</span> @serial.Country</p>
                     <p><span style="font-weight:bold">Возраст:</span> @serial.Age+</p>
                     <a><img src=@serial.ScoreKP border='0'></a>
                     <p><span style="font-weight:bold">Краткое описание:</span> @serial.ShortDescription</p>
                     @if (ViewBag.Role == 1)
                     {
-
-                        <a href=@Url.Action("ListCasts", "Cast", new { IdFilm = serial.MediaID })>
-                            Весь каст
-                        </a>
-
-                    }
+                         <a class="allcastlist" href=@Url.Action("ListCasts", "Cast", new { IdFilm = serial.MediaID })>Весь каст</a>
+                     }
                 </div>
                 <div style=" clear:both;"></div>
             </div>
