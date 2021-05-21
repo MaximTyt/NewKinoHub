@@ -140,7 +140,7 @@ textarea.addreviewste{
 textarea.viewreviewste {
     width: 80%;
     resize: none;
-    border: none;
+    border: 2px solid rgba(8,8,8,0.5);
 }
 
     .btn {
@@ -229,4 +229,9 @@ img.avareviewssize {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: #f7971e;
+}
+
+.imglist {
+    height:395px; 
+    width:265px;
 }
