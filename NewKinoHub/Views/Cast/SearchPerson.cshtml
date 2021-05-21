@@ -5,21 +5,21 @@
         <div>
             <form class="searchfo" method="post" href=@Url.Action("SearchPerson","Cast", new { IdFilm = ViewBag.IdFilm, role = ViewBag.Role}) style="width:250px !important;">
                 @*Блок поиска каста*@
-                <input class="searchin" type="search" placeholder="Search title..." value="@ViewData["Geetemployeedetails"]" name="Name">       @*Блок поиска каста*@
+                <input class="searchin" type="search" placeholder="Search person..." value="@ViewData["Geetemployeedetails"]" name="Name">       @*Блок поиска каста*@
                 <button type="submit" value="Search" class="searchbu" />                        @*Блок поиска каста*@
             </form>
         </div>
         @if (ViewBag.Role == 0)
         {
-            <h3>Добавление режиссера</h3>
+            <h3 class="colortext">>Добавление режиссера</h3>
         }
         @if (ViewBag.Role == 1)
         {
-            <h3>Добавление cценариста</h3>
+            <h3 class="colortext">>Добавление cценариста</h3>
         }
         @if (ViewBag.Role == 2)
         {
-            <h3>Добавление fктера</h3>
+            <h3 class="colortext">>Добавление актера</h3>
         }
 
         @if (Model != null)
@@ -83,27 +83,6 @@
                         </table>
                     </div>
                     <div style=" clear:both;"></div>
-                </div>
-            }
-        }
-        else
-        {
-            if (Model == null)
-            {
-                /*выводится, если каст не нашелся*/
-                <div style="left:50% !important; right:50% !important;">
-                    <center>
-                        <script language="JavaScript" type="text/javascript">
-                            var n = Math.floor(Math.random() * 3); /*цифра 3 - количество картинок*/
-                            var width = 350; /*ширина картинки*/
-                            pic = new Array();
-                            pic[0] = "../lib/images/searchvoid/searchvoid.jpg"  /*собственно сами картинки*/
-                            pic[1] = "../lib/images/searchvoid/searchvoid1.jpg" /*собственно сами картинки*/
-                            pic[2] = "../lib/images/searchvoid/searchvoid2.jpg" /*собственно сами картинки*/
-                            document.write("<img width=" + width + " src = " + pic[n] + " /> "); /*не трогать а то сломается*/
-                        </script>
-                        <h3 style="padding-bottom:3px;">Мы ничего не нашли :(</h3>
-                    </center>
                 </div>
             }
         }

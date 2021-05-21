@@ -4,51 +4,108 @@
 
 <body>
     <div class="u-clearfix u-sheet u-sheet-1 wrapper">
-
-        @foreach (var cast in Model)
+        <h1 style="font-weight: bold; color: aliceblue">Режиссёры</h1>
+        @foreach (var director in Model.Where(st => (int)st.RoleInFilm == 0))
         {
-        <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-            <a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
-                <img class="u-back-image u-expanded imagetitle imglist" src=@cast.Person.Image>
-            </a>
-            <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
-                <table style="width: 780px;">
-                    <tbody>
-                        <tr>
-                            <td style="width: 400px;">
-                                <p style="font-weight: bold; color:black; right:100%; left:0%;"> @cast.Person.Name </p>
-
-                                @if (cast.RoleInFilm == ViewBag.Actor)
+            <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
+                <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                    <img height="395" width="265" class="u-back-image u-expanded imagetitle" src=@director.Person.Image>
+                </a>
+                <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
+                    <table style="width: 780px;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 400px;">
+                                    <p style="font-weight: bold; right:100%; left:0%;"> @director.Person.Name </p>
+                                </td>
+                                @if (ViewBag.Role == 1)
                                 {
-                                    <p style="color:black;">
-                                        <span style="font-weight:bold">Роль в фильме:</span>
-
-                                        @cast.Character
-
-                                    </p>
+                                    <td align="right" valign="top" width="30">
+                                        <a href="#">
+                                            <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
+                                        </a>
+                                    </td>
+                                    <td align="right" valign="top" width="30">
+                                        <a href=@Url.Action("DeleteCast", "Cast", new { IdCast = director.Id, IdFilm = director.MediaId })>
+                                            <img class="deleteicon" src="~/lib/images/Icons/close.png" />
+                                        </a>
+                                    </td>
                                 }
-                            </td>
-                            @if (ViewBag.Role == 1)
-                            {
-                                <td align="right" valign="top" width="30">
-                                    <a href="#">
-                                        <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
-                                    </a>
-                                </td>
-                                <td align="right" valign="top" width="30">
-                                    <a href=@Url.Action("DeleteCast", "Cast", new { IdCast = cast.Id, IdFilm = cast.MediaId })>
-                                        <img class="deleteicon" src="~/lib/images/Icons/close.png" />
-                                    </a>
-                                </td>
-                            }
-                        </tr>
-                    </tbody>
-                </table>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style=" clear:both;"></div>
             </div>
-
-            
-            <div style=" clear:both;"></div>
-        </div>
+        }
+        <h1 style="font-weight: bold; color: aliceblue">Сценаристы</h1>
+        @foreach (var screenwriter in Model.Where(st => (int)st.RoleInFilm == 1))
+        {
+            <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
+                <a href=@Url.Action("Person", "Persons", new { personId = screenwriter.PersonId }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                    <img height="395" width="265" class="u-back-image u-expanded imagetitle" src=@screenwriter.Person.Image>
+                </a>
+                <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
+                    <table style="width: 780px;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 400px;">
+                                    <p style="font-weight: bold; right:100%; left:0%;"> @screenwriter.Person.Name </p>
+                                </td>
+                                @if (ViewBag.Role == 1)
+                                {
+                                    <td align="right" valign="top" width="30">
+                                        <a href="#">
+                                            <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
+                                        </a>
+                                    </td>
+                                    <td align="right" valign="top" width="30">
+                                        <a href=@Url.Action("DeleteCast", "Cast", new { IdCast = screenwriter.Id, IdFilm = screenwriter.MediaId })>
+                                            <img class="deleteicon" src="~/lib/images/Icons/close.png" />
+                                        </a>
+                                    </td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style=" clear:both;"></div>
+            </div>
+        }
+        <h1 style="font-weight: bold; color: aliceblue">Актёры</h1>
+        @foreach (var actor in Model.Where(st => (int)st.RoleInFilm == 2))
+        {
+            <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
+                <a href=@Url.Action("Person", "Persons", new { personId = actor.PersonId }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                    <img height="395" width="265" class="u-back-image u-expanded imagetitle" src=@actor.Person.Image>
+                </a>
+                <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
+                    <table style="width: 780px;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 400px;">
+                                    <p style="font-weight: bold; right:100%; left:0%;"> @actor.Person.Name </p>
+                                    <p><span style="font-weight:bold">Роль в фильме:</span> @actor.Character</p>
+                                </td>
+                                @if (ViewBag.Role == 1)
+                                {
+                                    <td align="right" valign="top" width="30">
+                                        <a href="#">
+                                            <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
+                                        </a>
+                                    </td>
+                                    <td align="right" valign="top" width="30">
+                                        <a href=@Url.Action("DeleteCast", "Cast", new { IdCast = actor.Id, IdFilm = actor.MediaId })>
+                                            <img class="deleteicon" src="~/lib/images/Icons/close.png" />
+                                        </a>
+                                    </td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style=" clear:both;"></div>
+            </div>
         }
     </div>
 </body>

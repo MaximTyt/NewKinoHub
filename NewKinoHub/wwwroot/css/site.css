@@ -113,11 +113,11 @@ body {
 /*вывод в плитку*/
 
 .addfilm {
-    width: 90px;
+    width: 60px;
     height: 36px;
     background-color: rgba(26,25,23,1);
     color: white;
-    padding: 9px 45px 9px 45px;
+    padding: 9px 20px 9px 20px;
 }
 
     .addfilm:hover {

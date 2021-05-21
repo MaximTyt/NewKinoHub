@@ -1,9 +1,10 @@
 ﻿@model NewKinoHub.Storage.Entity.RegisterModel
-    <head>
-        <link rel="stylesheet" href="~/css/Profil.css" /> @*стили для регистрации/профиля/логина*@
-    </head>
-    <body>
-        <div class="wrapper">
+<head>
+    <link rel="stylesheet" href="~/css/Profil.css" /> @*стили для регистрации/профиля/логина*@
+</head>
+<body>
+    <div class="wrapper">
+        <center>
             <h2 style="color:white;">Регистрация</h2>
 
             <form asp-action="Register" asp-controller="Account" asp-anti-forgery="true">
@@ -11,7 +12,7 @@
                 <div>
                     <div>
                         <label style="color:white;" asp-for="Nickname">Введите Никнейм</label><br />
-                        <input type="text" asp-for="Nickname" />                        
+                        <input type="text" asp-for="Nickname" />
                     </div>
                     <div>
                         <label style="color:white;" asp-for="Email">Введите Email</label><br />
@@ -29,14 +30,11 @@
                         <span asp-validation-for="PasswordConfirm" />
                     </div>
                     <div>
-                        <input style="color: rgb(247,151,30)" type="submit" value="Регистрация" class="btn btn-outline-dark" />
+                        <input type="submit" value="Регистрация" class="btn" />
                     </div>
                 </div>
             </form>
-            <div>
-                <center>
-                    <h4 style="color:aliceblue">Уже зарегистрированы? <a asp-action="Login" asp-controller="Account" class="btn_register">Войти</a></h4>
-                </center>
-            </div>
-        </div>
-    </body>
+            <h4 style="color:aliceblue">Уже зарегистрированы? <a asp-action="Login" asp-controller="Account" class="btn_register">Войти</a></h4>
+        </center>
+    </div>
+</body>
