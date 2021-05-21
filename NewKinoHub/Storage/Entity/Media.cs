@@ -44,9 +44,8 @@ namespace NewKinoHub.Storage.Entity
         [Required]
         [Range(1.0,10.0)]
         public double Score { get; set; }
-
-        [DataType(DataType.Date)]        
-        public string Release_Date { get; set; }
+                    
+        public DateTime Release_Date { get; set; }
 
         [Required]        
         public string Runtime { get; set; }

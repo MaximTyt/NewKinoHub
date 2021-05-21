@@ -35,7 +35,7 @@ namespace NewKinoHub.Models
                         Country = "США, Великобритания",
                         Age = 18,
                         Score = 8.024,
-                        Release_Date = "18 марта 2021",
+                        Release_Date = new DateTime(2021,03,18),
                         Runtime = "04:02",
                         ShortDescription = "Бэтмен собирает команду супергероев," +
                         " чтобы спасти Землю. Самый ожидаемый блокбастер весны",
@@ -127,7 +127,7 @@ namespace NewKinoHub.Models
                         Country = "Россия",
                         Age = 12,
                         Score = 9.072,
-                        Release_Date = "2 марта 2017",
+                        Release_Date = new DateTime(2017, 03, 02),
                         Runtime = "49 мин.",
                         ShortDescription = "Секретные дворцы, виноградники и яхты Дмитрия Медведева",
                         Description = "Рассказ о недвижимом имуществе председателя Правительства Российской Федерации Дмитрия Медведева.",
@@ -185,7 +185,7 @@ namespace NewKinoHub.Models
                         Country = "США",
                         Age = 18,
                         Score = 8.115,
-                        Release_Date = "27 января 2021",
+                        Release_Date = new DateTime(2021, 01, 27),
                         Runtime = "46 мин. серия",
                         ShortDescription = "Инопланетянин в теле доктора пытается" +
                         " оправдать человечество. Алан Тьюдик в экранизации комиксов Dark Horse",
@@ -263,7 +263,7 @@ namespace NewKinoHub.Models
                         Country = "Япония",
                         Age = 18,
                         Score = 8.149,
-                        Release_Date = "16 октября 2020",
+                        Release_Date = new DateTime(2020, 10, 16),
                         Runtime = "01:57",
                         ShortDescription = "Самый посещаемый японский фильм всех времен",
                         Description = "Тандзиро с друзьями из отряда уничтожителей демонов" +
@@ -340,7 +340,7 @@ namespace NewKinoHub.Models
                         Country = "Япония",
                         Age = 16,
                         Score = 8.327,
-                        Release_Date = "3 июля 2016",
+                        Release_Date = new DateTime(2016, 07, 03),
                         Runtime = "01:50",
                         ShortDescription = "«Я ищу тебя, хотя не знаю, кто ты». " +
                             "Нежная сказка о первой любви, которая преодолевает пространство и время. Аниме – рекордсмен бокс-офиса.",
@@ -418,7 +418,7 @@ namespace NewKinoHub.Models
                         Country = "Россия",
                         Age = 12,
                         Score = 7.391,
-                        Release_Date = "1 апреля 2021",
+                        Release_Date = new DateTime(2021, 04, 01),
                         Runtime = "02:16",
                         ShortDescription = "Честный полицейский ловит мстителя в маске, убивающего" +
                             " коррупционеров. Супергеройское кино по комиксу Bubble",
@@ -506,7 +506,7 @@ namespace NewKinoHub.Models
                         Country = "США",
                         Age = 6,
                         Score = 8.311,
-                        Release_Date = "11 октября 2020",
+                        Release_Date = new DateTime(2020, 10, 11),
                         Runtime = "01:46",
                         ShortDescription = "Джазмен хочет сбежать с того света на концерт. Фантазия" +
                         " о призвании и важных мелочах жизни от автора «Вверх»",
@@ -594,7 +594,7 @@ namespace NewKinoHub.Models
                          Country = "Великобритания",
                          Age = 6,
                          Score = 8.726,
-                         Release_Date = "30 декабря 2018",
+                         Release_Date = new DateTime(2018, 12, 30),
                          Runtime = "58 мин.",
                          ShortDescription = "Трогательные и безжалостные отношения диких зверей. Замаскированные камеры снимают их жизнь в зимних условиях",
                          Description = "Пингвины и попугаи, полярные медведи и выдры — для некоторых животных снег" +
@@ -658,7 +658,7 @@ namespace NewKinoHub.Models
                         Country = "Великобритания",
                         Age = 6,
                         Score = 9.184,
-                        Release_Date = "6 ноября 2016",
+                        Release_Date = new DateTime(2016, 11, 06),
                         Runtime = "58 мин. серия",
                         ShortDescription = "Острова, горы, джунгли, пустыни, пастбища, города – никогда прежде Земля не была такой близкой.",
                         Description = "Мир глазами самих животных под музыку Ханса Циммера и с Дэвидом Аттенборо за кадром." +
@@ -723,7 +723,7 @@ namespace NewKinoHub.Models
                         Country = "США",
                         Age = 16,
                         Score = 7.282,
-                        Release_Date = "15 апреля 2020",
+                        Release_Date = new DateTime(2020, 04, 15),
                         Runtime = "54 мин. серия",
                         ShortDescription = "Будьте Осторожны В Том, Что Вы Ищете",
                         Description = "Внешние отмели — 320-километровая полоса узких песчаных барьерных" +
@@ -797,7 +797,7 @@ namespace NewKinoHub.Models
                         Country = "Япония",
                         Age = 18,
                         Score = 8.073,
-                        Release_Date = "6 апреля 2019",
+                        Release_Date = new DateTime(2019, 04, 06),
                         Runtime = "25 мин. серия",
                         ShortDescription = "Тем, кто не выдержал и сдался, остается лишь смотреть на успехи других!",
                         Description = "Эпоха Тайсё. Ещё с древних времён ходят слухи, что в лесу обитают человекоподобные" +
@@ -896,7 +896,7 @@ namespace NewKinoHub.Models
                         Country = "США",
                         Age = 18,
                         Score = 8.368,
-                        Release_Date = "26 марта 2021",
+                        Release_Date = new DateTime(2021, 03, 26),
                         Runtime = "45 мин. серия",
                         ShortDescription = "Основано на комиксах Роберта Киркмана",
                         Description = "Сюжет посвящен обычному старшекласснику Марку Грэйсону," +
@@ -972,7 +972,7 @@ namespace NewKinoHub.Models
                         Country = "Великобритания, Китай, США, Германия, Франция",
                         Age = 6,
                         Score = 8.932,
-                        Release_Date = "27 октября 2019",
+                        Release_Date = new DateTime(2019, 10, 27),
                         Runtime = "58 мин. серия",
                         ShortDescription = "Увлекательное путешествие по семи мирам нашей планеты",
                         Description = "Зрители отправятся в увлекательное путешествие по континентам и увидят своими глазами самобытный" +
@@ -1040,7 +1040,7 @@ namespace NewKinoHub.Models
                          Country = "США",
                          Age = 16,
                          Score = 8.008,
-                         Release_Date = "12 ноября 2019",
+                         Release_Date = new DateTime(2019, 11, 12),
                          Runtime = "40 мин.",
                          NumOfEpisodes= 16,
                          NumOfSeason=2,
@@ -1117,7 +1117,7 @@ namespace NewKinoHub.Models
                         Country = "США, Канада",
                         Age = 18,
                         Score = 7.086,
-                        Release_Date = "26 марта 2007",
+                        Release_Date = new DateTime(2007, 03, 26),
                         Runtime = "03:11",
                         ShortDescription = "Двойной фильм 2007 года, в который входят фильмы ужасов Планета ужаса и Доказательство смерти.",
                         Description = "Первая история рассказывает про страшную чуму и толпы бешеных мертвецов. Вторая - о маньяке-каскадере Майке," +
@@ -1203,7 +1203,7 @@ namespace NewKinoHub.Models
                         Country = "США",
                         Age = 16,
                         Score = 7.642,
-                        Release_Date = "6 сентября 2012",
+                        Release_Date = new DateTime(2012, 09, 06),
                         Runtime = "01:13",
                         ShortDescription = "Старые герои никогда не умирают. Они просто становятся темнее. " +
                         "Постаревший Бэтмен пытается спасти Готэм от мутантов. Экранизация графического романа Фрэнка Миллера",
@@ -1280,7 +1280,7 @@ namespace NewKinoHub.Models
                         Country = "США",
                         Age = 16,
                         Score = 7.897,
-                        Release_Date = "29 января 2013",
+                        Release_Date = new DateTime(2013, 01, 29),
                         Runtime = "01:16",
                         ShortDescription = "Бэтмен хотел отойти от дел, пока не появились Джокер и Супермен. Продолжение анимационных злоключений в Готэме",
                         Description = "После того, как Бэтмен дал отпор своим злейшим врагам Джокеру и Двуликому, он вступает в смертельный бой с бывшим союзником" +

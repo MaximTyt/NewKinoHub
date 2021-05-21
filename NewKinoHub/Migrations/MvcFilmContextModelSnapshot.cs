@@ -140,8 +140,8 @@ namespace NewKinoHub.Migrations
                     b.Property<int?>("NumOfSeason")
                         .HasColumnType("int");
 
-                    b.Property<string>("Release_Date")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("Release_Date")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Runtime")
                         .IsRequired()

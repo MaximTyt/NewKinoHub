@@ -356,7 +356,7 @@ namespace KinoHab.Manager
 
 
         [HttpPost]
-        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres)
+        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
         {
             Media Film = new Media();
             if (NumOfSeason != 0)
@@ -382,7 +382,7 @@ namespace KinoHab.Manager
             Film.Name = Name;
             Film.Year = Year;
             Film.Country = Contry;
-            Film.Release_Date = GetReleaseDate(Day.ToString() + month);
+            Film.Release_Date = Release_Date;
             Film.Age = Age;
             Film.Runtime = RunTime;
             Film.Description = Description;
@@ -418,74 +418,10 @@ namespace KinoHab.Manager
             _context.Media.Add(Film);
             await _context.SaveChangesAsync();
         }
-
-        public string GetReleaseDate(string Date)
-        {
-            if(Date.IndexOf("-01") != -1)
-            {
-                Date = Date.Replace("-01", " Январь");
-                return Date;
-            }
-            if (Date.IndexOf("-02") != -1)
-            {
-                Date = Date.Replace("-02", " Февраль");
-                return Date;
-            }
-            if (Date.IndexOf("-03") != -1)
-            {
-                Date = Date.Replace("-03", " Март");
-                return Date;
-            }
-            if (Date.IndexOf("-04") != -1)
-            {
-                Date = Date.Replace("-04", " Апрель");
-                return Date;
-            }
-            if (Date.IndexOf("-05") != -1)
-            {
-                Date = Date.Replace("-05", " Май");
-                return Date;
-            }
-            if (Date.IndexOf("-06") != -1)
-            {
-                Date = Date.Replace("-06", " Июнь");
-                return Date;
-            }
-            if (Date.IndexOf("-07") != -1)
-            {
-                Date = Date.Replace("-07", " Июль");
-                return Date;
-            }
-            if (Date.IndexOf("-08") != -1)
-            {
-                Date = Date.Replace("-08", " Август");
-                return Date;
-            }
-            if (Date.IndexOf("-09") != -1)
-            {
-                Date = Date.Replace("-09", " Сентябрь");
-                return Date;
-            }
-            if (Date.IndexOf("-10") != -1)
-            {
-                Date = Date.Replace("-10", " Октябрь");
-                return Date;
-            }
-            if (Date.IndexOf("-11") != -1)
-            {
-                Date = Date.Replace("-11", " Ноябрь");
-                return Date;
-            }
-            if (Date.IndexOf("-12") != -1)
-            {
-                Date = Date.Replace("-12", " Декабрь");
-                return Date;
-            }
-            return Date;
-        }
+                
 
         [HttpPost]
-        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres)
+        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
         {
             if (mainPhoto != null)
             {
@@ -503,9 +439,9 @@ namespace KinoHab.Manager
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == Id).Country = Contry;
             }
-            if (Day != 0 && month != null)
+            if (Release_Date.Year != 0001)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == Id).Release_Date = GetReleaseDate(month + " " + Day.ToString());
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Release_Date = Release_Date;
             }
             if (Age != 0)
             {

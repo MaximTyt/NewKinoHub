@@ -1,6 +1,7 @@
 ﻿using KinoHab.Manager;
 using Microsoft.AspNetCore.Mvc;
 using NewKinoHub.Manager.Userss;
+using System;
 using System.Threading.Tasks;
 
 namespace KinoHab.Controllers
@@ -79,15 +80,15 @@ namespace KinoHab.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddFilms(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Day, string month,int NumOfEpisodes,int NumOfSeason, int type, string[] Images, string[] genres)
+        public async Task<ActionResult> AddFilms(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes,int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
         {
-            await _film.AddFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video, Day, month, NumOfEpisodes, NumOfSeason,type,Images,genres);
+            await _film.AddFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video, NumOfEpisodes, NumOfSeason,type,Images,genres, Release_Date);
             return RedirectToAction("ListFilms", "Films");
         }
         [HttpPost]
-        public async Task<ActionResult> EditFilms(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres)
+        public async Task<ActionResult> EditFilms(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
         {
-            await _film.EditFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id,Day,month, NumOfEpisodes, NumOfSeason,type, Images,genres);
+            await _film.EditFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id, NumOfEpisodes, NumOfSeason,type, Images,genres, Release_Date);
             return RedirectToAction("ListFilms", "Films");
         }
 

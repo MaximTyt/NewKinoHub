@@ -74,7 +74,7 @@
                                 <p><span style="font-weight:bold">Страна:</span> @Model.Country</p>
 
                                 <a><img src=@Model.ScoreKP border='0'></a>
-                                <p><span style="font-weight:bold">Дата выхода:</span> @Model.Release_Date</p>
+                                <p><span style="font-weight:bold">Дата выхода:</span> @Model.Release_Date.ToShortDateString()</p>
                                 <p><span style="font-weight:bold">Возраст:</span> @Model.Age+</p>
                                 <p><span style="font-weight:bold">Время:</span> @Model.Runtime</p>
                                 @if (ViewBag.Role == 1)
