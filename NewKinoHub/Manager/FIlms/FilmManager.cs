@@ -354,11 +354,7 @@ namespace KinoHab.Manager
                  {
                      ImagesUrl = Images[3]
                  }
-            };
-            for (var i = 0; i < genres.Length; i++)
-            {                
-                Film.Genres.Add(DBObjects.Genres[genres[i]]);
-            }
+            };            
             _context.Media.Add(Film);
             await _context.SaveChangesAsync();
         }
