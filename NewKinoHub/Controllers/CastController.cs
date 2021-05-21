@@ -2,6 +2,7 @@
 using NewKinoHub.Manager.Casts;
 using NewKinoHub.Manager.Persons;
 using NewKinoHub.Manager.Userss;
+using NewKinoHub.Storage.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,13 +32,13 @@ namespace NewKinoHub.Controllers
 
         public async Task<IActionResult> ListActors(int FilmId)
         {
-            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
-            var cast = await _cast.GetAllActors(FilmId);
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));            
+            var cast = await _cast.GetAllActors(FilmId);            
             return View(cast);
         }
-        public async Task<IActionResult> ListCasts(int IdFilm)
-        {
-            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
+        public async Task<IActionResult> ListCasts(int IdFilm,int i)
+        {            
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));            
             var cast = await _cast.GetAllCast(IdFilm);
             return View(cast);
         }
