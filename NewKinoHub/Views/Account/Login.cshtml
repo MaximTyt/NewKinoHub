@@ -20,15 +20,11 @@
                         <span asp-validation-for="Password" />
                     </div>
                     <div class="form-group">
-                        <input style="color: rgb(247,151,30)" type="submit" value="Войти" class="btn btn-outline-dark" />
+                        <input type="submit" value="Войти" class="btn" />
                     </div>
                 </div>
             </form>
-            <div>
-                <center>
-                    <h4 style="color:aliceblue">Нет аккаунта? <a asp-action="Register" asp-controller="Account" class="btn_register">Зарегестрироваться</a></h4>
-                </center>
-            </div>
+            <h4 style="color:aliceblue">Нет аккаунта? <a asp-action="Register" asp-controller="Account" class="btn_register">Зарегестрироваться</a></h4>
         </center>
     </div>
 </body>
