@@ -2,18 +2,16 @@
 
 <html style="font-size: 16px;">
 <head>
-    <link rel="stylesheet" href="~/css/favorites.css" media="screen">
     <link href="~/css/Profil.css" rel="stylesheet" />
-    <script class="u-script" type="text/javascript" src="/js/jquery.js" defer=""></script>
 </head>
 
 <body>
     <div class="wrapper">
         @if (ViewBag.Role == 1)
         {
-            <div style="position:fixed; top:20%; left:3%; ">
-                <a href=@Url.Action("AddFilm", "Films") class="addfilm">Добавить сериал</a>
-            </div>
+        <div style="position:absolute; top:5%; left:3%; ">
+            <a href=@Url.Action("AddFilm", "Films") class="addfilm">Добавить сериал</a>
+        </div>
         }
         <div style="margin-top:50px; margin-bottom:30px; width: 95%;">
             <table style="margin: 0 auto;">
