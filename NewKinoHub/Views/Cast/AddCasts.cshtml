@@ -17,7 +17,7 @@
                             <td valign="top" class="tdstyle">
                                 <label class="colortext">Настоящее имя:<sup>*</sup></label><br />
                                 <textarea class="namesizeeditadd" type="text" name="OriginalName" required></textarea><br />
-                                <label class="colortext">Персонаж в фильме(необязательно):<sup>*</sup></label><br />
+                                <label class="colortext">Персонаж в фильме(необязательно):</label><br />
                                 <input type="text" name="Character" /><br />
                             </td>
                             <td valign="top" class="tdstyle">
@@ -38,23 +38,25 @@
                         </tr>
                         <tr class="trsizeb">
                             <td valign="top" colspan="2" class="tdstyle">
-                                <label class="colortext">Описание:<sup>*</sup></label><br />
+                                <label class="colortext">Интересные факты:<sup>*</sup></label><br />
                                 <textarea class="descriptionsize" type="text" name="Description" required> </textarea>
                             </td>
                             <td valign="top" align="left" class="tdstyle">
-                                <label class="colortext">Дата рождения:<sup>*</sup></label><br />
-                                <input type="text" name="DateOfBirthday" required /><br />
+                                <label class="colortext">Дата рождения</label><br />
+                                <input type="date" id="DateOfBirthday" name="DateOfBirthday" required><br />
+
                                 <label class="colortext">Место рождения:<sup>*</sup></label><br />
                                 <input type="text" name="PlaceOfBirthday" required /><br />
-                                <label class="colortext">Дата смерти(необязательно):<sup>*</sup></label><br />
-                                <input type="text" name="DateOfDeath" /><br />
+
+                                <label class="colortext">Дата смерти(необязательно):</label><br />
+                                <input type="date" id="DateOfDeath" name="DateOfDeath" /><br />
                             </td>
                             <td valign="top" class="tdstyle">
                                 <label class="colortext">Партнер:<sup>*</sup></label><br />
                                 <input type="text" name="Spouse" required /><br />
                                 <label class="colortext">Рост<sup>*</sup></label><br />
                                 <input type="text" name="Height" required /><br />
-                                <label class="colortext">Место смерти(необязательно):<sup>*</sup></label><br />
+                                <label class="colortext">Место смерти(необязательно):</label><br />
                                 <input type="text" name="PlaceOfDeath" /><br />
                             </td>
                         </tr>

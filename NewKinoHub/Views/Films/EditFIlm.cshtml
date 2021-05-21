@@ -36,7 +36,7 @@
                             <select id="type" name="type">
                                 @if (Model.MediaType == 0)
                                 {
-                                <option value="0" selected>Фильм</option>
+                                    <option value="0" selected>Фильм</option>
                                 }
                                 else
                                 {
@@ -44,57 +44,43 @@
                                 }
                                 @if (Model.MediaType != 0)
                                 {
-                                <option value="1" selected>Сериал</option>
+                                    <option value="1" selected>Сериал</option>
                                 }
                                 else
                                 {
-                                <option value="1">Сериал</option>
+                                    <option value="1">Сериал</option>
                                 }
                             </select>
-
-                            <label for="Genres" class="colortext">Выберите жанры:<sup>*</sup></label><br />
-                            @*<select multiple id="Genres" name="Genres">
-                                @if (Model.Genres[0].Genre_Name == "Аниме")
+                            
+                            
+                            <label for="Genres" class="colortext">Выберите жанры<sup>*</sup>:
+                                @foreach(var g in Model.Genres)
                                 {
-                                    <option value="Аниме" selected>Аниме</option>
-                                } 
-                                else
-                                {
-                                    <option value="Аниме">Аниме</option>
+                                    <a> @g.Genre_Name | </a>
                                 }
-                                @if (Model.Genres[1].Genre_Name == "Боевик")
-                                {
-                                <option value="Боевик" selected>Боевик</option>
-                                }
-                                else
-                                { 
-                                    <option value="Боевик">Боевик</option>
-                                }
-                                @if (Model.Genres[3].Genre_Name == "Криминал")
-                                {
-                            <option value="Криминал" selected>Криминал</option>
-                                }
-                                else
-                                { 
+                                </label><br />
+                            <select multiple id="Genres" name="Genres">
+                                <option value="Аниме">Аниме</option>
+                                <option value="Биография">Биография</option>
+                                <option value="Боевик">Боевик</option>
+                                <option value="Вестерн">Вестерн</option>
+                                <option value="Военный">Военный</option>
+                                <option value="Детектив">Детектив</option>
+                                <option value="Документальный">Документальный</option>
+                                <option value="Драма">Драма</option>
+                                <option value="Комедия">Комедия</option>
                                 <option value="Криминал">Криминал</option>
-                                }
-                                @if (Model.Genres[2].Genre_Name == "Ужасы")
-                                {
-                                <option value="Ужасы" selected>Ужасы</option>
-                                }
-                                else
-                                { 
-                                    <option value="Ужасы">Ужасы</option>
-                                }
-                                @if (Model.Genres[3].Genre_Name == "Фэнтези")
-                                {
-                                <option value="Фэнтези" selected>Фэнтези</option>
-                                }
-                                else
-                                { 
-                                    <option value="Фэнтези">Фэнтези</option>
-                                }
-                            </select>*@
+                                <option value="Мелодрама">Мелодрама</option>
+                                <option value="Музыка">Музыка</option>
+                                <option value="Мультфильм">Мультфильм</option>
+                                <option value="Мюзикл">Мюзикл</option>
+                                <option value="Приключения">Приключения</option>
+                                <option value="Семейный">Семейный</option>
+                                <option value="Ужасы">Ужасы</option>
+                                <option value="Фантастика">Фантастика</option>
+                                <option value="Фэнтези">Фэнтези</option>
+
+                            </select>
 
                         </td>
                         <td valign="top" class="tdstyle">

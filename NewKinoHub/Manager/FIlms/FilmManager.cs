@@ -20,11 +20,32 @@ namespace KinoHab.Manager
         }
         public async Task<ICollection<Media>> GetAllFilms()
         {
-            return await _context.Media
-                                 .Include(st => st.Genres)
-                                 .Include(st => st.Casts)
-                                 .ThenInclude(st => st.Person)
-                                 .ToListAsync();
+            //return await _context.Media
+            //                     .Include(st => st.Genres)
+            //                     .Include(st => st.Casts)
+            //                     .ThenInclude(st => st.Person)
+            //                     .ToListAsync();
+
+            var Films = _context.Media.Include(st => st.Genres);
+            foreach (var f in Films)
+            {
+                var Casts = await _context.Casts.Where(st => st.MediaId == f.MediaID).ToListAsync();
+
+                foreach (var c in Casts)
+                {
+                    foreach (var p in _context.Persons)
+                    {
+                        if (c.PersonId == p.Id)
+                        {
+                            c.Person = p;
+                        }
+                    }
+                }
+                f.Casts = Casts;
+            }
+
+            return await Films.ToListAsync();
+
         }
 
         public ICollection<Media> GetFavoriteFilmsForUser(Users User)
@@ -389,9 +410,10 @@ namespace KinoHab.Manager
                      ImagesUrl = Images[3]
                  }
             };
-            for (var i = 0; i < genres.Length; i++)
-            {                
-                Film.Genres.Add(DBObjects.Genres[genres[i]]);
+            foreach(var g in genres)
+            {
+                Film.Genres.Add(_context.Genres.Include(st => st.Medias).FirstOrDefault(st => st.Genre_Name == g));
+
             }
             _context.Media.Add(Film);
             await _context.SaveChangesAsync();
@@ -463,7 +485,7 @@ namespace KinoHab.Manager
         }
 
         [HttpPost]
-        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images)
+        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int Day, string month, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres)
         {
             if (mainPhoto != null)
             {
@@ -497,7 +519,7 @@ namespace KinoHab.Manager
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == Id).Description = Description;
             }
-            if (shortDiscription     != null)
+            if (shortDiscription != null)
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == Id).ShortDescription = shortDiscription;
             }
@@ -518,8 +540,10 @@ namespace KinoHab.Manager
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == Id).Video = Video;
             }
-               _context.Media.FirstOrDefault(st => st.MediaID == Id).MediaType = (MediaType)type;
-            
+            if (type != 0)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).MediaType = (MediaType)type;
+            }
             if (Images!=null)
             {
                 var i = 0;
@@ -532,7 +556,26 @@ namespace KinoHab.Manager
                     }
                 }                
             }
-            
+            if(genres != null)
+            {
+                List<Genre> genre = new List<Genre>();
+
+                foreach (var g in _context.Media.Include(st => st.Genres).FirstOrDefault(st => st.MediaID == Id).Genres)
+                {
+                    var ItemToRemove = g.Medias.FirstOrDefault(st => st.MediaID == Id);
+                    if (ItemToRemove != null)
+                    {
+                        g.Medias.Remove(ItemToRemove);
+                    }
+                }
+
+                for (var i = 0; i < genres.Length; i++)
+                {
+
+                    _context.Media.FirstOrDefault(st => st.MediaID == Id).Genres.Add(_context.Genres.Include(st => st.Medias).FirstOrDefault(st => st.Genre_Name == genres[i]));
+                }
+            }            
+
             await _context.SaveChangesAsync();
         }
 
