@@ -11,7 +11,8 @@
                         <tr class="trsizea">
                             <td valign="top" class="tdstyle">
                                 <label class="colortext">Персонаж в фильме(необязательно):</label><br />
-                                <input value =@Model.Character type="text" name="Character" /><br />
+                                @*<input value=@Model.Character type="text" name="Character" /><br />*@
+                                <textarea class="descriptionsize" type="text" name="Character">@Model.Character </textarea>
                             </td>
                             <td valign="top" class="tdstyle">
                                 <label for="RoleInFilm" class="colortext">Роль в фильме:<sup>*</sup></label><br />
