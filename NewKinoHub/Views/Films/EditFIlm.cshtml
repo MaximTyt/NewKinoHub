@@ -18,7 +18,7 @@
                             <input value=@Model.Img type="text" name="mainPhoto" required><br />
 
                             <label class="colortext">Год:<sup>*</sup></label><br />
-                            <input value="@Model.Year" type="number" name="Year" min="1950" step="1" required /><br />
+                            <input value="@Model.Year" type="number" name="Year" min="1888" step="1" required /><br />
 
                             <label class="colortext">Страна:<sup>*</sup></label><br />
                             <textarea class="namesizeeditadd" type="text" name="Contry" required>@Model.Country </textarea><br />
@@ -29,7 +29,7 @@
 
                             <label for="MediaType" class="colortext">Выберите тип:<sup>*</sup></label><br />
                             <select id="type" name="type">
-                                @if (Model.MediaType == 0)
+                                @if ((int)Model.MediaType == 0)
                                 {
                                     <option value="0" selected>Фильм</option>
                                 }
@@ -37,7 +37,7 @@
                                 {
                                     <option value="0">Фильм</option>
                                 }
-                                @if (Model.MediaType != 0)
+                                @if ((int)Model.MediaType == 1)
                                 {
                                     <option value="1" selected>Сериал</option>
                                 }
@@ -159,13 +159,11 @@
                             <label class="colortext">Ссылка на кадр №4<sup>*</sup></label><br />
                             <input value=@Model.Images[3].ImagesUrl type="text" name="Images[3]" required /><br />
 
-                            @if (Model.NumOfEpisodes != null)
-                            {
+                            @if ((int)Model.MediaType == 1)
+                            {  
                                 <label class="colortext">Количество эпизодов(Необязательно):</label><br />
                                 <input type="number" step="1" min="0" name="NumOfEpisodes"> <br />
-                            }
-                            @if (Model.NumOfSeason != null)
-                            {
+
                                 <label class="colortext">Количество сезонов(Необязательно):</label><br />
                                 <input type="number" step="1" min="0" name="NumOfSeason"> <br />
                             }

@@ -95,7 +95,7 @@ namespace NewKinoHub.Manager.Casts
         {
             if(Character != null)
             {
-                _context.Casts.FirstOrDefault(st => st.Id == IdCast && st.MediaId == IdFilm);
+                _context.Casts.FirstOrDefault(st => st.Id == IdCast && st.MediaId == IdFilm).Character = Character;
             }
 
             _context.Casts.FirstOrDefault(st => st.Id == IdCast).RoleInFilm = (RoleInFilm)RoleInFilm;

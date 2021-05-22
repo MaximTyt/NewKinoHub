@@ -891,7 +891,7 @@ namespace NewKinoHub.Models
                         NumOfEpisodes = 8,
                         Img = "https://imageup.ru/img112/3732606/invingible.jpg",
                         Video = "https://www.youtube.com/embed/oBD-7njwAsQ",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/gromsserg/1011",
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1005",
                         Year = 2021,
                         Country = "США",
                         Age = 18,
