@@ -70,7 +70,7 @@ namespace NewKinoHub.Manager.Persons
 
         [HttpPost]
         public async Task EditPerson(int personId, string Name, string OriginalName,
-           string RolesInMedia, double Height, string Image, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+           bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, string Image, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
            string PlaceOfDeath, string Spouse, string Awards, string Description)
         {
             if(Name != null)
@@ -81,10 +81,9 @@ namespace NewKinoHub.Manager.Persons
             {
                 _context.Persons.FirstOrDefault(st => st.Id == personId).OriginalName = OriginalName;
             }
-            if (RolesInMedia != null)
-            {
-                _context.Persons.FirstOrDefault(st => st.Id == personId).RolesInMedia = RolesInMedia;
-            }
+            _context.Persons.FirstOrDefault(st => st.Id == personId).IsActor = IsActor;
+            _context.Persons.FirstOrDefault(st => st.Id == personId).IsScreenWriter = IsScreenWriter;
+            _context.Persons.FirstOrDefault(st => st.Id == personId).IsDirector = IsActor;            
             if (Height != 0)
             {
                 _context.Persons.FirstOrDefault(st => st.Id == personId).Height = Height;

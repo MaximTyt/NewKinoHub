@@ -230,6 +230,15 @@ namespace NewKinoHub.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsActor")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDirector")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsScreenWriter")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -242,9 +251,6 @@ namespace NewKinoHub.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PlaceOfDeath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RolesInMedia")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Spouse")

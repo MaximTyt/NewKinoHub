@@ -18,7 +18,15 @@
                             <td style="width: 400px;">
                                 <p style="font-weight: bold; right:100%; left:0%;"> @Person.Name </p>
 
-                                <p><span style="font-weight:bold">Карьера:</span> @Person.RolesInMedia </p>
+                                <p>
+                                    <span style="font-weight:bold">Карьера:</span>
+                                    @if (Person.IsActor != false)
+                                    {<a> Актёр </a>}
+                                    @if (Person.IsDirector != false)
+                                    {<a> Режиссёр </a>}
+                                    @if (Person.IsScreenWriter != false)
+                                    {<a> Сценарист </a>}
+                                </p>
                                 @if (Person.DateOfBirthday.Year != 0001)
                                 {
                                     <p>

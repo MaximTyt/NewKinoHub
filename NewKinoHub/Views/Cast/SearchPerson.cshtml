@@ -45,7 +45,15 @@
 
 
                                         <p style="font-weight: bold; right:100%; left:0%;"> @cast.Name </p>
-                                        <p><span style="font-weight:bold">Карьера:</span> @cast.RolesInMedia</p>
+                                        <p>
+                                            <span style="font-weight:bold">Карьера:</span>
+                                            @if (cast.IsActor != false)
+                                            {<a> Актёр </a>}
+                                            @if (cast.IsDirector != false)
+                                            {<a> Режиссёр </a>}
+                                            @if (cast.IsScreenWriter != false)
+                                            {<a> Сценарист </a>}
+                                        </p>
                                         @if (cast.DateOfBirthday.Year != 0001)
                                         {
                                             <p>
