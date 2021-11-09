@@ -46,8 +46,8 @@ namespace NewKinoHub.Manager.Home
             (List<Media>, List<Media>) film = (null, null); 
             if (!String.IsNullOrEmpty(Name) && Name!= "")
             {
-                films = films.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Film).ToList();
-                serials = serials.Where(x => x.Name.Contains(Name) && x.MediaType == MediaType.Serial).ToList();
+                films = films.Where(x => x.Name.ToLower().Contains(Name.ToLower()) && x.MediaType == MediaType.Film).ToList();
+                serials = serials.Where(x => x.Name.ToLower().Contains(Name.ToLower()) && x.MediaType == MediaType.Serial).ToList();
 
                 
                 film = (films.ToList(), serials.ToList());

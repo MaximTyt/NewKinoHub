@@ -20,11 +20,7 @@ namespace KinoHab.Manager
         }
         public async Task<ICollection<Media>> GetAllFilms()
         {
-            //return await _context.Media
-            //                     .Include(st => st.Genres)
-            //                     .Include(st => st.Casts)
-            //                     .ThenInclude(st => st.Person)
-            //                     .ToListAsync();
+
 
             var Films = _context.Media.Include(st => st.Genres);
             foreach (var f in Films)
@@ -244,30 +240,29 @@ namespace KinoHab.Manager
          public async Task<ICollection<Media>> AllSorting(string sort, Users User)
          {
             var media = await GetAllFilms();
-            if(User != null && User.Favorites != null) 
+            if (User != null && User.Favorites != null)
             {
                 media = await GetFilms(User);
             }
 
-            if (sort == "YearOld")
+            switch (sort)
             {
-                media = media.OrderBy(st => st.Year).ToList();
-            }
-            if (sort == "YearNew")
-            {
-                media =  media.OrderByDescending(st => st.Year).ToList();
-            }
-            if (sort == "Score")
-            {
-                media = media.OrderByDescending(st => st.Score).ToList();
-            }
-            if (sort == "NameA")
-            {
-                media = media.OrderBy(st => st.Name).ToList();
-            }
-            if (sort == "NameZ")
-            {
-                media = media.OrderByDescending(st => st.Name).ToList();
+                case "YearOld":
+                    media = media.OrderBy(st => st.Year).ToList();
+                    break;
+                case "YearNew":
+                    media = media.OrderByDescending(st => st.Year).ToList();
+                    break;
+                case "Score":
+                    media = media.OrderByDescending(st => st.Score).ToList();
+                    break;
+                case "NameA":
+                    media = media.OrderBy(st => st.Name).ToList();
+                    break;
+                case "NameZ":
+                    media = media.OrderByDescending(st => st.Name).ToList();
+                    break;
+
             }
             return media;
          }
