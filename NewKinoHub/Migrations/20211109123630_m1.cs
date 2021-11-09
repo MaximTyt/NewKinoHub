@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace NewKinoHub.Migrations
 {
-    public partial class Initial : Migration
+    public partial class m1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -42,7 +42,9 @@ namespace NewKinoHub.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OriginalName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RolesInMedia = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsActor = table.Column<bool>(type: "bit", nullable: false),
+                    IsScreenWriter = table.Column<bool>(type: "bit", nullable: false),
+                    IsDirector = table.Column<bool>(type: "bit", nullable: false),
                     Height = table.Column<double>(type: "float", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateOfBirthday = table.Column<DateTime>(type: "datetime2", nullable: false),

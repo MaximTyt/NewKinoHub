@@ -59,8 +59,8 @@ namespace NewKinoHub.Manager.Casts
         }        
 
         [HttpPost]
-        public async Task AddCast(int IdFilm, string Character, int RoleInFilm, string Name, string OriginalName, 
-            string RolesInMedia, double Height,string Image,DateTime DateOfBirthday, DateTime DateOfDeath,string PlaceOfBirthday,
+        public async Task AddCast(int IdFilm, string Character, int RoleInFilm, string Name, string OriginalName,
+            bool IsActor, bool IsScreenWriter, bool IsDirector, double Height,string Image,DateTime DateOfBirthday, DateTime DateOfDeath,string PlaceOfBirthday,
             string PlaceOfDeath,string Spouse,string Awards,string Description)
         {
             Cast Cast = new Cast
@@ -73,7 +73,9 @@ namespace NewKinoHub.Manager.Casts
             {
                 Name = Name,
                 OriginalName = OriginalName,
-                RolesInMedia = RolesInMedia,
+                IsActor = IsActor,
+                IsDirector= IsDirector,
+                IsScreenWriter= IsScreenWriter,
                 Height = Height,
                 Image = Image,
                 DateOfBirthday = DateOfBirthday,

@@ -15,8 +15,10 @@ namespace NewKinoHub.Storage.Entity
         [Required]
         public string Name { get; set; }
         [Required]
-        public string OriginalName { get; set; } 
-        public string RolesInMedia { get; set; }
+        public string OriginalName { get; set; }
+        public bool IsActor { get; set;}
+        public bool IsScreenWriter { get; set;}
+        public bool IsDirector { get; set; }        
         [Range(0.49,2.5)]
         public double Height { get; set; }
         public string Image { get; set; }        
