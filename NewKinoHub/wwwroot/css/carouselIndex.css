@@ -1,7 +1,7 @@
 ﻿
 .slider {
-    width: 300px;
-    height: 500px;
+    width: 1100px;
+    height: 300px;
     overflow: hidden;
     border: 5px solid rgb(247,151,30,0.3);
     border-radius: 10px;
@@ -57,6 +57,7 @@ input[name="r"]{
         height: 100%;
         opacity: 90%;
     }
+
 
 #r1:checked ~.s1{
     margin-left:0;
