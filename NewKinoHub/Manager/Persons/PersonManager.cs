@@ -123,5 +123,28 @@ namespace NewKinoHub.Manager.Persons
 
             await _context.SaveChangesAsync();
         }
+
+        public async Task<ICollection<Person>> AllSorting(string sort)
+        {
+            var persons = await GetPersons();
+
+            switch (sort)
+            {
+                case "YearOld":
+                    persons = persons.OrderBy(st => st.DateOfBirthday).ToList();
+                    break;
+                case "YearNew":
+                    persons = persons.OrderByDescending(st => st.DateOfBirthday).ToList();
+                    break;
+                case "NameA":
+                    persons = persons.OrderBy(st => st.Name).ToList();
+                    break;
+                case "NameZ":
+                    persons = persons.OrderByDescending(st => st.Name).ToList();
+                    break;
+
+            }
+            return persons;
+        }
     }
 }
