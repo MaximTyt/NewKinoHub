@@ -127,19 +127,19 @@
                                              @*id menu - для выплывающего меню*@
                                              <li style="width: 100%; max-width: 120px !important;">
                                                  @*фильмы*@
-                                                 <a asp-area="" asp-controller="Films" asp-action="ListFilms">Films</a>
+                                                 <a asp-area="" asp-controller="Films" asp-action="ListFilms">Фильмы</a>
                                                  <ul>
                                                      <li style="width: 100%; max-width: 120px !important;">
-                                                         <a href="#filmform">Genres</a>
+                                                         <a href="#filmform">Жанры</a>
                                                      </li>
                                                  </ul>
                                              </li>
                                              <li style="width: 100%; max-width: 130px !important;">
                                                  @*сериалы*@
-                                                 <a asp-area="" asp-controller="Films" asp-action="ListSerials">Serials</a>
+                                                 <a asp-area="" asp-controller="Films" asp-action="ListSerials">Сериалы</a>
                                                  <ul>
                                                      <li style="width: 100%; max-width: 130px !important;">
-                                                         <a href="#serialform">Genres</a>
+                                                         <a href="#serialform">Жанры</a>
                                                      </li>
                                                  </ul>
                                              </li>
@@ -152,7 +152,7 @@
                                  <td style="width: 100%; width: 150px !important;">
                                      <form class="searchfo" method="get" asp-controller="Home" asp-action="Search" style="width:250px !important;">
                                          @*Блок поиска по сайту*@
-                                         <input class="searchin" type="search" placeholder="Search title..." value="@ViewData["Getemployeedetails"]" name="Name">       @*Блок поиска по сайту*@
+                                         <input class="searchin" type="search" placeholder="Поиск..." value="@ViewData["Getemployeedetails"]" name="Name">       @*Блок поиска по сайту*@
                                          <button type="submit" value="Search" class="searchbu" />                        @*Блок поиска по сайту*@
                                      </form>
                                  </td>
@@ -165,7 +165,7 @@
                                          </ul>-->
                                           <ul>
                                              <li style="width: 100%; max-width: 250px !important;">
-                                                 <a asp-area="" asp-controller="User" asp-action="Profile"> Profile</a>
+                                                 <a asp-area="" asp-controller="User" asp-action="Profile"> Профиль</a>
                                              </li>
                                           </ul>
                                      </nav>

@@ -1,10 +1,10 @@
 ﻿
 .slider {
-    width: 300px;
-    height: 500px;
+    width: 1100px;
+    height: 300px;
     overflow: hidden;
-    border: 5px solid rgb(247,151,30,0.3);
-    border-radius: 10px;
+    border: 5px solid rgb(247,151,30,0.2);
+    border-radius: 3px;
     background-color: black; /* Чёрный фон */
 }
 
@@ -58,6 +58,7 @@ input[name="r"]{
         opacity: 90%;
     }
 
+
 #r1:checked ~.s1{
     margin-left:0;
 }
@@ -108,9 +109,5 @@ input[name="r"]{
 /*изменения при наведении на картинку:*/
 .slide a img:hover {
     opacity: 100%;
-}
-
-.slider:hover {
-    border: 8px solid rgb(247,151,30,1);
-    border-radius: 15px;
+    border: 3px solid rgb(247,151,30,0.5);
 }

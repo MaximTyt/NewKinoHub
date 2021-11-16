@@ -112,6 +112,16 @@ body {
 }
 /*вывод в плитку*/
 
+
+.fav_block_films {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.item_films{
+
+}
+
 .addfilm {
     width: 60px;
     height: 36px;
@@ -231,7 +241,24 @@ img.avareviewssize {
     color: #f7971e;
 }
 
-.imglist {
-    height:395px; 
-    width:265px;
+.titlenamesize_list {
+    width: 300px;
+    font-size: 20px;
+    height: 55px;
+    background: linear-gradient(45deg, #ffffff 33%, #f7971e 66%, #f7971e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #f7971e;
 }
+
+    .titlenamesize_list:hover {
+        background: linear-gradient(45deg, #f7971e 33%, #f7971e 66%, #f7971e);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #f7971e;
+    }
+
+    .imglist {
+        height: 395px;
+        width: 265px;
+    }
