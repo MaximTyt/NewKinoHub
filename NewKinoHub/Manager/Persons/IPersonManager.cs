@@ -16,5 +16,6 @@ namespace NewKinoHub.Manager.Persons
         Task EditPerson(int personId, string Name, string OriginalName,
            bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, string Image, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
            string PlaceOfDeath, string Spouse, string Awards, string Description);
+        Task<ICollection<Person>> AllSorting(string sort);
     }
 }
