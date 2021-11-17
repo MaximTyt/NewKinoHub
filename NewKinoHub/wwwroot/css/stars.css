@@ -36,8 +36,8 @@
     top: 0;
     left: 0;
 }
-.rating_item{
-    flex: 0 0 20%;
+.rating_item {
+    flex: 0 0 10%;
     height: 100%;
     opacity: 0;
 }
