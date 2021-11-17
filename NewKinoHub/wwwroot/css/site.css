@@ -37,7 +37,7 @@ html {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid transparent !important;
 }
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
@@ -201,20 +201,34 @@ img.avareviewssize {
     }
 
 .btn_delete {
+    transition: 0.2s;
     text-decoration: none !important;
-    width: 20%;
+    border: 2px solid transparent;
     font-size: 10px;
     min-width: 100px;
-    height: 30px;
     /*background-color: rgb(8,8,8);*/
     text-align: center;
     color: white;
 }
 
     .btn_delete:hover {
-        /* background: rgb(247,151,30);*/
+        background: black;
+        transition: 0.2s;
         color: rgb(247,151,30);
+        transition: 0.2s;
+        border: 2px solid rgb(247,151,30);
+        border-radius: 5px;
     }
+
+.hoverImg .btn_delete {
+    opacity: 0;
+}
+
+.hoverImg:hover .btn_delete {
+    transition: 0.2s;
+    opacity: 1;
+}
+
 
 
 .colortext {
