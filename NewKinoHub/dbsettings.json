@@ -2,16 +2,16 @@
   "ConnectionStrings": {
 
     //Front_Andrey//
-    //"DefaultConnection": "Server=LAPTOP-QA25E0K7;Database=KinoHub3;Trusted_Connection=True; MultipleActiveResultSets=true"
-
-
-      //"DefaultConnection": "Server=DESKTOP-IFVH175;Database=KinoHub3;Trusted_Connection=True; MultipleActiveResultSets=true"
+    //"DefaultConnection": "Server=LAPTOP-QA25E0K7;Database=KinoHub2;Trusted_Connection=True; MultipleActiveResultSets=true"
 
 
     //"DefaultConnection": "Server=DESKTOP-IFVH175;Database=KinoHub2;Trusted_Connection=True; MultipleActiveResultSets=true"
 
+    //"DefaultConnection": "Server=DESKTOP-4N2MISI;Database=KinoHub1;Trusted_Connection=True; MultipleActiveResultSets=true",
+    //"DefaultConnection": "Server=DESKTOP-T272MHB;Database=KinoHyb;Trusted_Connection=True; MultipleActiveResultSets=true"
+   
 
-    //"DefaultConnection": "Server=DESKTOP-SGJCKFE;Database=KinoHib2;Trusted_Connection=True; MultipleActiveResultSets=true"
-    "DefaultConnection": "Server=DOM-MAX;Database=KinoHub2;Trusted_Connection=True; MultipleActiveResultSets=true"
+    
+    "DefaultConnection": "Server=DOM-MAX;Database=KinoHub1;Trusted_Connection=True; MultipleActiveResultSets=true"
   }
 }
