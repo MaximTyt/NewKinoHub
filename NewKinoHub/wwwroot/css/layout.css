@@ -212,7 +212,7 @@
         width: 100%;
         height: auto;
         list-style: none;
-        background-color: rgb(8,8,8);
+        /*background-color: rgb(8,8,8);*/
     }
 
     #menu1 > ul {
@@ -235,7 +235,7 @@
         height: auto;
         vertical-align: top;
         text-align: left;
-        background-color: rgb(8,8,8);
+        /*background-color: rgb(8,8,8);*/
         color: white;
     }
 
@@ -248,7 +248,7 @@
 
         #menu1 ul li a {
             display: block;
-            padding: 9px 45px 0px 45px;
+            padding: 9px 45px 9px 45px;
             font-size: 14px;
             color: #ffffef;
             line-height: 1.3em;

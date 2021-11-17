@@ -150,6 +150,21 @@ namespace KinoHab.Manager
                 }
 
             }
+
+            var Reviews = _context.Reviews.Where(st => st.MediaId == filmId).ToList();
+            foreach (var r in Reviews)
+            {
+                foreach (var us in _context.Users)
+                {
+                    if (r.UsersId == us.UserId)
+                    {
+                        r.ImgUser = us.Image;
+                    }
+                }
+            }
+
+            Films.Reviews = Reviews;
+
             return Films;
         }
         public async Task<Users> GetUser(string UserEmail)
@@ -192,14 +207,7 @@ namespace KinoHab.Manager
                     }
                 }
             }
-            if(p)
-            {
-                return p;
-            }
-            else
-            {
-                return p;
-            }
+            return p;
         }
 
         public async Task<Media> GetFilmforId(int filmId, Users User)
@@ -231,6 +239,18 @@ namespace KinoHab.Manager
 
             Filmss.Casts = Casts;
             var Reviews = _context.Reviews.Where(st => st.MediaId == filmId).ToList();
+
+            foreach(var r in Reviews)
+            {
+                foreach(var us in _context.Users)
+                {
+                    if(r.UsersId == us.UserId)
+                    {
+                        r.ImgUser = us.Image;
+                    }
+                }
+            }
+
             Filmss.Reviews = Reviews;
 
             return Filmss;
@@ -511,15 +531,15 @@ namespace KinoHab.Manager
         }
 
         [HttpPost]
-        public async  Task AddReviews(int idFilm, string Email, string text)
+        public async  Task AddReviews(int idFilm, string Email, string text, double rating)
         {
             var NickName = _context.Users.FirstOrDefault(st => st.Email == Email).Nickname;
-            Review review = new Review();
+            Review review = new Review();            
             review.Description = text;
+            review.Rating = rating;
             review.MediaId = idFilm;
             review.UsersId = _context.Users.FirstOrDefault(st => st.Email == Email).UserId;
             review.Nickname = NickName;
-            review.ImgUser = _context.Users.FirstOrDefault(st => st.Email == Email).Image;
             review.DateOfReview = DateTime.Now.ToString();
             _context.Reviews.Add(review);
             await _context.SaveChangesAsync();
@@ -540,10 +560,11 @@ namespace KinoHab.Manager
         }
 
         [HttpPost]
-        public async Task EditReviews(int idFilm, int IdUser, string text)
+        public async Task EditReviews(int idFilm, int IdUser, string text, double rating)
         {
-            if(text != null)
+            if(text != null && rating!=0)
             {
+                _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Rating = rating;
                 _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Description = text;
                 _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).DateOfReview = DateTime.Now.ToString();
             }

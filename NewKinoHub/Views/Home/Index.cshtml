@@ -10,12 +10,7 @@
     <div class="wrapper">
         <table style="width: 100%; height:100%; max-height:600px; max-width: 1100px; margin: 0 auto; margin-top:20px;">
             <tbody>
-                <tr style="height:50px;">
-                    <td colspan="2">
-                        <h3 style="color:white; width: 100%; max-width: 1125px;">Новинки:</h3>
-                    </td>
-                </tr>
-                <tr style="height:550px;">
+                <tr style="height:350px;">
                     <td>
                         <h3 style="color:white;">Фильмы</h3>
                         <div class="slider middle" style="left:0%; right:100%;">
@@ -26,69 +21,165 @@
                                 <input type="radio" name="r" id="r4">
                                 @if (Model.Item1.Count() >= 1)
                                 {
-                                    <div class="slide s1">
-                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[0].MediaID }) style="display:block;">
-                                            <img src=@Model.Item1[0].Img style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide s1">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td style="max-width:200px;">
+                                                <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[0].MediaID }) style="display:block;">
+                                                    <img src=@Model.Item1[0].Img style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">@Model.Item1[0].Name </p>
+                                                <span style="font-weight: bold; color: white">Краткое описание:</span>
+                                                <p style="margin-top:0%; color: white"> @Model.Item1[0].ShortDescription</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
                                 else
                                 {
                                     <div class="slide s1">
-                                        <a>
-                                            <img src="~/lib/images/KEK.jpg" style="height:500px !important;">
-                                        </a>
+                                        <table width="100%">
+                                            <tbody>
+                                                <tr height="100%">
+                                                    <td>
+                                                        <a>
+                                                            <img src="~/lib/images/KEK.jpg" style="height: 300px !important; max-width: 200px;">
+                                                        </a>
+                                                    </td>
+                                                    <td valign="top">
+                                                        <p style="color: white">Скоро здесь будет что-то интересное </p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 }
 
                                 @if (Model.Item1.Count() >= 2)
                                 {
-                                    <div class="slide">
-                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[1].MediaID }) style="display:block;">
-                                            <img src=@Model.Item1[1].Img style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td style="max-width:200px;">
+                                                <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[1].MediaID }) style="display:block;">
+                                                    <img src=@Model.Item1[1].Img style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">@Model.Item1[1].Name </p>
+                                                <span style="font-weight: bold; color: white">Краткое описание:</span>
+                                                <p style="margin-top:0%; color: white"> @Model.Item1[1].ShortDescription</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
                                 else
                                 {
-                                    <div class="slide">
-                                        <a>
-                                            <img src="~/lib/images/KEK.jpg" style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td>
+                                                <a>
+                                                    <img src="~/lib/images/KEK.jpg" style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">Скоро здесь будет что-то интересное </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
                                 @if (Model.Item1.Count() >= 3)
                                 {
-                                    <div class="slide">
-                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[2].MediaID }) style="display:block;">
-                                            <img src=@Model.Item1[2].Img style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td style="max-width:200px;">
+                                                <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[2].MediaID }) style="display:block;">
+                                                    <img src=@Model.Item1[2].Img style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">@Model.Item1[2].Name </p>
+                                                <span style="font-weight: bold; color: white">Краткое описание:</span>
+                                                <p style="margin-top:0%; color: white"> @Model.Item1[2].ShortDescription</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
                                 else
                                 {
-                                    <div class="slide">
-                                        <a>
-                                            <img src="~/lib/images/KEK.jpg" style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td>
+                                                <a>
+                                                    <img src="~/lib/images/KEK.jpg" style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">Скоро здесь будет что-то интересное </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
 
                                 @if (Model.Item1.Count() >= 4)
                                 {
-                                    <div class="slide">
-                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[3].MediaID }) style="display:block;">
-                                            <img src=@Model.Item1[3].Img style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td style="max-width:200px;">
+                                                <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[3].MediaID }) style="display:block;">
+                                                    <img src=@Model.Item1[3].Img style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">@Model.Item1[3].Name </p>
+                                                <span style="font-weight: bold; color: white">Краткое описание:</span>
+                                                <p style="margin-top:0%; color: white"> @Model.Item1[3].ShortDescription</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
                                 else
                                 {
-                                    <div class="slide">
-                                        <a>
-                                            <img src="~/lib/images/KEK.jpg" style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td>
+                                                <a>
+                                                    <img src="~/lib/images/KEK.jpg" style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">Скоро здесь будет что-то интересное </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
                             </div>
 
@@ -100,6 +191,8 @@
                             </div>
                         </div>
                     </td>
+                    </tr>
+                <tr style="height:350px;">
                     <td>
                         <h3 style="color:white;">Сериалы</h3>
                         <div class="slider middle" style="left:100%; right:0%;">
@@ -110,68 +203,164 @@
                                 <input type="radio" name="r" id="r8">
                                 @if (Model.Item2.Count() >= 1)
                                 {
-                                    <div class="slide s1">
-                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[0].MediaID }) style="display:block;">
-                                            <img src=@Model.Item2[0].Img style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide s1">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td style="max-width:200px;">
+                                                <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[0].MediaID }) style="display:block;">
+                                                    <img src=@Model.Item2[0].Img style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">@Model.Item2[0].Name </p>
+                                                <span style="font-weight: bold; color: white">Краткое описание:</span>
+                                                <p style="margin-top:0%; color: white"> @Model.Item2[0].ShortDescription</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
                                 else
                                 {
-                                    <div class="slide s1">
-                                        <a>
-                                            <img src="~/lib/images/KEK.jpg" style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide s1">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td>
+                                                <a>
+                                                    <img src="~/lib/images/KEK.jpg" style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">Скоро здесь будет что-то интересное </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
                                 @if (Model.Item2.Count() >= 2)
                                 {
-                                    <div class="slide">
-                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[1].MediaID }) style="display:block;">
-                                            <img src=@Model.Item2[1].Img style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td style="max-width:200px;">
+                                                <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[1].MediaID }) style="display:block;">
+                                                    <img src=@Model.Item2[1].Img style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">@Model.Item2[1].Name </p>
+                                                <span style="font-weight: bold; color: white">Краткое описание:</span>
+                                                <p style="margin-top:0%; color: white"> @Model.Item2[1].ShortDescription</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
                                 else
                                 {
-                                    <div class="slide">
-                                        <a>
-                                            <img src="~/lib/images/KEK.jpg" style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td>
+                                                <a>
+                                                    <img src="~/lib/images/KEK.jpg" style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">Скоро здесь будет что-то интересное </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
 
                                 @if (Model.Item2.Count() >= 3)
                                 {
-                                    <div class="slide">
-                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[2].MediaID }) style="display:block;">
-                                            <img src=@Model.Item2[2].Img style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td style="max-width:200px;">
+                                                <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[2].MediaID }) style="display:block;">
+                                                    <img src=@Model.Item2[2].Img style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">@Model.Item2[2].Name </p>
+                                                <span style="font-weight: bold; color: white">Краткое описание:</span>
+                                                <p style="margin-top:0%; color: white"> @Model.Item2[2].ShortDescription</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
                                 else
                                 {
-                                    <div class="slide">
-                                        <a>
-                                            <img src="~/lib/images/KEK.jpg" style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td>
+                                                <a>
+                                                    <img src="~/lib/images/KEK.jpg" style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">Скоро здесь будет что-то интересное </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
                                 @if (Model.Item2.Count() >= 4)
                                 {
-                                    <div class="slide">
-                                        <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[3].MediaID }) style="display:block;">
-                                            <img src=@Model.Item2[3].Img style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td>
+                                                <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[3].MediaID }) style="display:block;">
+                                                    <img src=@Model.Item2[3].Img style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">@Model.Item2[3].Name </p>
+                                                <span style="font-weight: bold; color: white">Краткое описание:</span>
+                                                <p style="margin-top:0%; color: white"> @Model.Item2[3].ShortDescription</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
                                 else
                                 {
-                                    <div class="slide">
-                                        <a>
-                                            <img src="~/lib/images/KEK.jpg" style="height:500px !important;">
-                                        </a>
-                                    </div>
+                            <div class="slide">
+                                <table width="100%">
+                                    <tbody>
+                                        <tr height="100%">
+                                            <td>
+                                                <a>
+                                                    <img src="~/lib/images/KEK.jpg" style="height: 300px !important; max-width: 200px;">
+                                                </a>
+                                            </td>
+                                            <td valign="top">
+                                                <p style="color: white">Скоро здесь будет что-то интересное </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                                 }
                             </div>
                             <div class=" navigation">
