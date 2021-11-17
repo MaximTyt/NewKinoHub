@@ -233,6 +233,7 @@ namespace NewKinoHub.Migrations
                     Nickname = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImgUser = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     MediaId = table.Column<int>(type: "int", nullable: false),
+                    Rating = table.Column<double>(type: "float", nullable: false),
                     UsersId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

@@ -103,16 +103,16 @@ namespace KinoHab.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddReviews(int IdFilm, string text)
+        public async Task<ActionResult> AddReviews(int IdFilm, string text, double rating)
         {
-            await _film.AddReviews(IdFilm, User.Identity.Name, text);
+            await _film.AddReviews(IdFilm, User.Identity.Name, text,rating);
             return RedirectToAction("Film", "Films", new { IdFilm });
         }
 
         [HttpPost]
-        public async Task<ActionResult> EditReviews(int IdFilm, string text)
+        public async Task<ActionResult> EditReviews(int IdFilm, string text, double rating)
         {
-            await _film.EditReviews(IdFilm, _user.GetUserId(User.Identity.Name), text);
+            await _film.EditReviews(IdFilm, _user.GetUserId(User.Identity.Name), text, rating);
             return RedirectToAction("Film", "Films", new { IdFilm });
         }
         public async Task<ActionResult> DeleteReviews(int IdFilm, int IdUser)
