@@ -19,11 +19,16 @@ namespace NewKinoHub.Controllers
             _person = person;
         }
 
-        public async Task<IActionResult> ListPersons()
+        public async Task<IActionResult> ListPersons(string sort)
         {
             ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
             var persons = await _person.GetPersons();
             await _person.AgeOfPerson();
+            if (sort != null)
+            {
+                var Sort = await _person.AllSorting(sort);
+                return View(Sort);
+            }
             return View(persons);
         }
 
