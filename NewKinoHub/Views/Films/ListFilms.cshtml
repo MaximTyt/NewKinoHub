@@ -71,21 +71,13 @@
             @foreach (var film in Model.Where(st => st.MediaType == ViewBag.Type))
             {
             <div class="item_films">
-                <p><a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="300" class="imagetitle" src=@film.Img></a></p>
-                <p><a class="titlenamesize_list" valign="center" href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })>@film.Name</a></p>
-            </div>
-
-                @*<div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
-                    <img class="u-back-image u-expanded imagetitle imglist" src=@film.Img>
-                </a>
-                <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
-                    <table style="width: 780px;">
+                <p><a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="300" height="400" class="imagetitle" src=@film.Img></a></p>
+                <p style="margin-left:5px;"><a class="titlenamesize_list" href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })>@film.Name</a></p>
+                <div class="descr">
+                    ABOBA
+                    <table>
                         <tbody>
                             <tr>
-                                <td style="width: 400px;">
-                                    <p style="font-weight: bold; right:100%; left:0%;"> @film.Name </p>
-                                </td>
 
                                 @if (film.IsFavorites == false && ViewBag.User != null)
                                 {
@@ -162,6 +154,26 @@
                                         </a>
                                     </td>
                                 }
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><span style="font-weight:bold">Краткое описание:</span> @film.ShortDescription</p>
+                </div>
+            </div>
+
+                @*<div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
+                <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+                    <img class="u-back-image u-expanded imagetitle imglist" src=@film.Img>
+                </a>
+                <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
+                    <table style="width: 780px;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 400px;">
+                                    <p style="font-weight: bold; right:100%; left:0%;"> @film.Name </p>
+                                </td>
+
+                               
 
                             </tr>
                         </tbody>

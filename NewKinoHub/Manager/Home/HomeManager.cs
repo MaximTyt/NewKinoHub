@@ -1,6 +1,7 @@
 ﻿using KinoHab.Manager;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NewKinoHub.Manager.Persons;
 using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
 using System;
@@ -33,24 +34,26 @@ namespace NewKinoHub.Manager.Home
         }
 
         [HttpGet]
-        public async Task<(List<Media>, List<Media>)> Search(string Name, Users User)
+        public async Task<(List<Media>, List<Media>,List<Person>)> Search(string Name, Users User)
         {
             IFilmManager Film = new FilmManager(_context);
+            IPersonManager Person = new PersonManager(_context);
             var films = await Film.GetAllFilms();
             var serials = await Film.GetAllFilms();
+            var persons = await Person.GetPersons();
             if (User != null && User.Favorites != null)
             {
                 films = await Film.GetFilms(User);
                 serials = await Film.GetFilms(User);
             }
-            (List<Media>, List<Media>) film = (null, null); 
+            (List<Media>, List<Media>,List<Person>) film = (null, null,null); 
             if (!String.IsNullOrEmpty(Name) && Name!= "")
             {
                 films = films.Where(x => x.Name.ToLower().Contains(Name.ToLower()) && x.MediaType == MediaType.Film).ToList();
                 serials = serials.Where(x => x.Name.ToLower().Contains(Name.ToLower()) && x.MediaType == MediaType.Serial).ToList();
-
+                persons = persons.Where(x => x.Name.ToLower().Contains(Name.ToLower())).ToList();
                 
-                film = (films.ToList(), serials.ToList());
+                film = (films.ToList(), serials.ToList(),persons.ToList());
             }
             return film;
         }
