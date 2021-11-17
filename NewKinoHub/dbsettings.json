@@ -14,6 +14,6 @@
 
 
     //"DefaultConnection": "Server=DESKTOP-SGJCKFE;Database=KinoHib2;Trusted_Connection=True; MultipleActiveResultSets=true"
-    "DefaultConnection": "Server=DOM-MAX;Database=KinoHub2;Trusted_Connection=True; MultipleActiveResultSets=true"
+    //"DefaultConnection": "Server=DOM-MAX;Database=KinoHub2;Trusted_Connection=True; MultipleActiveResultSets=true"
   }
 }
