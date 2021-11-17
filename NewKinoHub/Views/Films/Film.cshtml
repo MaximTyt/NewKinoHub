@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <link href="~/css/carouseltitle.css" rel="stylesheet" /> @*не переносить в layout*@
+    <link href="~/css/stars.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -82,12 +83,34 @@
                                 {
                                     <p><span style="font-weight:bold">Страна:</span> @Model.Country</p>
                                 }
+                                <div class="form_item">
+                                    <div class="form_label">Рейтинг:  </div>
+                                    <div class="rating">
+                                        <div class="rating_body">
+                                            <div class="rating_active"></div>
+                                            <div class="rating_items">
+                                                <input type="radio" class="rating_item" value="1" name="rating">
+                                                <input type="radio" class="rating_item" value="2" name="rating">
+                                                <input type="radio" class="rating_item" value="3" name="rating">
+                                                <input type="radio" class="rating_item" value="4" name="rating">
+                                                <input type="radio" class="rating_item" value="5" name="rating">
+                                                <input type="radio" class="rating_item" value="6" name="rating">
+                                                <input type="radio" class="rating_item" value="7" name="rating">
+                                                <input type="radio" class="rating_item" value="8" name="rating">
+                                                <input type="radio" class="rating_item" value="9" name="rating">
+                                                <input type="radio" class="rating_item" value="10" name="rating">
+                                            </div>
+                                        </div>
+                                        <div class="rating_value">@(Convert.ToString(Model.Score).Replace(',', '.'))</div>
+                                    </div>
+                                </div>
 
                                 <a><img src=@Model.ScoreKP border='0'></a>
-                                @if (Model.Release_Date.Year >=1888 && Model.Release_Date.Year <= 2021)
+
+                                @if (Model.Release_Date.Year >= 1888 && Model.Release_Date.Year <= 2021)
                                 {
-                                 <p><span style="font-weight:bold">Дата выхода:</span> @Model.Release_Date.ToShortDateString()</p>
-                                }                                
+                                    <p><span style="font-weight:bold">Дата выхода:</span> @Model.Release_Date.ToShortDateString()</p>
+                                }
                                 <p><span style="font-weight:bold">Возраст:</span> @Model.Age+</p>
                                 @if (Model.Runtime != null)
                                 {
@@ -232,16 +255,37 @@
                 <div style="margin: 10px 0px 10px 0px; height:400px;">
                     <form class="addreviewsfo" action="" method="post" enctype="multipart/form-data">
                         <h4>Добавить отзыв:</h4><br />
+                        <div class="form_item">
+                            <div class="form_label">Рейтинг:  </div>
+                            <div class="rating rating_set">
+                                <div class="rating_body">
+                                    <div class="rating_active"></div>
+                                    <div class="rating_items">
+                                        <input type="radio" class="rating_item" value="1" name="rating">
+                                        <input type="radio" class="rating_item" value="2" name="rating">
+                                        <input type="radio" class="rating_item" value="3" name="rating">
+                                        <input type="radio" class="rating_item" value="4" name="rating">
+                                        <input type="radio" class="rating_item" value="5" name="rating">
+                                        <input type="radio" class="rating_item" value="6" name="rating">
+                                        <input type="radio" class="rating_item" value="7" name="rating">
+                                        <input type="radio" class="rating_item" value="8" name="rating">
+                                        <input type="radio" class="rating_item" value="9" name="rating">
+                                        <input type="radio" class="rating_item" value="10" name="rating">
+                                    </div>
+                                </div>
+                                <div class="rating_value"></div>
+                            </div>
+                        </div>
                         <textarea class="addreviewste" rows="10" cols="75" placeholder="Введите ваш отзыв:" name="text"></textarea><br />
                         <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("AddReviews", "Films", new { IdFilm = Model.MediaID })>
                     </form>
                 </div>
             }
-            
+
             <h2 style=" clear:both; margin-top:5%; margin-bottom:5%;">Отзывы:</h2>
             @if (ViewBag.User == null)
             {
-                <p><span style="font-weight:bold">Чтобы оставить отзыв, необходимо войти в аккаунт</span></p>                
+                <p><span style="font-weight:bold">Чтобы оставить отзыв, необходимо войти в аккаунт</span></p>
             }
 
 
@@ -263,6 +307,27 @@
                                             <p><b>Дата: @Revi.DateOfReview</b></p>
                                         </td>
                                         <td valign="top" align="left" style="width:70%;">
+                                            <div class="form_item">
+                                                <div class="form_label">Рейтинг:  </div>
+                                                <div class="rating">
+                                                    <div class="rating_body">
+                                                        <div class="rating_active"></div>
+                                                        <div class="rating_items">
+                                                            <input type="radio" class="rating_item" value="1" name="rating">
+                                                            <input type="radio" class="rating_item" value="2" name="rating">
+                                                            <input type="radio" class="rating_item" value="3" name="rating">
+                                                            <input type="radio" class="rating_item" value="4" name="rating">
+                                                            <input type="radio" class="rating_item" value="5" name="rating">
+                                                            <input type="radio" class="rating_item" value="6" name="rating">
+                                                            <input type="radio" class="rating_item" value="7" name="rating">
+                                                            <input type="radio" class="rating_item" value="8" name="rating">
+                                                            <input type="radio" class="rating_item" value="9" name="rating">
+                                                            <input type="radio" class="rating_item" value="10" name="rating">
+                                                        </div>
+                                                    </div>
+                                                    <div class="rating_value">@Revi.Rating</div>
+                                                </div>
+                                            </div>
                                             <textarea rows="7" class="viewreviewste" readonly> @Revi.Description </textarea>
                                         </td>
                                     </tr>
@@ -280,6 +345,27 @@
                                             <p><b>Дата: @Revi.DateOfReview</b></p>
                                         </td>
                                         <td valign="top" align="left" style="width:70%;">
+                                            <div class="form_item">
+                                                <div class="form_label">Рейтинг:  </div>
+                                                <div class="rating">
+                                                    <div class="rating_body">
+                                                        <div class="rating_active"></div>
+                                                        <div class="rating_items">
+                                                            <input type="radio" class="rating_item" value="1" name="rating">
+                                                            <input type="radio" class="rating_item" value="2" name="rating">
+                                                            <input type="radio" class="rating_item" value="3" name="rating">
+                                                            <input type="radio" class="rating_item" value="4" name="rating">
+                                                            <input type="radio" class="rating_item" value="5" name="rating">
+                                                            <input type="radio" class="rating_item" value="6" name="rating">
+                                                            <input type="radio" class="rating_item" value="7" name="rating">
+                                                            <input type="radio" class="rating_item" value="8" name="rating">
+                                                            <input type="radio" class="rating_item" value="9" name="rating">
+                                                            <input type="radio" class="rating_item" value="10" name="rating">
+                                                        </div>
+                                                    </div>
+                                                    <div class="rating_value">@Revi.Rating</div>
+                                                </div>
+                                            </div>
                                             <textarea rows="7" class="viewreviewste" readonly> @Revi.Description </textarea>
                                         </td>
                                     </tr>
@@ -301,6 +387,27 @@
                                             <p><b>Дата: @Revi.DateOfReview</b></p>
                                         </td>
                                         <td valign="top" align="left" style="width:60%;">
+                                            <div class="form_item">
+                                                <div class="form_label">Рейтинг:  </div>
+                                                <div class="rating">
+                                                    <div class="rating_body">
+                                                        <div class="rating_active"></div>
+                                                        <div class="rating_items">
+                                                            <input type="radio" class="rating_item" value="1" name="rating">
+                                                            <input type="radio" class="rating_item" value="2" name="rating">
+                                                            <input type="radio" class="rating_item" value="3" name="rating">
+                                                            <input type="radio" class="rating_item" value="4" name="rating">
+                                                            <input type="radio" class="rating_item" value="5" name="rating">
+                                                            <input type="radio" class="rating_item" value="6" name="rating">
+                                                            <input type="radio" class="rating_item" value="7" name="rating">
+                                                            <input type="radio" class="rating_item" value="8" name="rating">
+                                                            <input type="radio" class="rating_item" value="9" name="rating">
+                                                            <input type="radio" class="rating_item" value="10" name="rating">
+                                                        </div>
+                                                    </div>
+                                                    <div class="rating_value">@Revi.Rating</div>
+                                                </div>
+                                            </div>
                                             <textarea rows="7" cols="75" class="viewreviewste" readonly> @Revi.Description </textarea>
                                         </td>
                                         <td valign="bottom" align="right" style="width:15%;">
@@ -322,6 +429,27 @@
                                             <p><b>Дата: @Revi.DateOfReview</b></p>
                                         </td>
                                         <td valign="top" align="left" style="width:60%;">
+                                            <div class="form_item">
+                                                <div class="form_label">Рейтинг:  </div>
+                                                <div class="rating">
+                                                    <div class="rating_body">
+                                                        <div class="rating_active"></div>
+                                                        <div class="rating_items">
+                                                            <input type="radio" class="rating_item" value="1" name="rating">
+                                                            <input type="radio" class="rating_item" value="2" name="rating">
+                                                            <input type="radio" class="rating_item" value="3" name="rating">
+                                                            <input type="radio" class="rating_item" value="4" name="rating">
+                                                            <input type="radio" class="rating_item" value="5" name="rating">
+                                                            <input type="radio" class="rating_item" value="6" name="rating">
+                                                            <input type="radio" class="rating_item" value="7" name="rating">
+                                                            <input type="radio" class="rating_item" value="8" name="rating">
+                                                            <input type="radio" class="rating_item" value="9" name="rating">
+                                                            <input type="radio" class="rating_item" value="10" name="rating">
+                                                        </div>
+                                                    </div>
+                                                    <div class="rating_value">@Revi.Rating</div>
+                                                </div>
+                                            </div>
                                             <textarea rows="7" cols="75" class="viewreviewste" readonly> @Revi.Description </textarea>
                                         </td>
                                         <td valign="bottom" align="right" style="width:15%;">
@@ -337,6 +465,27 @@
                             <div>
                                 <form class="addreviewsfo" action="" method="post" enctype="multipart/form-data">
                                     <h4>Редактировать отзыв:</h4><br />
+                                    <div class="form_item">
+                                        <div class="form_label">Рейтинг:  </div>
+                                        <div class="rating rating_set">
+                                            <div class="rating_body">
+                                                <div class="rating_active"></div>
+                                                <div class="rating_items">
+                                                    <input type="radio" class="rating_item" value="1" name="rating">
+                                                    <input type="radio" class="rating_item" value="2" name="rating">
+                                                    <input type="radio" class="rating_item" value="3" name="rating">
+                                                    <input type="radio" class="rating_item" value="4" name="rating">
+                                                    <input type="radio" class="rating_item" value="5" name="rating">
+                                                    <input type="radio" class="rating_item" value="6" name="rating">
+                                                    <input type="radio" class="rating_item" value="7" name="rating">
+                                                    <input type="radio" class="rating_item" value="8" name="rating">
+                                                    <input type="radio" class="rating_item" value="9" name="rating">
+                                                    <input type="radio" class="rating_item" value="10" name="rating">
+                                                </div>
+                                            </div>
+                                            <div class="rating_value">@Revi.Rating</div>
+                                        </div>
+                                    </div>
                                     <textarea class="addreviewste" rows="10" cols="75" name="text">@Revi.Description</textarea>
                                     <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("EditReviews", "Films", new { IdFilm = Model.MediaID })><br />
                                 </form>
@@ -347,6 +496,7 @@
                 }
             }
         </div>
-    </div>
+        <script src="~/js/stars.js"></script>
+    </div>    
 </body>
 </html>

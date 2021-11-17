@@ -283,6 +283,9 @@ namespace NewKinoHub.Migrations
                     b.Property<string>("Nickname")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Rating")
+                        .HasColumnType("float");
+
                     b.Property<int>("UsersId")
                         .HasColumnType("int");
 
