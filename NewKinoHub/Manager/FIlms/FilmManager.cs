@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Globalization;
 using NewKinoHub.Models;
+using NewKinoHub.Manager;
+using Microsoft.AspNetCore.Http;
 
 namespace KinoHab.Manager
 {
@@ -368,7 +370,7 @@ namespace KinoHab.Manager
 
 
         [HttpPost]
-        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
+        public async Task AddFilm(IFormFile mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
         {
             Media Film = new Media();
             if (NumOfSeason != 0)
@@ -390,7 +392,7 @@ namespace KinoHab.Manager
                     Film.MediaType = MediaType.Serial;
                 }
             }
-            Film.Img = mainPhoto;
+            Film.Img = SaveImage.getByteImage(mainPhoto); ;
             Film.Name = Name;
             Film.Year = Year;
             Film.Country = Contry;
@@ -433,11 +435,11 @@ namespace KinoHab.Manager
                 
 
         [HttpPost]
-        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
+        public async Task EditFilm(IFormFile mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
         {
             if (mainPhoto != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == Id).Img = mainPhoto;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Img = SaveImage.getByteImage(mainPhoto);
             }
             if (Name != null)
             {

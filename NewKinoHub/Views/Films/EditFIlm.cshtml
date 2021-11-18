@@ -14,8 +14,10 @@
                             @*<input value=@Model.Name type="text" name="Name" required /><br />*@
                             <textarea class="namesizeeditadd" type="text" name="Name" required>@Model.Name </textarea><br />
 
-                            <label class="colortext">Аватарка(Только ссылка с сервера):<sup>*</sup></label><br />
-                            <input value=@Model.Img type="text" name="mainPhoto" required><br />
+                            
+
+                            <label class="colortext">Постер:<sup>*</sup></label><br />
+                            <input value=@(Convert.ToBase64String(@Model.Img)) type="file" title="Выберите постер" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
                             <label class="colortext">Год:<sup>*</sup></label><br />
                             <input value="@Model.Year" type="number" name="Year" min="1888" step="1" required /><br />
