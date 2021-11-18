@@ -1,9 +1,9 @@
 ﻿
-img.imagetitle {
+.imagetitle {
     border: 5px solid rgb(247,151,30,0);
     /*картинка тайтла в списке тайтлов*/
 }
-    img.imagetitle:hover {
+    .imagetitle:hover {
         border: 5px solid rgb(247,151,30,0.7);
         border-radius: 10px;
     }
@@ -38,12 +38,12 @@ img.imagetitle {
 }
 
 img.deleteicon{
-    width:30px !important;
-    height:30px !important;
+    width:20px !important;
+    height:20px !important;
 }
 img.deleteicon:hover{
-    width:30px !important;
-    height:25px !important;
+    width:20px !important;
+    height:20px !important;
 }
 
 
