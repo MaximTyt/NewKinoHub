@@ -7,6 +7,7 @@ namespace KinoHab.Manager
 {
     public interface IFilmManager
     {
+        void ChangeRaiting(int IdFilm);
         Task<ICollection<Media>> GetAllFilms();
         Task<Media> GetFilmforId(int filmId,Users User);
         MediaType TypeFilm(string i);

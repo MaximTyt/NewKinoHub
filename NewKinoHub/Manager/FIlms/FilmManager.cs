@@ -162,9 +162,7 @@ namespace KinoHab.Manager
                     }
                 }
             }
-
             Films.Reviews = Reviews;
-
             return Films;
         }
         public async Task<Users> GetUser(string UserEmail)
@@ -250,7 +248,6 @@ namespace KinoHab.Manager
                     }
                 }
             }
-
             Filmss.Reviews = Reviews;
 
             return Filmss;
@@ -569,6 +566,22 @@ namespace KinoHab.Manager
                 _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).DateOfReview = DateTime.Now.ToString();
             }
             await _context.SaveChangesAsync();
+        }
+
+
+        public void ChangeRaiting(int IdFilm)
+        {
+            double score = 0;
+            var Reviews = _context.Reviews.Where(st => st.MediaId == IdFilm).ToList();
+
+            foreach (var r in Reviews)
+            {
+                score += r.Rating;
+            }
+            score += _context.Media.FirstOrDefault(st => st.MediaID == IdFilm).Score;
+            score = score / (Reviews.Count+1);
+            _context.Media.FirstOrDefault(st=>st.MediaID == IdFilm).Score = Math.Round(score, 3);
+            _context.SaveChanges();
         }
     }
 }

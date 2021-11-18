@@ -9,6 +9,7 @@ namespace NewKinoHub.Manager.Persons
     public interface IPersonManager
     {
         Task<ICollection<Person>> GetPersons();
+        Task<ICollection<Person>> GetPersons(int role);
         Task<Person> GetPersonForId(int IdPerson);
         Task DeletePerson(int IdPerson);
         Task AgeOfPerson(int personId);

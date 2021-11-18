@@ -153,6 +153,7 @@
                         </tbody>
                     </table>
                     <p style="color:white;"> @film.ShortDescription</p>
+                    <div class="rating_value">@(Convert.ToString(film.Score).Replace(',', '.')) @*Оценено: @Model.Reviews.Count*@</div>
                 </div>
             </div>
 

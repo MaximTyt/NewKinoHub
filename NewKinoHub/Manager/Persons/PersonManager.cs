@@ -39,10 +39,29 @@ namespace NewKinoHub.Manager.Persons
             return await _context.Persons.FirstOrDefaultAsync(st => st.Id == IdPerson);
         }
 
+        public async Task<ICollection<Person>> GetPersons(int role)
+        {
+            switch (role)
+            {
+                case 0:
+                    return await _context.Persons.Where(st => st.IsDirector == true).ToListAsync();
+
+                case 1:
+                    return await _context.Persons.Where(st => st.IsScreenWriter == true).ToListAsync();
+
+                case 2:
+                    return await _context.Persons.Where(st => st.IsActor == true).ToListAsync();
+
+                default:
+                    return await _context.Persons.ToListAsync();
+            }
+        }
+
         public async Task<ICollection<Person>> GetPersons()
         {
             return await _context.Persons.ToListAsync();
         }
+
         public async Task AgeOfPerson(int personId)
         {
             if (_context.Persons.FirstOrDefault(st => st.Id == personId).DateOfBirthday.Year != 0001 && _context.Persons.FirstOrDefault(st => st.Id == personId).DateOfDeath.Year == 0001)
