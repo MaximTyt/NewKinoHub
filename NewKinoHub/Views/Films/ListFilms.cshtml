@@ -10,7 +10,7 @@
         @if (ViewBag.Role == 1)
         {
             <div style="position:absolute; top:5%; left:3%; ">
-                <a href=@Url.Action("AddFilm", "Films") class="addfilm">Добавить Фильм</a>
+                <a href=@Url.Action("AddFilm", "Films") class="addfilm">+</a>
             </div>
         }
         <div style="margin-top:50px; margin-bottom:30px; width: 95%;">
@@ -90,7 +90,7 @@
             @foreach (var film in Model.Where(st => st.MediaType == ViewBag.Type))
             {
             <div class="item_films">
-                <p><a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="300" height="400" class="imagetitle" src=@film.Img></a></p>
+                <p><a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="300" height="400" class="imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(film.Img))"></a></p>
                 <p style="margin-left:5px;"><a class="titlenamesize_list" href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })>@film.Name</a></p>
                 <div class="descr">
                     <p><a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="340" height="470" src=@film.Img></a></p>

@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using NewKinoHub.Manager;
 using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,7 +30,7 @@ namespace NewKinoHub.Models
                     {
                         MediaType = MediaType.Film,
                         Name = "Лига справедливости Зака Снайдера",
-                        Img = "https://imageup.ru/img168/3732118/zacksnydersjusticeleague.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/KQwKRTtJU-A",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#album/14462174",
                         Year = 2021,
@@ -120,7 +122,7 @@ namespace NewKinoHub.Models
                     {
                         MediaType = MediaType.Film,
                         Name = "Он вам не Димон",
-                        Img = "https://imageup.ru/img3/3744133/on-vam-ne-dimon.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/qrwlk7_GF9g",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1035",
                         Year = 2017,
@@ -178,7 +180,7 @@ namespace NewKinoHub.Models
                         Name = "Засланец из космоса",
                         NumOfSeason = 1,
                         NumOfEpisodes = 10,
-                        Img = "https://imageup.ru/img234/3731988/residentalien.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/tP1A_dgKEd8",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1000",
                         Year = 2021,
@@ -256,7 +258,7 @@ namespace NewKinoHub.Models
                     {
                         MediaType = MediaType.Film,
                         Name = "Истребитель демонов: Поезд «Бесконечный»",
-                        Img = "https://imageup.ru/img260/3733456/demonslayer.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/wtE-SW8YDHM",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1026",
                         Year = 2020,
@@ -333,7 +335,7 @@ namespace NewKinoHub.Models
                     {
                         MediaType = MediaType.Film,
                         Name = "Твоё имя",
-                        Img = "https://imageup.ru/img161/3733340/yourname.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/tT7b5wR0IOM",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3929305",
                         Year = 2016,
@@ -411,7 +413,7 @@ namespace NewKinoHub.Models
                     {
                         MediaType = MediaType.Film,
                         Name = "Майор Гром: Чумной Доктор",
-                        Img = "https://imageup.ru/img227/3732084/mayorgromchumnoydoktor.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/aUi6fQRUP1o",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/music-blog/2524",
                         Year = 2021,
@@ -499,7 +501,7 @@ namespace NewKinoHub.Models
                     {
                         MediaType = MediaType.Film,
                         Name = "Душа",
-                        Img = "https://imageup.ru/img214/3732232/soul.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/vsb8762mE6Q",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#album/13521150",
                         Year = 2020,
@@ -587,8 +589,8 @@ namespace NewKinoHub.Models
                      {
                          MediaType = MediaType.Film,
                          Name = "Шпион в снегах",
-                         Img = "https://imageup.ru/img108/3744284/shpion-v-snegakh.jpg",
-                         Video = "https://www.youtube.com/embed/pLuqfyhDqNg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        Video = "https://www.youtube.com/embed/pLuqfyhDqNg",
                          SoundTrackUrl= "https://music.yandex.ru/iframe/#album/8729604",
                          Year = 2018,
                          Country = "Великобритания",
@@ -649,7 +651,7 @@ namespace NewKinoHub.Models
                     {
                         MediaType = MediaType.Serial,
                         Name = "Планета Земля 2",
-                        Img = "https://imageup.ru/img179/3744316/planeta-zemlia-2.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/189KLPD4zSk",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3887137",
                         Year =2016,
@@ -716,7 +718,7 @@ namespace NewKinoHub.Models
                         Name = "Внешние отмели",
                         NumOfSeason = 1,
                         NumOfEpisodes = 11,
-                        Img = "https://imageup.ru/img111/3731964/outerbanks.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/o0xdAiYsX18",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/gromsserg/1011",
                         Year = 2020,
@@ -790,7 +792,7 @@ namespace NewKinoHub.Models
                         Name = "Клинок, рассекающий демонов",
                         NumOfSeason = 1,
                         NumOfEpisodes = 26,
-                        Img = "https://imageup.ru/img234/3733520/demonslayer.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/uz_Wg-0ulpk",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/laferacis/1022",
                         Year = 2019,
@@ -889,7 +891,7 @@ namespace NewKinoHub.Models
                         Name = "Неуязвимый",
                         NumOfSeason = 1,
                         NumOfEpisodes = 8,
-                        Img = "https://imageup.ru/img112/3732606/invingible.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/oBD-7njwAsQ",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1005",
                         Year = 2021,
@@ -963,7 +965,7 @@ namespace NewKinoHub.Models
                     {
                         MediaType = MediaType.Serial,
                         Name = "Семь миров, одна планета",
-                        Img = "https://imageup.ru/img214/3744344/sem-mirov-odna-planeta.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/IlFRPkT-hVc",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#album/9447016",
                         Year = 2019,
@@ -1033,8 +1035,8 @@ namespace NewKinoHub.Models
                      {
                          MediaType = MediaType.Serial,
                          Name = "Мандалорец",
-                         Img = "https://imageup.ru/img244/3731986/madalorian.jpg",
-                         Video = "https://www.youtube.com/embed/hZ9N7760o0A",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        Video = "https://www.youtube.com/embed/hZ9N7760o0A",
                          SoundTrackUrl = "https://music.yandex.ru/iframe/#album/13149771",
                          Year = 2019,
                          Country = "США",
@@ -1110,7 +1112,7 @@ namespace NewKinoHub.Models
                     {
                         MediaType = MediaType.Film,
                         Name = "Грайндхаус",
-                        Img = "https://imageup.ru/img241/3744426/graindkhaus.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/j1cjXKdox0M",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3226300",
                         Year = 2007,
@@ -1196,7 +1198,7 @@ namespace NewKinoHub.Models
                     {
                         MediaType = MediaType.Film,
                         Name = "Темный рыцарь: Возрождение легенды. Часть 1",
-                        Img = "https://imageup.ru/img17/3744546/temnyi-rytsar-vozrozhdenie-legendy-chast-1.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/QmoZ8cIDbKY",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#album/7102327",
                         Year = 2012,
@@ -1273,7 +1275,7 @@ namespace NewKinoHub.Models
                     {
                         MediaType = MediaType.Film,
                         Name = "Темный рыцарь: Возрождение легенды. Часть 2",
-                        Img = "https://imageup.ru/img162/3744547/temnyi-rytsar-vozrozhdenie-legendy-chast-2.jpg",
+                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/H5oET8-QiNw",
                         SoundTrackUrl = "https://music.yandex.ru/iframe/#album/7102327",
                         Year = 2013,

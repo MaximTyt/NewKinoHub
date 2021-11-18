@@ -10,7 +10,7 @@ using NewKinoHub.Storage;
 namespace NewKinoHub.Migrations
 {
     [DbContext(typeof(MvcFilmContext))]
-    [Migration("20211117152335_m1")]
+    [Migration("20211118110613_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -119,9 +119,8 @@ namespace NewKinoHub.Migrations
                     b.Property<int?>("FavoritesId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Img")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Img")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("IsFavorites")
                         .HasColumnType("bit");

@@ -14,7 +14,7 @@
         <div style="width: 1100px; min-height: 380px;  background-color:azure; min-height : 580px; padding: 20px;">
             <div>
                 <a style="display:block; width : 250px; float : left; margin-right : 20px; margin-bottom: 40px;">
-                    <img width="265" class="u-back-image u-expanded" src=@Model.Img>
+                    <img width="265" class="u-back-image u-expanded" src= "data:image/jpeg;base64, @(Convert.ToBase64String(Model.Img))">
                 </a>
             </div>
             <table>
@@ -261,7 +261,7 @@
                                 <div class="rating_body">
                                     <div class="rating_active"></div>
                                     <div class="rating_items">
-                                        <input type="radio" class="rating_item" value="1" name="rating">
+                                        <input type="radio" class="rating_item" value="1" name="rating" required>
                                         <input type="radio" class="rating_item" value="2" name="rating">
                                         <input type="radio" class="rating_item" value="3" name="rating">
                                         <input type="radio" class="rating_item" value="4" name="rating">

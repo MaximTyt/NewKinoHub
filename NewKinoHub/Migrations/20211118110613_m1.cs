@@ -82,7 +82,7 @@ namespace NewKinoHub.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MediaType = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Img = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Img = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     Video = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SoundTrackUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Year = table.Column<int>(type: "int", nullable: false),

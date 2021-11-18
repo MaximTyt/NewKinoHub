@@ -117,9 +117,8 @@ namespace NewKinoHub.Migrations
                     b.Property<int?>("FavoritesId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Img")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Img")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("IsFavorites")
                         .HasColumnType("bit");
