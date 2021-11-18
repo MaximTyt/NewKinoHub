@@ -20,8 +20,7 @@ namespace NewKinoHub.Storage.Entity
         [Required]
         public string Name { get; set; }
 
-        [Required]        
-        public string Img { get; set; }
+        public byte[] Img { get; set; }
 
         [Required]        
         public string Video { get; set; }
