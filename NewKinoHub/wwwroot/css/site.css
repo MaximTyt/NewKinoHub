@@ -37,7 +37,7 @@ html {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid transparent !important;
 }
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
@@ -118,8 +118,40 @@ body {
     grid-gap: 15px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
-.item_films{
+.item_films {
+    position: relative;
+    width:300px;
+    height:550px;
+}
+/*всплывающие окна для списка тайтлов*/
 
+.descr {
+    display: none;
+    border: 5px solid rgb(247,151,30,0.7);
+    border-radius: 10px;
+    left: -25px;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background-color: rgb(26,25,23);
+    height: 650px;
+    width: 350px;
+    -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+}
+
+.item_films:hover .descr {
+    display: block;
+    position: absolute;
+    top: -27px;
+    z-index: 9999;
+    width: 350px;
+}
+
+.item_films:hover.img {
+    height: 450px;
+    width: 500px;
 }
 
 .addfilm {
@@ -211,20 +243,34 @@ img.avareviewssize {
     }
 
 .btn_delete {
+    transition: 0.2s;
     text-decoration: none !important;
-    width: 20%;
+    border: 2px solid transparent;
     font-size: 10px;
     min-width: 100px;
-    height: 30px;
     /*background-color: rgb(8,8,8);*/
     text-align: center;
     color: white;
 }
 
     .btn_delete:hover {
-        /* background: rgb(247,151,30);*/
+        background: black;
+        transition: 0.2s;
         color: rgb(247,151,30);
+        transition: 0.2s;
+        border: 2px solid rgb(247,151,30);
+        border-radius: 5px;
     }
+
+.hoverImg .btn_delete {
+    opacity: 0;
+}
+
+.hoverImg:hover .btn_delete {
+    transition: 0.2s;
+    opacity: 1;
+}
+
 
 
 .colortext {

@@ -531,11 +531,12 @@ namespace KinoHab.Manager
         }
 
         [HttpPost]
-        public async  Task AddReviews(int idFilm, string Email, string text)
+        public async  Task AddReviews(int idFilm, string Email, string text, double rating)
         {
             var NickName = _context.Users.FirstOrDefault(st => st.Email == Email).Nickname;
-            Review review = new Review();
+            Review review = new Review();            
             review.Description = text;
+            review.Rating = rating;
             review.MediaId = idFilm;
             review.UsersId = _context.Users.FirstOrDefault(st => st.Email == Email).UserId;
             review.Nickname = NickName;
@@ -559,10 +560,11 @@ namespace KinoHab.Manager
         }
 
         [HttpPost]
-        public async Task EditReviews(int idFilm, int IdUser, string text)
+        public async Task EditReviews(int idFilm, int IdUser, string text, double rating)
         {
-            if(text != null)
+            if(text != null && rating!=0)
             {
+                _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Rating = rating;
                 _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Description = text;
                 _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).DateOfReview = DateTime.Now.ToString();
             }

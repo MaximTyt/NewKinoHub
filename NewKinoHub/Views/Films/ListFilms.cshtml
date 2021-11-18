@@ -55,7 +55,26 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    <li style="width:26% !important;">
+                                        <a>По создателем</a>
+                                        <ul>
+                                            @*что выпадает при наведении на кнопку дата выхода*@
 
+                                            <li>
+                                                <form action="/" method="post">
+                                                    <select style="width:100px; height: 20px; font-size: 14px;">
+                                                        <option value="value" style="font-size: 14px;">Актер</option>
+                                                        <option value="value" style="font-size: 14px;">Режисер</option>
+                                                        <option value="value" style="font-size: 14px;">Сценарист</option>
+                                                    </select>
+                                                    <input type="text" style="width:100px; height: 20px; font-size: 14px;" name="name" value="" />
+                                                    <input type="submit" name="name" value="Применить" / style="width: 100px; height: 20px; background-color: rgb(247,151,30); color: black; font-size: 14px;">
+                                                </form>
+                                                
+                                            </li>
+                                             
+                                        </ul>
+                                    </li>
                                     @* здесь можно добавить еще кнопку как дата выхода*@
                                     @*если не работает, позвать меня*@
 
@@ -71,8 +90,70 @@
             @foreach (var film in Model.Where(st => st.MediaType == ViewBag.Type))
             {
             <div class="item_films">
-                <p><a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="300" class="imagetitle" src=@film.Img></a></p>
-                <p><a class="titlenamesize_list" valign="center" href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })>@film.Name</a></p>
+                <p><a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="300" height="400" class="imagetitle" src=@film.Img></a></p>
+                <p style="margin-left:5px;"><a class="titlenamesize_list" href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })>@film.Name</a></p>
+                <div class="descr">
+                    <p><a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="340" height="470" src=@film.Img></a></p>
+                    <table width="90" align="right">
+                        <tbody>
+                            <tr>
+
+                                @if (film.IsFavorites == false && ViewBag.User != null)
+                                {
+                                    <td width="20"><a><img class="deleteicon" src="~/lib/images/Icons/favourite.png" /></a></td>
+                                }
+                                else
+                                {
+                                    if (ViewBag.User != null)
+                                    {
+                                        <td width="20"><a><img class="deleteicon" src="~/lib/images/Icons/favourite11.png" /></a></td>
+                                    }
+                                    else
+                                    {
+                                        <td width="20"><a><img class="deleteicon" src="~/lib/images/Icons/favourite.png" /></a></td>
+                                    }
+
+                                }
+
+                                @if (film.IsVieweds == false && ViewBag.User != null)
+                                {
+                                    <td width="20"><a><img class="deleteicon" src="~/lib/images/Icons/eye (1).png" /></a></td>
+                                }
+                                else
+                                {
+                                    if (ViewBag.User != null)
+                                    {
+                                        <td width="20"><a><img class="deleteicon" src="~/lib/images/Icons/eye.png" /></a></td>
+                                    }
+                                    else
+                                    {
+                                        <td width="20"><a><img class="deleteicon" src="~/lib/images/Icons/eye (1).png" /></a></td>
+                                    }
+
+                                }
+
+                                @if (ViewBag.Role == 1)
+                                {
+                                    <td width="20">
+                                        <a href=@Url.Action("EditFilm", "Films", new { Id = film.MediaID })>
+                                            <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
+                                        </a>
+                                    </td>
+                                }
+
+                                @if (ViewBag.Role == 1)
+                                {
+                                    <td width="20">
+                                        <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = film.MediaID })>
+                                            <img class="deleteicon" src="~/lib/images/Icons/close.png" />
+                                        </a>
+                                    </td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="color:white;"> @film.ShortDescription</p>
+                </div>
             </div>
 
                 @*<div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
@@ -87,81 +168,7 @@
                                     <p style="font-weight: bold; right:100%; left:0%;"> @film.Name </p>
                                 </td>
 
-                                @if (film.IsFavorites == false && ViewBag.User != null)
-                                {
-                                    <td valign="top" align="right" width="30">
-                                        <a>
-                                            <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
-                                        </a>
-                                    </td>
-                                }
-                                else
-                                {
-                                    if (ViewBag.User != null)
-                                    {
-                                        <td valign="top" align="right" width="30">
-                                            <a>
-                                                <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
-                                            </a>
-                                        </td>
-                                    }
-                                    else
-                                    {
-                                        <td valign="top" align="right" width="30">
-                                            <a>
-                                                <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
-                                            </a>
-                                        </td>
-                                    }
-
-                                }
-
-                                @if (film.IsVieweds == false && ViewBag.User != null)
-                                {
-                                    <td valign="top" align="right" width="30">
-                                        <a>
-                                            <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
-                                        </a>
-                                    </td>
-                                }
-                                else
-                                {
-                                    if (ViewBag.User != null)
-                                    {
-                                        <td valign="top" align="right" width="30">
-                                            <a>
-                                                <img src="~/lib/images/Icons/eye.png" width="30" height="30" />
-                                            </a>
-                                        </td>
-                                    }
-                                    else
-                                    {
-                                        <td valign="top" align="right" width="30">
-                                            <a>
-                                                <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
-                                            </a>
-                                        </td>
-                                    }
-
-                                }
-
-                                @if (ViewBag.Role == 1)
-                                {
-                                    <td align="right" width="30">
-                                        <a href=@Url.Action("EditFilm", "Films", new { Id = film.MediaID })>
-                                            <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
-                                        </a>
-                                    </td>
-                                }
-
-                                @if (ViewBag.Role == 1)
-                                {
-                                    <td align="right" width="30">
-                                        <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = film.MediaID })>
-                                            <img class="deleteicon" src="~/lib/images/Icons/close.png" />
-                                        </a>
-                                    </td>
-                                }
+                               
 
                             </tr>
                         </tbody>

@@ -118,32 +118,46 @@
                              <tr>
                                  <td>
                                      <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                                         <img src="~/lib/images/logo.png" style="border-radius : 8px; width : 200px !important; position:static;" />
+                                         <img src="~/lib/images/logo.png" style="width : 200px !important; position:static;" />
                                      </a>
                                  </td>
-                                 <td style="width: 100%; max-width: 420px !important;">
+                                 <td style="width: 140px !important;">
                                      <nav id="menu1">
                                          <ul>
                                              @*id menu - для выплывающего меню*@
-                                             <li style="width: 100%; max-width: 120px !important;">
+                                             <li>
                                                  @*фильмы*@
                                                  <a asp-area="" asp-controller="Films" asp-action="ListFilms">Фильмы</a>
                                                  <ul>
-                                                     <li style="width: 100%; max-width: 120px !important;">
-                                                         <a href="#filmform">Жанры</a>
+                                                     <li>
+                                                         <a style="width: 140px !important;" href="#filmform">Жанры</a>
                                                      </li>
                                                  </ul>
                                              </li>
-                                             <li style="width: 100%; max-width: 130px !important;">
+                                         </ul>
+                                     </nav>
+                                 </td>
+                                 <td style="width: 140px !important;">
+                                     <nav id="menu1">
+                                         <ul>
+                                             @*id menu - для выплывающего меню*@
+                                             <li>
                                                  @*сериалы*@
                                                  <a asp-area="" asp-controller="Films" asp-action="ListSerials">Сериалы</a>
                                                  <ul>
-                                                     <li style="width: 100%; max-width: 130px !important;">
-                                                         <a href="#serialform">Жанры</a>
+                                                     <li>
+                                                         <a style="width: 140px !important;" href="#serialform">Жанры</a>
                                                      </li>
                                                  </ul>
                                              </li>
-                                             <li style="width: 100%; max-width: 140px !important;">
+                                         </ul>
+                                     </nav>
+                                 </td>
+                                 <td style="width: 140px !important;">
+                                     <nav id="menu1">
+                                         <ul>
+                                             @*id menu - для выплывающего меню*@
+                                             <li>
                                                  <a asp-area="" asp-controller="Persons" asp-action="ListPersons">Актеры</a>
                                              </li>
                                          </ul>
@@ -156,15 +170,10 @@
                                          <button type="submit" value="Search" class="searchbu" />                        @*Блок поиска по сайту*@
                                      </form>
                                  </td>
-                                 <td style="width: 100%; max-width: 260px !important;">
+                                 <td style="width: 140px !important;">
                                      <nav id="menu1">
-                                         <!--<ul>
-                                             <li style="width: 100%; max-width: 250px !important;">
-                                                 <a asp-area="" asp-controller="Account" asp-action="Register">Sign</a>--> @* не трогать строчку*@
-                                             <!--</li>
-                                         </ul>-->
                                           <ul>
-                                             <li style="width: 100%; max-width: 250px !important;">
+                                             <li>
                                                  <a asp-area="" asp-controller="User" asp-action="Profile"> Профиль</a>
                                              </li>
                                           </ul>
