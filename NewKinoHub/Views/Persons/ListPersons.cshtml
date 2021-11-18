@@ -28,8 +28,8 @@
                                         </ul>
                                     </li>
                                     @*<li style="width: 24% !important;">
-                                        <a href=@Url.Action("ListPersons", "Persons", new { sort = "Score",type = "Film" })>По рейтингу</a>
-                                    </li>*@
+                <a href=@Url.Action("ListPersons", "Persons", new { sort = "Score",type = "Film" })>По рейтингу</a>
+            </li>*@
                                     <li style="width:26% !important;">
                                         <a>По названию</a>
                                         <ul>
@@ -47,6 +47,43 @@
                                     @* здесь можно добавить еще кнопку как дата выхода*@
                                     @*если не работает, позвать меня*@
                                 </ul>
+                                <br>
+                                
+                            <ul style="position: absolute; left: 700px; top:0px;">
+                                <li>
+                                    <a>Фильтр:</a>
+                                    <ul>
+                                        @*что выпадает при наведении на кнопку дата выхода*@
+
+                                        <li style="width:150px;height: 110px;  font-size: 14px;">
+                                            <form action="/" method="post">
+                                                <!--<select style="width: 100px; height: 20px;">
+                                                    <option value="Актеры" style="width: 100px; height: 20px; font-size: 14px;">Актеры</option>
+                                                    <option value="Режисёры" style="width: 100px; height: 20px; font-size: 14px;">Режисёры</option>
+                                                    <option value="Сценаристы" style="width: 100px; height: 20px; font-size: 14px;">Сценаристы</option>
+                                                </select>-->
+                                                <label>
+                                                    <input type="checkbox" name="check1" value="Актеры" style="margin: 5px;  margin-top: 15px;">Актеры
+                                                </label>
+                                                <br />
+                                                <label>
+                                                    <input type="checkbox" name="check2" value="Режисёры" style="margin: 5px;">Режисёры
+                                                </label>
+                                                <br />
+                                                <label>
+                                                    <input type="checkbox" name="check3" value="Сценаристы" style="margin: 5px;">Сценаристы
+                                                </label>
+                                                <br />
+                                                <br />
+                                                <br />
+                                                <a href="#" style="background-color:rgb(247,151,30); color:black; border-top: none; padding-left: 38px;">Применить</a>
+                                            </form>
+                                            
+                                        </li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
                             </nav>
                         </td>
                     </tr>
