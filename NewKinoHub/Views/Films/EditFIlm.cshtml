@@ -176,30 +176,30 @@
                             @if (Model.Images.Count() >= 1)
                             {
                                 <label class="colortext">Кадр №1<sup>*</sup></label><br />
-                                <input value=@(Convert.ToBase64String(Model.Images[0].MediaImage)) type="file" title="Выберите постер" name="Image1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input value=@(Convert.ToBase64String(Model.Images[0].MediaImage)) type="file" title="Выберите постер" name="Images1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
                                 <label class="colortext">Кадр №2<sup>*</sup></label><br />
-                                <input value=@(Convert.ToBase64String(Model.Images[1].MediaImage)) type="file" title="Выберите постер" name="Image2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input value=@(Convert.ToBase64String(Model.Images[1].MediaImage)) type="file" title="Выберите постер" name="Images2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
                                 <label class="colortext">Кадр №3<sup>*</sup></label><br />
-                                <input value=@(Convert.ToBase64String(Model.Images[2].MediaImage)) type="file" title="Выберите постер" name="Image3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input value=@(Convert.ToBase64String(Model.Images[2].MediaImage)) type="file" title="Выберите постер" name="Images3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
                                 <label class="colortext">Кадр №4<sup>*</sup></label><br />
-                                <input value=@(Convert.ToBase64String(Model.Images[3].MediaImage)) type="file" title="Выберите постер" name="Image4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input value=@(Convert.ToBase64String(Model.Images[3].MediaImage)) type="file" title="Выберите постер" name="Images4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
                             }
                             else
                             {
                                 <label class="colortext">Кадр №1<sup>*</sup></label><br />
-                                <input type="file" title="Выберите постер" name="Image1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input type="file" title="Выберите постер" name="Images1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
                                 <label class="colortext">Кадр №2<sup>*</sup></label><br />
-                                <input type="file" title="Выберите постер" name="Image2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input type="file" title="Выберите постер" name="Images2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
                                 <label class="colortext">Кадр №3<sup>*</sup></label><br />
-                                <input type="file" title="Выберите постер" name="Image3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input type="file" title="Выберите постер" name="Images3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
                                 <label class="colortext">Кадр №4<sup>*</sup></label><br />
-                                <input type="file" title="Выберите постер" name="Image4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input type="file" title="Выберите постер" name="Images4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
                             }
 
                             @if ((int)Model.MediaType == 1)

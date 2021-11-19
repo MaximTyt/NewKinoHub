@@ -240,29 +240,11 @@
                         <input type="radio" name="r" id="r2">
                         <input type="radio" name="r" id="r3">
                         <input type="radio" name="r" id="r4">
-                        @if (Model.Images.Count() >= 1)
-                        {
-                            <div class="slide s1"><a href="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[0].MediaImage))" target="_blank"><img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[0].MediaImage))" alt=""></a></div>
-                        }
-                        else if (Model.Images.Count() >= 2)
-                        {
-                            <div class="slide"><a href="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[1].MediaImage))" target="_blank"><img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[1].MediaImage))" alt=""></a></div>
-                        }
-                        else if (Model.Images.Count() >= 3)
-                        {
-                            <div class="slide"><a href="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[2].MediaImage))" target="_blank"><img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[2].MediaImage))" alt=""></a></div>
-                        }
-                        else if (Model.Images.Count() >= 4)
-                        {
-                            <div class="slide"><a href="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[3].MediaImage))" target="_blank"><img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[3].MediaImage))" alt=""></a></div>
-                        }
-                        else
-                        {
-                            <div class="slide s1"><a href="~/lib/images/loading.gif" target="_blank"><img src=~/lib/images/loading.gif alt=""></a></div>
-                            <div class="slide"><a href="~/lib/images/loading.gif" target="_blank"><img src=~/lib/images/loading.gif alt=""></a></div>
-                            <div class="slide"><a href="~/lib/images/loading.gif" target="_blank"><img src=~/lib/images/loading.gif alt=""></a></div>
-                            <div class="slide"><a href="~/lib/images/loading.gif" target="_blank"><img src=~/lib/images/loading.gif alt=""></a></div>
-                        }
+
+                        <div class="slide s1"><a href="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[0].MediaImage))" target="_blank"><img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[0].MediaImage))" alt=""></a></div>
+                        <div class="slide"><a href="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[1].MediaImage))" target="_blank"><img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[1].MediaImage))" alt=""></a></div>
+                        <div class="slide"><a href="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[2].MediaImage))" target="_blank"><img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[2].MediaImage))" alt=""></a></div>
+                        <div class="slide"><a href="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[3].MediaImage))" target="_blank"><img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[3].MediaImage))" alt=""></a></div>
                     </div>
 
                     <div class=" navigation">

@@ -92,6 +92,25 @@ namespace NewKinoHub.Models
                                 Person=Persons["Рэй Фишер"],
                                 Character = "Cyborg / Victor Stone"
                             }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
                         }
                     },
                     new Media
