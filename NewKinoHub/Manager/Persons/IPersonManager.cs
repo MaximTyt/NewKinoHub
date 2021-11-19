@@ -19,5 +19,7 @@ namespace NewKinoHub.Manager.Persons
            bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
            string PlaceOfDeath, string Spouse, string Awards, string Description);
         Task<ICollection<Person>> AllSorting(string sort);
+        Task<List<Person>> Filtration(string Actors, string Directors, string ScreenWriter);
+        List<Person> SortingFromFiltr(string sort, List<Person> Filtr);
     }
 }

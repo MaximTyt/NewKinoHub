@@ -20,10 +20,10 @@
                                             @*что выпадает при наведении на кнопку дата выхода*@
 
                                             <li>
-                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "YearOld", type = "Film"})>По возрастанию</a>
+                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "YearOld"})>По возрастанию</a>
                                             </li>
                                             <li>
-                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "YearNew",type = "Film" })>По убыванию</a>
+                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "YearNew"})>По убыванию</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -33,10 +33,10 @@
                                             @*что выпадает при наведении на кнопку дата выхода*@
 
                                             <li>
-                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "NameA",type = "Film" })>А-Я</a>
+                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "NameA"})>А-Я</a>
                                             </li>
                                             <li>
-                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "NameZ",type = "Film" })>Я-А</a>
+                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "NameZ"})>Я-А</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -68,7 +68,7 @@
                                                 </label>
                                                 <br />
                                                 <label>
-                                                    <input type="checkbox" name="SceenWriter" value="Сценаристы" style="margin: 5px;">Сценаристы
+                                                    <input type="checkbox" name="ScreenWriter" value="Сценаристы" style="margin: 5px;">Сценаристы
                                                 </label>
                                                 <br />
                                                 <br />
