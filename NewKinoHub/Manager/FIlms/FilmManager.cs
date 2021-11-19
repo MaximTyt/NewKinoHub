@@ -268,10 +268,10 @@ namespace KinoHab.Manager
             switch (sort)
             {
                 case "YearOld":
-                    media = media.OrderBy(st => st.Year).ToList();
+                    media = media.OrderBy(st => st.Release_Date.Date).ToList();
                     break;
                 case "YearNew":
-                    media = media.OrderByDescending(st => st.Year).ToList();
+                    media = media.OrderByDescending(st => st.Release_Date.Date).ToList();
                     break;
                 case "Score":
                     media = media.OrderByDescending(st => st.Score).ToList();
@@ -330,11 +330,11 @@ namespace KinoHab.Manager
         {
             if (sort == "YearOld")
             {
-                media = media.OrderBy(st => st.Year).ToList();
+                media = media.OrderBy(st => st.Release_Date.Date).ToList();
             }
             if (sort == "YearNew")
             {
-                media = media.OrderByDescending(st => st.Year).ToList();
+                media = media.OrderByDescending(st => st.Release_Date.Date).ToList();
             }
             if (sort == "Score")
             {
@@ -371,7 +371,7 @@ namespace KinoHab.Manager
 
 
         [HttpPost]
-        public async Task AddFilm(IFormFile mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes, int NumOfSeason, int type, 
+        public async Task AddFilm(IFormFile mainPhoto, string Name, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes, int NumOfSeason, int type, 
             IFormFile Images1, IFormFile Images2, IFormFile Images3, IFormFile Images4, string[] genres, DateTime Release_Date)
         {
             Media Film = new Media();
@@ -395,8 +395,7 @@ namespace KinoHab.Manager
                 }
             }
             Film.Img = mainPhoto != null ? SaveImage.getByteImage(mainPhoto) : File.ReadAllBytes(@"wwwroot\lib\images\netpostera.png");
-            Film.Name = Name;
-            Film.Year = Year;
+            Film.Name = Name;            
             Film.Country = Contry;
             Film.Release_Date = Release_Date;
             Film.Age = Age;
@@ -438,7 +437,7 @@ namespace KinoHab.Manager
                 
 
         [HttpPost]
-        public async Task EditFilm(IFormFile mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, IFormFile Images1, IFormFile Images2, IFormFile Images3, IFormFile Images4, string[] genres, DateTime Release_Date)
+        public async Task EditFilm(IFormFile mainPhoto, string Name, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, IFormFile Images1, IFormFile Images2, IFormFile Images3, IFormFile Images4, string[] genres, DateTime Release_Date)
         {
             if (mainPhoto != null)
             {
@@ -447,11 +446,7 @@ namespace KinoHab.Manager
             if (Name != null)
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == Id).Name = Name;
-            }
-            if (Year != 0)  
-            {
-                _context.Media.FirstOrDefault(st => st.MediaID == Id).Year = Year;
-            }
+            }            
             if (Contry != null)
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == Id).Country = Contry;
