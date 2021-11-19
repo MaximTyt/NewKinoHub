@@ -204,12 +204,24 @@
 
                             @if ((int)Model.MediaType == 1)
                             {
-                                <label class="colortext">Количество эпизодов(Необязательно):</label><br />
-                                <input type="number" step="1" min="0" name="NumOfEpisodes"> <br />
+                        <div id="serial">
+                            <label class="colortext">Количество эпизодов(Необязательно):</label><br />
+                            <input type="number" step="1" min="0" name="NumOfEpisodes"> <br />
 
-                                <label class="colortext">Количество сезонов(Необязательно):</label><br />
-                                <input type="number" step="1" min="0" name="NumOfSeason"> <br />
+                            <label class="colortext">Количество сезонов(Необязательно):</label><br />
+                            <input type="number" step="1" min="0" name="NumOfSeason"> <br />
+                        </div>
                             }
+                            <script>
+                                let serial = document.getElementById("serial");
+                                let select = document.getElementById("type");
+                                select.addEventListener('change', function () {
+                                    if (select.value == 0)
+                                        serial.hidden = true;
+                                    else
+                                        serial.hidden = false;
+                                });
+                            </script>
                         </td>
                     </tr>
                     <tr class="trsizec">
