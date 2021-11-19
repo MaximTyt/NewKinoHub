@@ -165,9 +165,7 @@ namespace KinoHab.Manager
                     }
                 }
             }
-
             Films.Reviews = Reviews;
-
             return Films;
         }
         public async Task<Users> GetUser(string UserEmail)
@@ -253,7 +251,6 @@ namespace KinoHab.Manager
                     }
                 }
             }
-
             Filmss.Reviews = Reviews;
 
             return Filmss;

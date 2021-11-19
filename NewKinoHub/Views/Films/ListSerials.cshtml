@@ -114,42 +114,66 @@
                             <tr>
 
                                 @if (serial.IsFavorites == false && ViewBag.User != null)
+
                                 {
-                                    <td width="20"><a><img class="deleteicon" src="~/lib/images/Icons/favourite.png" /></a></td>
+                                    <td valign="top" align="right" width="30">
+                                        <a>
+                                            <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
+                                        </a>
+                                    </td>
                                 }
                                 else
                                 {
                                     if (ViewBag.User != null)
                                     {
-                                        <td width="20"><a><img class="deleteicon" src="~/lib/images/Icons/favourite11.png" /></a></td>
+                                        <td valign="top" align="right" width="30">
+                                            <a>
+                                                <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
+                                            </a>
+                                        </td>
                                     }
                                     else
                                     {
-                                        <td width="20"><a><img class="deleteicon" src="~/lib/images/Icons/favourite.png" /></a></td>
+                                        <td valign="top" align="right" width="30">
+                                            <a>
+                                                <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
+                                            </a>
+                                        </td>
                                     }
 
                                 }
-
                                 @if (serial.IsVieweds == false && ViewBag.User != null)
                                 {
-                                    <td width="20"><a><img class="deleteicon" src="~/lib/images/Icons/eye (1).png" /></a></td>
+                                    <td valign="top" align="right" width="30">
+                                        <a>
+                                            <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
+                                        </a>
+                                    </td>
                                 }
                                 else
                                 {
                                     if (ViewBag.User != null)
                                     {
-                                        <td width="20"><a><img class="deleteicon" src="~/lib/images/Icons/eye.png" /></a></td>
+                                        <td valign="top" align="right" width="30">
+                                            <a>
+                                                <img src="~/lib/images/Icons/eye.png" width="30" height="30" />
+                                            </a>
+                                        </td>
                                     }
                                     else
                                     {
-                                        <td width="20"><a><img class="deleteicon" src="~/lib/images/Icons/eye (1).png" /></a></td>
+                                        <td valign="top" align="right" width="30">
+                                            <a>
+                                                <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
+                                            </a>
+                                        </td>
                                     }
 
-                                }
+                                    }
 
                                 @if (ViewBag.Role == 1)
                                 {
-                                    <td width="20">
+                                    <td align="right" width="30">
                                         <a href=@Url.Action("EditFilm", "Films", new { Id = serial.MediaID })>
                                             <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
                                         </a>
@@ -158,48 +182,59 @@
 
                                 @if (ViewBag.Role == 1)
                                 {
-                                    <td width="20">
+                                    <td align="right" width="30">
                                         <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = serial.MediaID })>
                                             <img class="deleteicon" src="~/lib/images/Icons/close.png" />
                                         </a>
                                     </td>
                                 }
+
                             </tr>
                         </tbody>
                     </table>
-                    <div class="form_item">
-                        <div class="rating rating1">
-                            <div class="rating_body1">
-                                <div class="rating_active"></div>
-                                <div class="rating_items">
-                                    <input type="radio" class="rating_item" value="1" name="rating">
-                                    <input type="radio" class="rating_item" value="2" name="rating">
-                                    <input type="radio" class="rating_item" value="3" name="rating">
-                                    <input type="radio" class="rating_item" value="4" name="rating">
-                                    <input type="radio" class="rating_item" value="5" name="rating">
-                                    <input type="radio" class="rating_item" value="6" name="rating">
-                                    <input type="radio" class="rating_item" value="7" name="rating">
-                                    <input type="radio" class="rating_item" value="8" name="rating">
-                                    <input type="radio" class="rating_item" value="9" name="rating">
-                                    <input type="radio" class="rating_item" value="10" name="rating">
-                                </div>
-                            </div>
-                            <div class="rating_value" style="color:white;">@(Convert.ToString(serial.Score).Replace(',', '.'))</div>
-                        </div>
-                    </div>
+                    <p><span style="font-weight:bold">Год:</span> @serial.Year</p>
                     <p>
+                        <span style="font-weight:bold">Жанры:</span>
                         @foreach (var genre in serial.Genres)
                         {
-                            <a style="color:white;" href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
+                            <a href=@Url.Action("Filtrations", "Films", new { type = "Serial",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
                         }
                     </p>
-                    <p style="color:white;"> @serial.ShortDescription</p>
+                    <p>
+                        <span style="font-weight:bold">Режиссер:</span>
+                        @foreach (var director in serial.Casts)
+                        {
+                            if ((int)director.RoleInFilm == 0 && director.Person != null)
+                            {
+                                <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name</a>
+                            }
+                        }
+                    </p>
+                    <p>
+                        <span style="font-weight:bold">Актеры:</span>
+                        @foreach (var director in serial.Casts)
+                        {
+                            if ((int)director.RoleInFilm == 2 && director.Person != null)
+                            {
+                                <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name |</a>
+                            }
+                        }
+                        <a href=@Url.Action("ListActors", "Cast", new { FilmId = serial.MediaID}) class="textstyle">...</a>
+                    </p>
+                    <p><span style="font-weight:bold">Страна:</span> @serial.Country</p>
+                    <p><span style="font-weight:bold">Возраст:</span> @serial.Age+</p>
+                    <a><img src=@serial.ScoreKP border='0'></a>
+                    <p><span style="font-weight:bold">Краткое описание:</span> @serial.ShortDescription</p>
+                    @if (ViewBag.Role == 1)
+                    {
+                         <a class="allcastlist" href=@Url.Action("ListCasts", "Cast", new { IdFilm = serial.MediaID })>Весь каст</a>
+                     }
                 </div>
+                <div style=" clear:both;"></div>
             </div>
-            }
-        </div>
-        <script src="~/js/stars.js"></script>
+        }
     </div>
+
 </body>
 </html>
 

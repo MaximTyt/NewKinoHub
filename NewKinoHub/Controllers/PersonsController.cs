@@ -63,5 +63,11 @@ namespace NewKinoHub.Controllers
             var person = await _person.GetPersonForId(personId);
             return View(person);
         }
+
+        public async Task<IActionResult> Filtrations(string Actors, string Directors, string ScreenWriter, string sort)
+        {
+
+            return View();
+        }
     }
 }

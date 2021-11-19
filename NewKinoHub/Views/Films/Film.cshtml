@@ -108,7 +108,7 @@
                                                 <input type="radio" class="rating_item" value="10" name="rating">
                                             </div>
                                         </div>
-                                        <div class="rating_value">@(Convert.ToString(Model.Score).Replace(',', '.'))</div>
+                                        <div class="rating_value">@(Convert.ToString(Model.Score).Replace(',', '.')) @*Оценено: @Model.Reviews.Count*@</div>
                                     </div>
                                 </div>
 
@@ -345,7 +345,7 @@
 
                 @foreach (var Revi in Model.Reviews)
                 {
-                    if (Revi.UsersId != ViewBag.UserId && ViewBag.Role != 1)
+                    if (Revi.UsersId != ViewBag.UserId )
                     {   /*отзывы других пользователей*/
                         if (Revi.ImgUser != null)
                         {
@@ -381,6 +381,12 @@
                                             </div>
                                             <textarea rows="7" class="viewreviewste" readonly> @Revi.Description </textarea>
                                         </td>
+                                        @if (ViewBag.Role == 1)
+                                        {
+                                            <td valign="bottom" align="right" style="width:15%;">
+                                                <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID,IdUser = Revi.UsersId})>Удалить</a>
+                                            </td>
+                                        }
                                     </tr>
                                 </tbody>
                             </table>
@@ -419,12 +425,18 @@
                                             </div>
                                             <textarea rows="7" class="viewreviewste" readonly> @Revi.Description </textarea>
                                         </td>
+                                        @if (ViewBag.Role == 1)
+                                        {
+                                            <td valign="bottom" align="right" style="width:15%;">
+                                                <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID,IdUser = Revi.UsersId})>Удалить</a>
+                                            </td>
+                                        }
                                     </tr>
                                 </tbody>
                             </table>
                         }
                     }
-                    if (Revi.UsersId == ViewBag.UserId || ViewBag.Role == 1)
+                    if (Revi.UsersId == ViewBag.UserId)
                     {
                         //отзывы пользователя, вошедшего в аккаунт
                         if (Revi.ImgUser != null)
@@ -511,6 +523,7 @@
                                 </tbody>
                             </table>
                         }
+
                         <div id="editreviews">
                             <a href="#"></a>
                             <div>
@@ -538,7 +551,7 @@
                                         </div>
                                     </div>
                                     <textarea class="addreviewste" rows="10" cols="75" name="text">@Revi.Description</textarea>
-                                    <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("EditReviews", "Films", new { IdFilm = Model.MediaID })><br />
+                                    <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("EditReviewsModer", "Films", new { IdFilm = Model.MediaID, UserId = Revi.UsersId })><br />
                                 </form>
                                 <a href="#">Выйти</a>
                             </div>
