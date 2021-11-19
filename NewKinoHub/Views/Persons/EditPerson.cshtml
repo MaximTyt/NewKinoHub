@@ -13,8 +13,8 @@
                             <label class="colortext">Name:<sup>*</sup></label><br />
                             <textarea class="namesizeeditadd" type="text" name="Name" required>@Model.Name</textarea><br />
 
-                            <label class="colortext">Аватарка(Только ссылка с сервера):<sup>*</sup></label><br />
-                            <input value="@Model.Image" type="text" name="Image" required><br />
+                            <label class="colortext">Фото:<sup>*</sup></label><br />
+                            <input value=@(Convert.ToBase64String(@Model.Img)) type="file" title="Выберите постер" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
                         </td>
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Настоящее имя:<sup>*</sup></label><br />

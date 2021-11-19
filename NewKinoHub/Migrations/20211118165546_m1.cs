@@ -46,7 +46,7 @@ namespace NewKinoHub.Migrations
                     IsScreenWriter = table.Column<bool>(type: "bit", nullable: false),
                     IsDirector = table.Column<bool>(type: "bit", nullable: false),
                     Height = table.Column<double>(type: "float", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Img = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     DateOfBirthday = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Age = table.Column<int>(type: "int", nullable: false),
                     DateOfDeath = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -209,7 +209,7 @@ namespace NewKinoHub.Migrations
                     ImagesID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MediaId = table.Column<int>(type: "int", nullable: false),
-                    ImagesUrl = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    MediaImage = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -10,6 +10,7 @@ using System.Globalization;
 using NewKinoHub.Models;
 using NewKinoHub.Manager;
 using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace KinoHab.Manager
 {
@@ -373,7 +374,7 @@ namespace KinoHab.Manager
 
 
         [HttpPost]
-        public async Task AddFilm(IFormFile mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
+        public async Task AddFilm(IFormFile mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes, int NumOfSeason, int type, IFormFile[] Images, string[] genres, DateTime Release_Date)
         {
             Media Film = new Media();
             if (NumOfSeason != 0)
@@ -395,7 +396,7 @@ namespace KinoHab.Manager
                     Film.MediaType = MediaType.Serial;
                 }
             }
-            Film.Img = SaveImage.getByteImage(mainPhoto); ;
+            Film.Img = mainPhoto != null ? SaveImage.getByteImage(mainPhoto) : File.ReadAllBytes(@"wwwroot\lib\images\netpostera.png");
             Film.Name = Name;
             Film.Year = Year;
             Film.Country = Contry;
@@ -408,23 +409,24 @@ namespace KinoHab.Manager
             Film.ScoreKP = ScoreKP;
             Film.Video = Video;
             Film.SoundTrackUrl = Music;
+            var len = Images.Length;
             Film.Images = new List<MediaImages>()
             {
                 new MediaImages
                  {
-                     ImagesUrl = Images[0]
+                     MediaImage = Images[0] != null ? SaveImage.getByteImage(Images[0]) : File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                  },
                  new MediaImages
                  {
-                     ImagesUrl = Images[1]
+                     MediaImage = Images[1] != null ? SaveImage.getByteImage(Images[1]) : File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                  },
                  new MediaImages
                  {
-                     ImagesUrl = Images[2]
+                     MediaImage = Images[2] != null ? SaveImage.getByteImage(Images[2]) : File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                  },
                  new MediaImages
                  {
-                     ImagesUrl = Images[3]
+                     MediaImage = Images[3] != null ? SaveImage.getByteImage(Images[3]) : File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                  }
             };
             foreach(var g in genres)
@@ -438,7 +440,7 @@ namespace KinoHab.Manager
                 
 
         [HttpPost]
-        public async Task EditFilm(IFormFile mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
+        public async Task EditFilm(IFormFile mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, IFormFile[] Images, string[] genres, DateTime Release_Date)
         {
             if (mainPhoto != null)
             {
@@ -504,7 +506,7 @@ namespace KinoHab.Manager
                 {
                     if (i < 4)
                     {
-                        Img.ImagesUrl = Images[i];
+                        Img.MediaImage = Images[i] != null ? SaveImage.getByteImage(Images[i]) : File.ReadAllBytes(@"wwwroot\lib\images\loading.gif");
                         i++;
                     }
                 }                
@@ -571,6 +573,23 @@ namespace KinoHab.Manager
                 _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).DateOfReview = DateTime.Now.ToString();
             }
             await _context.SaveChangesAsync();
+        }
+        public void ChangeRaiting(int IdFilm)
+        {
+            double score = 0;
+            var Reviews = _context.Reviews.Where(st => st.MediaId == IdFilm).ToList();
+
+            foreach (var r in Reviews)
+            {
+                score += r.Rating;
+            }
+            score += _context.Media.FirstOrDefault(st => st.MediaID == IdFilm).Score;
+            if (Reviews.Count > 0)
+                score = score / (Reviews.Count + 1);
+            else
+                score = 0;
+            _context.Media.FirstOrDefault(st => st.MediaID == IdFilm).Score = Math.Round(score, 3);
+            _context.SaveChanges();
         }
     }
 }

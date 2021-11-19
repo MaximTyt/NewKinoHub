@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using NewKinoHub.Manager.Persons;
 using NewKinoHub.Manager.Userss;
 using System;
@@ -48,11 +49,11 @@ namespace NewKinoHub.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Edit(int personId, string Name, string OriginalName,
-            bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, string Image, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+            bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
             string PlaceOfDeath, string Spouse, string Awards, string Description)
         {
             await _person.EditPerson(personId, Name, OriginalName,
-            IsActor, IsScreenWriter, IsDirector, Height,  Image,  DateOfBirthday,  DateOfDeath,  PlaceOfBirthday,
+            IsActor, IsScreenWriter, IsDirector, Height, mainPhoto,  DateOfBirthday,  DateOfDeath,  PlaceOfBirthday,
              PlaceOfDeath,  Spouse,  Awards,  Description);
             return RedirectToAction("Person", "Persons", new { personId });
         }

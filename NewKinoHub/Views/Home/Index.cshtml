@@ -27,7 +27,14 @@
                                         <tr height="100%">
                                             <td style="max-width:200px;">
                                                 <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[0].MediaID }) style="display:block;">
-                                                    <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item1[0].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    @if (Model.Item1[0].Img != null)
+                                                    {
+                                                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item1[0].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/lib/images/netpostera.png" style="height: 300px !important; max-width: 200px;">
+                                                    }
                                                 </a>
                                             </td>
                                             <td valign="top">
@@ -68,7 +75,14 @@
                                         <tr height="100%">
                                             <td style="max-width:200px;">
                                                 <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[1].MediaID }) style="display:block;">
-                                                    <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item1[1].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    @if (Model.Item1[1].Img != null)
+                                                    {
+                                                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item1[1].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/lib/images/netpostera.png" style="height: 300px !important; max-width: 200px;">
+                                                    }
                                                 </a>
                                             </td>
                                             <td valign="top">
@@ -108,7 +122,14 @@
                                         <tr height="100%">
                                             <td style="max-width:200px;">
                                                 <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[2].MediaID }) style="display:block;">
-                                                    <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item1[2].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    @if (Model.Item1[2].Img != null)
+                                                    {
+                                                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item1[0].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/lib/images/netpostera.png" style="height: 300px !important; max-width: 200px;">
+                                                    }
                                                 </a>
                                             </td>
                                             <td valign="top">
@@ -149,7 +170,14 @@
                                         <tr height="100%">
                                             <td style="max-width:200px;">
                                                 <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item1[3].MediaID }) style="display:block;">
-                                                    <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item1[3].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    @if (Model.Item1[3].Img != null)
+                                                    {
+                                                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item1[3].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/lib/images/netpostera.png" style="height: 300px !important; max-width: 200px;">
+                                                    }
                                                 </a>
                                             </td>
                                             <td valign="top">
@@ -209,7 +237,14 @@
                                         <tr height="100%">
                                             <td style="max-width:200px;">
                                                 <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[0].MediaID }) style="display:block;">
-                                                    <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item2[0].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    @if (Model.Item2[0].Img != null)
+                                                    {
+                                                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item2[0].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/lib/images/netpostera.png" style="height: 300px !important; max-width: 200px;">
+                                                    }
                                                 </a>
                                             </td>
                                             <td valign="top">
@@ -249,7 +284,14 @@
                                         <tr height="100%">
                                             <td style="max-width:200px;">
                                                 <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[1].MediaID }) style="display:block;">
-                                                    <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item2[1].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    @if (Model.Item2[1].Img != null)
+                                                    {
+                                                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item2[1].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/lib/images/netpostera.png" style="height: 300px !important; max-width: 200px;">
+                                                    }
                                                 </a>
                                             </td>
                                             <td valign="top">
@@ -290,7 +332,14 @@
                                         <tr height="100%">
                                             <td style="max-width:200px;">
                                                 <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[2].MediaID }) style="display:block;">
-                                                    <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item2[2].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    @if (Model.Item2[2].Img != null)
+                                                    {
+                                                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item2[2].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/lib/images/netpostera.png" style="height: 300px !important; max-width: 200px;">
+                                                    }
                                                 </a>
                                             </td>
                                             <td valign="top">
@@ -330,7 +379,14 @@
                                         <tr height="100%">
                                             <td>
                                                 <a href=@Url.Action("Film", "Films", new { IdFilm = Model.Item2[3].MediaID }) style="display:block;">
-                                                    <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item2[3].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    @if (Model.Item2[3].Img != null)
+                                                    {
+                                                        <img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Item2[3].Img))" style="height: 300px !important; max-width: 200px;">
+                                                    }
+                                                    else
+                                                    {
+                                                        <img src="~/lib/images/netpostera.png" style="height: 300px !important; max-width: 200px;">
+                                                    }
                                                 </a>
                                             </td>
                                             <td valign="top">

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
@@ -39,6 +40,24 @@ namespace NewKinoHub.Manager.Persons
             return await _context.Persons.FirstOrDefaultAsync(st => st.Id == IdPerson);
         }
 
+        public async Task<ICollection<Person>> GetPersons(int role)
+        {
+            switch (role)
+            {
+                case 0:
+                    return await _context.Persons.Where(st => st.IsDirector == true).ToListAsync();
+
+                case 1:
+                    return await _context.Persons.Where(st => st.IsScreenWriter == true).ToListAsync();
+
+                case 2:
+                    return await _context.Persons.Where(st => st.IsActor == true).ToListAsync();
+
+                default:
+                    return await _context.Persons.ToListAsync();
+            }
+        }
+
         public async Task<ICollection<Person>> GetPersons()
         {
             return await _context.Persons.ToListAsync();
@@ -70,7 +89,7 @@ namespace NewKinoHub.Manager.Persons
 
         [HttpPost]
         public async Task EditPerson(int personId, string Name, string OriginalName,
-           bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, string Image, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+           bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
            string PlaceOfDeath, string Spouse, string Awards, string Description)
         {
             if(Name != null)
@@ -88,9 +107,9 @@ namespace NewKinoHub.Manager.Persons
             {
                 _context.Persons.FirstOrDefault(st => st.Id == personId).Height = Height;
             }
-            if (Image != null)
+            if (mainPhoto != null)
             {
-                _context.Persons.FirstOrDefault(st => st.Id == personId).Image = Image;
+                _context.Persons.FirstOrDefault(st => st.Id == personId).Img = SaveImage.getByteImage(mainPhoto);
             }
             if (DateOfBirthday.Year != 0001)
             {

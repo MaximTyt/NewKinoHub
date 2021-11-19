@@ -10,7 +10,7 @@ using NewKinoHub.Storage;
 namespace NewKinoHub.Migrations
 {
     [DbContext(typeof(MvcFilmContext))]
-    [Migration("20211118110613_m1")]
+    [Migration("20211118165546_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -189,12 +189,12 @@ namespace NewKinoHub.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ImagesUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("MediaId")
                         .HasColumnType("int");
+
+                    b.Property<byte[]>("MediaImage")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.HasKey("ImagesID");
 
@@ -228,8 +228,8 @@ namespace NewKinoHub.Migrations
                     b.Property<double>("Height")
                         .HasColumnType("float");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Img")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("IsActor")
                         .HasColumnType("bit");

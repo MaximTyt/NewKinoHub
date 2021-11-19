@@ -14,10 +14,17 @@
                             @*<input value=@Model.Name type="text" name="Name" required /><br />*@
                             <textarea class="namesizeeditadd" type="text" name="Name" required>@Model.Name </textarea><br />
 
-                            
+
 
                             <label class="colortext">Постер:<sup>*</sup></label><br />
-                            <input value=@(Convert.ToBase64String(@Model.Img)) type="file" title="Выберите постер" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                            @if (Model.Img != null)
+                            {
+                                <input value=@(Convert.ToBase64String(Model.Img)) type="file" title="Выберите постер" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                            }
+                            else
+                            {
+                                <input type="file" title="Выберите постер" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                            }
 
                             <label class="colortext">Год:<sup>*</sup></label><br />
                             <input value="@Model.Year" type="number" name="Year" min="1888" step="1" required /><br />
@@ -27,7 +34,7 @@
                         </td>
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Дата выхода:@Model.Release_Date.ToShortDateString() <sup>*</sup></label><br />
-                            <input type="date" id="Release_Date" name="Release_Date" /><br />                            
+                            <input type="date" id="Release_Date" name="Release_Date" /><br />
 
                             <label for="MediaType" class="colortext">Выберите тип:<sup>*</sup></label><br />
                             <select id="type" name="type">
@@ -48,14 +55,15 @@
                                     <option value="1">Сериал</option>
                                 }
                             </select>
-                            
-                            
-                            <label for="Genres" class="colortext">Выберите жанры<sup>*</sup>:
-                                @foreach(var g in Model.Genres)
+
+
+                            <label for="Genres" class="colortext">
+                                Выберите жанры<sup>*</sup>:
+                                @foreach (var g in Model.Genres)
                                 {
                                     <a> @g.Genre_Name | </a>
                                 }
-                                </label><br />
+                            </label><br />
                             <select multiple id="Genres" name="Genres">
                                 <option value="Аниме">Аниме</option>
                                 <option value="Биография">Биография</option>
@@ -73,11 +81,27 @@
                                 <option value="Мюзикл">Мюзикл</option>
                                 <option value="Приключения">Приключения</option>
                                 <option value="Семейный">Семейный</option>
+                                <option value="Триллер">Триллер</option>
                                 <option value="Ужасы">Ужасы</option>
                                 <option value="Фантастика">Фантастика</option>
                                 <option value="Фэнтези">Фэнтези</option>
 
                             </select>
+
+                            <select hidden multiple id="NumOfGenres" name="NumOfGenres">
+                                @foreach (var g in Model.Genres)
+                                {
+                                <option value="@g.NumOfGenre"></option>
+                                }
+                            </select>>
+
+                            <script>
+                                let genre  = document.getElementById("Genres");
+                                let num = document.getElementById("NumOfGenres");
+                                for (let index = 0; index <@Model.Genres.Count(); index++) {
+                                    genre.options[num.options[index].value - 1].selected = true;
+                                }
+                            </script>
 
                         </td>
                         <td valign="top" class="tdstyle">
@@ -149,20 +173,37 @@
                             <input value=@Model.SoundTrackUrl type="text" name="Music" required /><br />
                         </td>
                         <td valign="top" class="tdstyle">
-                            <label class="colortext">Ссылка на кадр №1<sup>*</sup></label><br />
-                            <input value=@Model.Images[0].ImagesUrl type="text" name="Images[0]" required /><br />
+                            @if (Model.Images.Count() >= 1)
+                            {
+                                <label class="colortext">Кадр №1<sup>*</sup></label><br />
+                                <input value=@(Convert.ToBase64String(Model.Images[0].MediaImage)) type="file" title="Выберите постер" name="Image1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
-                            <label class="colortext">Ссылка на кадр №2<sup>*</sup></label><br />
-                            <input value=@Model.Images[1].ImagesUrl type="text" name="Images[1]" required /><br />
+                                <label class="colortext">Кадр №2<sup>*</sup></label><br />
+                                <input value=@(Convert.ToBase64String(Model.Images[1].MediaImage)) type="file" title="Выберите постер" name="Image2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
-                            <label class="colortext">Ссылка на кадр №3<sup>*</sup></label><br />
-                            <input value=@Model.Images[2].ImagesUrl type="text" name="Images[2]" required /><br />
+                                <label class="colortext">Кадр №3<sup>*</sup></label><br />
+                                <input value=@(Convert.ToBase64String(Model.Images[2].MediaImage)) type="file" title="Выберите постер" name="Image3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
-                            <label class="colortext">Ссылка на кадр №4<sup>*</sup></label><br />
-                            <input value=@Model.Images[3].ImagesUrl type="text" name="Images[3]" required /><br />
+                                <label class="colortext">Кадр №4<sup>*</sup></label><br />
+                                <input value=@(Convert.ToBase64String(Model.Images[3].MediaImage)) type="file" title="Выберите постер" name="Image4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                            }
+                            else
+                            {
+                                <label class="colortext">Кадр №1<sup>*</sup></label><br />
+                                <input type="file" title="Выберите постер" name="Image1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+
+                                <label class="colortext">Кадр №2<sup>*</sup></label><br />
+                                <input type="file" title="Выберите постер" name="Image2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+
+                                <label class="colortext">Кадр №3<sup>*</sup></label><br />
+                                <input type="file" title="Выберите постер" name="Image3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+
+                                <label class="colortext">Кадр №4<sup>*</sup></label><br />
+                                <input type="file" title="Выберите постер" name="Image4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                            }
 
                             @if ((int)Model.MediaType == 1)
-                            {  
+                            {
                                 <label class="colortext">Количество эпизодов(Необязательно):</label><br />
                                 <input type="number" step="1" min="0" name="NumOfEpisodes"> <br />
 

@@ -10,7 +10,7 @@ namespace NewKinoHub.Storage.Entity
         public int ImagesID { get; set; }
         public int MediaId { get; set; }
         [Required]
-        public string ImagesUrl { get; set; }        
+        public byte[] MediaImage { get; set; }
         public Media Medias { get; set; }
     }
 }
