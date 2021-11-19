@@ -60,21 +60,20 @@
                                                     <option value="Сценаристы" style="width: 100px; height: 20px; font-size: 14px;">Сценаристы</option>
                                                 </select>-->
                                                 <label>
-                                                    <input type="checkbox" name="Actors" value="Актеры" style="margin: 5px;  margin-top: 15px;">Актеры
+                                                    <input type="checkbox" name="check1" value="Актеры" style="margin: 5px;  margin-top: 15px;">Актеры
                                                 </label>
                                                 <br />
                                                 <label>
-                                                    <input type="checkbox" name="Directors" value="Режисёры" style="margin: 5px;">Режисёры
+                                                    <input type="checkbox" name="check2" value="Режисёры" style="margin: 5px;">Режисёры
                                                 </label>
                                                 <br />
                                                 <label>
-                                                    <input type="checkbox" name="SceenWriter" value="Сценаристы" style="margin: 5px;">Сценаристы
+                                                    <input type="checkbox" name="check3" value="Сценаристы" style="margin: 5px;">Сценаристы
                                                 </label>
                                                 <br />
                                                 <br />
                                                 <br />
-                                                @*<a href=@Url.Action("Filtrations", "Persons", new { }) style="background-color:rgb(247,151,30); color:black; border-top: none; padding-left: 38px;">Применить</a>*@
-                                                <input class="btn" type="submit" value="Подтвердить" formaction="~/Persons/Filtrations">
+                                                <a href=""@*@Url.Action("Person", "Persons", new { personId = Person.Id })*@ style="background-color:rgb(247,151,30); color:black; border-top: none; padding-left: 38px;">Применить</a>
                                             </form>
                                             
                                         </li>

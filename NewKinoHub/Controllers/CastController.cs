@@ -82,7 +82,7 @@ namespace NewKinoHub.Controllers
 
         public async Task<IActionResult> SearchPerson(int IdFilm, string Name, int role)
         {
-            var person = await _person.GetPersons();
+            var person = await _person.GetPersons(role);
             ViewBag.IdFilm = IdFilm;
             ViewBag.Role = role;
             ViewData["Geetemployeedetails"] = Name;

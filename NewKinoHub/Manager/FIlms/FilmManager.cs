@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Globalization;
 using NewKinoHub.Models;
+using NewKinoHub.Manager;
+using Microsoft.AspNetCore.Http;
 
 namespace KinoHab.Manager
 {
@@ -162,9 +164,7 @@ namespace KinoHab.Manager
                     }
                 }
             }
-
             Films.Reviews = Reviews;
-
             return Films;
         }
         public async Task<Users> GetUser(string UserEmail)
@@ -250,7 +250,6 @@ namespace KinoHab.Manager
                     }
                 }
             }
-
             Filmss.Reviews = Reviews;
 
             return Filmss;
@@ -371,7 +370,7 @@ namespace KinoHab.Manager
 
 
         [HttpPost]
-        public async Task AddFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
+        public async Task AddFilm(IFormFile mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
         {
             Media Film = new Media();
             if (NumOfSeason != 0)
@@ -393,7 +392,7 @@ namespace KinoHab.Manager
                     Film.MediaType = MediaType.Serial;
                 }
             }
-            Film.Img = mainPhoto;
+            Film.Img = SaveImage.getByteImage(mainPhoto); ;
             Film.Name = Name;
             Film.Year = Year;
             Film.Country = Contry;
@@ -436,11 +435,11 @@ namespace KinoHab.Manager
                 
 
         [HttpPost]
-        public async Task EditFilm(string mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
+        public async Task EditFilm(IFormFile mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, string[] Images, string[] genres, DateTime Release_Date)
         {
             if (mainPhoto != null)
             {
-                _context.Media.FirstOrDefault(st => st.MediaID == Id).Img = mainPhoto;
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).Img = SaveImage.getByteImage(mainPhoto);
             }
             if (Name != null)
             {
@@ -569,6 +568,22 @@ namespace KinoHab.Manager
                 _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).DateOfReview = DateTime.Now.ToString();
             }
             await _context.SaveChangesAsync();
+        }
+
+
+        public void ChangeRaiting(int IdFilm)
+        {
+            double score = 0;
+            var Reviews = _context.Reviews.Where(st => st.MediaId == IdFilm).ToList();
+
+            foreach (var r in Reviews)
+            {
+                score += r.Rating;
+            }
+            score += _context.Media.FirstOrDefault(st => st.MediaID == IdFilm).Score;
+            score = score / (Reviews.Count+1);
+            _context.Media.FirstOrDefault(st=>st.MediaID == IdFilm).Score = Math.Round(score, 3);
+            _context.SaveChanges();
         }
     }
 }
