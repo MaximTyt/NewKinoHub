@@ -29,7 +29,7 @@
                     <tr>
                         <td>
                             <div style=" min-height: 20px; width:600px; float:left;">
-                                <p><span style="font-weight:bold">Год:</span> @Model.Year</p>
+                                <p><span style="font-weight:bold">Год:</span> @Model.Release_Date.Year</p>
                                 @if ((int)Model.MediaType == 1 && Model.NumOfSeason != null)
                                 {
                                     <p><span style="font-weight:bold">Всего сезонов:</span> @Model.NumOfSeason</p>
@@ -186,6 +186,11 @@
                             <td valign="top" align="right" width="30">
                                 <a href=@Url.Action("SearchOrAddCast", "Cast", new { IdFilm = Model.MediaID })>
                                     <img class="deleteicon" src="~/lib/images/Icons/people.png" />
+                                </a>
+                            </td>
+                            <td valign="top" align="right" width="30">
+                                <a href=@Url.Action("EditFilm", "Films", new { Id =  Model.MediaID })>
+                                    <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
                                 </a>
                             </td>
                             <td valign="top" align="right" width="30">

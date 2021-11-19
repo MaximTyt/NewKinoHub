@@ -168,7 +168,8 @@
                         </tbody>
                     </table>
                     <p>
-                        <div style="color:white;" class="rating_value1">@(Convert.ToString(serial.Score).Replace(',', '.')) @*Оценено: @Model.Reviews.Count*@</div>
+                        <span style="font-weight: bold; color: white" class="rating_value1">Год:</span>@serial.Release_Date.Year
+                        <span style="font-weight:bold; color:white" class="rating_value1">Рейтинг:</span>@(Convert.ToString(serial.Score).Replace(',', '.'))
                     </p>
                     <p>
                         @foreach (var genre in serial.Genres)

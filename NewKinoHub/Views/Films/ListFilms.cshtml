@@ -168,7 +168,8 @@
                         </tbody>
                     </table>
                     <p>
-                        <div style="color:white;" class="rating_value1">@(Convert.ToString(film.Score).Replace(',', '.')) @*Оценено: @Model.Reviews.Count*@</div>
+                        <span style="font-weight: bold; color: white" class="rating_value1">Год:</span>@film.Release_Date.Year
+                        <span style="font-weight:bold; color:white" class="rating_value1">Рейтинг:</span>@(Convert.ToString(film.Score).Replace(',', '.'))                        
                     </p>
                     <p>
                         @foreach (var genre in film.Genres)
