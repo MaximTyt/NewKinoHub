@@ -168,26 +168,7 @@
                         </tbody>
                     </table>
                     <p>
-                        <div class="form_item">
-                            <div class="rating rating1">
-                                <div class="rating_body1">
-                                    <div class="rating_active"></div>
-                                    <div class="rating_items">
-                                        <input type="radio" class="rating_item" value="1" name="rating">
-                                        <input type="radio" class="rating_item" value="2" name="rating">
-                                        <input type="radio" class="rating_item" value="3" name="rating">
-                                        <input type="radio" class="rating_item" value="4" name="rating">
-                                        <input type="radio" class="rating_item" value="5" name="rating">
-                                        <input type="radio" class="rating_item" value="6" name="rating">
-                                        <input type="radio" class="rating_item" value="7" name="rating">
-                                        <input type="radio" class="rating_item" value="8" name="rating">
-                                        <input type="radio" class="rating_item" value="9" name="rating">
-                                        <input type="radio" class="rating_item" value="10" name="rating">
-                                    </div>
-                                </div>
-                                <div class="rating_value" style="color:white;">@(Convert.ToString(film.Score).Replace(',', '.'))</div>
-                            </div>
-                        </div>
+                        <div style="color:white;" class="rating_value">@(Convert.ToString(film.Score).Replace(',', '.')) @*Оценено: @Model.Reviews.Count*@</div>
                     </p>
                     <p>
                         @foreach (var genre in film.Genres)
@@ -195,69 +176,11 @@
                             <a style="color:white;" href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
                         }
                     </p>
-                    <p style="color:white;"> @film.ShortDescription</p>
-                    <div class="rating_value">@(Convert.ToString(film.Score).Replace(',', '.')) @*Оценено: @Model.Reviews.Count*@</div>
+                    <p style="color:white;"> @film.ShortDescription</p>                    
                 </div>
             </div>
 
-                @*<div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                    <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
-                        <img class="u-back-image u-expanded imagetitle imglist" src=@film.Img>
-                    </a>
-                    <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
-                        <table style="width: 780px;">
-                            <tbody>
-                                <tr>
-                                    <td style="width: 400px;">
-                                        <p style="font-weight: bold; right:100%; left:0%;"> @film.Name </p>
-                                    </td>
-
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p><span style="font-weight:bold">Год:</span> @film.Year</p>
-                        <p>
-                            <span style="font-weight:bold">Жанры:</span>
-                            @foreach (var genre in film.Genres)
-                            {
-                                <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
-                            }
-                        </p>
-                        <p>
-                            <span style="font-weight:bold">Режиссер:</span>
-                            @foreach (var director in film.Casts)
-                            {
-                                if ((int)director.RoleInFilm == 0 && director.Person != null)
-                                {
-                                    <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name</a>
-                                }
-                            }
-
-                        </p>
-                        <p>
-                            <span style="font-weight:bold">Актеры:</span>
-                            @foreach (var director in film.Casts)
-                            {
-                                if ((int)director.RoleInFilm == 2 && director.Person != null)
-                                {
-                                    <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name |</a>
-                                }
-                            }
-                            <a href=@Url.Action("ListActors", "Cast", new { FilmId = film.MediaID}) class="textstyle">...</a>
-                        </p>
-                        <p><span style="font-weight:bold">Страна:</span> @film.Country</p>
-                        <p><span style="font-weight:bold">Возраст:</span> @film.Age+</p>
-                        <a><img src=@film.ScoreKP border='0'></a>
-                        <p><span style="font-weight:bold">Краткое описание:</span> @film.ShortDescription</p>
-                        @if (ViewBag.Role == 1)
-                        {
-                            <a class="allcastlist" href=@Url.Action("ListCasts", "Cast", new { IdFilm = film.MediaID })>Весь каст</a>
-                        }
-                    </div>
-                    <div style=" clear:both;"></div>
-                </div>*@
+               
             }
         </div>
         <script src="~/js/stars.js"></script>

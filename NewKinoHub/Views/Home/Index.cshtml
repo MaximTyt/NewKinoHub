@@ -440,10 +440,19 @@
 
                 @foreach (var f in Model.Item3)
                 {
-                    <div class="item">
-                        <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src=@f.Img></a></p>
-                        <p class="titlenamesize"><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })>@f.Name</a></p>
-                    </div>
+                <div class="item">
+                    @if (Model.Item1[0].Img != null)
+                    {
+                        @*<img src="data:image/jpeg;base64, @(Convert.ToBase64String(f.Img))" style="height: 300px !important; max-width: 200px;">*@
+                        <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(f.Img))"></a></p>
+                    }
+                    else
+                    {
+                        <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src="~/lib/images/netpostera.png"></a></p>                        
+                    }
+                    @*<p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src=@f.Img></a></p>*@
+                    <p class="titlenamesize"><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })>@f.Name</a></p>
+                </div>
                 }
 
             </div>
