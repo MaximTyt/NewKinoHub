@@ -66,8 +66,16 @@ namespace NewKinoHub.Controllers
 
         public async Task<IActionResult> Filtrations(string Actors, string Directors, string ScreenWriter, string sort)
         {
-
-            return View();
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
+            ViewBag.Actors = Actors;
+            ViewBag.Directors = Directors;
+            ViewBag.ScreenWriter = Actors;
+            var Filtr = await _person.Filtration(Actors, Directors, ScreenWriter);
+            if (sort != null)
+            {
+                Filtr = _person.SortingFromFiltr(sort, Filtr);
+            }
+            return View(Filtr);
         }
     }
 }
