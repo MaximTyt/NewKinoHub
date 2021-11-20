@@ -112,11 +112,11 @@
                                     <p>
                                         <span style="font-weight:bold">Карьера:</span>
                                         @if (Person.IsActor != false)
-                                        {<a> Актёр </a>}
+                                        {<a href = @Url.Action("SelectFilmsForPerson", "Films", new { person = "Actor",IdPerson = Person.Id })> Актёр </a>}
                                         @if (Person.IsDirector != false)
-                                        {<a> Режиссёр </a>}
+                                        {<a href = @Url.Action("SelectFilmsForPerson", "Films", new { person = "Director",IdPerson = Person.Id })> Режиссёр </a>}
                                         @if (Person.IsScreenWriter != false)
-                                        {<a> Сценарист </a>}
+                                        {<a href = @Url.Action("SelectFilmsForPerson", "Films", new { person = "ScreenWriter",IdPerson = Person.Id })> Сценарист </a>}
                                     </p>
                                     @if (Person.DateOfBirthday.Year != 0001)
                                     {
