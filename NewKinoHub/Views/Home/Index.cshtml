@@ -441,7 +441,7 @@
                 @foreach (var f in Model.Item3)
                 {
                 <div class="item">
-                    @if (Model.Item1[0].Img != null)
+                    @if (f.Img != null)
                     {
                         @*<img src="data:image/jpeg;base64, @(Convert.ToBase64String(f.Img))" style="height: 300px !important; max-width: 200px;">*@
                         <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(f.Img))"></a></p>

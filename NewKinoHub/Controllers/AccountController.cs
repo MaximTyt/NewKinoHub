@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using NewKinoHub.Manager.Accounts;
-using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -23,6 +21,7 @@ namespace NewKinoHub.Controllers
         {
             return View();
         }
+                
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
@@ -32,9 +31,13 @@ namespace NewKinoHub.Controllers
                 var user = await db.GetUser(model);
                 if (user != null)
                 {
-                    await Authenticate(model.Email); // аутентификация
+                    bool IsPasswodMatched = user.VerifyPassword(model.Password, user.Password, user.Salt);
+                    if (IsPasswodMatched)
+                    {
+                        await Authenticate(model.Email); // аутентификация
 
-                    return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
                 ModelState.AddModelError("", "Некорректные email и(или) пароль");
             }
@@ -56,9 +59,12 @@ namespace NewKinoHub.Controllers
                 var user = await db.GetUser1(model);
                 if (user == null)
                 {
+                    HashSalt hashSalt = HashSalt.GenerateSaltedHash(64, model.Password);
+                    model.Password = hashSalt.Hash;
+                    model.Salt = hashSalt.Salt;
                     await db.AddUsers(model);
                     await Authenticate(model.Email); // аутентификация
-
+                    await db.SendEmail(model.Email, model.Nickname);
                     return RedirectToAction("Index", "Home");
                 }
                 else
