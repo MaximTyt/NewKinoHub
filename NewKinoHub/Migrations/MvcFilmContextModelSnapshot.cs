@@ -315,6 +315,9 @@ namespace NewKinoHub.Migrations
                     b.Property<int>("Role")
                         .HasColumnType("int");
 
+                    b.Property<string>("Salt")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("ViewedId")
                         .HasColumnType("int");
 

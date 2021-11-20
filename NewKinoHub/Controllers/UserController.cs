@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NewKinoHub.Manager;
 using NewKinoHub.Manager.Userss;
+using NewKinoHub.Storage.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -70,5 +71,23 @@ namespace NewKinoHub.Controllers
             await _user.EditAccount(mainPhoto, name, DataB, User.Identity.Name);
             return RedirectToAction("Profile", "User");
         }
+        [HttpPost]
+        public async Task<ActionResult> EditPassword(string oldPassword, string newPassword)
+        {
+            
+                var user = await _user.GetUser(User.Identity.Name);
+                if (newPassword != null)
+                {
+                    bool IsPasswodMatched = user.VerifyPassword(oldPassword, user.Password, user.Salt);
+                    if (IsPasswodMatched)
+                    {
+                        HashSalt hashSalt = HashSalt.GenerateSaltedHash(64, newPassword);
+                        await _user.EditPassword(hashSalt.Hash, hashSalt.Salt, User.Identity.Name);
+                        return RedirectToAction("Profile", "User");
+                    }
+                }  
+            return RedirectToAction("Profile", "User", "password1");
+        }       
+
     }
 }
