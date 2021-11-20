@@ -21,7 +21,7 @@ namespace NewKinoHub.Storage.Entity
         public bool IsDirector { get; set; }        
         [Range(0.49,2.5)]
         public double Height { get; set; }
-        public string Image { get; set; }        
+        public byte[] Img { get; set; }
         public DateTime DateOfBirthday { get; set; }
         public int Age { get; set; }
         public DateTime DateOfDeath { get; set; } 

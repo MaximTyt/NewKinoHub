@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -60,16 +62,16 @@ namespace NewKinoHub.Manager.Casts
 
         [HttpPost]
         public async Task AddCast(int IdFilm, string Character, int RoleInFilm, string Name, string OriginalName,
-            bool IsActor, bool IsScreenWriter, bool IsDirector, double Height,string Image,DateTime DateOfBirthday, DateTime DateOfDeath,string PlaceOfBirthday,
+            bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath,string PlaceOfBirthday,
             string PlaceOfDeath,string Spouse,string Awards,string Description)
         {
-            Cast Cast = new Cast
+            Cast Cast = new()
             {
                 MediaId = IdFilm,
                 Character = Character,
                 RoleInFilm = (RoleInFilm)RoleInFilm 
-            };
-            Person person = new Person()
+            };            
+            Person person = new()
             {
                 Name = Name,
                 OriginalName = OriginalName,
@@ -77,7 +79,7 @@ namespace NewKinoHub.Manager.Casts
                 IsDirector= IsDirector,
                 IsScreenWriter= IsScreenWriter,
                 Height = Height,
-                Image = Image,
+                Img = mainPhoto != null ? SaveImage.getByteImage(mainPhoto) : File.ReadAllBytes(@"wwwroot\lib\images\trav1.gif"),
                 DateOfBirthday = DateOfBirthday,
                 DateOfDeath = DateOfDeath,
                 PlaceOfBirthday = PlaceOfBirthday,
@@ -134,7 +136,7 @@ namespace NewKinoHub.Manager.Casts
 
         public async Task AddSearchPerson(int IdFilm, int IdPerson, int role)
         {
-            Cast Cast = new Cast
+            Cast Cast = new()
             {
                 Person = await _context.Persons.FirstOrDefaultAsync(st => st.Id == IdPerson),
                 MediaId = IdFilm,

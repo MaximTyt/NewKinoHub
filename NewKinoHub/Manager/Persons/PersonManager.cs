@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
@@ -89,7 +90,7 @@ namespace NewKinoHub.Manager.Persons
 
         [HttpPost]
         public async Task EditPerson(int personId, string Name, string OriginalName,
-           bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, string Image, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+           bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
            string PlaceOfDeath, string Spouse, string Awards, string Description)
         {
             if(Name != null)
@@ -107,9 +108,9 @@ namespace NewKinoHub.Manager.Persons
             {
                 _context.Persons.FirstOrDefault(st => st.Id == personId).Height = Height;
             }
-            if (Image != null)
+            if (mainPhoto != null)
             {
-                _context.Persons.FirstOrDefault(st => st.Id == personId).Image = Image;
+                _context.Persons.FirstOrDefault(st => st.Id == personId).Img = SaveImage.getByteImage(mainPhoto);
             }
             if (DateOfBirthday.Year != 0001)
             {
@@ -164,6 +165,44 @@ namespace NewKinoHub.Manager.Persons
 
             }
             return persons;
+        }
+
+        public async Task<List<Person>> Filtration(string Actors, string Directors, string ScreenWriter)
+        {
+            List<Person> Persons = await _context.Persons.ToListAsync();
+            if (Actors != null)
+            {
+                Persons = Persons.Where(st => st.IsActor == true).ToList();
+            }
+            if(Directors != null)
+            {
+                Persons = Persons.Where(st => st.IsDirector == true).ToList();
+            }
+            if(ScreenWriter != null)
+            {
+                Persons = Persons.Where(st => st.IsScreenWriter == true).ToList();
+            }
+            return Persons;
+        }
+
+        public List<Person> SortingFromFiltr(string sort, List<Person> Filtr)
+        {
+            switch (sort)
+            {
+                case "YearOld":
+                    Filtr = Filtr.OrderBy(st => st.DateOfBirthday).ToList();
+                    break;
+                case "YearNew":
+                    Filtr = Filtr.OrderByDescending(st => st.DateOfBirthday).ToList();
+                    break;
+                case "NameA":
+                    Filtr = Filtr.OrderBy(st => st.Name).ToList();
+                    break;
+                case "NameZ":
+                    Filtr = Filtr.OrderByDescending(st => st.Name).ToList();
+                    break;
+            }
+            return Filtr;
         }
     }
 }

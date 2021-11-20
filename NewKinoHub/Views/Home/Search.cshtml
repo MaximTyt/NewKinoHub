@@ -43,7 +43,14 @@
                     {
                         <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
                             <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
-                                <img width="265" class="u-back-image u-expanded imagetitle" src=@film.Img>
+                                @if (film.Img != null)
+                                {
+                                <img width="265" class="u-back-image u-expanded imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(film.Img))">
+                                }
+                                else
+                                {
+                            <img width="265" class="u-back-image u-expanded imagetitle" src="~/lib/images/netpostera.png">
+                                }
                             </a>
                             <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
                                 <table style="width: 780px;">
@@ -123,7 +130,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <p>Год: @film.Year</p>
+                                <p>Год: @film.Release_Date.Year</p>
 
                                 <p>
                                     <span style="font-weight:bold">Жанры:</span>
@@ -178,7 +185,14 @@
                     {
                         <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
                             <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
-                                <img class="u-back-image u-expanded imagetitle imglist" src=@serial.Img>
+                                @if (serial.Img != null)
+                                {
+                                    <img width="265" class="u-back-image u-expanded imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(serial.Img))">
+                                }
+                                else
+                                {
+                                    <img width="265" class="u-back-image u-expanded imagetitle" src="~/lib/images/netpostera.png">
+                                }
                             </a>
                             <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
                                 <table style="width: 780px;">
@@ -263,7 +277,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <p>Год: @serial.Year</p>
+                                <p>Год: @serial.Release_Date.Year</p>
 
                                 <p>
                                     <span style="font-weight:bold">Жанры:</span>
@@ -315,7 +329,14 @@
                     {
                         <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
                             <a href=@Url.Action("Person", "Persons", new { personId = Person.Id }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
-                                <img height="395" width="265" class="u-back-image u-expanded imagetitle" src=@Person.Image>
+                                @if (Person.Img != null)
+                                {
+                                    <img height="395" width="265" class="u-back-image u-expanded imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(Person.Img))">
+                                }
+                                else
+                                {
+                                    <img height="395" width="265" class="u-back-image u-expanded imagetitle" src="~/lib/images/trav1.gif">
+                                }
                             </a>
                             <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
                                 <table style="width: 780px; color:black;">

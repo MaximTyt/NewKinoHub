@@ -10,7 +10,7 @@ using NewKinoHub.Storage;
 namespace NewKinoHub.Migrations
 {
     [DbContext(typeof(MvcFilmContext))]
-    [Migration("20211118101955_m1")]
+    [Migration("20211119133310_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -109,19 +109,16 @@ namespace NewKinoHub.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("FavoritesId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Img")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Img")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("IsFavorites")
                         .HasColumnType("bit");
@@ -146,32 +143,24 @@ namespace NewKinoHub.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Runtime")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Score")
                         .HasColumnType("float");
 
                     b.Property<string>("ScoreKP")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShortDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SoundTrackUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Video")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ViewedId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Year")
                         .HasColumnType("int");
 
                     b.HasKey("MediaID");
@@ -190,12 +179,12 @@ namespace NewKinoHub.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ImagesUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("MediaId")
                         .HasColumnType("int");
+
+                    b.Property<byte[]>("MediaImage")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.HasKey("ImagesID");
 
@@ -229,8 +218,8 @@ namespace NewKinoHub.Migrations
                     b.Property<double>("Height")
                         .HasColumnType("float");
 
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Img")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("IsActor")
                         .HasColumnType("bit");

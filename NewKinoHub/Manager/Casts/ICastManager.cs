@@ -1,4 +1,5 @@
-﻿using NewKinoHub.Storage.Entity;
+﻿using Microsoft.AspNetCore.Http;
+using NewKinoHub.Storage.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace NewKinoHub.Manager.Casts
         Task<ICollection<Cast>> GetAllCast(int FilmId);
         RoleInFilm Cast(int i);        
         Task AddCast(int IdFilm, string Character, int RoleInFilm, string Name, string OriginalName,
-            bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, string Image, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+            bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
             string PlaceOfDeath, string Spouse, string Awards, string Description);
         Task DeleteCast(int IdCast);
         List<Person> Search(string Name);

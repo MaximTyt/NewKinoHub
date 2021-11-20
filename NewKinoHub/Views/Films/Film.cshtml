@@ -14,7 +14,14 @@
         <div style="width: 1100px; min-height: 380px;  background-color:azure; min-height : 580px; padding: 20px;">
             <div>
                 <a style="display:block; width : 250px; float : left; margin-right : 20px; margin-bottom: 40px;">
-                    <img width="265" class="u-back-image u-expanded" src= "data:image/jpeg;base64, @(Convert.ToBase64String(Model.Img))">
+                    @if (Model.Img != null)
+                    {
+                        <img width="265" class="u-back-image u-expanded" src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Img))">
+                    }
+                    else
+                    {
+                        <img width="265" class="u-back-image u-expanded" src="~/lib/images/netpostera.png">
+                    }
                 </a>
             </div>
             <table>
@@ -22,7 +29,7 @@
                     <tr>
                         <td>
                             <div style=" min-height: 20px; width:600px; float:left;">
-                                <p><span style="font-weight:bold">Год:</span> @Model.Year</p>
+                                <p><span style="font-weight:bold">Год:</span> @Model.Release_Date.Year</p>
                                 @if ((int)Model.MediaType == 1 && Model.NumOfSeason != null)
                                 {
                                     <p><span style="font-weight:bold">Всего сезонов:</span> @Model.NumOfSeason</p>
@@ -182,6 +189,11 @@
                                 </a>
                             </td>
                             <td valign="top" align="right" width="30">
+                                <a href=@Url.Action("EditFilm", "Films", new { Id =  Model.MediaID })>
+                                    <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
+                                </a>
+                            </td>
+                            <td valign="top" align="right" width="30">
                                 <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = Model.MediaID })>
                                     <img class="deleteicon" src="~/lib/images/Icons/close.png" />
                                 </a>
@@ -234,10 +246,34 @@
                         <input type="radio" name="r" id="r3">
                         <input type="radio" name="r" id="r4">
 
-                        <div class="slide s1"><a href="@Model.Images[0].ImagesUrl" target="_blank"><img src=@Model.Images[0].ImagesUrl alt=""></a></div>
-                        <div class="slide"><a href="@Model.Images[1].ImagesUrl" target="_blank"><img src=@Model.Images[1].ImagesUrl alt=""></a></div>
-                        <div class="slide"><a href="@Model.Images[2].ImagesUrl" target="_blank"><img src=@Model.Images[2].ImagesUrl alt=""></a></div>
-                        <div class="slide"><a href="@Model.Images[3].ImagesUrl" target="_blank"><img src=@Model.Images[3].ImagesUrl alt=""></a></div>
+                        <div class="slide s1"><a href="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[0].MediaImage))" target="_blank"><img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[0].MediaImage))" alt=""></a></div>
+                        <div class="slide"><a href="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[1].MediaImage))" target="_blank"><img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[1].MediaImage))" alt=""></a></div>
+                        <div class="slide"><a href="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[2].MediaImage))" target="_blank"><img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[2].MediaImage))" alt=""></a></div>
+                        <div class="slide"><a href="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[3].MediaImage))" target="_blank"><img src="data:image/jpeg;base64, @(Convert.ToBase64String(Model.Images[3].MediaImage))" alt=""></a></div>
+                    </div>
+
+                    <div class=" navigation">
+                        <label for="r1" class=" bar"></label>
+                        <label for="r2" class=" bar"></label>
+                        <label for="r3" class=" bar"></label>
+                        <label for="r4" class=" bar"></label>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="slider middle" style="margin-bottom:10px;">
+                    <div class="slides">
+
+                        <input type="radio" name="r" id="r1" checked>
+                        <input type="radio" name="r" id="r2">
+                        <input type="radio" name="r" id="r3">
+                        <input type="radio" name="r" id="r4">                        
+                        <div class="slide s1"><a href="~/lib/images/loading.gif" target="_blank"><img src=~/lib/images/loading.gif alt=""></a></div>
+                        <div class="slide"><a href="~/lib/images/loading.gif" target="_blank"><img src=~/lib/images/loading.gif alt=""></a></div>
+                        <div class="slide"><a href="~/lib/images/loading.gif" target="_blank"><img src=~/lib/images/loading.gif alt=""></a></div>
+                        <div class="slide"><a href="~/lib/images/loading.gif" target="_blank"><img src=~/lib/images/loading.gif alt=""></a></div>
+                        
                     </div>
 
                     <div class=" navigation">
@@ -286,7 +322,7 @@
             @if (ViewBag.User == null)
             {
 
-                <p><span style="font-weight:bold">Чтобы оставить отзыв, необходимо авторизоваться</span></p>                
+                <p><span style="font-weight:bold">Чтобы оставить отзыв, необходимо авторизоваться</span></p>
 
             }
 

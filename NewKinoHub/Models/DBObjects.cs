@@ -1,13 +1,9 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using NewKinoHub.Manager;
-using NewKinoHub.Storage;
+﻿using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace NewKinoHub.Models
 {
@@ -29,14 +25,12 @@ namespace NewKinoHub.Models
                     new Media
                     {
                         MediaType = MediaType.Film,
-                        Name = "Лига справедливости Зака Снайдера",
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        //Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        Name = "Лига справедливости Зака Снайдера",                        
                         Video = "https://www.youtube.com/embed/KQwKRTtJU-A",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/14462174",
-                        Year = 2021,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/14462174",                        
                         Country = "США, Великобритания",
-                        Age = 18,
-                        Score = 8.024,
+                        Age = 18,                        
                         Release_Date = new DateTime(2021,03,18),
                         Runtime = "04:02",
                         ShortDescription = "Бэтмен собирает команду супергероев," +
@@ -101,34 +95,30 @@ namespace NewKinoHub.Models
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img128/3736799/liga-1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img191/3736801/liga-2.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img156/3736802/liga-3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img13/3736803/liga-4.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
-
                     },
                     new Media
                     {
                         MediaType = MediaType.Film,
-                        Name = "Он вам не Димон",
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        Name = "Он вам не Димон",                        
                         Video = "https://www.youtube.com/embed/qrwlk7_GF9g",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1035",
-                        Year = 2017,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1035",                        
                         Country = "Россия",
-                        Age = 12,
-                        Score = 9.072,
+                        Age = 12,                       
                         Release_Date = new DateTime(2017, 03, 02),
                         Runtime = "49 мин.",
                         ShortDescription = "Секретные дворцы, виноградники и яхты Дмитрия Медведева",
@@ -158,19 +148,19 @@ namespace NewKinoHub.Models
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img129/3744102/ne-dimon1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img272/3744103/ne-dimon2.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img110/3744104/ne-dimon3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img255/3744105/ne-dimon4.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
                     },
@@ -179,14 +169,11 @@ namespace NewKinoHub.Models
                         MediaType = MediaType.Serial,
                         Name = "Засланец из космоса",
                         NumOfSeason = 1,
-                        NumOfEpisodes = 10,
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        NumOfEpisodes = 10,                        
                         Video = "https://www.youtube.com/embed/tP1A_dgKEd8",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1000",
-                        Year = 2021,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1000",                        
                         Country = "США",
-                        Age = 18,
-                        Score = 8.115,
+                        Age = 18,                        
                         Release_Date = new DateTime(2021, 01, 27),
                         Runtime = "46 мин. серия",
                         ShortDescription = "Инопланетянин в теле доктора пытается" +
@@ -197,26 +184,7 @@ namespace NewKinoHub.Models
                         " возвращению домой и занять место убитого. Живя в новом теле, он постепенно" +
                         " начинает задаваться вопросами, стоят люди спасения или нет.",
                         ScoreKP = "https://rating.kinopoisk.ru/1200189.gif",
-                        Genres = new List<Genre>() { Genres["Фантастика"], Genres["Драма"], Genres["Комедия"], Genres["Детектив"] },
-                        Images = new List<MediaImages>
-                        {
-                            new MediaImages
-                            {
-                                ImagesUrl ="https://imageup.ru/img178/3736813/zsl1.jpg"
-                            },
-                            new MediaImages
-                            {
-                                ImagesUrl ="https://imageup.ru/img188/3736816/zsl2.jpg"
-                            },
-                            new MediaImages
-                            {
-                                ImagesUrl ="https://imageup.ru/img178/3736817/zsl3.jpg"
-                            },
-                            new MediaImages
-                            {
-                                ImagesUrl ="https://imageup.ru/img155/3736819/zsl4.jpg"
-                            }
-                        },
+                        Genres = new List<Genre>() { Genres["Фантастика"], Genres["Драма"], Genres["Комедия"], Genres["Детектив"] },                        
                         Casts=new List<Cast>()
                         {
                             new Cast
@@ -252,19 +220,35 @@ namespace NewKinoHub.Models
                                 Person=Persons["Кори Рейнольдс"],
                                 Character="Sheriff Mike Thompson"
                             }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
                         }
                     },
                     new Media
                     {
                         MediaType = MediaType.Film,
-                        Name = "Истребитель демонов: Поезд «Бесконечный»",
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        Name = "Истребитель демонов: Поезд «Бесконечный»",                        
                         Video = "https://www.youtube.com/embed/wtE-SW8YDHM",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1026",
-                        Year = 2020,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1026",                        
                         Country = "Япония",
-                        Age = 18,
-                        Score = 8.149,
+                        Age = 18,                        
                         Release_Date = new DateTime(2020, 10, 16),
                         Runtime = "01:57",
                         ShortDescription = "Самый посещаемый японский фильм всех времен",
@@ -309,39 +293,36 @@ namespace NewKinoHub.Models
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Сатоси Хино"],
                             Character="Kyojuro Rengoku, озвучка"
-                            },
+                            }
                         },
                         Images = new List<MediaImages>()
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img13/3736804/kl1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img144/3736805/kl2.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img286/3736806/kl3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img184/3736807/kl4.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
                     },
                     new Media
                     {
                         MediaType = MediaType.Film,
-                        Name = "Твоё имя",
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        Name = "Твоё имя",                        
                         Video = "https://www.youtube.com/embed/tT7b5wR0IOM",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3929305",
-                        Year = 2016,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3929305",                        
                         Country = "Япония",
-                        Age = 16,
-                        Score = 8.327,
+                        Age = 16,                        
                         Release_Date = new DateTime(2016, 07, 03),
                         Runtime = "01:50",
                         ShortDescription = "«Я ищу тебя, хотя не знаю, кто ты». " +
@@ -388,38 +369,35 @@ namespace NewKinoHub.Models
                             Person = Persons["Аой Юки"],
                             Character="Sayaka Natori, озвучка"
                             }
-                            },
+                        },
                         Images = new List<MediaImages>()
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img187/3736954/tvoeimia1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img37/3736955/tvoeimia2.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img300/3736956/tvoeimia3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img75/3736957/tvoeimia4.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
                     },
                     new Media
                     {
                         MediaType = MediaType.Film,
-                        Name = "Майор Гром: Чумной Доктор",
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        Name = "Майор Гром: Чумной Доктор",                        
                         Video = "https://www.youtube.com/embed/aUi6fQRUP1o",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/music-blog/2524",
-                        Year = 2021,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/music-blog/2524",                       
                         Country = "Россия",
-                        Age = 12,
-                        Score = 7.391,
+                        Age = 12,                        
                         Release_Date = new DateTime(2021, 04, 01),
                         Runtime = "02:16",
                         ShortDescription = "Честный полицейский ловит мстителя в маске, убивающего" +
@@ -475,39 +453,36 @@ namespace NewKinoHub.Models
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Сергей Горошко"],
                             Character = "Сергей Разумовский, основатель соцсети «Вместе»"
-                            },
+                            }
                         },
-                        Images = new List<MediaImages>
+                        Images = new List<MediaImages>()
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img174/3739201/mg1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img161/3739202/mg2.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img291/3739203/mg3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img198/3739204/mg4.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
                     },
                     new Media
                     {
                         MediaType = MediaType.Film,
-                        Name = "Душа",
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        Name = "Душа",                        
                         Video = "https://www.youtube.com/embed/vsb8762mE6Q",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/13521150",
-                        Year = 2020,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/13521150",                        
                         Country = "США",
-                        Age = 6,
-                        Score = 8.311,
+                        Age = 6,                        
                         Release_Date = new DateTime(2020, 10, 11),
                         Runtime = "01:46",
                         ShortDescription = "Джазмен хочет сбежать с того света на концерт. Фантазия" +
@@ -563,39 +538,36 @@ namespace NewKinoHub.Models
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Анджела Бассетт"],
                             Character = "Dorothea, озвучка"
-                            },
+                            }
                         },
-                        Images = new List<MediaImages>
+                        Images = new List<MediaImages>()
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img243/3739789/soul1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img31/3739793/soul2.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img184/3739794/soul3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img130/3739795/soul4.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
                     },
                     new Media
                      {
                          MediaType = MediaType.Film,
-                         Name = "Шпион в снегах",
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                         Name = "Шпион в снегах",                        
                         Video = "https://www.youtube.com/embed/pLuqfyhDqNg",
-                         SoundTrackUrl= "https://music.yandex.ru/iframe/#album/8729604",
-                         Year = 2018,
+                         SoundTrackUrl= "https://music.yandex.ru/iframe/#album/8729604",                         
                          Country = "Великобритания",
-                         Age = 6,
-                         Score = 8.726,
+                         Age = 6,                         
                          Release_Date = new DateTime(2018, 12, 30),
                          Runtime = "58 мин.",
                          ShortDescription = "Трогательные и безжалостные отношения диких зверей. Замаскированные камеры снимают их жизнь в зимних условиях",
@@ -627,39 +599,36 @@ namespace NewKinoHub.Models
                             Character = "рассказчик, озвучка"
                             }
                         },
-                         Images = new List<MediaImages>()
+                        Images = new List<MediaImages>()
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img277/3744300/shpion-1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img171/3744301/shpion-2.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img288/3744302/shpion-3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img42/3744304/shpion-4.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
-                     },
+                    },
                     new Media
                     {
                         MediaType = MediaType.Serial,
-                        Name = "Планета Земля 2",
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        Name = "Планета Земля 2",                        
                         Video = "https://www.youtube.com/embed/189KLPD4zSk",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3887137",
-                        Year =2016,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3887137",                        
                         NumOfSeason=1,
                         NumOfEpisodes=6,
                         Country = "Великобритания",
-                        Age = 6,
-                        Score = 9.184,
+                        Age = 6,                        
                         Release_Date = new DateTime(2016, 11, 06),
                         Runtime = "58 мин. серия",
                         ShortDescription = "Острова, горы, джунгли, пустыни, пастбища, города – никогда прежде Земля не была такой близкой.",
@@ -696,19 +665,19 @@ namespace NewKinoHub.Models
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img102/3744311/pz-1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img7/3744312/pz-2.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img66/3744313/pz-3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img70/3744314/pz-4.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
                     },
@@ -717,14 +686,11 @@ namespace NewKinoHub.Models
                         MediaType = MediaType.Serial,
                         Name = "Внешние отмели",
                         NumOfSeason = 1,
-                        NumOfEpisodes = 11,
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        NumOfEpisodes = 11,                        
                         Video = "https://www.youtube.com/embed/o0xdAiYsX18",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/gromsserg/1011",
-                        Year = 2020,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/gromsserg/1011",                        
                         Country = "США",
-                        Age = 16,
-                        Score = 7.282,
+                        Age = 16,                        
                         Release_Date = new DateTime(2020, 04, 15),
                         Runtime = "54 мин. серия",
                         ShortDescription = "Будьте Осторожны В Том, Что Вы Ищете",
@@ -734,26 +700,7 @@ namespace NewKinoHub.Models
                         " тазом из-за бушующего урагана, четверо подростков с помощью случайно добытой карты отправляются" +
                         " на поиски огромной партии золота, стоимость которой оценивается в четыреста миллионов долларов.",
                         ScoreKP = "https://rating.kinopoisk.ru/1264562.gif",
-                        Genres = new List<Genre>() { Genres["Драма"], Genres["Детектив"], Genres["Приключения"], },
-                        Images = new List<MediaImages>
-                        {
-                            new MediaImages
-                            {
-                                ImagesUrl ="https://imageup.ru/img206/3739991/ob1.jpg"
-                            },
-                            new MediaImages
-                            {
-                                ImagesUrl ="https://imageup.ru/img253/3739993/ob2.jpg"
-                            },
-                            new MediaImages
-                            {
-                                ImagesUrl ="https://imageup.ru/img154/3739994/ob3.jpg"
-                            },
-                            new MediaImages
-                            {
-                                ImagesUrl ="https://imageup.ru/img16/3739995/ob4.jpg"
-                            }
-                        },
+                        Genres = new List<Genre>() { Genres["Драма"], Genres["Детектив"], Genres["Приключения"], },                        
                         Casts = new List<Cast>()
                         {
                             new Cast
@@ -784,6 +731,25 @@ namespace NewKinoHub.Models
                                 Person=Persons["Руди Панкоу"],
                                 Character="JJ"
                             }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
                         }
                     }, 
                     new Media
@@ -791,14 +757,11 @@ namespace NewKinoHub.Models
                         MediaType = MediaType.Serial,
                         Name = "Клинок, рассекающий демонов",
                         NumOfSeason = 1,
-                        NumOfEpisodes = 26,
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        NumOfEpisodes = 26,                        
                         Video = "https://www.youtube.com/embed/uz_Wg-0ulpk",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/laferacis/1022",
-                        Year = 2019,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/laferacis/1022",                        
                         Country = "Япония",
-                        Age = 18,
-                        Score = 8.073,
+                        Age = 18,                        
                         Release_Date = new DateTime(2019, 04, 06),
                         Runtime = "25 мин. серия",
                         ShortDescription = "Тем, кто не выдержал и сдался, остается лишь смотреть на успехи других!",
@@ -869,19 +832,19 @@ namespace NewKinoHub.Models
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img93/3740187/kl1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img117/3740189/kl2.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img37/3740190/kl3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img72/3740192/kl4.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
                     },
@@ -890,14 +853,11 @@ namespace NewKinoHub.Models
                         MediaType = MediaType.Serial,
                         Name = "Неуязвимый",
                         NumOfSeason = 1,
-                        NumOfEpisodes = 8,
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        NumOfEpisodes = 8,                        
                         Video = "https://www.youtube.com/embed/oBD-7njwAsQ",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1005",
-                        Year = 2021,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1005",                        
                         Country = "США",
-                        Age = 18,
-                        Score = 8.368,
+                        Age = 18,                        
                         Release_Date = new DateTime(2021, 03, 26),
                         Runtime = "45 мин. серия",
                         ShortDescription = "Основано на комиксах Роберта Киркмана",
@@ -909,26 +869,7 @@ namespace NewKinoHub.Models
                         " прибывших с благожелательной и просветительской миссией.",
                         ScoreKP = "https://rating.kinopoisk.ru/1171895.gif",
                         Genres = new List<Genre>() { Genres["Мультфильм"], Genres["Ужасы"], Genres["Фантастика"], Genres["Фэнтези"],
-                            Genres["Боевик"], Genres["Триллер"], Genres["Драма"], Genres["Приключения"], },
-                        Images = new List<MediaImages>
-                        {
-                            new MediaImages
-                            {
-                                ImagesUrl ="https://imageup.ru/img162/3740236/inv1.jpg"
-                            },
-                            new MediaImages
-                            {
-                                ImagesUrl ="https://imageup.ru/img165/3740237/inv2.jpg"
-                            },
-                            new MediaImages
-                            {
-                                ImagesUrl ="https://imageup.ru/img140/3740239/inv3.jpg"
-                            },
-                            new MediaImages
-                            {
-                                ImagesUrl ="https://imageup.ru/img237/3740240/inv4.jpg"
-                            }
-                        },
+                            Genres["Боевик"], Genres["Триллер"], Genres["Драма"], Genres["Приключения"], },                        
                         Casts = new List<Cast>()
                         {
                             new Cast
@@ -959,21 +900,37 @@ namespace NewKinoHub.Models
                                 Person=Persons["Дж.К. Симмонс"],
                                 Character="Nolan Grayson / Omni-Man"
                             }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
                         }
                     },
                     new Media
                     {
                         MediaType = MediaType.Serial,
                         Name = "Семь миров, одна планета",
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Video = "https://www.youtube.com/embed/IlFRPkT-hVc",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/9447016",
-                        Year = 2019,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/9447016",                        
                         NumOfSeason = 1,
                         NumOfEpisodes = 7,
                         Country = "Великобритания, Китай, США, Германия, Франция",
-                        Age = 6,
-                        Score = 8.932,
+                        Age = 6,                        
                         Release_Date = new DateTime(2019, 10, 27),
                         Runtime = "58 мин. серия",
                         ShortDescription = "Увлекательное путешествие по семи мирам нашей планеты",
@@ -1015,33 +972,30 @@ namespace NewKinoHub.Models
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img151/3744354/7-1-1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img158/3744355/7-1-2.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img193/3744356/7-1-3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img105/3744357/7-1-4.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
                     },
                     new Media
                      {
                          MediaType = MediaType.Serial,
-                         Name = "Мандалорец",
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                         Name = "Мандалорец",                        
                         Video = "https://www.youtube.com/embed/hZ9N7760o0A",
-                         SoundTrackUrl = "https://music.yandex.ru/iframe/#album/13149771",
-                         Year = 2019,
+                         SoundTrackUrl = "https://music.yandex.ru/iframe/#album/13149771",                         
                          Country = "США",
-                         Age = 16,
-                         Score = 8.008,
+                         Age = 16,                         
                          Release_Date = new DateTime(2019, 11, 12),
                          Runtime = "40 мин.",
                          NumOfEpisodes= 16,
@@ -1088,37 +1042,34 @@ namespace NewKinoHub.Models
                             Character = "Moff Gideon"
                             }
                         },
-                         Images = new List<MediaImages>()
+                        Images = new List<MediaImages>()
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img59/3744408/mand-1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img93/3744409/mand-2.jpeg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img59/3744410/mand-3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img204/3744411/mand-4.jpeg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
-                     },
+                    },
                     new Media
                     {
                         MediaType = MediaType.Film,
-                        Name = "Грайндхаус",
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        Name = "Грайндхаус",                        
                         Video = "https://www.youtube.com/embed/j1cjXKdox0M",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3226300",
-                        Year = 2007,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3226300",                        
                         Country = "США, Канада",
-                        Age = 18,
-                        Score = 7.086,
+                        Age = 18,                        
                         Release_Date = new DateTime(2007, 03, 26),
                         Runtime = "03:11",
                         ShortDescription = "Двойной фильм 2007 года, в который входят фильмы ужасов Планета ужаса и Доказательство смерти.",
@@ -1172,39 +1123,36 @@ namespace NewKinoHub.Models
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Квентин Тарантино"],
                             Character = "Warren (segment 'Death Proof') / Rapist #1 (segment 'Planet Terror')"
-                            },
+                            }
                         },
                         Images = new List<MediaImages>()
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img215/3744451/grand-1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img288/3744452/grand-2.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img74/3744453/grand-3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img55/3744455/grand-4.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
                     },
                     new Media
                     {
                         MediaType = MediaType.Film,
-                        Name = "Темный рыцарь: Возрождение легенды. Часть 1",
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        Name = "Темный рыцарь: Возрождение легенды. Часть 1",                        
                         Video = "https://www.youtube.com/embed/QmoZ8cIDbKY",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/7102327",
-                        Year = 2012,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/7102327",                        
                         Country = "США",
-                        Age = 16,
-                        Score = 7.642,
+                        Age = 16,                        
                         Release_Date = new DateTime(2012, 09, 06),
                         Runtime = "01:13",
                         ShortDescription = "Старые герои никогда не умирают. Они просто становятся темнее. " +
@@ -1249,39 +1197,36 @@ namespace NewKinoHub.Models
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Майкл Эмерсон"],
                             Character = "Joker, озвучка"
-                            },
+                            }
                         },
                         Images = new List<MediaImages>()
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img24/3744520/trch1-1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img245/3744522/trch1-2.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img278/3744524/trch1-3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img153/3744526/trch1-4.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
                     },
                     new Media
                     {
                         MediaType = MediaType.Film,
-                        Name = "Темный рыцарь: Возрождение легенды. Часть 2",
-                        Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
+                        Name = "Темный рыцарь: Возрождение легенды. Часть 2",                        
                         Video = "https://www.youtube.com/embed/H5oET8-QiNw",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/7102327",
-                        Year = 2013,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/7102327",                        
                         Country = "США",
-                        Age = 16,
-                        Score = 7.897,
+                        Age = 16,                        
                         Release_Date = new DateTime(2013, 01, 29),
                         Runtime = "01:16",
                         ShortDescription = "Бэтмен хотел отойти от дел, пока не появились Джокер и Супермен. Продолжение анимационных злоключений в Готэме",
@@ -1325,25 +1270,25 @@ namespace NewKinoHub.Models
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Майкл Эмерсон"],
                             Character = "Joker, озвучка"
-                            },
+                            }
                         },
                         Images = new List<MediaImages>()
                         {
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img297/3744542/trch2-1.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img187/3744543/trch2-2.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img281/3744544/trch2-3.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
                             new MediaImages
                             {
-                                ImagesUrl ="https://imageup.ru/img107/3744545/trch2-4.jpg"
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             }
                         }
                     }
@@ -1425,8 +1370,7 @@ namespace NewKinoHub.Models
                             Awards="Сатурн, 2008 - Лучший режиссер («300 спартанцев»)",
                             IsActor=true,
                             IsDirector=true,
-                            IsScreenWriter=true,
-                            Image="https://imageup.ru/img214/3736505/zack_snyder.jpg",
+                            IsScreenWriter=true,                            
                             Description="В марте 2017 года дочь Снайдера Отем покончила с собой.\n" +
                             "Зак с Деборой воспитывают семерых детей, двое из которых являются приемными."
                         },
@@ -1453,8 +1397,7 @@ namespace NewKinoHub.Models
                             " Золотой глобус, 1998 - Лучший сценарий («Умница Уилл Хантинг»)",
                             IsActor=true,
                             IsDirector=true,
-                            IsScreenWriter=true,
-                            Image="https://imageup.ru/img208/3736572/benafflec.jpg",
+                            IsScreenWriter=true,                            
                             Description= "Актёр Кейси Аффлек — младший брат Бена.\n" +
                             "Недолгое время учился в Вермонтском университете и Оксидентал-колледже."
                         },
@@ -1469,8 +1412,7 @@ namespace NewKinoHub.Models
                             Awards="Премия канала «MTV», 2018 - Лучшая драка («Чудо-женщина»);" +
                             "Сатурн, 2018 - Лучшая актриса («Чудо-женщина»)",
                             IsActor=true,                            
-                            IsScreenWriter=true,
-                            Image="https://imageup.ru/img152/3736581/galgadot.jpg",
+                            IsScreenWriter=true,                            
                             Description= "Актриса и модель. Является победительницей конкурса" +
                             " «Мисс Израиль 2004» и участницей конкурса «Мисс Вселенная 2004».\n" +
                             "В начале ноября 2011 года родила дочь от супруга Ярона Версано, которую назвали Альмой.\n" +
@@ -1485,8 +1427,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Сент-Сейвьер, Джерси, Нормандские острова",
                             Awards="Золотая малина, 2017 - Худший экранный ансамбль («Бэтмен против Супермена: На заре справедливости»);" +
                             "Премия канала «MTV», 2014 - Лучший герой («Человек из стали»)",
-                            IsActor=true,                            
-                            Image="https://imageup.ru/img10/3736585/henrycavill.jpg",
+                            IsActor=true, 
                             Description="У актера есть четыре брата.\n" +
                             "Генри Кавилл является представителем Фонда охраны дикой природы имени Даррелла.\n" +
                             "Свободно говорит по-французски, владеет итальянским и немецким языками.\n" +
@@ -1507,8 +1448,7 @@ namespace NewKinoHub.Models
                             Awards="CinemaCon, 2011 - Восходящая звезда",
                             IsActor=true,
                             IsDirector=true,
-                            IsScreenWriter=true,
-                            Image="https://imageup.ru/img226/3736588/jasonmamoa.jpg",
+                            IsScreenWriter=true,                            
                             Description="У него есть двое детей от Лизы Боне — Лола Иолани (Lola Iolani) и Накоа Вульф Манакауапо Намакеаха Момоа.\n" +
                             "Лицевой шрам - 15 ноября 2008 года мужчина ударил Момоа по лицу разбитым пивным стаканом во время ссоры" +
                             " в кафе Birds Cafe, таверне в Голливуде, штат Калифорния."
@@ -1523,8 +1463,7 @@ namespace NewKinoHub.Models
                             Awards="Каннский кинофестиваль, 2012 - Приз компании «Шопар» лучшему молодому актеру",
                             IsActor=true,
                             IsDirector=true,
-                            IsScreenWriter=true,
-                            Image="https://imageup.ru/img148/3736601/ezramiller.jpg",
+                            IsScreenWriter=true,                           
                             Description="Миллер описывает себя как квира, не идентифицируя свою личность с конкретным гендером и сексуальной ориентацией.\n" +
                             "С 2016 года играет роли Криденса Бэрбоуна в серии фильмов «Фантастические твари»" +
                             " по романам Джоан Роулинг и Барри Аллена в лентах супергеройской вселенной DC.\n" +
@@ -1537,8 +1476,7 @@ namespace NewKinoHub.Models
                             Height=1.91,
                             DateOfBirthday=new DateTime(1987,09,08),
                             PlaceOfBirthday="Балтимор, Мэрилэнд, США",
-                            IsActor=true,                            
-                            Image="https://imageup.ru/img65/3736608/rayfisher.jpg",
+                            IsActor=true, 
                             Description="После средней школы Фишер учился в Американской музыкально-драматической академии в Нью-Йорке.\n" +
                             "Получив роль Киборга, Фишер сказал: «Я не знал, в какой степени DC и WB планировали использовать" +
                             " моего персонажа. Когда я подписал контракт, я просто хотел быть частью этого мира. Но эту конкретную" +
@@ -1557,7 +1495,6 @@ namespace NewKinoHub.Models
                             IsActor=true,
                             IsDirector=true,
                             IsScreenWriter=true,
-                            Image="https://imageup.ru/img11/3736631/christerrio.jpg",
                             Description="Крис Террио вырос на Статен-Айленде (Нью-Йорк), в католической" +
                             " семье итальянского и ирландского происхождения. В 1997 году окончил" +
                             " Гарвардский университет, где он изучал английскую и американскую литературу."
@@ -1572,7 +1509,6 @@ namespace NewKinoHub.Models
                             IsActor=true,
                             IsDirector=true,
                             IsScreenWriter=true,
-                            Image="https://imageup.ru/img111/3736947/makotoshinkai.jpg",
                             Description="Настоящее имя — Макото Ниицу. Фильм Синкая «Твоё имя», вышедший в 2016 году," +
                             " некоторое время был самым кассовым аниме в мире за всю историю.\n" +
                             "Синкая называли «новым Миядзаки» в нескольких обзорах, хотя сам он" +
@@ -1591,8 +1527,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday=new DateTime(1993,05,19),
                             PlaceOfBirthday="Сайтама, Япония",
                             IsActor=true,                            
-                            Awards="11-я премия Seiyu Awards, 2017 - Лучшая мужская роль («Твоё имя»)",
-                            Image="https://imageup.ru/img21/3739101/ryunosuke_kamiki.jpg",
+                            Awards="11-я премия Seiyu Awards, 2017 - Лучшая мужская роль («Твоё имя»)",                            
                             Description="Его отец любил поезда, и его назвали Рюносукэ" +
                             " в честь поезда. Его хобби - фотография. Он любил поезда с" +
                             " юных лет, а фотографирование поездов превратилось в хобби." +
@@ -1613,8 +1548,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday=new DateTime(1998,01,27),
                             PlaceOfBirthday="Кагосима, Япония",
                             IsActor=true,                            
-                            Awards="11-я премия Seiyu Awards, 2017 - Лучшая женская роль («Твоё имя»)",
-                            Image="https://imageup.ru/img225/3739102/mone_kamishiraishi.jpg",
+                            Awards="11-я премия Seiyu Awards, 2017 - Лучшая женская роль («Твоё имя»)",                            
                             Description="Родилась в артистической семье, ее сестра Мока Камисираиси" +
                             " играет в кино и на телевидении. Работу над озвучиванием мультфильмов" +
                             " актриса начала еще в 12 лет, став «голосом» одной из второстепенных" +
@@ -1629,8 +1563,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday=new DateTime(1993,11,22),
                             PlaceOfBirthday="Сайтама (префектура), Япония",
                             IsActor=true,                            
-                            Awards="74-ю Mainichi Film Awards, 2020 - Лучшая мужская роль («Говорящие картинки»)",
-                            Image="https://imageup.ru/img248/3739110/ryo_narita.jpg",
+                            Awards="74-ю Mainichi Film Awards, 2020 - Лучшая мужская роль («Говорящие картинки»)",                            
                             Description="В индустрию развлечений пришел в 2013 году" +
                             " в качестве эксклюзивной модели модного торгового бренда" +
                             " мужской одежды MEN'S NON-NO. Дебютировал как актер в 2014 году в фантастической детективной драме 'Флешбек'. " +
@@ -1646,8 +1579,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Тиба (префектура), Япония",
                             IsActor=true,                            
                             Awards="Newtype Anime Awards, 2011 - Лучшая женская роль;"+
-                            "6-я премия Seiyu Awards, 2012 - Лучшая женская роль («Пуэлла Маги Мадока Магика»), («Госик»), («A-Channel»)"                            ,
-                            Image="https://imageup.ru/img220/3739117/aoi_yuki.jpg",
+                            "6-я премия Seiyu Awards, 2012 - Лучшая женская роль («Пуэлла Маги Мадока Магика»), («Госик»), («A-Channel»)",                            
                             Description="Она пришла в индустрию развлечений в четыре года." +
                             " В детстве она снималась в фильмах и драмах. С 1999 по 2002 год" +
                             " она регулярно появлялась в развлекательных шоу Appare Sanma Dai-sensei" +
@@ -1662,8 +1594,7 @@ namespace NewKinoHub.Models
                             OriginalName="Haruo Sotozaki",
                             PlaceOfBirthday="Хоккайдо, Япония",                            
                             IsDirector=true,                            
-                            Awards="Tokyo Anime Award, 2021 - Режиссёр («Клинок, рассекающий демонов»)",
-                            Image="https://imageup.ru/img109/3739209/haruo-sotozaki.jpg",
+                            Awards="Tokyo Anime Award, 2021 - Режиссёр («Клинок, рассекающий демонов»)",                            
                             Description="Полнометражное аниме 'Клинок, рассекающий демонов. Бесконечный поезд'" +
                             " стало самым кассовым японским фильмом в мировом прокате, опередив «Унесённых призраками»" +
                             " Хаяо Миядзаки и собрав более 400 миллионов долларов — и это в условиях пандемии Covid-19."
@@ -1674,8 +1605,7 @@ namespace NewKinoHub.Models
                             OriginalName="Koyoharu Gotouge",
                             DateOfBirthday=new DateTime(1989,05,05),
                             PlaceOfBirthday="-",                            
-                            IsScreenWriter=true,
-                            Image="https://imageup.ru/img71/3739216/koyoharu_gotouge.jpg",
+                            IsScreenWriter=true,                            
                             Description="Автор и мангака 'Клинка, рассекающего демонов'." +
                             " В ноябре 2016 года Готоге начала выпускать свою первую продолжительную" +
                             " мангу Kimetsu no Yaiba('Клинок, рассекающий демонов')."
@@ -1690,8 +1620,7 @@ namespace NewKinoHub.Models
                             IsActor=true,                           
                             Awards="Seiyu Awards, 2015 - Лучший начинающий актёр;" +
                             "Seiyu Awards, 2017 - «Лучшая индивидуальная работа»;" +
-                            "Seiyu Awards, 2020 - Лучшая мужская роль",
-                            Image="https://imageup.ru/img42/3739368/natsuki_hanae.jpg",
+                            "Seiyu Awards, 2020 - Лучшая мужская роль",                            
                             Description="Свою дебютную роль в качестве сэйю Ханаэ исполнил в 2011 году." +
                             " Первую главную роль он исполнил в аниме Tari Tari, озвучив Ацухиро Маэду, при" +
                             " этом его имя как композитора фигурировало в титрах пятой и двенадцатой серий." +
@@ -1708,8 +1637,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Хоккайдо, Япония",
                             IsActor=true,                            
                             Awards="Seiyu Awards, 2012 - Лучший начинающий актёр;" +
-                            "Seiyu Awards, 2016 - «Лучший актёр в главной роли»;",
-                            Image="https://imageup.ru/img192/3739467/yoshitsugu_matsuoka.jpg",
+                            "Seiyu Awards, 2016 - «Лучший актёр в главной роли»;",                            
                             Description="Наиболее известен тем, что озвучивал Кирито из Sword Art Online," +
                             " Сората Канда из Домашнее животное Сакурасо, Сора из Нет игры - нет жизни, Арата Касуга" +
                             " / Астральная троица из Тринити Семь, Сома Юкихира из Food Wars !: Сёкугэки но Сома" +
@@ -1725,8 +1653,7 @@ namespace NewKinoHub.Models
                             Height=1.68,
                             PlaceOfBirthday="Хоккайдо, Япония",
                             IsActor=true,                            
-                            Awards="Seiyu Awards, 2012 - «Лучшее исполнение песни» («Поющий принц»)",
-                            Image="https://imageup.ru/img219/3739474/hiro_shimono.jpg",
+                            Awards="Seiyu Awards, 2012 - «Лучшее исполнение песни» («Поющий принц»)",                            
                             Description="Его известные роли включают Кейма Кацураги в Мир, который знает только Бог," +
                             " Конни Спрингер в Атака Титана , Най в Карневал , Аято Камина в Рахксефон, Акихиса Ёсии" +
                             " в Бака и испытание: Призыв зверей, Норифуми Каваками в Бриллиантовом тузе, Сатоши Мотида" +
@@ -1742,8 +1669,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Сан-Франциско, Калифорния, США",
                             Spouse="Саки Накадзима",
                             IsActor=true,                            
-                            Awards="Seiyu Awards, 2012 - «Лучшее исполнение песни» («Поющий принц»)",
-                            Image="https://imageup.ru/img226/3739477/satoshi_hino.jpg",
+                            Awards="Seiyu Awards, 2012 - «Лучшее исполнение песни» («Поющий принц»)",                            
                             Description="Хино родился в США и вырос в Токио . Он жил в Сан-Франциско до пяти лет." +
                             " В подростковом возрасте он был участником Детской театральной труппы. Изначально Хино" +
                             " стремился стать театральным актером, но после его участия в дубляже американского" +
@@ -1764,8 +1690,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Нарьян-Мар, СССР (Россия)",
                             Spouse="Виктория",                            
                             IsDirector=true,
-                            IsScreenWriter=true,
-                            Image="https://imageup.ru/img50/3739738/oleg-trofim.jpg",
+                            IsScreenWriter=true,                            
                             Description="Стал автором и продюсером самого первого клипа группы «DownCast»" +
                             " под названием «Немое кино». С февраля 2007 года музыкальное семейство ежегодно" +
                             " устраивало концерты в клубе авторской песни «Арктика» в Ненецком Автономном Округе." +
@@ -1781,8 +1706,7 @@ namespace NewKinoHub.Models
                             OriginalName="Габрелянов Артем Арамович",
                             DateOfBirthday=new DateTime(1987,02,09),
                             PlaceOfBirthday="Москва, СССР (Россия)",                            
-                            IsScreenWriter=true,
-                            Image="https://imageup.ru/img195/3739750/artem_gabrelianov.jpg",
+                            IsScreenWriter=true,                            
                             Description="Основал в 2011 году Bubble Comics как подразделение медиакомпании «News Media Holdings»." +
                             " Со временем Артём Габрелянов решил, что издательству стоит отказаться от юмористических комиксов" +
                             " в пользу приключенческих и супергеройских. Является автором комиксов и графических романов Бесобой," +
@@ -1794,8 +1718,7 @@ namespace NewKinoHub.Models
                             OriginalName="Котков Роман Игоревич",
                             DateOfBirthday=new DateTime(1987,04,28),
                             PlaceOfBirthday="Москва, СССР (Россия)",                            
-                            IsScreenWriter=true,
-                            Image="https://imageup.ru/img137/3739752/roman-kotkov.jpg",
+                            IsScreenWriter=true,                            
                             Description="Главный редактор издательства Bubble, ранее выпускающий редактор." +
                             " Креативный продюссер и сценарист ожидаемого фильма «Майор Гром: Чумной доктор»." +
                             " Работает в издательстве с 2014 года. Сперва выпускающим редактором, с 1 октября 2015" +
@@ -1809,8 +1732,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday=new DateTime(1988,08,30),
                             Height=1.91,
                             PlaceOfBirthday="Зеленоградск, Калининградская область, СССР (Россия)",
-                            IsActor=true,                            
-                            Image="https://imageup.ru/img100/3739753/tikhon-zhiznevskii.jpg",
+                            IsActor=true, 
                             Description="В 2009 году окончил ВТУ им. Щукина, курс Марии Пантелеевой и Валерия Фокина." +
                             " С 2009 года работал актёром Александринского театра. Дебютом в Александринском театре" +
                             " стал ввод на роль участника хора фиванцев в спектакль «Эдип-царь» Софокла (реж. Т. Терзопулос)."
@@ -1823,8 +1745,7 @@ namespace NewKinoHub.Models
                             Height=1.75,
                             PlaceOfBirthday="Москва, СССР (Россия)",
                             IsActor=true,                            
-                            Spouse="Павел Аксенов",
-                            Image="https://imageup.ru/img194/3739757/liubov-aksenova.jpg",
+                            Spouse="Павел Аксенов",                            
                             Description="В 2010 году окончила РАТИ-ГИТИС, мастерская А.И. Шейнина. В 2019 году стала" +
                             " самой популярной актрисой года по версии сайта Кино-театр.ру. В 2019 году заняла второе место в ежегодном" +
                             " рейтинге самых сексуальных женщин России, публикуемом журналом «Maxim»."
@@ -1838,8 +1759,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Тамбов, СССР (Россия)",
                             IsActor=true,                            
                             Spouse="Анна Романцева",
-                            Awards="«Заслуженный артист Российской Федерации»",
-                            Image="https://imageup.ru/img109/3739765/aleksei-maklakov.jpg",
+                            Awards="«Заслуженный артист Российской Федерации»",                            
                             Description="Окончил Новосибирское театральное училище. Известность приобрёл благодаря роли прапорщика Шматко в телесериале «Солдаты»." +
                             " Болельщик футбольного клуба «Спартак» (Москва)."
                         },
@@ -1851,8 +1771,7 @@ namespace NewKinoHub.Models
                             Height=1.83,
                             PlaceOfBirthday="Дзержинск, Нижегородская область, Россия",
                             IsActor=true,                            
-                            Awards="Лауреат высшей театральной премии Санкт-Петербурга «Золотой софит»",
-                            Image="https://imageup.ru/img171/3739768/sergei-goroshko.jpg",
+                            Awards="Лауреат высшей театральной премии Санкт-Петербурга «Золотой софит»",                            
                             Description="В период с 2016 по 2020 год обучался в Российском государственном институте сценических" +
                             " искусств в мастерской В. Фильштинского. Является соавтором театрального проекта FULCRO, состоящего" +
                             " из команды актеров, выпускников петербургской театральной мастерской В. М. Фильштинского."
@@ -1874,8 +1793,7 @@ namespace NewKinoHub.Models
                             "Сатурн, 2016 год - Лучший анимационный фильм («Головоломка»); " +
                             "Оскар, 2010 год - Лучший анимационный фильм («Вверх»); " +
                             "Британская академия, 2010 год - Лучший анимационный фильм («Вверх»); " +
-                            "Венецианский кинофестиваль, 2009 год - Премия Future Film Festival Digital Award - особое упоминание («Вверх»)",
-                            Image="https://imageup.ru/img114/3739806/pit-dokter.jpg",
+                            "Венецианский кинофестиваль, 2009 год - Премия Future Film Festival Digital Award - особое упоминание («Вверх»)",                            
                             Description="Самые известные фильмы, над которыми он работал — «Корпорация монстров», «Вверх»," +
                             " «Головоломка», «Душа». Также он ключевая фигура и сотрудник студии Pixar. Был шесть раз номинирован" +
                             " на соискание премии «Оскара», трижды — на Annie Awards, из них выиграл две, и по разу на BAFTA Children’s" +
@@ -1890,8 +1808,7 @@ namespace NewKinoHub.Models
                             OriginalName="Mike Jones",
                             DateOfBirthday=new DateTime(1971,06,01),
                             PlaceOfBirthday="Сан-Антонио, Техас, США",                            
-                            IsScreenWriter=true,
-                            Image="https://imageup.ru/img25/3739826/mike-jones.jpg",
+                            IsScreenWriter=true,                            
                             Description="Он начал свою карьеру в качестве журналиста-развлекателя, работая" +
                             " управляющим редактором Filmmaker Magazine и исполнительным редактором IndieWire. Его первый сценарий, EvenHand," +
                             " был снят в 2001 г. и показанный на AFI Film Festival, Tribeca Film Festival и South by Southwest." +
@@ -1913,8 +1830,7 @@ namespace NewKinoHub.Models
                             "Оскар, 2005 год - Лучшая мужская роль («Рэй»); " +
                             "Золотой глобус, 2005 год - Лучшая мужская роль (комедия или мюзикл) («Рэй»); " +
                             "Британская академия, 2005 год - Лучшая мужская роль («Рэй»); " +
-                            "Премия Гильдии актеров, 2005 год - Лучшая мужская роль («Рэй»)",
-                            Image="https://imageup.ru/img208/3739831/dzheimi-foks.jpg",
+                            "Премия Гильдии актеров, 2005 год - Лучшая мужская роль («Рэй»)",                            
                             Description="В 1994 году он записал свой первый альбом (на студии FOX) Peep This," +
                             " а в 2001 году получил престижную премию MTV Video Music Awards. Фокс сменил имя во" +
                             " время участия в stand-up comedy, после того как узнал, что женщин-комедиантов" +
@@ -1940,8 +1856,7 @@ namespace NewKinoHub.Models
                             "Золотой глобус, 2008 год - Лучшая женская роль на ТВ (комедия или мюзикл) («Студия 30»); " +
                             "Эмми, 2008 год - Лучший комедийный сериал («Студия 30»), Лучшая женская роль в комедийном сериале («Студия 30»); " +
                             "Премия Гильдии актеров, 2008 год - Лучшая актриса комедийного сериала («Студия 30»); " +
-                            "Эмми, 2007 год - Лучший комедийный сериал («Студия 30»)",
-                            Image="https://imageup.ru/img144/3739834/tina-fei.jpg",
+                            "Эмми, 2007 год - Лучший комедийный сериал («Студия 30»)",                            
                             Description="В 1992 году Фей с отличием окончила Виргинский университет, получив степень бакалавра в области театрального искусства. " +
                             "У неё греческие, немецкие и шотландские корни. " +
                             "В 2006 году, по окончании контракта, Тина покинула шоу «Субботним вечером в прямом эфире» ради своего собственного детища" +
@@ -1962,8 +1877,7 @@ namespace NewKinoHub.Models
                             "British Academy Television Awards, 2011,2012,2018 - Лучшее развлекательное выступление («Шоу Грэма Нортона»); " +
                             "British Academy Television Awards, 2013 - Премия Lew Grade Award за развлекательную программу («Шоу Грэма Нортона»); " +
                             "British Academy Television Awards, 2015 - Лучшая комедийная программа или Серия («Шоу Грэма Нортона»); " +
-                            "Национальная телевизионная премия, 2017 - Специальная награда («Шоу Грэма Нортона»)",
-                            Image="https://imageup.ru/img242/3739839/graham-walker.jpg",
+                            "Национальная телевизионная премия, 2017 - Специальная награда («Шоу Грэма Нортона»)",                            
                             Description="В июне 2013 он получил почётную докторскую степень от Ирландского национального университета. " +
                             "Первое появление Нортона в радиовещании произошло в Великобритании, где он получил" +
                             " место постоянного комика на BBC Radio 4 в шоу Loose Ends, которое выходило утром по субботам. Нортон — открытый гей."
@@ -1980,8 +1894,7 @@ namespace NewKinoHub.Models
                             Spouse="Кортни Б. Вэнс",
                             Awards="Премия Гильдии актеров, 2019 год - Лучший актерский состав («Чёрная Пантера»); " +
                             "Сатурн, 1996 год - Лучшая актриса («Странные дни»); " +
-                            "Золотой глобус, 1994 год - Лучшая женская роль (комедия или мюзикл) («На что способна любовь»)",
-                            Image="https://imageup.ru/img289/3739940/andzhela-bassett.jpg",
+                            "Золотой глобус, 1994 год - Лучшая женская роль (комедия или мюзикл) («На что способна любовь»)",                            
                             Description="В 1980 году Анджела Бассетт закончила Йельский университет и получила" +
                             " степень бакалавра по специальности «афро-американские исследования». В 1983 году" +
                             " она также получила степень магистра изобразительных искусств в Йельской драматической" +
@@ -2006,8 +1919,7 @@ namespace NewKinoHub.Models
                             Awards="BTVA Video Game Voice Acting Award - Лучший вокальный ансамбль в видеоигре («NieR: Automata (2017)»)," +
                             " Лучшее мужское вокальное исполнение в видеоигре («NieR: Automata (2017)»); " +
                             "BTVA People's Choice Voice Acting Award, 2018 - Лучший вокальный ансамбль в видеоигре («NieR: Automata (2017)»); " +
-                            "BTVA People's Choice Voice Acting Award, 2016 - Лучший вокальный ансамбль в Аниме-телесериале/OVA («Durarara!!x2»)",
-                            Image="https://imageup.ru/img242/3740208/kail-makkarli.jpg",
+                            "BTVA People's Choice Voice Acting Award, 2016 - Лучший вокальный ансамбль в Аниме-телесериале/OVA («Durarara!!x2»)",                            
                             Description="В аниме он известен как голос Сигео Кагеямы из Mob Psycho 100," +
                             " Микадзуки Августа из Mobile Suit Gundam: Iron-Blooded Orphans, Синдзи Мато из Fate / stay ночь:" +
                             " Unlimited Blade Works, Риота Ватари из Your Lie in April, Килли из Blame, Наранча Гирга из Причудливое" +
@@ -2024,8 +1936,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday=new DateTime(1974,06,13),
                             PlaceOfBirthday="Окадзаки, Айти (префектура), Япония",
                             IsActor=true,                           
-                            Awards="Seiyu Awards, 2012 - «Премия зарубежных поклонников»",
-                            Image="https://imageup.ru/img89/3740211/takakhiro-sakurai.jpg",
+                            Awards="Seiyu Awards, 2012 - «Премия зарубежных поклонников»",                            
                             Description="Известные роли, которые сыграл Сакурай, включают Тентомона из серии Digimon Adventure," +
                             " Зомби из One Punch Man, Стинга Эвклифа из Fairy Tail, Сасори из Наруто Шиппуден, Клауд Страйф в" +
                             " Сборник Final Fantasy VII, Томиока Гиюу из Клинок, рассекающий демонов и Осомацу Мацуно" +
@@ -2042,8 +1953,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Роли, Северная Каролина, США",
                             IsActor=true,
                             IsDirector=true,
-                            IsScreenWriter=true,
-                            Image="https://imageup.ru/img232/3743274/robert-dankan-maknil.jpg",
+                            IsScreenWriter=true,                            
                             Awards="New York International Independent Film & Video Festival, 1999 - Лучший короткометражный фильм («Батарея»)",
                             Description="Макнил начал свою режиссерскую карьеру с нескольких эпизодов «Вояджера»." +
                             " Затем он написал, продюсировал и снял два отмеченных наградами короткометражных фильма," +
@@ -2065,8 +1975,7 @@ namespace NewKinoHub.Models
                             IsActor=true,
                             IsDirector=true,
                             IsScreenWriter=true,
-                            Spouse="Сьюзэн Кларк",
-                            Image="https://imageup.ru/img177/3744140/dzhei-chandrashekkhar.jpg",
+                            Spouse="Сьюзэн Кларк",                            
                             Awards="CinEuphoria Awards, 2020 - Merit - Honorary Award («Голдберги»); " +
                             "OFTA Television Award, 2012 - Лучшая режиссура в комедийном сериале («Сообщество»); " +
                             "SXSW Film Festival, 2001 - Полночные фильмы («Суперполицейские»)" +
@@ -2089,8 +1998,7 @@ namespace NewKinoHub.Models
                             IsActor=true,
                             IsDirector=true,
                             IsScreenWriter=true,
-                            Spouse="Чарисса Бартон",
-                            Image="https://imageup.ru/img52/3743689/alan-tiudik.jpg",
+                            Spouse="Чарисса Бартон",                            
                             Awards="BTVA People's Choice Voice Acting Award, 2017 - Лучший вокальный ансамбль в телесериале («Звёздная принцесса и силы зла»); " +
                             "BTVA People's Choice Voice Acting Award, 2017 - Лучший вокальный ансамбль в художественном фильме («Моана»); " +
                             "BTVA People's Choice Voice Acting Award, 2017 - Лучшее мужское вокальное исполнение в художественном фильме («Изгой-один: Звёздные войны. Истории»); " +
@@ -2111,8 +2019,7 @@ namespace NewKinoHub.Models
                             OriginalName="Sara Tomko",
                             DateOfBirthday=new DateTime(1983,10,19),
                             Height=1.65,
-                            IsActor=true,                           
-                            Image="https://imageup.ru/img211/3743704/sara-tomko.jpg",
+                            IsActor=true,   
                             Description="Известна по ролям в Засланец из космоса (2021), Девочки! Девочки! Девочки! Или: Когда Тэмми Увядает (2018) и Подлый Пит (2015)."
                         },
                         new Person
@@ -2122,8 +2029,7 @@ namespace NewKinoHub.Models
                             DateOfBirthday=new DateTime(1974,07,03),
                             PlaceOfBirthday="Ричмонд, Вирджиния, США",
                             Spouse="Тара Рене Шемански",
-                            IsActor=true,                            
-                            Image="https://imageup.ru/img73/3743716/kori-reinolds.jpg",
+                            IsActor=true, 
                             Description="Первый актёрский опыт Кори Рейнольдс получил ещё в школе. В 16 лет переехал в Калифорнию в надежде на успех." +
                             " Играл в различных эстрадных постановках. Впоследствии перебрался в Нью-Йорк, где после многочисленных проб получил роль Сиуида" +
                             " Стаббса в бродвейском мюзикле «Лак для волос», за которую в 2003 году номинировался на премию «Тони» в категории «Лучшая мужская роль второго" +
@@ -2140,7 +2046,6 @@ namespace NewKinoHub.Models
                             "Stockholm Film Festival, 1997 - Лучший сценарий («Детектор лжи»)",                            
                             IsDirector=true,
                             IsScreenWriter=true,
-                            Image="https://imageup.ru/img84/3743733/dzhonas-peit.jpg",
                             Description="В 1996 году Пейт начал свою карьеру, написав и направив триллер фильм под названием Могила с братом Джошем." +
                             " После показа на кинофестивале Sundance фильм получил множество положительных отзывов. В следующем году они вместе работали над фильмом Обманщик." +
                             " Впоследствии он вместе со своим братом стал соавтором фэнтезибоевик телешоу Добро против Зла (1999)." +
@@ -2156,7 +2061,6 @@ namespace NewKinoHub.Models
                             DateOfBirthday=new DateTime(1966,09,11),
                             PlaceOfBirthday="Уилметт, Иллинойс, США",                            
                             IsScreenWriter=true,
-                            Image="https://imageup.ru/img202/3743824/shannon-burke.jpg",
                             Description="Учился в Университет Северной Каролины-Чапел-Хилл. После окончания он стал фельдшером" +
                             " Пожарная служба Нью-Йорка. Берк использовал этот опыт в своих романах. Safelight (2004) и Черные мухи (2008)." +
                             " К 2015 году Берк опубликовал три романа: Safelight (2004), Черные мухи (2008) и В дикую страну (2015). Также он" +
@@ -2170,8 +2074,7 @@ namespace NewKinoHub.Models
                             Height=1.85,
                             DateOfBirthday=new DateTime(1992,09,16),
                             PlaceOfBirthday="Аннаполис, Мэриленд, США",
-                            IsActor=true,                            
-                            Image="https://imageup.ru/img222/3743827/chase-stokes.jpg",
+                            IsActor=true, 
                             Awards="Премия канала «MTV», 2021 - Лучший поцелуй («Внешние отмели»)",
                             Description="В начале своей актерской карьеры у Стокса были небольшие роли, в том числе Очень странные дела, Дневные дивы и Расскажи мне свои секреты." +
                             " Он проходил прослушивание во Внешних отмелях в 2019 году и первоначально отклонил предложение, но передумал после прочтения сценария. Он также первоначально" +
@@ -2186,8 +2089,7 @@ namespace NewKinoHub.Models
                             Height=1.68,
                             DateOfBirthday=new DateTime(1997,12,21),
                             PlaceOfBirthday="Чарльстон, Южная Каролина, США",
-                            IsActor=true,                            
-                            Image="https://imageup.ru/img281/3743932/medlin-klain.jpg",
+                            IsActor=true,  
                             Awards="Премия канала «MTV», 2021 - Лучший поцелуй («Внешние отмели»)",
                             Description="Она начала с небольших ролей, таких как Хлоя в Стертая личность и Тейлор Уоттс в Вице-директора. У нее также были небольшие повторяющиеся роли" +
                             " в Древние и Очень странные дела. В 2018 году она сыграла Сару Кэмерон в оригинальном сериале Netflix Внешние отмели, первый сезон которого был выпущен 15 апреля 2020 года." +
@@ -2200,8 +2102,7 @@ namespace NewKinoHub.Models
                             OriginalName="Rudy Pankow",
                             DateOfBirthday=new DateTime(1998,08,12),
                             PlaceOfBirthday="Кетчикан, Аляска, США",
-                            IsActor=true,                            
-                            Image="https://imageup.ru/img181/3743970/rudi-pankou.jpg",
+                            IsActor=true, 
                             Awards="Humboldt International Film Festival, 2019 - Почетное упоминание («Девиант» (2018))",
                             Description="Панков изначально собирался пойти в кулинарную школу, но решил стать актером и поступил в актерский институт в 2016–17 годах. " +
                             "После этого Панков поступил в студию Майкла Вулсона, чтобы улучшить свои актерские способности. После окончания актерского курса он начал играть в театре," +
@@ -2212,8 +2113,7 @@ namespace NewKinoHub.Models
                             Name="Джефф Аллен",
                             OriginalName="Jeff Allen",
                             PlaceOfBirthday="-",                            
-                            IsDirector=true,                           
-                            Image="https://imageup.ru/img70/3743969/dzheff-allen.jpg",
+                            IsDirector=true,   
                             Description="Известен как режиссёр по таким работам Неуязвимый (2021), Команда 'Мстители'(2012-2019), Великий Человек-паук (2012-2017), Шэгги и Скуби-Ду ключ найдут! (2006-2008)."
                         },
                           new Person
@@ -2225,7 +2125,6 @@ namespace NewKinoHub.Models
                             IsActor=true,                            
                             IsScreenWriter=true,
                             Height=1.85,
-                            Image="https://imageup.ru/img23/3743975/robert-kirkman.jpg",
                             Awards="CinEuphoria Awards, 2020 - Почетная Награда («Ходячие мертвецы»)",
                             Description="Наиболее известен своей работой над серией комиксов Ходячие мертвецы и Неуязвимый для Image Comics и Marvel Team-Up и Marvel Zombies для Marvel Comics." +
                             " Вместе с Тоддом Макфарлейном работал над созданием серии Haunt, и с ним же входит в число пяти владельцев Image Comics и единственным из них, кто не был" +
@@ -2239,8 +2138,7 @@ namespace NewKinoHub.Models
                             Spouse="Джоана Пак",
                             DateOfBirthday=new DateTime(1983,12,21),
                             PlaceOfBirthday="Сеул, Южная Корея",
-                            IsActor=true,                            
-                            Image="https://imageup.ru/img156/3743979/stiven-ian.jpg",
+                            IsActor=true,  
                             Awards="NMFC Award, 2021 - Лучший ансамбль («Минари»); " +
                             "NCFCA Award, 2021 - Лучший актер («Минари»); " +
                             "NTFCA Award, 2021 - Лучший актер («Минари»); " +
@@ -2265,7 +2163,6 @@ namespace NewKinoHub.Models
                             IsActor=true,                            
                             IsScreenWriter=true,
                             Height=1.65,
-                            Image="https://imageup.ru/img169/3743982/sandra-o.jpg",
                             Awards="Золотой глобус, 2019 - Лучшая женская роль на ТВ (драма) («Убивая Еву»); " +
                             "Премия Гильдии актеров, 2019 - Лучшая актриса драматического сериала («Убивая Еву»); " +
                             "Премия Гильдии актеров, 2007 - Лучший актерский состав драматического сериала («Анатомия страсти»); " +
@@ -2289,7 +2186,6 @@ namespace NewKinoHub.Models
                             IsActor=true,                            
                             Spouse="Мишель Шумахер",
                             Height=1.8,
-                            Image="https://imageup.ru/img272/3743989/dzhk-simmons.jpg",
                             Awards="Оскар, 2015 - Лучшая мужская роль второго плана («Одержимость»); " +
                             "Золотой глобус, 2015 - Лучшая мужская роль второго плана («Одержимость»); " +
                             "Британская академия, 2015 - Лучшая мужская роль второго плана («Одержимость»); " +
@@ -2310,7 +2206,6 @@ namespace NewKinoHub.Models
                             IsActor=true,                            
                             IsScreenWriter=true,
                             Height=1.91,
-                            Image="https://imageup.ru/img102/3743993/kris-sheridan.jpeg",
                             Awards="Austin Film Festival, 2006 - Премия за документальный фильм («Похищение: История Мегуми Йокоты»); " +
                             "DVD Exclusive Awards, 2006 - Лучший сценарий (для премьерного фильма на DVD) («Стьюи Гриффин: Нерассказанная история»); " +
                             "Omaha Film Festival, 2006 - Лучший документальный фильм («Похищение: История Мегуми Йокоты»); " +
@@ -2334,7 +2229,6 @@ namespace NewKinoHub.Models
                             IsActor=true,
                             IsDirector=true,
                             IsScreenWriter=true,
-                            Image="https://imageup.ru/img161/3736570/pirate.jpg",
                             Description="Российский оппозиционный лидер, юрист, политический и общественный деятель, получивший известность своими" +
                             " расследованиями о коррупции в России. Позиционирует себя в качестве главного оппонента коррумпированному руководству" +
                             " России во главе с Владимиром Путиным. Создатель «Фонда борьбы с коррупцией», объединяющего дочерние проекты:" +
@@ -2349,8 +2243,7 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Батгейт, Западный Лотиан, Шотландия, Великобритания",
                             Spouse="Джорджия Теннант",
                             IsActor=true,
-                            IsDirector=true,                            
-                            Image="https://imageup.ru/img248/3744294/devid-tennant.jpg",
+                            IsDirector=true,       
                             Awards="Broadcasting Press Guild Awards, 2021 - Лучший актер («Дес»), («Постановка»); " +
                             "TV Times Awards, 2020 - Любимый актер («Дес»); " +
                             "BTVA People's Choice Voice Acting Award, 2018 - Лучший вокальный ансамбль в новом телесериале («Утиные истории»(2017)); " +
@@ -2377,7 +2270,6 @@ namespace NewKinoHub.Models
                             PlaceOfBirthday="Лондон, Великобритания",                            
                             IsDirector=true,
                             IsScreenWriter=true,
-                            Image="https://imageup.ru/img11/3744290/dzhon-dauner.jpg",
                             Awards="Grammy Awards, 1993 - Лучшее музыкальное видео («Питер Гэбриэл: Копаться в грязи»)",
                             Description="Британский кинопродюсер документальных фильмов о природе для телевидения и кино," +
                             " известный по фильмам 'Белые медведи: шпион на льду' (2011) и 'Питер Гэбриэл: Копание в грязи' (1992). " +
@@ -2389,7 +2281,6 @@ namespace NewKinoHub.Models
                         new Person{
                             Name="Джастин Андерсон",
                             OriginalName="Justin Anderson",
-                            Image="https://imageup.ru/img103/3744326/man.jpg",
                             PlaceOfBirthday="-",                            
                             IsDirector=true,
                             IsScreenWriter=true,
@@ -2399,7 +2290,6 @@ namespace NewKinoHub.Models
                             Name="Дэвид Аттенборо",
                             Height=1.78,
                             OriginalName="David Frederick Attenborough",
-                            Image="https://imageup.ru/img254/3744329/david-frederick-attenborough.jpg",
                             PlaceOfBirthday="Лондон, Англия, Великобритания",
                             DateOfBirthday=new DateTime(1926,05,08),
                             IsActor=true,
@@ -2420,7 +2310,6 @@ namespace NewKinoHub.Models
                         new Person{
                             Name="Чадден Хантер",
                             OriginalName="Chadden Hunter",
-                            Image="https://imageup.ru/img290/3744367/chadden-hunter.jpg",
                             PlaceOfBirthday="Северный Квинсленд, Австралия",                            
                             IsDirector=true,
                             IsScreenWriter=true,
@@ -2440,7 +2329,6 @@ namespace NewKinoHub.Models
                         new Person{
                             Name="Джилз Баджер",
                             OriginalName="Giles Badger",
-                            Image="https://imageup.ru/img103/3744326/man.jpg",
                             PlaceOfBirthday="-",                            
                             IsDirector=true,
                             IsScreenWriter=true,
@@ -2452,7 +2340,6 @@ namespace NewKinoHub.Models
                             OriginalName="Rick Famuyiwa",
                             Height=1.93,
                             DateOfBirthday=new DateTime(1973,06,18),
-                            Image="https://imageup.ru/img107/3744385/rik-famuiiva.jpg",
                             Awards="Image Awards (NAACP),2017 - Выдающаяся режиссура в кино (телевидение) («Слушание»); " +
                             "African-American Film Critics Association (AAFCA), 2015 - Лучший сценарий («Наркотик»)",
                             PlaceOfBirthday="Инглвуд, Калифорния, США",
@@ -2471,7 +2358,6 @@ namespace NewKinoHub.Models
                             Name="Джон Фавро",
                             OriginalName="Jonathan Favreau",
                             Height=1.85,
-                            Image="https://imageup.ru/img51/3744389/dzhon-favro.jpg",
                             PlaceOfBirthday="Нью-Йорк, США",
                             DateOfBirthday=new DateTime(1966,10,19),
                             IsActor=true,
@@ -2494,7 +2380,6 @@ namespace NewKinoHub.Models
                             Name="Педро Паскаль",
                             Height=1.8,
                             OriginalName="Jose Pedro Balmaceda Pascal",
-                            Image="https://imageup.ru/img86/3744395/pedro-paskal.jpg",
                             DateOfBirthday=new DateTime(1975,04,02),
                             PlaceOfBirthday="Сантьяго, Чили",
                             IsActor=true,                            
@@ -2513,7 +2398,6 @@ namespace NewKinoHub.Models
                         new Person{
                             Name="Джина Карано",
                             OriginalName="Gina Joy Carano",
-                            Image="https://imageup.ru/img42/3744397/dzhina-karano.jpg",
                             DateOfBirthday=new DateTime(1982,04,16),
                             PlaceOfBirthday="Округ Даллас, Техас, США",
                             IsActor=true,                            
@@ -2530,7 +2414,6 @@ namespace NewKinoHub.Models
                             Name="Джанкарло Эспозито",
                             OriginalName="Giancarlo Giuseppe Alessandro Esposito",
                             Height=1.71,
-                            Image="https://imageup.ru/img264/3744399/dzhankarlo.jpg",
                             DateOfBirthday=new DateTime(1958,04,26),
                             PlaceOfBirthday="Копенгаген, Дания",
                             IsActor=true,
@@ -2555,7 +2438,6 @@ namespace NewKinoHub.Models
                             Name="Роберт Родригес",
                             OriginalName="Robert Anthony Rodriguez",
                             Height=1.88,
-                            Image="https://imageup.ru/img50/3744463/robert-rodriges.jpg",
                             PlaceOfBirthday="Сан-Антонио, Техас, США",
                             DateOfBirthday=new DateTime(1968,06,20),
                             IsActor=true,
@@ -2575,7 +2457,6 @@ namespace NewKinoHub.Models
                             Name="Квентин Тарантино",
                             OriginalName="Quentin Jerome Tarantino",
                             Height=1.85,
-                            Image="https://imageup.ru/img157/3744468/kventin-tarantino.jpg",
                             PlaceOfBirthday="Ноксвилл, Теннесси, США",
                             Spouse="Даниэлла Пик",
                             DateOfBirthday=new DateTime(1963,03,27),
@@ -2608,7 +2489,6 @@ namespace NewKinoHub.Models
                             Name="Роуз Макгоуэн",
                             OriginalName="Rose Arianna McGowan",
                             Height=1.63,
-                            Image="https://imageup.ru/img128/3744480/rouz-makgoun.jpg",
                             DateOfBirthday=new DateTime(1973,09,05),
                             PlaceOfBirthday="Флоренция, Тоскана, Италия",
                             IsActor=true,
@@ -2627,7 +2507,6 @@ namespace NewKinoHub.Models
                             Name="Курт Рассел",
                             OriginalName="Kurt Vogel Russell",
                             Height=1.8,
-                            Image="https://imageup.ru/img90/3744506/kurt-rassel.jpg",
                             DateOfBirthday=new DateTime(1951,03,17),
                             PlaceOfBirthday="Спрингфилд, Массачусетс, США",
                             IsActor=true,                            
@@ -2648,7 +2527,6 @@ namespace NewKinoHub.Models
                             Name="Мэри Элизабет Уинстэд",
                             OriginalName="Mary Elizabeth Winstead",
                             Height=1.73,
-                            Image="https://imageup.ru/img3/3744509/meri-elizabet-uinsted.jpg",
                             DateOfBirthday=new DateTime(1984,11,28),
                             PlaceOfBirthday="Роки-Маунт, Северная Каролина, США",
                             IsActor=true,                            
@@ -2665,8 +2543,7 @@ namespace NewKinoHub.Models
                         },
                          new Person{
                             Name="Джей Олива",
-                            OriginalName="Jay Oliva",                            
-                            Image="https://imageup.ru/img66/3744558/jay-oliva.jpg",                            
+                            OriginalName="Jay Oliva",                                    
                             PlaceOfBirthday="-",
                             IsActor=true,
                             IsDirector=true,
@@ -2684,7 +2561,6 @@ namespace NewKinoHub.Models
                          new Person{
                             Name="Роберт Гудман",
                             OriginalName="Bob Goodman",
-                            Image="https://imageup.ru/img2/3744564/bob-goodman.jpg",
                             PlaceOfBirthday="-",
                             IsActor=true,                           
                             IsScreenWriter=true,
@@ -2698,7 +2574,6 @@ namespace NewKinoHub.Models
                          new Person{
                             Name="Питер Уэллер",
                             OriginalName="Peter Frederick Weller",
-                            Image="https://imageup.ru/img83/3744570/piter-ueller.jpg",
                             DateOfBirthday=new DateTime(1947,06,24),
                             Height=1.83,
                             Spouse="Шари Стоу",
@@ -2716,7 +2591,6 @@ namespace NewKinoHub.Models
                          new Person{
                             Name="Ариэль Уинтер",
                             OriginalName="Ariel Winter Workman",
-                            Image="https://imageup.ru/img122/3744588/ariel-uinter.jpg",
                             DateOfBirthday=new DateTime(1998,01,22),
                             Height=1.55,                            
                             PlaceOfBirthday="Лос-Анджелес, Калифорния, США",
@@ -2735,7 +2609,6 @@ namespace NewKinoHub.Models
                          new Person{
                             Name="Майкл Эмерсон",
                             OriginalName="Michael Emerson",
-                            Image="https://imageup.ru/img186/3744606/maikl-emerson.jpg",
                             DateOfBirthday=new DateTime(1954,09,07),
                             Height=1.74,
                             PlaceOfBirthday="Кедар-Рапидс, Айова, США",
@@ -2754,7 +2627,6 @@ namespace NewKinoHub.Models
                          new Person{
                             Name="Дэвид Селби",
                             OriginalName="David Lynn Selby",
-                            Image="https://imageup.ru/img264/3744609/devid-selbi.jpg",
                             DateOfBirthday=new DateTime(1941,02,05),
                             Height=1.9,
                             PlaceOfBirthday="Моргантаун, Западная Виргиния, США",

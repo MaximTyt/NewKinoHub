@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using NewKinoHub.Manager.Casts;
 using NewKinoHub.Manager.Persons;
 using NewKinoHub.Manager.Userss;
@@ -45,10 +46,10 @@ namespace NewKinoHub.Controllers
 
         [HttpPost]
         public async Task<IActionResult> AddCast(int IdFilm, string Character, int RoleInFilm, string Name, string OriginalName,
-            bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, string Image, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+            bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
             string PlaceOfDeath, string Spouse, string Awards, string Description)
         {
-            await _cast.AddCast(IdFilm, Character, RoleInFilm, Name, OriginalName, IsActor, IsScreenWriter, IsDirector, Height, Image, DateOfBirthday, DateOfDeath, PlaceOfBirthday, 
+            await _cast.AddCast(IdFilm, Character, RoleInFilm, Name, OriginalName, IsActor, IsScreenWriter, IsDirector, Height, mainPhoto, DateOfBirthday, DateOfDeath, PlaceOfBirthday, 
                 PlaceOfDeath, Spouse, Awards, Description);
             return RedirectToAction("Film","Films", new {IdFilm});
         }

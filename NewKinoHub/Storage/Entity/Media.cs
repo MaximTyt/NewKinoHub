@@ -10,6 +10,10 @@ namespace NewKinoHub.Storage.Entity
 {
     public class Media
     {
+        public Media()
+        {
+            Score = 0;
+        }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MediaID { get; set; }
@@ -21,40 +25,30 @@ namespace NewKinoHub.Storage.Entity
         public string Name { get; set; }
 
         public byte[] Img { get; set; }
-
-        [Required]        
+                       
         public string Video { get; set; }
-
-        [Required]
+                
         public string SoundTrackUrl { get; set; }
-
-        [Required]        
-        public int Year { get; set; }        
-
-        [Required]        
+               
         public string Country { get; set; }
 
         [Required]        
         public int Age { get; set; }
+                
+        public string ScoreKP { get; set; }
 
         [Required]
-        public string ScoreKP { get; set; }        
-
-        [Required]
-        [Range(1.0,10.0)]
+        [Range(1.0, 10.0)]
         public double Score { get; set; }
                     
         public DateTime Release_Date { get; set; }
-
-        [Required]        
+                        
         public string Runtime { get; set; }
 
-        [DataType(DataType.MultilineText)]
-        [Required]        
+        [DataType(DataType.MultilineText)]                
         public string ShortDescription { get; set; }
 
-        [DataType(DataType.MultilineText)]
-        [Required]        
+        [DataType(DataType.MultilineText)]                
         public string Description { get; set; }
 
         public int? NumOfSeason { get; set; }
