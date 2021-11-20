@@ -587,5 +587,37 @@ namespace KinoHab.Manager
             _context.Media.FirstOrDefault(st => st.MediaID == IdFilm).Score = Math.Round(score, 3);
             _context.SaveChanges();
         }
+
+        public async Task<(List<Media>,List<Media>)> GetFilmsForPerson(string Person, int IdPerson, Users User)
+        {
+            var Films = await GetAllFilms();
+            var Serials = await GetAllFilms();
+            if(User != null && (User.Favorites != null || User.Reviews != null))
+            {
+                Films = await GetFilms(User);
+                Serials = await GetFilms(User);
+            }
+
+            (List<Media>, List<Media>) Media = (null, null);
+
+            switch (Person)
+            {
+                case "Actor":
+                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsActor == true) != null).ToList();
+                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsActor == true) != null).ToList();
+                    break;
+                case "Director":
+                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsDirector == true) != null).ToList();
+                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsDirector == true) != null).ToList();
+                    break;
+                case "ScreenWriter":
+                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsScreenWriter == true) != null).ToList();
+                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsScreenWriter == true) != null).ToList();
+                    break;
+            }
+            Media = (Films.ToList(), Serials.ToList());
+            return Media;
+
+        }
     }
 }

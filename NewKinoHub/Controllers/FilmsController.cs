@@ -124,5 +124,12 @@ namespace KinoHab.Controllers
             _film.ChangeRaiting(IdFilm);
             return RedirectToAction("Film", "Films", new { IdFilm });
         }
+
+        public async Task<IActionResult> SelectFilmsForPerson(string Person, int IdPerson)
+        {
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
+            var Films = await _film.GetFilmsForPerson(Person, IdPerson, await _film.GetUser(User.Identity.Name));
+            return View(Films);
+        }
     }
 }
