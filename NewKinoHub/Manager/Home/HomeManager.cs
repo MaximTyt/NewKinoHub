@@ -41,7 +41,7 @@ namespace NewKinoHub.Manager.Home
             var films = await Film.GetAllFilms();
             var serials = await Film.GetAllFilms();
             var persons = await Person.GetPersons();
-            if (User != null && User.Favorites != null)
+            if (User != null && (User.Favorites != null || User.Reviews != null))
             {
                 films = await Film.GetFilms(User);
                 serials = await Film.GetFilms(User);

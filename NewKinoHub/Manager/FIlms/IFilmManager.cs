@@ -27,6 +27,7 @@ namespace KinoHab.Manager
         bool UserReview(string Email, int IdFilm);
         Task DeleteReviews(int IdFilm, int IdUser);
         Task EditReviews(int idFilm, int IdUser, string text, double rating);
+        Task<(List<Media>, List<Media>)> GetFilmsForPerson(string Person, int IdPerson, Users User);
 
     }
 }
