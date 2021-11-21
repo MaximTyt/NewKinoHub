@@ -11,6 +11,7 @@ namespace NewKinoHub.Manager.Userss
     public interface IUserManager
     {
         Task<Users> GetUsers(string Name);
+        Task<Users> GetUser(string Email);
         Task AddFavoriteFilms(int id, string Name);
         Task DeleteFavoriteFilms(int idFilms, string Name);
         Task EditAccount(IFormFile mainPhoto, string name, DateTime DataB, string Login);
@@ -21,6 +22,10 @@ namespace NewKinoHub.Manager.Userss
         bool ImageNull(string Email);
         bool FavoritesNull(string Email);
         int GetUserId(string Email);
+        public Task<Random> SendEmailForChangePassword(string email);
+        Task SendEmailAboutChangePassword(string email);
+        Task EditPassword(string newPassword, string newSalt, string Email);
+
 
     }
 }

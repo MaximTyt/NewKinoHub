@@ -1293,17 +1293,19 @@ namespace NewKinoHub.Models
                         }
                     }
                     );
-            }
-
+            }                       
             if (!content.Users.Any())
-            {                
+            {
+                string Password = "123";
+                HashSalt hashSalt = HashSalt.GenerateSaltedHash(64, Password);
                 content.AddRange(
 
                     new Users
                     {
                         Nickname = "admin",
                         Email = "admin@gmail.com",
-                        Password = "123",
+                        Password = hashSalt.Hash,
+                        Salt = hashSalt.Salt,
                         Role = Role.Admin,
                         DateOfBirthday = new DateTime(2001,08,10)
                     }

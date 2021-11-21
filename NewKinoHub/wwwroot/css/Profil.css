@@ -83,3 +83,60 @@ a.btn_register {
     #profil > div > form {
         width:80%;
     }
+
+#password1 {
+    background: rgba(102, 102, 102, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    color: white;
+    z-index: 20;
+}
+
+    #password1 > a {
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 21;
+    }
+
+        #password1 > a:target {
+            visibility: visible;
+            opacity: 1;
+        }
+
+    #password1 > div {
+        width: 500px;
+        height: 300px;
+        text-align: center;
+        padding: 15px;
+        border: 3px solid rgb(247,151,30);
+        border-radius: 10px;
+        color: white;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        background-color: rgb(8,8,8);
+        z-index: 22;
+    }
+
+    #password1:target {
+        display: block;
+    }
+
+
+
+    #password > div > form {
+        width: 80%;
+    }
