@@ -125,7 +125,7 @@ namespace NewKinoHub.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nickname = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Salt = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Image = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     Role = table.Column<int>(type: "int", nullable: false),

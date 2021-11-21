@@ -213,7 +213,6 @@
         width: 100%;
         height: auto;
         list-style: none;
-        /*background-color: rgb(8,8,8);*/
     }
 
     #menu1 > ul {
@@ -236,14 +235,13 @@
         height: auto;
         vertical-align: top;
         text-align: left;
-        /*background-color: rgb(8,8,8);*/
         color: white;
     }
 
         #menu1 ul li.razd {
             height: 28px;
             width: 1px;
-            background: #ffffff;
+            /*background: #ffffff;*/
             margin-top: 4px;
         }
 
@@ -265,6 +263,19 @@
             background: rgb(247,151,30);
             color: black;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        #menu1 ul li p {
+            display: block;
+            padding: 9px 45px 9px 45px;
+            font-size: 14px;
+            color: #ffffef;
+            line-height: 1.3em;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            height: 36px;
+            box-sizing: border-box;
         }
 
         #menu1 ul li ul {
