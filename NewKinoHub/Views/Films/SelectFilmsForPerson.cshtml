@@ -41,131 +41,102 @@
                     }
                     @foreach (var film in Model.Item1)
                     {
-                        <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                            <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
-                                <img width="265" class="u-back-image u-expanded imagetitle" src=@film.Img>
-                            </a>
-                            <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
-                                <table style="width: 780px;">
-                                    <tbody>
-                                        <tr>
-                                            <td style="width: 400px;">
-                                                <p style="font-weight: bold; right:100%; left:0%;"> @film.Name </p>
-                                            </td>
-                                            @if (film.IsFavorites == false && ViewBag.User != null)
-                                            {
-                                                <td valign="top" align="right" width="30">
-                                                    <a>
-                                                        <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
-                                                    </a>
-                                                </td>
-                                            }
-                                            else
-                                            {
-                                                if (ViewBag.User != null)
-                                                {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
-                                                }
-                                                else
-                                                {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
-                                                }
-                                            }
-                                            @if (film.IsVieweds == false && ViewBag.User != null)
-                                            {
-                                                <td valign="top" align="right" width="30">
-                                                    <a>
-                                                        <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
-                                                    </a>
-                                                </td>
-                                            }
-                                            else
-                                            {
-                                                if (ViewBag.User != null)
-                                                {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/eye.png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
-                                                }
-                                                else
-                                                {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
-                                                }
 
-                                            }
-                                            @if (ViewBag.Role == 1)
-                                            {
-                                                <td align="right" width="30">
-                                                    <a href=@Url.Action("EditFilm", "Films", new { Id = film.MediaID })>
-                                                        <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
-                                                    </a>
-                                                </td>
-                                                <td align="right" width="30">
-                                                    <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = film.MediaID })>
-                                                        <img class="deleteicon" src="~/lib/images/Icons/close.png" />
-                                                    </a>
-                                                </td>
-                                            }
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p>Год: @film.Release_Date.Year</p>
-
-                                <p>
-                                    <span style="font-weight:bold">Жанры:</span>
-                                    @foreach (var genre in film.Genres)
-                                    {
-                                        <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
-                                    }
-                                </p>
-                                <p>
-                                    <span style="font-weight:bold">Режиссер:</span>
-                                    @foreach (var director in film.Casts)
-                                    {
-                                        if ((int)director.RoleInFilm == 0 && director.Person != null)
-                                        {
-                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name</a>
-                                        }
-                                    }
-                                </p>
-                                <p>
-                                    <span style="font-weight:bold">Актеры:</span>
-                                    @foreach (var director in film.Casts)
-                                    {
-                                        if ((int)director.RoleInFilm == 2 && director.Person != null)
-                                        {
-                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name |</a>
-                                        }
-                                    }
-                                    <a href=@Url.Action("ListCast", "Cast", new { castId = film.MediaID}) class="textstyle">...</a>
-                                </p>
-                                <p>Страна: @film.Country</p>
-                                <p>Возраст: @film.Age+</p>
-                                <a><img src=@film.ScoreKP border='0'></a>
-                                <p>Краткое описание: @film.ShortDescription</p>
-                                @if (ViewBag.Role == 1)
+            <div style="margin-top:10px; width:1100px;" class="fav_block_films">
+                    <div class="item_films">
+                        @if (film.Img != null)
+                        {
+                            <p>
+                                <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="300" height="400" class="imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(film.Img))"></a>
+                                @if (film.Score <= 5)
                                 {
-
-                                    <a class="allcastlist" href=@Url.Action("ListCasts", "Cast", new { IdFilm = film.MediaID })>Весь каст</a>
-
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
                                 }
-                            </div>
-                            <div style=" clear:both;"></div>
+                                @if (film.Score <= 8 && film.Score > 5)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                }
+                                @if (film.Score > 8)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @film.Score</span>
+                                }
+                            </p>
+                        }
+                        else
+                        {
+                            <p>
+                                <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="300" height="400" class="imagetitle" src="~/lib/images/netpostera.png"></a>
+                                @if (film.Score <= 5)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                }
+                                @if (film.Score <= 8 && film.Score > 5)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                }
+                                @if (film.Score > 8)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @film.Score</span>
+                                }
+                            </p>
+                        }
+                        <p style="margin-left:5px;"><a class="titlenamesize_list" href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })>@film.Name</a></p>
+                        <div class="descr">
+                            @if (film.Img != null)
+                            {
+
+                                <p>
+                                    <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(film.Img))"></a>
+                                    @if (film.Score <= 5)
+                                    {
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                    }
+                                    @if (film.Score <= 8 && film.Score > 5)
+                                    {
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                    }
+                                    @if (film.Score > 8)
+                                    {
+
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @film.Score</span>
+
+                                    }
+                                </p>
+                            }
+                            else
+                            {
+                                <p>
+                                    <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="340" height="470" src="~/lib/images/netpostera.png"></a>
+                                    @if (film.Score <= 5)
+                                    {
+
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                    }
+                                    @if (film.Score <= 8 && film.Score > 5)
+                                    {
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                    }
+                                    @if (film.Score > 8)
+                                    {
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left:3px; font-size: 15px; color: white; "> @film.Score</span>
+
+                                    }
+                                </p>
+                            }
+
+                            <p>
+                                <span style="color: white">Год: @film.Release_Date.Year</span>
+                            </p>
+                            <p>
+                                @foreach (var genre in film.Genres)
+                                {
+                                    <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="genre_st">@genre.Genre_Name |</a>
+                                }
+                            </p>
+                            <p style="color:white;"> @film.ShortDescription</p>
                         </div>
+                    </div>
+            </div>
                     }
 
                     @if (Model.Item2.Count != 0)
@@ -176,133 +147,99 @@
                     }
                     @foreach (var serial in Model.Item2)
                     {
-                        <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                            <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
-                                <img class="u-back-image u-expanded imagetitle imglist" src=@serial.Img>
-                            </a>
-                            <div class="bgtitleopacity" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
-                                <table style="width: 780px;">
-                                    <tbody>
-                                        <tr>
-                                            <td style="width: 400px;">
-                                                <p style="font-weight: bold; right:100%; left:0%;"> @serial.Name </p>
-                                            </td>
-                                            @if (serial.IsFavorites == false && ViewBag.User != null)
-                                            {
-                                                <td valign="top" align="right" width="30">
-                                                    <a>
-                                                        <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
-                                                    </a>
-                                                </td>
-                                            }
-                                            else
-                                            {
-                                                if (ViewBag.User != null)
-                                                {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/favourite11.png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
-                                                }
-                                                else
-                                                {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/favourite.png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
-                                                }
-                                            }
 
-                                            @if (serial.IsVieweds == false && ViewBag.User != null)
-                                            {
-                                                <td valign="top" align="right" width="30">
-                                                    <a>
-                                                        <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
-                                                    </a>
-                                                </td>
-                                            }
-                                            else
-                                            {
-                                                if (ViewBag.User != null)
-                                                {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/eye.png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
-                                                }
-                                                else
-                                                {
-                                                    <td valign="top" align="right" width="30">
-                                                        <a>
-                                                            <img src="~/lib/images/Icons/eye (1).png" width="30" height="30" />
-                                                        </a>
-                                                    </td>
-                                                }
-
-                                            }
-                                            @if (ViewBag.Role == 1)
-                                            {
-                                                <td align="right" width="30">
-                                                    <a href=@Url.Action("EditFilm", "Films", new { Id = serial.MediaID })>
-                                                        <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
-                                                    </a>
-                                                </td>
-                                            }
-
-                                            @if (ViewBag.Role == 1)
-                                            {
-                                                <td align="right" width="30">
-                                                    <a href=@Url.Action("DeleteFilm", "Films", new { IdFilm = serial.MediaID })>
-                                                        <img src="~/lib/images/Icons/close.png" width="30" height="30" />
-                                                    </a>
-                                                </td>
-                                            }
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <p>Год: @serial.Release_Date.Year</p>
-                                <p>
-                                    <span style="font-weight:bold">Жанры:</span>
-                                    @foreach (var genre in serial.Genres)
-                                    {
-                                        <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
-                                    }
-                                </p>
-                                <p>
-                                    <span style="font-weight:bold">Режиссер:</span>
-                                    @foreach (var director in serial.Casts)
-                                    {
-                                        if ((int)director.RoleInFilm == 0 && director.Person != null)
-                                        {
-                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name</a>
-                                        }
-                                    }
-                                </p>
-                                <p>
-                                    <span style="font-weight:bold">Актеры:</span>
-                                    @foreach (var director in serial.Casts)
-                                    {
-                                        if ((int)director.RoleInFilm == 2 && director.Person != null)
-                                        {
-                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId}) class="textstyle">@director.Person.Name |</a>
-                                        }
-                                    }
-                                    <a href=@Url.Action("ListActors", "Cast", new { FilmId = serial.MediaID}) class="textstyle">...</a>
-                                </p>
-                                <p>Страна: @serial.Country</p>
-                                <p>Возраст: @serial.Age+</p>
-                                <a><img src=@serial.ScoreKP border='0'></a>
-                                <p>Краткое описание: @serial.ShortDescription</p>
-                                @if (ViewBag.Role == 1)
+            <div style="margin-top:10px; width:1100px;" class="fav_block_films">
+                    <div class="item_films">
+                        @if (serial.Img != null)
+                        {
+                            <p>
+                                <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID })><img width="300" height="400" class="imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(serial.Img))"></a>
+                                @if (serial.Score <= 5)
                                 {
-                                    <a class="allcastlist" href=@Url.Action("ListCasts", "Cast", new { IdFilm = serial.MediaID })>Весь каст</a>
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
                                 }
-                            </div>
-                            <div style=" clear:both;"></div>
+                                @if (serial.Score <= 8 && serial.Score > 5)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                }
+                                @if (serial.Score > 8)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @serial.Score</span>
+                                }
+                            </p>
+                        }
+                        else
+                        {
+                            <p>
+                                <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID })><img width="300" height="400" class="imagetitle" src="~/lib/images/netpostera.png"></a>
+                                @if (serial.Score <= 5)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                }
+                                @if (serial.Score <= 8 && serial.Score > 5)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                }
+                                @if (serial.Score > 8)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @serial.Score</span>
+                                }
+                            </p>
+                        }
+                        <p style="margin-left:5px;"><a class="titlenamesize_list" href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID })>@serial.Name</a></p>
+                        <div class="descr">
+                            @if (serial.Img != null)
+                            {
+
+
+                                <p>
+                                    <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(serial.Img))"></a>
+                                    @if (serial.Score <= 5)
+                                    {
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                    }
+                                    @if (serial.Score <= 8 && serial.Score > 5)
+                                    {
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                    }
+                                    @if (serial.Score > 8)
+                                    {
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @serial.Score</span>
+                                    }
+                                </p>
+                            }
+                            else
+                            {
+                                <p>
+                                    <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID })><img width="340" height="470" src="~/lib/images/netpostera.png"></a>
+                                    @if (serial.Score <= 5)
+                                    {
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                    }
+                                    @if (serial.Score <= 8 && serial.Score > 5)
+                                    {
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                    }
+                                    @if (serial.Score > 8)
+                                    {
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left:3px; font-size: 15px; color: white; "> @serial.Score</span>
+                                    }
+                                </p>
+                            }
+
+                            <p>
+                                <span style="color: white">Год: @serial.Release_Date.Year</span>
+                            </p>
+                            <p>
+                                @foreach (var genre in serial.Genres)
+                                {
+                                    <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="genre_st">@genre.Genre_Name |</a>
+                                }
+                            </p>
+                            <p style="color:white;"> @serial.ShortDescription</p>
                         </div>
+                    </div>
+            </div>
                     }
                 }
             </div>
