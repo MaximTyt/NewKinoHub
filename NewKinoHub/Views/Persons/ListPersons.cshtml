@@ -20,10 +20,10 @@
                                             @*что выпадает при наведении на кнопку дата выхода*@
 
                                             <li>
-                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "YearOld", type = "Film"})>По возрастанию</a>
+                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "YearOld"})>По возрастанию</a>
                                             </li>
                                             <li>
-                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "YearNew",type = "Film" })>По убыванию</a>
+                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "YearNew"})>По убыванию</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -33,10 +33,10 @@
                                             @*что выпадает при наведении на кнопку дата выхода*@
 
                                             <li>
-                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "NameA",type = "Film" })>А-Я</a>
+                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "NameA"})>А-Я</a>
                                             </li>
                                             <li>
-                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "NameZ",type = "Film" })>Я-А</a>
+                                                <a href=@Url.Action("ListPersons", "Persons", new { sort = "NameZ"})>Я-А</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -45,20 +45,21 @@
                                     @*если не работает, позвать меня*@
                                 </ul>
                                 <br>
-                                
-                            <ul style="position: absolute; left: 700px; top:0px;">
-                                <li>
-                                    <a>Фильтр:</a>
-                                    <ul>
-                                        @*что выпадает при наведении на кнопку дата выхода*@
 
-                                        <li style="width:150px;height: 110px;  font-size: 14px;">
-                                            <form action="/" method="post">
-                                                <!--<select style="width: 100px; height: 20px;">
+                                <ul style="position: absolute; left: 700px; top:0px;">
+                                    <li>
+                                        <a>Фильтр:</a>
+                                        <ul>
+                                            @*что выпадает при наведении на кнопку дата выхода*@
+
+                                            <li style="width:150px;height: 110px;  font-size: 14px;">
+                                                <form action="/" method="post">
+                                                    <!--<select style="width: 100px; height: 20px;">
                                                     <option value="Актеры" style="width: 100px; height: 20px; font-size: 14px;">Актеры</option>
                                                     <option value="Режисёры" style="width: 100px; height: 20px; font-size: 14px;">Режисёры</option>
                                                     <option value="Сценаристы" style="width: 100px; height: 20px; font-size: 14px;">Сценаристы</option>
                                                 </select>-->
+
                                                 <label>
                                                     <input type="checkbox" name="Actors" value="Актеры" style="margin: 5px;  margin-top: 15px;">Актеры
                                                 </label>
@@ -82,91 +83,79 @@
                                     </ul>
                                 </li>
                             </ul>
+
                             </nav>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        @foreach (var Person in Model)
-        {
-            <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                <a href=@Url.Action("Person", "Persons", new { personId = Person.Id }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
-
+        <div style="margin-top:10px; width:1100px;" class="fav_block_films">
+            @foreach (var Person in Model)
+            {
+                <div class="item_films" style="color:white;">
                     @if (Person.Img != null)
                     {
-                        <img height="395" width="265" class="u-back-image u-expanded imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(Person.Img))">
+                        <p><a href=@Url.Action("Person", "Persons", new { personId = Person.Id })><img width="300" height="400" class="imagetitle" src="data:image/jpeg;base64,  @(Convert.ToBase64String(Person.Img))"></a></p>
                     }
                     else
                     {
-                        <img height="395" width="265" class="u-back-image u-expanded imagetitle" src="~/lib/images/trav1.gif">                        
+                        <p><a href=@Url.Action("Person", "Persons", new { personId = Person.Id })><img width="300" height="400" class="imagetitle" src="~/lib/images/trav1.gif"></a></p>
                     }
-                </a>
-                <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
-                    <table style="width: 780px; color:black;">
-                        <tbody>
-                            <tr>
-                                <td style="width: 400px;">
-                                    <p style="font-weight: bold; right:100%; left:0%;"> @Person.Name </p>
+                    <p style="margin-left:5px;"><a class="titlenamesize_list" href=@Url.Action("Person", "Persons", new { personId = Person.Id })>@Person.Name</a></p>
+                    <div class="descr">
+                        @if (Person.Img != null)
+                        {
+                            <p><a href=@Url.Action("Person", "Persons", new { personId = Person.Id })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(Person.Img))"></a></p>
+                        }
+                        else
+                        {
+                            <p><a href=@Url.Action("Person", "Persons", new { personId = Person.Id })><img width="340" height="470" src="~/lib/images/trav1.gif"></a></p>
+                        }
+                        <p>
+                            <span style="font-weight:bold">Карьера:</span>
+                            @if (Person.IsActor != false)
+                            {<a class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Actor",IdPerson = Person.Id })> Актёр </a>}
+                            @if (Person.IsDirector != false)
+                            {<a class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Director",IdPerson = Person.Id })> Режиссёр </a>}
+                            @if (Person.IsScreenWriter != false)
+                            {<a class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "ScreenWriter",IdPerson = Person.Id })> Сценарист </a>}
+                        </p>
+                        @if (Person.DateOfBirthday.Year != 0001)
+                        {
+                            <p>
+                                <span style="font-weight:bold">Дата рождения:</span> @Person.DateOfBirthday.ToShortDateString()
+                            </p>
+                        }
+                        @if (Person.Age != -1)
+                        {
+                            @if (Person.Age % 10 == 2 || Person.Age % 10 == 3 || Person.Age % 10 == 4)
+                            {
+                                <p> <span style="font-weight:bold">Возраст:</span> @Person.Age года</p>
+                            }
+                            else if (Person.Age % 10 == 1)
+                            {
+                                <p> <span style="font-weight:bold">Возраст:</span> @Person.Age год</p>
+                            }
+                            else
+                            {
+                                <p> <span style="font-weight:bold">Возраст:</span> @Person.Age лет</p>
+                            }
+                        }
 
-                                    <p>
-                                        <span style="font-weight:bold">Карьера:</span>
-                                        @if (Person.IsActor != false)
-                                        {<a> Актёр </a>}
-                                        @if (Person.IsDirector != false)
-                                        {<a> Режиссёр </a>}
-                                        @if (Person.IsScreenWriter != false)
-                                        {<a> Сценарист </a>}
-                                    </p>
-                                    @if (Person.DateOfBirthday.Year != 0001)
-                                    {
-                                        <p>
-                                            <span style="font-weight:bold">Дата рождения:</span> @Person.DateOfBirthday.ToShortDateString()
-                                        </p>
-                                    }
-                                    @if (Person.Age != -1)
-                                    {
-                                        @if (Person.Age % 10 == 2 || Person.Age % 10 == 3 || Person.Age % 10 == 4)
-                                        {
-                                            <p> <span style="font-weight:bold">Возраст:</span> @Person.Age года</p>
-                                        }
-                                        else if (Person.Age % 10 == 1)
-                                        {
-                                            <p> <span style="font-weight:bold">Возраст:</span> @Person.Age год</p>
-                                        }
-                                        else
-                                        {
-                                            <p> <span style="font-weight:bold">Возраст:</span> @Person.Age лет</p>
-                                        }
-                                    }
-
-                                    @if (Person.DateOfDeath.Year != 0001)
-                                    {
-                                        <p> <span style="font-weight:bold">Дата смерти:</span> @Person.DateOfDeath.ToShortDateString()</p>
-                                    }
-                                </td>
-                                @if (ViewBag.Role == 1)
-                                {
-                                    <td align="right" valign="top" width="30">
-                                        <a href=@Url.Action("EditPerson", "Persons", new { personId = Person.Id})>
-                                            <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
-                                        </a>
-                                    </td>
-                                    <td valign="top" align="right" width="30">
-                                        <a href=@Url.Action("DeletePerson", "Persons", new { IdPerson = Person.Id})>
-                                            <img class="deleteicon" src="~/lib/images/Icons/close.png" />
-                                        </a>
-                                    </td>
-                                }
-                            </tr>
-                        </tbody>
-                    </table>
+                        @if (Person.DateOfDeath.Year != 0001)
+                        {
+                            <p> <span style="font-weight:bold">Дата смерти:</span> @Person.DateOfDeath.ToShortDateString()</p>
+                        }
+                    </div>
                 </div>
+
 
 
                  <div style=" clear:both;"></div>
             </div>
         }
     </div>
+
 </body>
 </html>

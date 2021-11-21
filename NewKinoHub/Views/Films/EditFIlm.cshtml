@@ -25,9 +25,7 @@
                             {
                                 <input type="file" title="Выберите постер" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
                             }
-
-                            <label class="colortext">Год:<sup>*</sup></label><br />
-                            <input value="@Model.Year" type="number" name="Year" min="1888" step="1" required /><br />
+                                                       
 
                             <label class="colortext">Страна:<sup>*</sup></label><br />
                             <textarea class="namesizeeditadd" type="text" name="Contry" required>@Model.Country </textarea><br />
@@ -173,43 +171,39 @@
                             <input value=@Model.SoundTrackUrl type="text" name="Music" required /><br />
                         </td>
                         <td valign="top" class="tdstyle">
-                            @if (Model.Images.Count() >= 1)
-                            {
+                            
                                 <label class="colortext">Кадр №1<sup>*</sup></label><br />
-                                <input value=@(Convert.ToBase64String(Model.Images[0].MediaImage)) type="file" title="Выберите постер" name="Image1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input value=@(Convert.ToBase64String(Model.Images[0].MediaImage)) type="file" title="Выберите постер" name="Images1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
                                 <label class="colortext">Кадр №2<sup>*</sup></label><br />
-                                <input value=@(Convert.ToBase64String(Model.Images[1].MediaImage)) type="file" title="Выберите постер" name="Image2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input value=@(Convert.ToBase64String(Model.Images[1].MediaImage)) type="file" title="Выберите постер" name="Images2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
                                 <label class="colortext">Кадр №3<sup>*</sup></label><br />
-                                <input value=@(Convert.ToBase64String(Model.Images[2].MediaImage)) type="file" title="Выберите постер" name="Image3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input value=@(Convert.ToBase64String(Model.Images[2].MediaImage)) type="file" title="Выберите постер" name="Images3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
                                 <label class="colortext">Кадр №4<sup>*</sup></label><br />
-                                <input value=@(Convert.ToBase64String(Model.Images[3].MediaImage)) type="file" title="Выберите постер" name="Image4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                            }
-                            else
-                            {
-                                <label class="colortext">Кадр №1<sup>*</sup></label><br />
-                                <input type="file" title="Выберите постер" name="Image1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-
-                                <label class="colortext">Кадр №2<sup>*</sup></label><br />
-                                <input type="file" title="Выберите постер" name="Image2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-
-                                <label class="colortext">Кадр №3<sup>*</sup></label><br />
-                                <input type="file" title="Выберите постер" name="Image3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-
-                                <label class="colortext">Кадр №4<sup>*</sup></label><br />
-                                <input type="file" title="Выберите постер" name="Image4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                            }
-
+                                <input value=@(Convert.ToBase64String(Model.Images[3].MediaImage)) type="file" title="Выберите постер" name="Images4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                           
                             @if ((int)Model.MediaType == 1)
                             {
-                                <label class="colortext">Количество эпизодов(Необязательно):</label><br />
-                                <input type="number" step="1" min="0" name="NumOfEpisodes"> <br />
+                        <div id="serial">
+                            <label class="colortext">Количество эпизодов(Необязательно):</label><br />
+                            <input type="number" step="1" min="0" name="NumOfEpisodes"> <br />
 
-                                <label class="colortext">Количество сезонов(Необязательно):</label><br />
-                                <input type="number" step="1" min="0" name="NumOfSeason"> <br />
+                            <label class="colortext">Количество сезонов(Необязательно):</label><br />
+                            <input type="number" step="1" min="0" name="NumOfSeason"> <br />
+                        </div>
                             }
+                            <script>
+                                let serial = document.getElementById("serial");
+                                let select = document.getElementById("type");
+                                select.addEventListener('change', function () {
+                                    if (select.value == 0)
+                                        serial.hidden = true;
+                                    else
+                                        serial.hidden = false;
+                                });
+                            </script>
                         </td>
                     </tr>
                     <tr class="trsizec">

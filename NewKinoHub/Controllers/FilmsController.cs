@@ -81,15 +81,15 @@ namespace KinoHab.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddFilms(IFormFile mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes,int NumOfSeason, int type, IFormFile[] Images, string[] genres, DateTime Release_Date)
+        public async Task<ActionResult> AddFilms(IFormFile mainPhoto, string Name, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes,int NumOfSeason, int type, IFormFile Images1, IFormFile Images2, IFormFile Images3, IFormFile Images4, string[] genres, DateTime Release_Date)
         {
-            await _film.AddFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video, NumOfEpisodes, NumOfSeason,type,Images,genres, Release_Date);
+            await _film.AddFilm(mainPhoto, Name,Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video, NumOfEpisodes, NumOfSeason,type, Images1,Images2, Images3, Images4, genres, Release_Date);
             return RedirectToAction("ListFilms", "Films");
         }
         [HttpPost]
-        public async Task<ActionResult> EditFilms(IFormFile mainPhoto, string Name, int Year, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, IFormFile[] Images, string[] genres, DateTime Release_Date)
+        public async Task<ActionResult> EditFilms(IFormFile mainPhoto, string Name, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, IFormFile Images1, IFormFile Images2, IFormFile Images3, IFormFile Images4, string[] genres, DateTime Release_Date)
         {
-            await _film.EditFilm(mainPhoto, Name, Year, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id, NumOfEpisodes, NumOfSeason,type,Images,genres, Release_Date);
+            await _film.EditFilm(mainPhoto, Name, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id, NumOfEpisodes, NumOfSeason,type, Images1, Images2, Images3, Images4, genres, Release_Date);
             return RedirectToAction("ListFilms", "Films");
         }
 
@@ -123,6 +123,13 @@ namespace KinoHab.Controllers
             await _film.DeleteReviews(IdFilm, IdUser);
             _film.ChangeRaiting(IdFilm);
             return RedirectToAction("Film", "Films", new { IdFilm });
+        }
+
+        public async Task<IActionResult> SelectFilmsForPerson(string Person, int IdPerson)
+        {
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
+            var Films = await _film.GetFilmsForPerson(Person, IdPerson, await _film.GetUser(User.Identity.Name));
+            return View(Films);
         }
     }
 }

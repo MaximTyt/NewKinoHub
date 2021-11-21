@@ -139,6 +139,11 @@ body {
     -moz-box-shadow: 0 5px 5px rgba(0,0,0,0.3);
     -webkit-box-shadow: 0 5px 5px rgba(0,0,0,0.3);
     box-shadow: 0 5px 5px rgba(0,0,0,0.3);
+    overflow-y: scroll;
+}
+
+.descr::-webkit-scrollbar {
+    width: 0 !important
 }
 
 .item_films:hover .descr {
@@ -308,3 +313,11 @@ img.avareviewssize {
         height: 395px;
         width: 265px;
     }
+
+    .genre_st{
+        color:white;
+    }
+
+        .genre_st:hover {
+            color: rgb(247,151,30);
+        }

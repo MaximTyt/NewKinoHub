@@ -22,8 +22,8 @@ namespace NewKinoHub.Manager.Home
         {
             var films = from x in _context.Media.Where(st => st.MediaType == MediaType.Film).Include(st => st.Genres) select x;
             var serials = from x in _context.Media.Where(st =>st.MediaType == MediaType.Serial).Include(st => st.Genres) select x;
-            films = films.Where(x => x.Year == 2021 || x.Year == 2020);
-            serials = serials.Where(x => x.Year == 2021 || x.Year == 2020);
+            films = films.Where(x => x.Release_Date.Year == 2021 || x.Release_Date.Year == 2020);
+            serials = serials.Where(x => x.Release_Date.Year == 2021 || x.Release_Date.Year == 2020);
 
             films = films.OrderByDescending(st => st.Score);
             serials = serials.OrderByDescending(st => st.Score);
@@ -41,7 +41,7 @@ namespace NewKinoHub.Manager.Home
             var films = await Film.GetAllFilms();
             var serials = await Film.GetAllFilms();
             var persons = await Person.GetPersons();
-            if (User != null && User.Favorites != null)
+            if (User != null && (User.Favorites != null || User.Reviews != null))
             {
                 films = await Film.GetFilms(User);
                 serials = await Film.GetFilms(User);

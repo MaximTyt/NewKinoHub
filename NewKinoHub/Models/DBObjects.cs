@@ -28,11 +28,9 @@ namespace NewKinoHub.Models
                         //Img = File.ReadAllBytes(@"wwwroot\lib\images\KEK.jpg"),
                         Name = "Лига справедливости Зака Снайдера",                        
                         Video = "https://www.youtube.com/embed/KQwKRTtJU-A",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/14462174",
-                        Year = 2021,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/14462174",                        
                         Country = "США, Великобритания",
-                        Age = 18,
-                        Score = 8.024,
+                        Age = 18,                        
                         Release_Date = new DateTime(2021,03,18),
                         Runtime = "04:02",
                         ShortDescription = "Бэтмен собирает команду супергероев," +
@@ -92,6 +90,25 @@ namespace NewKinoHub.Models
                                 Person=Persons["Рэй Фишер"],
                                 Character = "Cyborg / Victor Stone"
                             }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
                         }
                     },
                     new Media
@@ -99,11 +116,9 @@ namespace NewKinoHub.Models
                         MediaType = MediaType.Film,
                         Name = "Он вам не Димон",                        
                         Video = "https://www.youtube.com/embed/qrwlk7_GF9g",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1035",
-                        Year = 2017,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1035",                        
                         Country = "Россия",
-                        Age = 12,
-                        Score = 9.072,
+                        Age = 12,                       
                         Release_Date = new DateTime(2017, 03, 02),
                         Runtime = "49 мин.",
                         ShortDescription = "Секретные дворцы, виноградники и яхты Дмитрия Медведева",
@@ -128,7 +143,26 @@ namespace NewKinoHub.Models
                             Person = Persons["Алексей Навальный"],
                             Character = "ведущий расслежования"
                             }                            
-                        }                        
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
+                        }
                     },
                     new Media
                     {
@@ -137,11 +171,9 @@ namespace NewKinoHub.Models
                         NumOfSeason = 1,
                         NumOfEpisodes = 10,                        
                         Video = "https://www.youtube.com/embed/tP1A_dgKEd8",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1000",
-                        Year = 2021,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1000",                        
                         Country = "США",
-                        Age = 18,
-                        Score = 8.115,
+                        Age = 18,                        
                         Release_Date = new DateTime(2021, 01, 27),
                         Runtime = "46 мин. серия",
                         ShortDescription = "Инопланетянин в теле доктора пытается" +
@@ -188,6 +220,25 @@ namespace NewKinoHub.Models
                                 Person=Persons["Кори Рейнольдс"],
                                 Character="Sheriff Mike Thompson"
                             }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
                         }
                     },
                     new Media
@@ -195,11 +246,9 @@ namespace NewKinoHub.Models
                         MediaType = MediaType.Film,
                         Name = "Истребитель демонов: Поезд «Бесконечный»",                        
                         Video = "https://www.youtube.com/embed/wtE-SW8YDHM",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1026",
-                        Year = 2020,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1026",                        
                         Country = "Япония",
-                        Age = 18,
-                        Score = 8.149,
+                        Age = 18,                        
                         Release_Date = new DateTime(2020, 10, 16),
                         Runtime = "01:57",
                         ShortDescription = "Самый посещаемый японский фильм всех времен",
@@ -244,19 +293,36 @@ namespace NewKinoHub.Models
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Сатоси Хино"],
                             Character="Kyojuro Rengoku, озвучка"
+                            }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
-                        }                        
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
+                        }
                     },
                     new Media
                     {
                         MediaType = MediaType.Film,
                         Name = "Твоё имя",                        
                         Video = "https://www.youtube.com/embed/tT7b5wR0IOM",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3929305",
-                        Year = 2016,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3929305",                        
                         Country = "Япония",
-                        Age = 16,
-                        Score = 8.327,
+                        Age = 16,                        
                         Release_Date = new DateTime(2016, 07, 03),
                         Runtime = "01:50",
                         ShortDescription = "«Я ищу тебя, хотя не знаю, кто ты». " +
@@ -303,18 +369,35 @@ namespace NewKinoHub.Models
                             Person = Persons["Аой Юки"],
                             Character="Sayaka Natori, озвучка"
                             }
-                        }                        
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
+                        }
                     },
                     new Media
                     {
                         MediaType = MediaType.Film,
                         Name = "Майор Гром: Чумной Доктор",                        
                         Video = "https://www.youtube.com/embed/aUi6fQRUP1o",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/music-blog/2524",
-                        Year = 2021,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/music-blog/2524",                       
                         Country = "Россия",
-                        Age = 12,
-                        Score = 7.391,
+                        Age = 12,                        
                         Release_Date = new DateTime(2021, 04, 01),
                         Runtime = "02:16",
                         ShortDescription = "Честный полицейский ловит мстителя в маске, убивающего" +
@@ -370,19 +453,36 @@ namespace NewKinoHub.Models
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Сергей Горошко"],
                             Character = "Сергей Разумовский, основатель соцсети «Вместе»"
+                            }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
-                        }                        
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
+                        }
                     },
                     new Media
                     {
                         MediaType = MediaType.Film,
                         Name = "Душа",                        
                         Video = "https://www.youtube.com/embed/vsb8762mE6Q",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/13521150",
-                        Year = 2020,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/13521150",                        
                         Country = "США",
-                        Age = 6,
-                        Score = 8.311,
+                        Age = 6,                        
                         Release_Date = new DateTime(2020, 10, 11),
                         Runtime = "01:46",
                         ShortDescription = "Джазмен хочет сбежать с того света на концерт. Фантазия" +
@@ -438,19 +538,36 @@ namespace NewKinoHub.Models
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Анджела Бассетт"],
                             Character = "Dorothea, озвучка"
+                            }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
-                        }                        
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
+                        }
                     },
                     new Media
                      {
                          MediaType = MediaType.Film,
                          Name = "Шпион в снегах",                        
                         Video = "https://www.youtube.com/embed/pLuqfyhDqNg",
-                         SoundTrackUrl= "https://music.yandex.ru/iframe/#album/8729604",
-                         Year = 2018,
+                         SoundTrackUrl= "https://music.yandex.ru/iframe/#album/8729604",                         
                          Country = "Великобритания",
-                         Age = 6,
-                         Score = 8.726,
+                         Age = 6,                         
                          Release_Date = new DateTime(2018, 12, 30),
                          Runtime = "58 мин.",
                          ShortDescription = "Трогательные и безжалостные отношения диких зверей. Замаскированные камеры снимают их жизнь в зимних условиях",
@@ -481,20 +598,37 @@ namespace NewKinoHub.Models
                             Person = Persons["Дэвид Теннант"],
                             Character = "рассказчик, озвучка"
                             }
-                        }                         
-                     },
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
+                        }
+                    },
                     new Media
                     {
                         MediaType = MediaType.Serial,
                         Name = "Планета Земля 2",                        
                         Video = "https://www.youtube.com/embed/189KLPD4zSk",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3887137",
-                        Year =2016,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3887137",                        
                         NumOfSeason=1,
                         NumOfEpisodes=6,
                         Country = "Великобритания",
-                        Age = 6,
-                        Score = 9.184,
+                        Age = 6,                        
                         Release_Date = new DateTime(2016, 11, 06),
                         Runtime = "58 мин. серия",
                         ShortDescription = "Острова, горы, джунгли, пустыни, пастбища, города – никогда прежде Земля не была такой близкой.",
@@ -526,7 +660,26 @@ namespace NewKinoHub.Models
                             RoleInFilm = RoleInFilm.Режиссёр,
                             Person = Persons["Чадден Хантер"]
                             }
-                        }                        
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
+                        }
                     },
                     new Media
                     {
@@ -535,11 +688,9 @@ namespace NewKinoHub.Models
                         NumOfSeason = 1,
                         NumOfEpisodes = 11,                        
                         Video = "https://www.youtube.com/embed/o0xdAiYsX18",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/gromsserg/1011",
-                        Year = 2020,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/gromsserg/1011",                        
                         Country = "США",
-                        Age = 16,
-                        Score = 7.282,
+                        Age = 16,                        
                         Release_Date = new DateTime(2020, 04, 15),
                         Runtime = "54 мин. серия",
                         ShortDescription = "Будьте Осторожны В Том, Что Вы Ищете",
@@ -580,6 +731,25 @@ namespace NewKinoHub.Models
                                 Person=Persons["Руди Панкоу"],
                                 Character="JJ"
                             }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
                         }
                     }, 
                     new Media
@@ -589,11 +759,9 @@ namespace NewKinoHub.Models
                         NumOfSeason = 1,
                         NumOfEpisodes = 26,                        
                         Video = "https://www.youtube.com/embed/uz_Wg-0ulpk",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/laferacis/1022",
-                        Year = 2019,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/laferacis/1022",                        
                         Country = "Япония",
-                        Age = 18,
-                        Score = 8.073,
+                        Age = 18,                        
                         Release_Date = new DateTime(2019, 04, 06),
                         Runtime = "25 мин. серия",
                         ShortDescription = "Тем, кто не выдержал и сдался, остается лишь смотреть на успехи других!",
@@ -659,6 +827,25 @@ namespace NewKinoHub.Models
                             Person = Persons["Аой Юки"],
                             Character="Kiriya Ubuyashiki, озвучка"
                             }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
                         }
                     },
                     new Media
@@ -668,11 +855,9 @@ namespace NewKinoHub.Models
                         NumOfSeason = 1,
                         NumOfEpisodes = 8,                        
                         Video = "https://www.youtube.com/embed/oBD-7njwAsQ",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1005",
-                        Year = 2021,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#playlist/MaximTyta/1005",                        
                         Country = "США",
-                        Age = 18,
-                        Score = 8.368,
+                        Age = 18,                        
                         Release_Date = new DateTime(2021, 03, 26),
                         Runtime = "45 мин. серия",
                         ShortDescription = "Основано на комиксах Роберта Киркмана",
@@ -715,6 +900,25 @@ namespace NewKinoHub.Models
                                 Person=Persons["Дж.К. Симмонс"],
                                 Character="Nolan Grayson / Omni-Man"
                             }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
                         }
                     },
                     new Media
@@ -722,13 +926,11 @@ namespace NewKinoHub.Models
                         MediaType = MediaType.Serial,
                         Name = "Семь миров, одна планета",
                         Video = "https://www.youtube.com/embed/IlFRPkT-hVc",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/9447016",
-                        Year = 2019,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/9447016",                        
                         NumOfSeason = 1,
                         NumOfEpisodes = 7,
                         Country = "Великобритания, Китай, США, Германия, Франция",
-                        Age = 6,
-                        Score = 8.932,
+                        Age = 6,                        
                         Release_Date = new DateTime(2019, 10, 27),
                         Runtime = "58 мин. серия",
                         ShortDescription = "Увлекательное путешествие по семи мирам нашей планеты",
@@ -765,18 +967,35 @@ namespace NewKinoHub.Models
                             Person = Persons["Дэвид Аттенборо"],
                             Character = "играет самого себя - ведущий"
                             }
-                        }                        
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
+                        }
                     },
                     new Media
                      {
                          MediaType = MediaType.Serial,
                          Name = "Мандалорец",                        
                         Video = "https://www.youtube.com/embed/hZ9N7760o0A",
-                         SoundTrackUrl = "https://music.yandex.ru/iframe/#album/13149771",
-                         Year = 2019,
+                         SoundTrackUrl = "https://music.yandex.ru/iframe/#album/13149771",                         
                          Country = "США",
-                         Age = 16,
-                         Score = 8.008,
+                         Age = 16,                         
                          Release_Date = new DateTime(2019, 11, 12),
                          Runtime = "40 мин.",
                          NumOfEpisodes= 16,
@@ -822,18 +1041,35 @@ namespace NewKinoHub.Models
                             Person = Persons["Джанкарло Эспозито"],
                             Character = "Moff Gideon"
                             }
-                        }                        
-                     },
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
+                        }
+                    },
                     new Media
                     {
                         MediaType = MediaType.Film,
                         Name = "Грайндхаус",                        
                         Video = "https://www.youtube.com/embed/j1cjXKdox0M",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3226300",
-                        Year = 2007,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/3226300",                        
                         Country = "США, Канада",
-                        Age = 18,
-                        Score = 7.086,
+                        Age = 18,                        
                         Release_Date = new DateTime(2007, 03, 26),
                         Runtime = "03:11",
                         ShortDescription = "Двойной фильм 2007 года, в который входят фильмы ужасов Планета ужаса и Доказательство смерти.",
@@ -887,19 +1123,36 @@ namespace NewKinoHub.Models
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Квентин Тарантино"],
                             Character = "Warren (segment 'Death Proof') / Rapist #1 (segment 'Planet Terror')"
+                            }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
-                        }                        
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
+                        }
                     },
                     new Media
                     {
                         MediaType = MediaType.Film,
                         Name = "Темный рыцарь: Возрождение легенды. Часть 1",                        
                         Video = "https://www.youtube.com/embed/QmoZ8cIDbKY",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/7102327",
-                        Year = 2012,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/7102327",                        
                         Country = "США",
-                        Age = 16,
-                        Score = 7.642,
+                        Age = 16,                        
                         Release_Date = new DateTime(2012, 09, 06),
                         Runtime = "01:13",
                         ShortDescription = "Старые герои никогда не умирают. Они просто становятся темнее. " +
@@ -944,19 +1197,36 @@ namespace NewKinoHub.Models
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Майкл Эмерсон"],
                             Character = "Joker, озвучка"
+                            }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
-                        }                        
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
+                        }
                     },
                     new Media
                     {
                         MediaType = MediaType.Film,
                         Name = "Темный рыцарь: Возрождение легенды. Часть 2",                        
                         Video = "https://www.youtube.com/embed/H5oET8-QiNw",
-                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/7102327",
-                        Year = 2013,
+                        SoundTrackUrl = "https://music.yandex.ru/iframe/#album/7102327",                        
                         Country = "США",
-                        Age = 16,
-                        Score = 7.897,
+                        Age = 16,                        
                         Release_Date = new DateTime(2013, 01, 29),
                         Runtime = "01:16",
                         ShortDescription = "Бэтмен хотел отойти от дел, пока не появились Джокер и Супермен. Продолжение анимационных злоключений в Готэме",
@@ -1000,21 +1270,42 @@ namespace NewKinoHub.Models
                             RoleInFilm = RoleInFilm.Актёр,
                             Person = Persons["Майкл Эмерсон"],
                             Character = "Joker, озвучка"
+                            }
+                        },
+                        Images = new List<MediaImages>()
+                        {
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
                             },
-                        }                        
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            },
+                            new MediaImages
+                            {
+                                MediaImage = File.ReadAllBytes(@"wwwroot\lib\images\loading.gif")
+                            }
+                        }
                     }
                     );
-            }
-
+            }                       
             if (!content.Users.Any())
-            {                
+            {
+                string Password = "123";
+                HashSalt hashSalt = HashSalt.GenerateSaltedHash(64, Password);
                 content.AddRange(
 
                     new Users
                     {
                         Nickname = "admin",
                         Email = "admin@gmail.com",
-                        Password = "123",
+                        Password = hashSalt.Hash,
+                        Salt = hashSalt.Salt,
                         Role = Role.Admin,
                         DateOfBirthday = new DateTime(2001,08,10)
                     }

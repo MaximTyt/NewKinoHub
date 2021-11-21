@@ -166,5 +166,43 @@ namespace NewKinoHub.Manager.Persons
             }
             return persons;
         }
+
+        public async Task<List<Person>> Filtration(string Actors, string Directors, string ScreenWriter)
+        {
+            List<Person> Persons = await _context.Persons.ToListAsync();
+            if (Actors != null)
+            {
+                Persons = Persons.Where(st => st.IsActor == true).ToList();
+            }
+            if(Directors != null)
+            {
+                Persons = Persons.Where(st => st.IsDirector == true).ToList();
+            }
+            if(ScreenWriter != null)
+            {
+                Persons = Persons.Where(st => st.IsScreenWriter == true).ToList();
+            }
+            return Persons;
+        }
+
+        public List<Person> SortingFromFiltr(string sort, List<Person> Filtr)
+        {
+            switch (sort)
+            {
+                case "YearOld":
+                    Filtr = Filtr.OrderBy(st => st.DateOfBirthday).ToList();
+                    break;
+                case "YearNew":
+                    Filtr = Filtr.OrderByDescending(st => st.DateOfBirthday).ToList();
+                    break;
+                case "NameA":
+                    Filtr = Filtr.OrderBy(st => st.Name).ToList();
+                    break;
+                case "NameZ":
+                    Filtr = Filtr.OrderByDescending(st => st.Name).ToList();
+                    break;
+            }
+            return Filtr;
+        }
     }
 }
