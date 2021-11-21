@@ -8,7 +8,7 @@ namespace NewKinoHub.Manager.Accounts
 {
     public interface IAccountManager
     {
-
+        public Task SendEmail(string email, string nickname);        
         public Task<Users> GetUser(LoginModel model);
 
         public Task<Users> GetUser1(RegisterModel model);

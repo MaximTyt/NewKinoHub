@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace NewKinoHub.Manager.Userss
@@ -36,6 +38,12 @@ namespace NewKinoHub.Manager.Userss
             {
                 return null;
             }
+        }
+
+        public async Task<Users> GetUser(string Email)
+        {
+            Users user = await _context.Users.FirstOrDefaultAsync(u => u.Email == Email);
+            return user;
         }
 
         public async Task DeleteFavoriteFilms(int idFilm, string Name)
@@ -151,6 +159,78 @@ namespace NewKinoHub.Manager.Userss
             }
             await _context.SaveChangesAsync();
         }
+        public async Task<Random> SendEmailForChangePassword(string email)
+        {
+            SmtpClient SmtpClient = new();
+            // set smtp-client with basicAuthentication
+            SmtpClient.Host = "smtp.gmail.com";
+            SmtpClient.Port = 587;
+            SmtpClient.EnableSsl = true;
+            SmtpClient.UseDefaultCredentials = false;
+            SmtpClient.Credentials = new NetworkCredential("kinohubloveyou@gmail.com", "55j-vuM-DUR-kXi");
+            // add from,to mailaddresses
+            MailAddress from = new("kinohubloveyou@gmail.com", "Поддержка KinoHub");
+            MailAddress to = new("imaximtyt@gmail.com", "Тебе, ёбанный сыр");
+            MailMessage myMail = new(from, to);
+            // add ReplyTo
+            MailAddress replyTo = new("kinohubloveyou@gmail.com");
+            myMail.ReplyToList.Add(replyTo);
+
+            // set subject and encoding
+            myMail.Subject = "Код подтверждения";
+            myMail.SubjectEncoding = System.Text.Encoding.UTF8;
+
+            // set body-message and encoding
+            Random code = new();
+            myMail.Body = $"<b>Код подтверждения:</b>{code.Next(100000, 999999)}<b></b>.";
+            myMail.BodyEncoding = System.Text.Encoding.UTF8;
+            // text or html
+            myMail.IsBodyHtml = true;
+            await SmtpClient.SendMailAsync(myMail);
+            return code;
+        }
+        public async Task SendEmailAboutChangePassword(string email)
+        {
+            SmtpClient SmtpClient = new();
+            // set smtp-client with basicAuthentication
+            SmtpClient.Host = "smtp.gmail.com";
+            SmtpClient.Port = 587;
+            SmtpClient.EnableSsl = true;
+            SmtpClient.UseDefaultCredentials = false;
+            SmtpClient.Credentials = new NetworkCredential("kinohubloveyou@gmail.com", "55j-vuM-DUR-kXi");
+            // add from,to mailaddresses
+            MailAddress from = new("kinohubloveyou@gmail.com", "Поддержка KinoHub");
+            MailAddress to = new(email, "Тебе, ёбанный сыр");
+            MailMessage myMail = new(from, to);
+            // add ReplyTo
+            MailAddress replyTo = new("kinohubloveyou@gmail.com");
+            myMail.ReplyToList.Add(replyTo);
+
+            // set subject and encoding
+            myMail.Subject = "Смена пароля";
+            myMail.SubjectEncoding = System.Text.Encoding.UTF8;
+
+            // set body-message and encoding            
+            myMail.Body = "<b>Ваш пароль был изменен!</b><b></b>.";
+            myMail.BodyEncoding = System.Text.Encoding.UTF8;
+            // text or html
+            myMail.IsBodyHtml = true;
+            await SmtpClient.SendMailAsync(myMail);
+        }
+        public async Task EditPassword(string newPassword, string newSalt, string Email)
+        {
+            if (newPassword != null)
+            {
+                _context.Users.FirstOrDefault(st => st.Email == Email).Password = newPassword;
+                await SendEmailAboutChangePassword(Email);
+            }
+            if (newSalt != null)
+            {
+                _context.Users.FirstOrDefault(st => st.Email == Email).Salt = newSalt;
+            }
+            await _context.SaveChangesAsync();
+        }
+
 
         public int GetRights(Users User)
         {

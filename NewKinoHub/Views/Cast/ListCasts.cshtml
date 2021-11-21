@@ -5,129 +5,113 @@
 <body>
     <div class="u-clearfix u-sheet u-sheet-1 wrapper">
         <h1 style="font-weight: bold; color: aliceblue">Режиссёры</h1>
-        @foreach (var director in Model.Where(st => (int)st.RoleInFilm == 0))
-        {
-            <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+        <div style="margin-top:10px; width:1100px;" class="fav_block_films">
+            @foreach (var director in Model.Where(st => (int)st.RoleInFilm == 0))
+            {
+                <div class="item_films">
                     @if (director.Person.Img != null)
                     {
-                        <img height="395" width="265" class="u-back-image u-expanded imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(director.Person.Img))">
+                        <p><a href=@Url.Action("Person", "Persons", new { personId = director.PersonId })><img width="300" height="400" class="imagetitle" src="data:image/jpeg;base64,  @(Convert.ToBase64String(director.Person.Img))"></a></p>
                     }
                     else
                     {
-                        <img height="395" width="265" class="u-back-image u-expanded imagetitle" src="~/lib/images/trav1.gif">
+                        <p><a href=@Url.Action("Person", "Persons", new { personId = director.PersonId })><img width="300" height="400" class="imagetitle" src="~/lib/images/trav1.gif"></a></p>
                     }
-                </a>
-                <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
-                    <table style="width: 780px;">
-                        <tbody>
-                            <tr>
-                                <td style="width: 400px;">
-                                    <p style="font-weight: bold; right:100%; left:0%;"> @director.Person.Name </p>
-                                </td>
-                                @if (ViewBag.Role == 1)
-                                {
-                                    <td align="right" valign="top" width="30">
-                                        <a href=@Url.Action("EditCasts", "Cast", new { IdCast = director.Id, IdFilm = director.MediaId })>
-                                            <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
-                                        </a>
-                                    </td>
-                                    <td align="right" valign="top" width="30">
-                                        <a href=@Url.Action("DeleteCast", "Cast", new { IdCast = director.Id, IdFilm = director.MediaId })>
-                                            <img class="deleteicon" src="~/lib/images/Icons/close.png" />
-                                        </a>
-                                    </td>
-                                }
-                            </tr>
-                        </tbody>
-                    </table>
+                    <p style="margin-left:5px;"><a class="titlenamesize_list" href=@Url.Action("Person", "Persons", new { personId = director.PersonId })>@director.Person.Name</a></p>
+                    <div class="descr">
+                        @if (director.Person.Img != null)
+                        {
+                            <p><a href=@Url.Action("Person", "Persons", new { personId = director.PersonId })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(director.Person.Img))"></a></p>
+                        }
+                        else
+                        {
+                            <p><a href=@Url.Action("Person", "Persons", new { personId = director.PersonId })><img width="340" height="470" src="~/lib/images/trav1.gif"></a></p>
+                        }
+                        @if ((int)director.RoleInFilm == 2)
+                        {
+                            <p style="color:white;">
+                                <span style="font-weight:bold; color:white;">Роль в фильме:</span>
+
+                                @director.Character
+
+                            </p>
+                        }
+                    </div>
                 </div>
-                <div style=" clear:both;"></div>
-            </div>
-        }
+            }
+        </div>
         <h1 style="font-weight: bold; color: aliceblue">Сценаристы</h1>
-        @foreach (var screenwriter in Model.Where(st => (int)st.RoleInFilm == 1))
-        {
-            <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                <a href=@Url.Action("Person", "Persons", new { personId = screenwriter.PersonId }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
+        <div style="margin-top:10px; width:1100px;" class="fav_block_films">
+            @foreach (var screenwriter in Model.Where(st => (int)st.RoleInFilm == 1))
+            {
+                <div class="item_films">
                     @if (screenwriter.Person.Img != null)
                     {
-                        <img height="395" width="265" class="u-back-image u-expanded imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(screenwriter.Person.Img))">
+                        <p><a href=@Url.Action("Person", "Persons", new { personId = screenwriter.PersonId })><img width="300" height="400" class="imagetitle" src="data:image/jpeg;base64,  @(Convert.ToBase64String(screenwriter.Person.Img))"></a></p>
                     }
                     else
                     {
-                        <img height="395" width="265" class="u-back-image u-expanded imagetitle" src="~/lib/images/trav1.gif">
+                        <p><a href=@Url.Action("Person", "Persons", new { personId = screenwriter.PersonId })><img width="300" height="400" class="imagetitle" src="~/lib/images/trav1.gif"></a></p>
                     }
-                </a>
-                <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
-                    <table style="width: 780px;">
-                        <tbody>
-                            <tr>
-                                <td style="width: 400px;">
-                                    <p style="font-weight: bold; right:100%; left:0%;"> @screenwriter.Person.Name </p>
-                                </td>
-                                @if (ViewBag.Role == 1)
-                                {
-                                    <td align="right" valign="top" width="30">
-                                        <a href=@Url.Action("EditCasts", "Cast", new { IdCast = screenwriter.Id, IdFilm = screenwriter.MediaId })>
-                                            <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
-                                        </a>
-                                    </td>
-                                    <td align="right" valign="top" width="30">
-                                        <a href=@Url.Action("DeleteCast", "Cast", new { IdCast = screenwriter.Id, IdFilm = screenwriter.MediaId })>
-                                            <img class="deleteicon" src="~/lib/images/Icons/close.png" />
-                                        </a>
-                                    </td>
-                                }
-                            </tr>
-                        </tbody>
-                    </table>
+                    <p style="margin-left:5px;"><a class="titlenamesize_list" href=@Url.Action("Person", "Persons", new { personId = screenwriter.PersonId })>@screenwriter.Person.Name</a></p>
+                    <div class="descr">
+                        @if (screenwriter.Person.Img != null)
+                        {
+                            <p><a href=@Url.Action("Person", "Persons", new { personId = screenwriter.PersonId })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(screenwriter.Person.Img))"></a></p>
+                        }
+                        else
+                        {
+                            <p><a href=@Url.Action("Person", "Persons", new { personId = screenwriter.PersonId })><img width="340" height="470" src="~/lib/images/trav1.gif"></a></p>
+                        }
+                        @if ((int)screenwriter.RoleInFilm == 2)
+                        {
+                            <p style="color:white;">
+                                <span style="font-weight:bold; color:white;">Роль в фильме:</span>
+
+                                @screenwriter.Character
+
+                            </p>
+                        }
+                    </div>
                 </div>
-                <div style=" clear:both;"></div>
-            </div>
-        }
+            }
+        </div>
         <h1 style="font-weight: bold; color: aliceblue">Актёры</h1>
-        @foreach (var actor in Model.Where(st => (int)st.RoleInFilm == 2))
-        {
-            <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                <a href=@Url.Action("Person", "Persons", new { personId = actor.PersonId }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">
-                    @if (actor.Person.Img != null)
-                    {
-                        <img height="395" width="265" class="u-back-image u-expanded imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(actor.Person.Img))">
-                    }
-                    else
-                    {
-                        <img height="395" width="265" class="u-back-image u-expanded imagetitle" src="~/lib/images/trav1.gif">
-                    }
-                </a>
-                <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
-                    <table style="width: 780px;">
-                        <tbody>
-                            <tr>
-                                <td style="width: 400px;">
-                                    <p style="font-weight: bold; right:100%; left:0%;"> @actor.Person.Name </p>
-                                    <p><span style="font-weight:bold">Роль в фильме:</span> @actor.Character</p>
-                                </td>
-                                @if (ViewBag.Role == 1)
-                                {
-                                    <td align="right" valign="top" width="30">
-                                        <a href=@Url.Action("EditCasts", "Cast", new { IdCast = actor.Id, IdFilm = actor.MediaId })>
-                                            <img class="deleteicon" src="~/lib/images/Icons/edit.png" />
-                                        </a>
-                                    </td>
-                                    <td align="right" valign="top" width="30">
-                                        <a href=@Url.Action("DeleteCast", "Cast", new { IdCast = actor.Id, IdFilm = actor.MediaId })>
-                                            <img class="deleteicon" src="~/lib/images/Icons/close.png" />
-                                        </a>
-                                    </td>
-                                }
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div style=" clear:both;"></div>
-            </div>
-        }
+              <div style="margin-top:10px; width:1100px;" class="fav_block_films">
+                  @foreach (var actor in Model.Where(st => (int)st.RoleInFilm == 2))
+                  {
+                      <div class="item_films">
+                          @if (actor.Person.Img != null)
+                          {
+                              <p><a href=@Url.Action("Person", "Persons", new { personId = actor.PersonId })><img width="300" height="400" class="imagetitle" src="data:image/jpeg;base64,  @(Convert.ToBase64String(actor.Person.Img))"></a></p>
+                          }
+                          else
+                          {
+                              <p><a href=@Url.Action("Person", "Persons", new { personId = actor.PersonId })><img width="300" height="400" class="imagetitle" src="~/lib/images/trav1.gif"></a></p>
+                          }
+                          <p style="margin-left:5px;"><a class="titlenamesize_list" href=@Url.Action("Person", "Persons", new { personId = actor.PersonId })>@actor.Person.Name</a></p>
+                          <div class="descr">
+                              @if (actor.Person.Img != null)
+                              {
+                                  <p><a href=@Url.Action("Person", "Persons", new { personId = actor.PersonId })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(actor.Person.Img))"></a></p>
+                              }
+                              else
+                              {
+                                  <p><a href=@Url.Action("Person", "Persons", new { personId = actor.PersonId })><img width="340" height="470" src="~/lib/images/trav1.gif"></a></p>
+                              }
+                              @if ((int)actor.RoleInFilm == 2)
+                              {
+                                  <p style="color:white;">
+                                      <span style="font-weight:bold; color:white;">Роль в фильме:</span>
+
+                                      @actor.Character
+
+                                  </p>
+                              }
+                          </div>
+                      </div>
+                  }
+              </div>
     </div>
 </body>
 </html>
