@@ -563,7 +563,7 @@ namespace KinoHab.Manager
         [HttpPost]
         public async Task EditReviews(int idFilm, int IdUser, string text, double rating)
         {
-            if(text != null && rating!=0)
+            if(rating!=0)
             {
                 _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Rating = rating;
                 _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Description = text;
