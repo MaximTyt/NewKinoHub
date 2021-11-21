@@ -60,29 +60,29 @@
                                                     <option value="Сценаристы" style="width: 100px; height: 20px; font-size: 14px;">Сценаристы</option>
                                                 </select>-->
 
-                                                <label>
-                                                    <input type="checkbox" name="Actors" value="Актеры" style="margin: 5px;  margin-top: 15px;">Актеры
-                                                </label>
-                                                <br />
-                                                <label>
-                                                    <input type="checkbox" name="Directors" value="Режисёры" style="margin: 5px;">Режисёры
-                                                </label>
-                                                <br />
-                                                <label>
-                                                    <input type="checkbox" name="SceenWriter" value="Сценаристы" style="margin: 5px;">Сценаристы
-                                                </label>
-                                                <br />
-                                                <br />
-                                                <br />
-                                                @*<a href=@Url.Action("Filtrations", "Persons", new { }) style="background-color:rgb(247,151,30); color:black; border-top: none; padding-left: 38px;">Применить</a>*@
-                                                <input class="btn" type="submit" value="Применить" style="width: 150px; height: 35px; background-color: rgb(247,151,30); color: black; font-size: 14px; border-radius: 0px !important;" formaction="~/Persons/Filtrations">
-                                            </form>
-                                            
-                                        </li>
-                                        
-                                    </ul>
-                                </li>
-                            </ul>
+                                                    <label>
+                                                        <input type="checkbox" name="Actors" value="Актеры" style="margin: 5px;  margin-top: 15px;">Актеры
+                                                    </label>
+                                                    <br />
+                                                    <label>
+                                                        <input type="checkbox" name="Directors" value="Режисёры" style="margin: 5px;">Режисёры
+                                                    </label>
+                                                    <br />
+                                                    <label>
+                                                        <input type="checkbox" name="SceenWriter" value="Сценаристы" style="margin: 5px;">Сценаристы
+                                                    </label>
+                                                    <br />
+                                                    <br />
+                                                    <br />
+                                                    @*<a href=@Url.Action("Filtrations", "Persons", new { }) style="background-color:rgb(247,151,30); color:black; border-top: none; padding-left: 38px;">Применить</a>*@
+                                                    <input class="btn" type="submit" value="Применить" style="width: 150px; height: 35px; background-color: rgb(247,151,30); color: black; font-size: 14px; border-radius: 0px !important;" formaction="~/Persons/Filtrations">
+                                                </form>
+
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                </ul>
 
                             </nav>
                         </td>
@@ -112,15 +112,23 @@
                         {
                             <p><a href=@Url.Action("Person", "Persons", new { personId = Person.Id })><img width="340" height="470" src="~/lib/images/trav1.gif"></a></p>
                         }
-                        <p>
-                            <span style="font-weight:bold">Карьера:</span>
-                            @if (Person.IsActor != false)
-                            {<a class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Actor",IdPerson = Person.Id })> Актёр </a>}
-                            @if (Person.IsDirector != false)
-                            {<a class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Director",IdPerson = Person.Id })> Режиссёр </a>}
-                            @if (Person.IsScreenWriter != false)
-                            {<a class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "ScreenWriter",IdPerson = Person.Id })> Сценарист </a>}
-                        </p>
+                    <p>
+                        <span style="font-weight:bold">Карьера:</span>   
+                        @if (Person.IsActor != false)
+                        {<a style="margin-right: -4px;" class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Actor", IdPerson = Person.Id })>Актёр</a>
+                            @if (Person.IsDirector != false || Person.IsScreenWriter != false)
+                            {<a>, </a>}}
+                        @if (Person.IsDirector != false)
+                        {<a style="margin-right: -4px;" class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Director", IdPerson = Person.Id })> Режиссёр</a>
+                            if (Person.IsScreenWriter != false)
+                            {<a>, </a>}
+                        }
+                        @if (Person.IsScreenWriter != false)
+                        {<a class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "ScreenWriter", IdPerson = Person.Id })> Сценарист</a>}
+                    </p>
+
+
+                        
                         @if (Person.DateOfBirthday.Year != 0001)
                         {
                             <p>
@@ -152,10 +160,9 @@
 
 
 
-                 <div style=" clear:both;"></div>
-            </div>
-        }
+                <div style=" clear:both;"></div>
+            }
+        </div>
     </div>
-
 </body>
 </html>
