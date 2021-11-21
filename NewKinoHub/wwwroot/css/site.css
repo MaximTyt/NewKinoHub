@@ -313,3 +313,11 @@ img.avareviewssize {
         height: 395px;
         width: 265px;
     }
+
+    .genre_st{
+        color:white;
+    }
+
+        .genre_st:hover {
+            color: rgb(247,151,30);
+        }

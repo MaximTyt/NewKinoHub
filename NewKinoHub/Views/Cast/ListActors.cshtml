@@ -4,34 +4,41 @@
 
 <body>
     <div class="u-clearfix u-sheet u-sheet-1 wrapper">
+        <div style="margin-top:10px; width:1100px;" class="fav_block_films">
+            @foreach (var cast in Model)
+            {
+             <div class="item_films">
+                 @if (cast.Person.Img != null)
+                 {
+                     <p><a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })><img width="300" height="400" class="imagetitle" src="data:image/jpeg;base64,  @(Convert.ToBase64String(cast.Person.Img))"></a></p>
+                 }
+                 else
+                 {
+                     <p><a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })><img width="300" height="400" class="imagetitle" src="~/lib/images/trav1.gif"></a></p>
+                 }
+                 <p style="margin-left:5px;"><a class="titlenamesize_list" href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })>@cast.Person.Name</a></p>
+                 <div class="descr">
+                     @if (cast.Person.Img != null)
+                     {
+                         <p><a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(cast.Person.Img))"></a></p>
+                     }
+                     else
+                     {
+                         <p><a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })><img width="340" height="470" src="~/lib/images/trav1.gif"></a></p>
+                     }
+                     @if ((int)cast.RoleInFilm == 2)
+                     {
+                         <p style="color:white;">
+                             <span style="font-weight:bold; color:white;">Роль в фильме:</span>
 
-        @foreach (var cast in Model)
-        {
-            <div style="width: 1100px; min-height: 380px; margin-bottom:20px;">
-                <a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId }) style="display:block; width : 250px; float : left; margin-right : 20px; height:inherit;">                    
-                    @if (cast.Person.Img != null)
-                    {
-                        <img height="395" width="265" class="u-back-image u-expanded imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(cast.Person.Img))">
-                    }
-                    else
-                    {
-                        <img height="395" width="265" class="u-back-image u-expanded imagetitle" src="~/lib/images/trav1.gif">
-                    }
-                </a>
-                <div class="bglistcast" style=" width:800px;min-height:395px;float:right; padding-left:10px;">
-                     <p style="font-weight: bold; right:100%; left:0%;"> @cast.Person.Name </p>
-                    @if ((int)cast.RoleInFilm == 2)
-                    {
-                        <p style="color:black;"><span style="font-weight:bold; color:black;">Роль в фильме:</span>
+                             @cast.Character
 
-                        @cast.Character 
-                
-                        </p>
-                    }
-                </div>
-                <div style=" clear:both;"></div>
-            </div>
-        }
+                         </p>
+                     }
+                 </div>
+             </div>
+            }
+        </div>
     </div>
 </body>
 </html>

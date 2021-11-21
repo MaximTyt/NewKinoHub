@@ -97,15 +97,15 @@
                         <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="300" height="400" class="imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(film.Img))"></a>
                         @if (film.Score <= 5)
                         {
-                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 20px; background-color: red; border-radius: 5px; padding-left: 5px; font-size: 15px; color: white; "> @film.Score</span>
+                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
                         }
                         @if (film.Score <= 8 && film.Score > 5)
                         {
-                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 20px; background-color: yellow; border-radius: 5px; padding-left: 5px; font-size: 15px; color: white; "> @film.Score</span>
+                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
                         }
                         @if (film.Score > 8)
                         {
-                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 20px; background-color: green; border-radius: 5px; padding-left: 2px; font-size: 15px; color: white; "> @film.Score</span>
+                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @film.Score</span>
                         }
                     </p>
                      }
@@ -115,15 +115,15 @@
                     <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="300" height="400" class="imagetitle" src="~/lib/images/netpostera.png"></a>
                     @if (film.Score <= 5)
                     {
-                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 20px; background-color: red; border-radius: 5px; padding-left: 5px; font-size: 15px; color: white; "> @film.Score</span>
+                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
                     }
                     @if (film.Score <= 8 && film.Score > 5)
                     {
-                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 20px; background-color: yellow; border-radius: 5px; padding-left: 5px; font-size: 15px; color: white; "> @film.Score</span>
+                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
                     }
                     @if (film.Score > 8)
                     {
-                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 20px; background-color: green; border-radius: 5px; padding-left: 2px; font-size: 15px; color: white; "> @film.Score</span>
+                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @film.Score</span>
                     }
                 </p>
                      }
@@ -135,15 +135,15 @@
                               <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(film.Img))"></a>
                               @if (film.Score <= 5)
                               {
-                                  <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 20px; background-color: red; border-radius: 5px; padding-left: 5px; font-size: 15px; color: white; "> @film.Score</span>
+                                  <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
                               }
                               @if (film.Score <= 8 && film.Score > 5)
                               {
-                                  <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 20px; background-color: yellow; border-radius: 5px; padding-left: 5px; font-size: 15px; color: white; "> @film.Score</span>
+                                  <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
                               }
                               @if (film.Score > 8)
                               {
-                                  <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 20px; background-color: green; border-radius: 5px; padding-left: 2px; font-size: 15px; color: white; "> @film.Score</span>
+                                  <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @film.Score</span>
                               }
                           </p>
                         }
@@ -153,15 +153,15 @@
                               <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="340" height="470" src="~/lib/images/netpostera.png"></a>
                               @if (film.Score <= 5)
                               {
-                                  <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 20px; background-color: red; border-radius: 5px; padding-left: 5px; font-size: 15px; color: white; "> @film.Score</span>
+                                  <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
                               }
                               @if (film.Score <= 8 && film.Score > 5)
                               {
-                                  <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 20px; background-color: yellow; border-radius: 5px; padding-left: 5px; font-size: 15px; color: white; "> @film.Score</span>
+                                  <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
                               }
                               @if (film.Score > 8)
                               {
-                                  <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 20px; background-color: green; border-radius: 5px; padding-left:2px; font-size: 15px; color: white; "> @film.Score</span>
+                                  <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left:3px; font-size: 15px; color: white; "> @film.Score</span>
                               }
                           </p>
                         }
@@ -172,7 +172,7 @@
                         <p>
                             @foreach (var genre in film.Genres)
                             {
-                                <a style="color:white;" href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="textstyle">@genre.Genre_Name |</a>
+                                <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="genre_st">@genre.Genre_Name |</a>
                             }
                         </p>
                         <p style="color:white;"> @film.ShortDescription</p>
