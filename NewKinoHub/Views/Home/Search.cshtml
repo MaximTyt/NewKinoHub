@@ -264,15 +264,20 @@
                                     {
                                         <p><a href=@Url.Action("Person", "Persons", new { personId = Person.Id })><img width="340" height="470" src="~/lib/images/trav1.gif"></a></p>
                                     }
-                                    <p>
-                                        <span style="font-weight:bold">Карьера:</span>
-                                        @if (Person.IsActor != false)
-                                        {<a> Актёр </a>}
-                                        @if (Person.IsDirector != false)
-                                        {<a> Режиссёр </a>}
-                                        @if (Person.IsScreenWriter != false)
-                                        {<a> Сценарист </a>}
-                                    </p>
+                                <p>
+                                    <span style="font-weight:bold">Карьера:</span>
+                                    @if (Person.IsActor != false)
+                                    {<a style="margin-right: -4px;" class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Actor", IdPerson = Person.Id })>Актёр</a>
+                                        @if (Person.IsDirector != false || Person.IsScreenWriter != false)
+                                        {<a>, </a>}}
+                                    @if (Person.IsDirector != false)
+                                    {<a style="margin-right: -4px;" class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Director", IdPerson = Person.Id })> Режиссёр</a>
+                                        if (Person.IsScreenWriter != false)
+                                        {<a>, </a>}
+                                    }
+                                    @if (Person.IsScreenWriter != false)
+                                    {<a class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "ScreenWriter", IdPerson = Person.Id })> Сценарист</a>}
+                                </p>
                                     @if (Person.DateOfBirthday.Year != 0001)
                                     {
                                         <p>

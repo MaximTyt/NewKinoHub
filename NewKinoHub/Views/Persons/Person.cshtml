@@ -27,17 +27,18 @@
                         <div style=" min-height: 20px; width:600px; float:left;">
 
                             <h1 style="font-weight: bold; color: black">@Model.Name</h1>
-                            <p><span style="font-weight:bold">OriginalName:</span> @Model.OriginalName</p>                                                        
+                            <p><span style="font-weight:bold">OriginalName:</span> @Model.OriginalName</p>
                             <p>
                                 <span style="font-weight:bold">Карьера:</span>
                                 @if (Model.IsActor != false)
-                                {<a href = @Url.Action("SelectFilmsForPerson", "Films", new { person = "Actor",IdPerson = Model.Id })> Актёр </a>}
+                                {<a style="color:black; margin-right: -4px;" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Actor", IdPerson = Model.Id })>Актёр</a>
+                                    @if (Model.IsDirector != false || Model.IsScreenWriter != false) {<a>, </a>}}
                                 @if (Model.IsDirector != false)
-                                {<a href = @Url.Action("SelectFilmsForPerson", "Films", new { person = "Director",IdPerson = Model.Id })> Режиссёр </a>}
+                                {<a style="color:black;margin-right: -4px;" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Director", IdPerson = Model.Id })> Режиссёр</a>
+                                if (Model.IsScreenWriter != false) {<a>, </a>}}                                
                                 @if (Model.IsScreenWriter != false)
-                                {<a href = @Url.Action("SelectFilmsForPerson", "Films", new { person = "ScreenWriter",IdPerson = Model.Id })> Сценарист </a>}
+                                {<a style="color:black" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "ScreenWriter", IdPerson = Model.Id })> Сценарист</a>}
                             </p>
-                            
 
                             @if (Model.Height >= 0.49 && Model.Height <= 2.5)
                             {
