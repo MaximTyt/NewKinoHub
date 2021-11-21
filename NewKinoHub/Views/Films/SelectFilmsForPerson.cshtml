@@ -123,7 +123,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <p>Год: @film.Year</p>
+                                <p>Год: @film.Release_Date.Year</p>
 
                                 <p>
                                     <span style="font-weight:bold">Жанры:</span>
@@ -138,7 +138,7 @@
                                     {
                                         if ((int)director.RoleInFilm == 0 && director.Person != null)
                                         {
-                                            <a href=@Url.Action("Person", "Persons", new { personId = director.Id }) class="textstyle">@director.Person.Name</a>
+                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name</a>
                                         }
                                     }
                                 </p>
@@ -148,7 +148,7 @@
                                     {
                                         if ((int)director.RoleInFilm == 2 && director.Person != null)
                                         {
-                                            <a href=@Url.Action("Person", "Persons", new { personId = director.Id }) class="textstyle">@director.Person.Name |</a>
+                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="textstyle">@director.Person.Name |</a>
                                         }
                                     }
                                     <a href=@Url.Action("ListCast", "Cast", new { castId = film.MediaID}) class="textstyle">...</a>
@@ -263,7 +263,7 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <p>Год: @serial.Year</p>
+                                <p>Год: @serial.Release_Date.Year</p>
                                 <p>
                                     <span style="font-weight:bold">Жанры:</span>
                                     @foreach (var genre in serial.Genres)
