@@ -10,7 +10,7 @@ using NewKinoHub.Storage;
 namespace NewKinoHub.Migrations
 {
     [DbContext(typeof(MvcFilmContext))]
-    [Migration("20211120125154_m1")]
+    [Migration("20211121191331_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -312,10 +312,14 @@ namespace NewKinoHub.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Role")
                         .HasColumnType("int");
+
+                    b.Property<string>("Salt")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ViewedId")
                         .HasColumnType("int");

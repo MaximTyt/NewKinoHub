@@ -25,6 +25,7 @@ namespace NewKinoHub.Manager.Userss
         public Task<Random> SendEmailForChangePassword(string email);
         Task SendEmailAboutChangePassword(string email);
         Task EditPassword(string newPassword, string newSalt, string Email);
+        string GetUserEmail(int UserId);
 
 
     }

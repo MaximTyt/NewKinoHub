@@ -255,6 +255,11 @@ namespace NewKinoHub.Manager.Userss
             return _context.Users.FirstOrDefault(st => st.Email == Email).Image == null ? true : false;
         }
 
+        public string GetUserEmail(int UserId)
+        {
+            return _context.Users.FirstOrDefault(st => st.UserId == UserId).Email;
+        }
+
         public int GetUserId(string Email)
         {
             if(Email != null)
