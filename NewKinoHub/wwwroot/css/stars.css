@@ -13,10 +13,10 @@
 .rating_body{
     position: relative;
 }
-.rating_body::before {
-    content: "★★★★★★★★★★";
-    display: block;    
-}
+    .rating_body::before {
+        content: "★★★★★★★★★★";
+        display: block;
+    }
 .rating_body1 {
     position: relative;
 }
@@ -34,15 +34,15 @@
     left: 0;
     overflow: hidden;
 }
-.rating_active::before {
-    content: "★★★★★★★★★★";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    color: #f7971e;
-}
+    .rating_active::before {
+        content: "★★★★★★★★★★";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        color: #f7971e;
+    }
 .rating_items {
     display: flex;
     position: absolute;

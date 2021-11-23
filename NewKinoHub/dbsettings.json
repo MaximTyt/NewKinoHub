@@ -2,7 +2,7 @@
   "ConnectionStrings": {
 
     //Front_Andrey//
-      "DefaultConnection": "Server=LAPTOP-QA25E0K7;Database=KinoHub3;Trusted_Connection=True; MultipleActiveResultSets=true"
+      //"DefaultConnection": "Server=LAPTOP-QA25E0K7;Database=KinoHub3;Trusted_Connection=True; MultipleActiveResultSets=true"
     
 
       //"DefaultConnection": "Server=DESKTOP-IFVH175;Database=KinoHub1;Trusted_Connection=True; MultipleActiveResultSets=true"
@@ -10,7 +10,7 @@
 
     //"DefaultConnection": "Server=DESKTOP-4N2MISI;Database=KinoHub1;Trusted_Connection=True; MultipleActiveResultSets=true",
 
-    //"DefaultConnection": "Server=DESKTOP-SGJCKFE;Database=KinoHyb1;Trusted_Connection=True; MultipleActiveResultSets=true"
+    "DefaultConnection": "Server=DESKTOP-SGJCKFE;Database=KinoHyb2;Trusted_Connection=True; MultipleActiveResultSets=true"
 
 
 
