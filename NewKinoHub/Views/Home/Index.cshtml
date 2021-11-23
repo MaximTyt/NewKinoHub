@@ -417,32 +417,30 @@
             </tbody>
         </table>
         <script src="~/js/bootstrap/bootstrap.bundle.min.js"></script>
-        @if (Model.Item3 != null && Model.Item3.Count != 0)
+        @*@if (Model.Item3 != null && Model.Item3.Count != 0)
         {
             <h3 style="margin-top:10px;" class="colortext border-top">Рекомендации :</h3>
             <div style="margin-top:10px; width:100%;" class="fav_block">
 
-                @*поле с рекомендованными тайтлами*@
 
                 @foreach (var f in Model.Item3)
                 {
                 <div class="item">
                     @if (f.Img != null)
                     {
-                        @*<img src="data:image/jpeg;base64, @(Convert.ToBase64String(f.Img))" style="height: 300px !important; max-width: 200px;">*@
+                        
                         <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(f.Img))"></a></p>
                     }
                     else
                     {
                         <p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src="~/lib/images/netpostera.png"></a></p>                        
                     }
-                    @*<p><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src=@f.Img></a></p>*@
                     <p class="titlenamesize"><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })>@f.Name</a></p>
                 </div>
                 }
 
             </div>
-        }
+        }*@
     </div>
 </body>
 </html>

@@ -62,13 +62,19 @@
 
                                             <li>
                                                 <form action="/" method="post">
-                                                    <select style="width:100px; height: 20px; font-size: 14px;">
-                                                        <option value="value" style="font-size: 14px;">Актер</option>
-                                                        <option value="value" style="font-size: 14px;">Режисер</option>
-                                                        <option value="value" style="font-size: 14px;">Сценарист</option>
+                                                    <select name="Role1" style="width:100px; height: 20px; font-size: 14px;">
+                                                        <option value="Actor" style="font-size: 14px;">Актёр</option>
+                                                        <option value="Director" style="font-size: 14px;">Режиссер</option>
+                                                        <option value="ScreenWriter" style="font-size: 14px;">Сценарист</option>
                                                     </select>
-                                                    <input type="text" style="width:100px; height: 20px; font-size: 14px;" name="name" value="" />
-                                                    <input type="submit" name="name" value="Применить" / style="width: 100px; height: 20px; background-color: rgb(247,151,30); color: black; font-size: 14px;">
+                                                    <select name="Role2" style="width:100px; height: 20px; font-size: 14px;">
+                                                        <option value="Actor" style="font-size: 14px;">Актёр</option>
+                                                        <option value="Director" style="font-size: 14px;">Режиссер</option>
+                                                        <option value="ScreenWriter" style="font-size: 14px;">Сценарист</option>
+                                                    </select>
+                                                    <input type="text" style="width:100px; height: 20px; font-size: 14px;" name="Name1" value="" />
+                                                    <input type="text" style="width:100px; height: 20px; font-size: 14px;" name="Name2" value="" />
+                                                    <input type="submit" name="name" value="Применить" formaction="~/Films/SelectFilmsForPersons" ; style="width: 100px; height: 20px; background-color: rgb(247,151,30); color: black; font-size: 14px;">
                                                 </form>
 
                                             </li>
@@ -77,7 +83,6 @@
                                     </li>
                                     @* здесь можно добавить еще кнопку как дата выхода*@
                                     @*если не работает, позвать меня*@
-
 
                                 </ul>
                             </nav>

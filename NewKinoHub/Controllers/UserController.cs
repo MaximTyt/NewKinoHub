@@ -87,7 +87,18 @@ namespace NewKinoHub.Controllers
                     }
                 }  
             return RedirectToAction("Profile", "User", "password1");
-        }       
+        }
 
+        public async Task<IActionResult> OtherProfile(int UserId)
+        {
+            string Email = _user.GetUserEmail(UserId);
+
+            if (_user.ImageNull(Email) != true)
+                ViewBag.Image = _user.GetImage(Email);
+
+            ViewBag.OtherUsers = Email == User.Identity.Name? true : false;
+            var user = await _user.GetUsers(Email);
+            return View(user);
+        }
     }
 }
