@@ -1,0 +1,43 @@
+﻿@model ICollection<NewKinoHub.Storage.Entity.Person>
+<head>
+    <link rel="stylesheet" href="~/css/Profil.css" /> @*стили для регистрации/профиля/логина*@
+</head>
+<body>
+    <div class="wrapper">
+        <center>
+            <h2 style="color:aliceblue" class="login">Расширенный поиск</h2>
+
+            <div class="select_wrp">
+                <select class="js-selectize" name="city" placeholder="Выберите человека">
+                    <option value=""></option>
+                    @foreach (var actor in Model)
+                    {
+                        if (actor.IsActor == true)
+                        {
+                            <option value="@actor.Id">@actor.Name</option>
+                        }
+                    }
+
+                </select>>
+            </div>
+            <link rel="stylesheet" href="https://snipp.ru/cdn/selectize.js/0.12.6/dist/css/selectize.default.css">
+            <style type="text/css">
+                .select_wrp {
+                    width: 300px;
+                    margin: 0 auto;
+                }
+            </style>
+
+            <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+            <script src="https://snipp.ru/cdn/microplugin.js/src/microplugin.js"></script>
+            <script src="https://snipp.ru/cdn/sifter.js/sifter.min.js"></script>
+            <script src="https://snipp.ru/cdn/selectize.js/0.12.6/dist/js/selectize.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('.js-selectize').selectize();
+                });
+            </script>
+
+        </center>
+    </div>
+</body>
