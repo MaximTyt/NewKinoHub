@@ -344,7 +344,7 @@
                                 <a href=@Url.Action("OtherProfile", "User", new { UserId = Revi.UsersId })>  <img class="avareviewssize" src="~/lib/images/2.jpeg" alt=""></a>
                             }
 
-                            <a href=@Url.Action("OtherProfile", "User", new { UserId = Revi.UsersId })> <span class="name">@Revi.Nickname</span> </a>
+                            <a href=@Url.Action("OtherProfile", "User", new { UserId = Revi.UsersId })> <span class="name" style="color:black;">@Revi.Nickname</span> </a>
                             <span class="write">написал(а) отзыв</span>
                             <p class="date">@Revi.DateOfReview</p>
 
@@ -430,8 +430,8 @@
                     <style>
                         .btnreview2 {
                             display: block;
-                            width: 10px !important;
-                            height: 10px !important;
+                            width: 12px !important;
+                            height: 12px !important;
                             border-radius: 0px !important;
                             float: right !important;
                         }
@@ -492,7 +492,7 @@
                         .write {
                             display: block;
                             margin-left: 5px;
-                            margin-top: 4px;
+                            margin-top: 8px;
                             float: left;
                             color: gray;
                             font-size: 10px;

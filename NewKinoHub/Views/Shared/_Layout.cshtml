@@ -174,7 +174,24 @@
                                      <nav id="menu1">
                                          <ul>
                                              <li>
-                                                 <a asp-area="" asp-controller="Person" asp-action="ListPerson"> Поиск 2.0</a>
+                                                 <a asp-area="" asp-controller="Person" asp-action="ListPerson" class="ref-search">
+                                                     <img src="~/lib/images/Editing.png" alt="Alternate Text" style="width:17px;height:17px;">
+                                                 </a>
+                                                 <style>
+                                                     .ref-search {
+                                                         position: absolute;
+                                                         right: 50px;
+                                                         top: -14px;
+                                                         padding: 5px 5px 5px 5px !important;
+                                                         height: 30px !important;
+                                                         padding-top:2px;
+                                                     }
+                                                         .ref-search:hover {
+                                                             background-color: transparent !important;
+                                                             border: 0 !important;
+                                                             box-shadow: none !important;
+                                                         }
+                                                 </style>
                                              </li>
                                          </ul>
                                      </nav>

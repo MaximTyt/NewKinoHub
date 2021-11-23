@@ -42,7 +42,7 @@
                     @foreach (var film in Model.Item1)
                     {
 
-            <div style="margin-top:10px; width:1100px;" class="fav_block_films">
+            <div style="margin-top: 10px; width: 400px; float: left;" class="fav_block_films">
                     <div class="item_films">
                         @if (film.Img != null)
                         {
@@ -155,14 +155,16 @@
 
                     @if (Model.Item2.Count != 0)
                     {
-                        <div style="color:white;width:150px; height:30px; padding-bottom:3px !important;">
-                            <h3>Сериалы:</h3>
-                        </div>
+            <div style="color:white;width:150px; height:30px; padding-bottom:3px !important;">
+                <br />
+                <h3>Сериалы:</h3>
+                <br />
+            </div>
                     }
                     @foreach (var serial in Model.Item2)
                     {
 
-            <div style="margin-top:10px; width:1100px;" class="fav_block_films">
+            <div style="margin-top: 10px; width: 400px; float: left;" class="fav_block_films">
                     <div class="item_films">
                         @if (serial.Img != null)
                         {
