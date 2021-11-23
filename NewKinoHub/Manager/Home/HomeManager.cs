@@ -57,6 +57,14 @@ namespace NewKinoHub.Manager.Home
             }
             return film;
         }
+
+        public async Task<ICollection<Person>> AdvancedSearch(Users User)
+        {            
+            IPersonManager Person = new PersonManager(_context);            
+            var persons = await Person.GetPersons();              
+            return persons;
+        }
+
         public List<Media> Recommendation(Users User)
         {
             int[] Recommend = new int[21];

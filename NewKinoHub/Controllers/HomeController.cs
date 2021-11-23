@@ -38,6 +38,13 @@ namespace NewKinoHub.Controllers
             var media = await _media.Search(Name,await _film.GetUser(User.Identity.Name));
             return View(media);
         }
+        public async Task<IActionResult> AdvancedSearch()
+        {
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));            
+            ViewBag.User = User.Identity.Name;
+            var person = await _media.AdvancedSearch(await _film.GetUser(User.Identity.Name));
+            return View(person);
+        }
 
     }
 }
