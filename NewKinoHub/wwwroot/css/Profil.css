@@ -140,3 +140,6 @@ a.btn_register {
     #password > div > form {
         width: 80%;
     }
+.hide{
+    display:none;
+}
