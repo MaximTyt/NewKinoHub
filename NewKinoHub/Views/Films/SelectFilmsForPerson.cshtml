@@ -9,7 +9,7 @@
     <div class="u-clearfix u-sheet u-sheet-1 wrapper">
         <div style="margin-top:50px; margin-bottom:30px;">
             <div style="width: 100%; max-width: 1125px; margin: 0 auto; color:white;">
-
+                <a> @ViewBag.NamePerson</a>
                 @if (Model.Item1 == null && Model.Item2 == null|| Model.Item1.Count == 0 && Model.Item2.Count == 0)
                 {   /*выводится, если тайтл не нашелся*/
                     <div style="left:50% !important; right:50% !important;">
@@ -128,6 +128,20 @@
                                 <span style="color: white">Год: @film.Release_Date.Year</span>
                             </p>
                             <p>
+                                <span style="color: white">
+                                    Режиссер:@foreach (var director in film.Casts)
+                                    {
+                                        if ((int)director.RoleInFilm == 0 && director.Person != null)
+                                        {
+                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="genre_st">@director.Person.Name |</a>
+                                        }
+                                    }
+                                </span>
+                            </p>
+                            <p>
+                                <span style="color: white">Страна: @film.Country</span>
+                            </p>
+                            <p>
                                 @foreach (var genre in film.Genres)
                                 {
                                     <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="genre_st">@genre.Genre_Name |</a>
@@ -235,6 +249,20 @@
                                 {
                                     <a href=@Url.Action("Filtrations", "Films", new { type = "Film",filtr = genre.NumOfGenre }) class="genre_st">@genre.Genre_Name |</a>
                                 }
+                            </p>
+                            <p>
+                                <span style="color: white">
+                                    Режиссер:@foreach (var director in serial.Casts)
+                                    {
+                                        if ((int)director.RoleInFilm == 0 && director.Person != null)
+                                        {
+                                            <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="genre_st">@director.Person.Name |</a>
+                                        }
+                                    }
+                                </span>
+                            </p>
+                            <p>
+                                <span style="color: white">Страна: @serial.Country</span>
                             </p>
                             <p style="color:white;"> @serial.ShortDescription</p>
                         </div>

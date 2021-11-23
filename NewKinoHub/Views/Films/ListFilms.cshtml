@@ -149,44 +149,58 @@
                         @if (film.Img != null)
                         {
 
-                        <p>
-                            <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(film.Img))"></a>
-                            @if (film.Score < 5)
-                            {
-                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
-                            }
-                            @if (film.Score < 7 && film.Score >= 5)
-                            {
-                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
-                            }
-                            @if (film.Score >= 7)
-                            {
-                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: forestgreen; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
-                            }
-                        </p>
+                            <p>
+                                <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(film.Img))"></a>
+                                @if (film.Score < 5)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
+                                }
+                                @if (film.Score < 7 && film.Score >= 5)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
+                                }
+                                @if (film.Score >= 7)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: forestgreen; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
+                                }
+                            </p>
                         }
                         else
                         {
-                    <p>
-                        <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="340" height="470" src="~/lib/images/netpostera.png"></a>
-                        @if (film.Score < 5)
-                        {
-                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
-                        }
-                        @if (film.Score < 7 && film.Score >= 5)
-                        {
-                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
-                        }
-                        @if (film.Score >= 7)
-                        {
-                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: forestgreen; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
-                        }
-                    </p>
+                            <p>
+                                <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="340" height="470" src="~/lib/images/netpostera.png"></a>
+                                @if (film.Score < 5)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
+                                }
+                                @if (film.Score < 7 && film.Score >= 5)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
+                                }
+                                @if (film.Score >= 7)
+                                {
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: forestgreen; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
+                                }
+                            </p>
 
                         }
 
                         <p>
                             <span style="color: white">Год: @film.Release_Date.Year</span>
+                        </p>
+                        <p>
+                            <span style="color: white">
+                                Режиссер:@foreach (var director in film.Casts)
+                                {
+                                    if ((int)director.RoleInFilm == 0 && director.Person != null)
+                                    {
+                                        <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="genre_st">@director.Person.Name |</a>
+                                    }
+                                }
+                            </span>
+                        </p>
+                        <p>
+                            <span style="color: white">Страна: @film.Country</span>
                         </p>
                         <p>
                             @foreach (var genre in film.Genres)

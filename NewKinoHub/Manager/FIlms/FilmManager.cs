@@ -563,12 +563,12 @@ namespace KinoHab.Manager
         [HttpPost]
         public async Task EditReviews(int idFilm, int IdUser, string text, double rating)
         {
-            if(rating!=0)
+            if(rating != 0)
             {
                 _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Rating = rating;
-                _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Description = text;
-                _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).DateOfReview = DateTime.Now.ToString();
             }
+            _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Description = text;
+            _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).DateOfReview = DateTime.Now.ToString();
             await _context.SaveChangesAsync();
         }
         public void ChangeRaiting(int IdFilm)
@@ -592,6 +592,7 @@ namespace KinoHab.Manager
         {
             var Films = await GetAllFilms();
             var Serials = await GetAllFilms();
+
             await Task.WhenAll(GetAllFilms());
             if(User != null && (User.Favorites != null || User.Reviews != null))
             {
@@ -605,16 +606,16 @@ namespace KinoHab.Manager
             switch (Person)
             {
                 case "Actor":
-                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsActor == true) != null).ToList();
-                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsActor == true) != null).ToList();
+                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.Where(st => st.Person.Id == IdPerson).FirstOrDefault(st=>st.RoleInFilm == RoleInFilm.Актёр) != null).ToList();
+                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.Where(st => st.Person.Id == IdPerson).FirstOrDefault(st=> st.RoleInFilm == RoleInFilm.Актёр) != null).ToList();
                     break;
                 case "Director":
-                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsDirector == true) != null).ToList();
-                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsDirector == true) != null).ToList();
+                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.Where(st => st.Person.Id == IdPerson).FirstOrDefault(st => st.RoleInFilm == RoleInFilm.Режиссёр) != null).ToList();
+                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.Where(st => st.Person.Id == IdPerson).FirstOrDefault(st => st.RoleInFilm == RoleInFilm.Режиссёр) != null).ToList();
                     break;
                 case "ScreenWriter":
-                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsScreenWriter == true) != null).ToList();
-                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsScreenWriter == true) != null).ToList();
+                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.Where(st => st.Person.Id == IdPerson).FirstOrDefault(st => st.RoleInFilm == RoleInFilm.Сценарист) != null).ToList();
+                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.Where(st => st.Person.Id == IdPerson).FirstOrDefault(st => st.RoleInFilm == RoleInFilm.Сценарист) != null).ToList();
                     break;
             }
             Media = (Films.ToList(), Serials.ToList());
