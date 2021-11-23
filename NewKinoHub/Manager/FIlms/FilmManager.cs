@@ -592,10 +592,12 @@ namespace KinoHab.Manager
         {
             var Films = await GetAllFilms();
             var Serials = await GetAllFilms();
+            await Task.WhenAll(GetAllFilms());
             if(User != null && (User.Favorites != null || User.Reviews != null))
             {
                 Films = await GetFilms(User);
                 Serials = await GetFilms(User);
+                await Task.WhenAll(GetAllFilms());
             }
 
             (List<Media>, List<Media>) Media = (null, null);
@@ -617,7 +619,74 @@ namespace KinoHab.Manager
             }
             Media = (Films.ToList(), Serials.ToList());
             return Media;
-
         }
+
+        public async Task<(List<Media>,List<Media>)> SearchFilmsForActors(string Role1, string Name1,string Role2, string Name2, Users User)
+        {
+            (List<Media>, List<Media>) Media = (new List<Media>(), new List<Media>());
+            (List<Media>, List<Media>) Media1 = (null, null);
+            (List<Media>, List<Media>) Media2 = (null, null);
+            if (Name1 != null)
+            {
+                var Person1 = _context.Persons.FirstOrDefault(st => st.Name.ToLower().Contains(Name1.ToLower()));
+                if(Person1 == null)
+                {
+                    return Media;
+                }
+                Media1 = await GetFilmsForPerson(Role1, Person1.Id, User);
+            }
+            if(Name2 != null)
+            {
+                var Person2 = _context.Persons.FirstOrDefault(st => st.Name.ToLower().Contains(Name2.ToLower()));
+                if(Person2 == null)
+                {
+                    return Media;
+                }
+                Media2 = await GetFilmsForPerson(Role2, Person2.Id, User);
+            }
+            if (Name1 != null && Name2 != null)
+            {
+                foreach(var f1 in Media1.Item1)
+                {
+                    foreach(var f2 in Media2.Item1)
+                    {
+                        if(f1.MediaID == f2.MediaID)
+                        {
+                            Media.Item1.Add(f1);
+                            break;
+                        }
+                       }
+                }
+
+                foreach (var f1 in Media1.Item2)
+                {
+                    foreach (var f2 in Media2.Item2)
+                    {
+                        if (f1.MediaID == f2.MediaID)
+                        {
+                            Media.Item2.Add(f1);
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if(Name1 != null)
+                {
+                    Media = Media1;
+                    return Media;
+                }
+                if(Name2 != null)
+                {
+                    Media = Media2;
+                    return Media;
+                }
+            }
+
+
+            return Media;
+        }
+
     }
 }
