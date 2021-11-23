@@ -1,6 +1,7 @@
 ﻿using KinoHab.Manager;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NewKinoHub.Manager.Persons;
 using NewKinoHub.Manager.Userss;
 using System;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace KinoHab.Controllers
     {
         private readonly IFilmManager _film;
         private readonly IUserManager _user;
+        private readonly IPersonManager _person;
 
         public FilmsController(IFilmManager filmManager, IUserManager userManager)
         {
@@ -128,8 +130,24 @@ namespace KinoHab.Controllers
         public async Task<IActionResult> SelectFilmsForPerson(string Person, int IdPerson)
         {
             ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
+            //ViewBag.NamePerson = _person.GetPersonName(IdPerson);
             var Films = await _film.GetFilmsForPerson(Person, IdPerson, await _film.GetUser(User.Identity.Name));
             return View(Films);
+        }
+
+        public async Task<IActionResult> SelectFilmsForPersons(string Role1, string Name1, string Role2, string Name2, string sort)
+        {
+            var FilmsActors = await _film.SearchFilmsForActors(Role1,Name1,Role2,Name2, await _film.GetUser(User.Identity.Name));
+            ViewBag.User = User.Identity.Name;
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
+            ViewBag.Type = _film.TypeFilm("Film");
+            //if (sort != null)
+            //{
+            //    var Sort = await _film.AllSorting(sort, await _film.GetUser(User.Identity.Name));
+            //    return View(Sort);
+            //}
+            return View(FilmsActors);
+
         }
     }
 }

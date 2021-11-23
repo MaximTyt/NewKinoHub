@@ -230,7 +230,7 @@
                         <td>
                             <div style="margin-left:45px;">
                                 <iframe frameborder="0" style="border:none;height:450px;" height="450" src=@Model.SoundTrackUrl></iframe>
-                            </div>                            
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -268,12 +268,12 @@
                         <input type="radio" name="r" id="r1" checked>
                         <input type="radio" name="r" id="r2">
                         <input type="radio" name="r" id="r3">
-                        <input type="radio" name="r" id="r4">                        
+                        <input type="radio" name="r" id="r4">
                         <div class="slide s1"><a href="~/lib/images/loading.gif" target="_blank"><img src=~/lib/images/loading.gif alt=""></a></div>
                         <div class="slide"><a href="~/lib/images/loading.gif" target="_blank"><img src=~/lib/images/loading.gif alt=""></a></div>
                         <div class="slide"><a href="~/lib/images/loading.gif" target="_blank"><img src=~/lib/images/loading.gif alt=""></a></div>
                         <div class="slide"><a href="~/lib/images/loading.gif" target="_blank"><img src=~/lib/images/loading.gif alt=""></a></div>
-                        
+
                     </div>
 
                     <div class=" navigation">
@@ -332,22 +332,41 @@
 
                 @foreach (var Revi in Model.Reviews)
                 {
-                    if (Revi.UsersId != ViewBag.UserId )
-                    {   /*отзывы других пользователей*/
-                        if (Revi.ImgUser != null)
-                        {
-                            <table style="width:100%; margin-top:10px; background-color:white; border: 2px solid rgba(8,8,8,0.5);">
-                                <tbody>
-                                    <tr>
-                                        <td valign="top" style="width:30%;">
-                                            <img class="avareviewssize" src="data:image/jpeg;base64, @(Convert.ToBase64String(Revi.ImgUser))" />
-                                            <p><b>@Revi.Nickname</b></p>
-                                            <p><b>@Revi.DateOfReview</b></p>
-                                        </td>
-                                        <td valign="top" align="left" style="width:70%;">
+                    <div class="message-conteiner message-conteiner-margin" style="float:right;margin-right: 30px;">
+                        <div class="message message-width">
+
+                            @if (Revi.ImgUser != null)
+                            {
+                                <a href=@Url.Action("OtherProfile", "User", new { UserId = Revi.UsersId})> <img class="avareviewssize" src="data:image/jpeg;base64, @(Convert.ToBase64String(Revi.ImgUser))" /> </a>
+                            }
+                            else
+                            {
+                                <a href=@Url.Action("OtherProfile", "User", new { UserId = Revi.UsersId })>  <img class="avareviewssize" src="~/lib/images/2.jpeg" alt=""></a>
+                            }
+
+                            <a href=@Url.Action("OtherProfile", "User", new { UserId = Revi.UsersId })> <span class="name">@Revi.Nickname</span> </a>
+                            <span class="write">написал(а) отзыв</span>
+                            <p class="date">@Revi.DateOfReview</p>
+
+                            @if (Revi.UsersId == ViewBag.UserId)
+                            {
+                                <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID, IdUser = Revi.UsersId })>
+                                    <img src="~/lib/images/X.png" alt="Alternate Text" class="btnreview2" />
+                                </a><br />
+
+                                <a class="btnreview btnreview2" href="#editreviews">
+                                    <img src="~/lib/images/edit.png" alt="Alternate Text" class="btnreview2" />
+                                </a>
+
+                                <div id="editreviews">
+                                    <a href="#"></a>
+                                    <div>
+                                        <form class="addreviewsfo" action="" method="post" enctype="multipart/form-data">
+                                            <h4>Редактировать отзыв:</h4>
+                                            <a class="btn_delete1" style="position: absolute;font-weight:bold; top: 5px; left: 175px; display: block; min-width: 15px !important; width: 20px;font-size: 15px; color: rgb(247,151,30)">X</a>
                                             <div class="form_item">
                                                 <div class="form_label">Рейтинг:  </div>
-                                                <div class="rating">
+                                                <div class="rating rating_set" style="margin-left: 100px;">
                                                     <div class="rating_body">
                                                         <div class="rating_active"></div>
                                                         <div class="rating_items">
@@ -366,303 +385,145 @@
                                                     <div class="rating_value">@Revi.Rating</div>
                                                 </div>
                                             </div>
-                                            <textarea rows="7" class="viewreviewste" readonly> @Revi.Description </textarea>
-                                        </td>
-                                        @if (ViewBag.Role == 1)
-                                        {
-                                            <td valign="bottom" align="right" style="width:15%;">
-                                                <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID,IdUser = Revi.UsersId})>Удалить</a>
-                                            </td>
-                                        }
-                                    </tr>
-                                </tbody>
-                            </table>
-                        }
-                        else
-                        {
-                            <table style="width:100%; margin-top:10px; background-color:white; border: 2px solid rgba(8,8,8,0.5);">
-                                <tbody>
-                                    <tr>
-                                        <td valign="top" style="width:30%;">
-                                            <img class="avareviewssize" src="~/lib/images/2.jpeg" />
-                                            <p><b>Никнейм: @Revi.Nickname</b></p>
-                                            <p><b>Дата: @Revi.DateOfReview</b></p>
-                                        </td>
-                                        <td valign="top" align="left" style="width:70%;">
-                                            <div class="form_item">
-                                                <div class="form_label">Рейтинг:  </div>
-                                                <div class="rating">
-                                                    <div class="rating_body">
-                                                        <div class="rating_active"></div>
-                                                        <div class="rating_items">
-                                                            <input type="radio" class="rating_item" value="1" name="rating">
-                                                            <input type="radio" class="rating_item" value="2" name="rating">
-                                                            <input type="radio" class="rating_item" value="3" name="rating">
-                                                            <input type="radio" class="rating_item" value="4" name="rating">
-                                                            <input type="radio" class="rating_item" value="5" name="rating">
-                                                            <input type="radio" class="rating_item" value="6" name="rating">
-                                                            <input type="radio" class="rating_item" value="7" name="rating">
-                                                            <input type="radio" class="rating_item" value="8" name="rating">
-                                                            <input type="radio" class="rating_item" value="9" name="rating">
-                                                            <input type="radio" class="rating_item" value="10" name="rating">
-                                                        </div>
-                                                    </div>
-                                                    <div class="rating_value">@Revi.Rating</div>
-                                                </div>
-                                            </div>
-                                            <textarea rows="7" class="viewreviewste" readonly> @Revi.Description </textarea>
-                                        </td>
-                                        @if (ViewBag.Role == 1)
-                                        {
-                                            <td valign="bottom" align="right" style="width:15%;">
-                                                <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID,IdUser = Revi.UsersId})>Удалить</a>
-                                            </td>
-                                        }
-                                    </tr>
-                                </tbody>
-                            </table>
-                        }
-                    }
-                    if (Revi.UsersId == ViewBag.UserId)
-                    {
-                        //отзывы пользователя, вошедшего в аккаунт
-                        if (Revi.ImgUser != null)
-                        {
-                            <table style="width:100%; margin-top:10px; background-color:white; border: 2px solid rgba(247,151,30,0.5);">
-                                <tbody>
-                                    <tr>
-                                        <td style="width:30%;">
-                                            <img class="avareviewssize" src="data:image/jpeg;base64, @(Convert.ToBase64String(Revi.ImgUser))" />
-                                            <span>@Revi.Nickname</span>
-                                            <span>@Revi.DateOfReview</span>
-                                        </td>
-                                        <td valign="top" align="left" style="width:60%;">
-                                            <div class="form_item">
-                                                <div class="form_label">Рейтинг:  </div>
-                                                <div class="rating">
-                                                    <div class="rating_body">
-                                                        <div class="rating_active"></div>
-                                                        <div class="rating_items">
-                                                            <input type="radio" class="rating_item" value="1" name="rating">
-                                                            <input type="radio" class="rating_item" value="2" name="rating">
-                                                            <input type="radio" class="rating_item" value="3" name="rating">
-                                                            <input type="radio" class="rating_item" value="4" name="rating">
-                                                            <input type="radio" class="rating_item" value="5" name="rating">
-                                                            <input type="radio" class="rating_item" value="6" name="rating">
-                                                            <input type="radio" class="rating_item" value="7" name="rating">
-                                                            <input type="radio" class="rating_item" value="8" name="rating">
-                                                            <input type="radio" class="rating_item" value="9" name="rating">
-                                                            <input type="radio" class="rating_item" value="10" name="rating">
-                                                        </div>
-                                                    </div>
-                                                    <div class="rating_value">@Revi.Rating</div>
-                                                </div>
-                                            </div>
-                                            <textarea rows="7" cols="75" class="viewreviewste" readonly> @Revi.Description </textarea>
-                                        </td>
-                                        <td valign="bottom" align="right" style="width:15%;">
-                                            <a class="btnreview" href="#editreviews">Редактировать</a><br />
-                                            <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID,IdUser = Revi.UsersId})>Удалить</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        }
-                        else
-                        {
-                            
-                            <div class="message-conteiner message-conteiner-margin" style="float:right;margin-right: 30px;">
-                                <div class="message message-width">
-                                    <img src="~/lib/images/2.jpeg" alt="">
-                                    <span class="name">@Revi.Nickname</span>
-                                    <span class="write">написал(а) отзыв</span>
-                                    <p class="date">@Revi.DateOfReview</p>
+                                            <br />
+                                            <textarea class="addreviewste" rows="8" cols="75" name="text">@Revi.Description</textarea>
+                                            <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("EditReviewsModer", "Films", new { IdFilm = Model.MediaID, UserId = ViewBag.UserId })><br />
+                                        </form>
+                                        <a href="#">Выйти</a>
+                                    </div>
+                                </div>
+
+                            }
+                            else
+                            {
+                                if (ViewBag.Role == 1 && Revi.UsersId != ViewBag.UserId)
+                                {
                                     <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID, IdUser = Revi.UsersId })>
                                         <img src="~/lib/images/X.png" alt="Alternate Text" class="btnreview2" />
                                     </a><br />
-                                    <a class="btnreview btnreview2" href="#editreviews">
-                                        <img src="~/lib/images/edit.png" alt="Alternate Text" class="btnreview2" />
-                                    </a>
+                                }
+                            }
 
-                                    <div class="rating" style="clear: both;padding-top: 8px;">
-                                        <div class="rating_body">
-                                            <div class="rating_active"></div>
-                                            <div class="rating_items">
-                                                <input type="radio" class="rating_item" value="1" name="rating">
-                                                <input type="radio" class="rating_item" value="2" name="rating">
-                                                <input type="radio" class="rating_item" value="3" name="rating">
-                                                <input type="radio" class="rating_item" value="4" name="rating">
-                                                <input type="radio" class="rating_item" value="5" name="rating">
-                                                <input type="radio" class="rating_item" value="6" name="rating">
-                                                <input type="radio" class="rating_item" value="7" name="rating">
-                                                <input type="radio" class="rating_item" value="8" name="rating">
-                                                <input type="radio" class="rating_item" value="9" name="rating">
-                                                <input type="radio" class="rating_item" value="10" name="rating">
-                                            </div>
-                                        </div>
-                                        <div class="rating_value">@Revi.Rating</div>
+                            <div class="rating" style="clear: both;padding-top: 8px; font-size: 20px !important; display: flex; align-items: flex-end; line-height: 0.75;">
+                                <div class="rating_body">
+                                    <div class="rating_active"></div>
+                                    <div class="rating_items">
+                                        <input type="radio" class="rating_item" value="1" name="rating">
+                                        <input type="radio" class="rating_item" value="2" name="rating">
+                                        <input type="radio" class="rating_item" value="3" name="rating">
+                                        <input type="radio" class="rating_item" value="4" name="rating">
+                                        <input type="radio" class="rating_item" value="5" name="rating">
+                                        <input type="radio" class="rating_item" value="6" name="rating">
+                                        <input type="radio" class="rating_item" value="7" name="rating">
+                                        <input type="radio" class="rating_item" value="8" name="rating">
+                                        <input type="radio" class="rating_item" value="9" name="rating">
+                                        <input type="radio" class="rating_item" value="10" name="rating">
                                     </div>
-                                    <p class="message-message">@Revi.Description</p>
                                 </div>
-				            </div>
-                            <!--старый вид коментов-->
-                            <!--<table style="width:100%; margin-top:10px; background-color:white; border: 2px solid rgba(247,151,30,0.5);">
-                                <tbody>
-                                    <tr>
-                                        <td style="width:30%;">
-                                            <img class="avareviewssize" src="~/lib/images/2.jpeg" />
-                                            <span> @Revi.Nickname</span>
-                                            <span> @Revi.DateOfReview</span>
-                                        </td>
-                                        <td valign="top" align="left" style="width:60%;">
-                                            <div class="form_item">
-                                                <div class="form_label">Рейтинг:  </div>
-                                                <div class="rating">
-                                                    <div class="rating_body">
-                                                        <div class="rating_active"></div>
-                                                        <div class="rating_items">
-                                                            <input type="radio" class="rating_item" value="1" name="rating">
-                                                            <input type="radio" class="rating_item" value="2" name="rating">
-                                                            <input type="radio" class="rating_item" value="3" name="rating">
-                                                            <input type="radio" class="rating_item" value="4" name="rating">
-                                                            <input type="radio" class="rating_item" value="5" name="rating">
-                                                            <input type="radio" class="rating_item" value="6" name="rating">
-                                                            <input type="radio" class="rating_item" value="7" name="rating">
-                                                            <input type="radio" class="rating_item" value="8" name="rating">
-                                                            <input type="radio" class="rating_item" value="9" name="rating">
-                                                            <input type="radio" class="rating_item" value="10" name="rating">
-                                                        </div>
-                                                    </div>
-                                                    <div class="rating_value">@Revi.Rating</div>
-                                                </div>
-                                            </div>
-                                            <textarea rows="7" cols="75" class="viewreviewste" readonly> @Revi.Description </textarea>
-                                        </td>
-                                        <td valign="bottom" align="right" style="width:15%;">
-                                            <a class="btnreview" href="#editreviews">Редактировать</a><br />
-                                            <a class="btnreview" href=@Url.Action("DeleteReviews", "Films", new { IdFilm = Model.MediaID, IdUser = Revi.UsersId })>Удалить</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>-->
-                            <style>
-                                .btnreview2 {
-                                    display: block;
-                                    width: 10px !important;
-                                    height: 10px !important;
-                                    border-radius: 0px !important;
-                                    float: right !important;
-                                }
-                                .message-conteiner {
-                                    width: 800px;
-                                    min-height: 5px;
-                                    float: left;
-                                }
-                                .message {
-                                    width: 545px;
-                                    min-height: 50px;
-                                    background-color: #fff;
-                                    float: left;
-                                    margin-top: 20px;
-                                    border: 1px solid lightgray;
-                                    position: relative;
-                                    padding: 15px;
-                                }
-                                .rating {
-                                    font-size: 20px !important;
-                                    /* margin-top: 10px; */
-                                }
-                                .message-width {
-                                    width: 795px;
-                                }
-                                .message img {
-                                    display: block;
-                                    width: 100px;
-                                    height: 100px;
-                                    border-radius: 50%;
-                                    float: left;
-                                    margin-right: 15px;
-                                }
-                                .message img, /*!!!!!!!!*/
-                                .img-enter {
-                                    width: 40px;
-                                    height: 40px;
-                                    margin-right: 10px;
-                                    float: left;
-                                }
-                                .name {
-                                    display: block;
-                                    /*color: gray;
-	                                font-size: 10px;*/
-                                    float: left;
-                                    margin-top: 4px;
-                                }
-                                .write {
-                                    display: block;
-                                    margin-left: 5px;
-                                    margin-top: 4px;
-                                    float: left;
-                                    color: gray;
-                                    font-size: 10px;
-                                }
+                                <div class="rating_value">@Revi.Rating</div>
+                            </div>
+                            <p class="message-message">@Revi.Description</p>
+                        </div>
+                    </div>
 
-                                .message .date {
-                                    display: block;
-                                    clear: both;
-                                    font-size: 10px;
-                                    position: absolute;
-                                    top: 35px;
-                                    left: 65px;
-                                    color: gray;
-                                }
-                                .message .message-message {
-                                    width: 760px;
-                                    font-size: 24px;
-                                    font-weight: normal;
-                                    color: #696969;
-                                    clear: left;
-                                    overflow-wrap: break-word;
-                                }
-                                #editreviews > div > form {
-                                    width: 100% !important;
-                                }
-                            </style>
+
+                    <style>
+                        .btnreview2 {
+                            display: block;
+                            width: 10px !important;
+                            height: 10px !important;
+                            border-radius: 0px !important;
+                            float: right !important;
                         }
 
-                        <div id="editreviews">
-                            <a href="#"></a>
-                            <div>
-                                <form class="addreviewsfo" action="" method="post" enctype="multipart/form-data">
-                                    <h4>Редактировать отзыв:</h4>
-                                    <div class="form_item">
-                                        <div class="form_label">Рейтинг:  </div>
-                                        <div class="rating rating_set" style="margin-left: 100px;">
-                                            <div class="rating_body">
-                                                <div class="rating_active"></div>
-                                                <div class="rating_items">
-                                                    <input type="radio" class="rating_item" value="1" name="rating">
-                                                    <input type="radio" class="rating_item" value="2" name="rating">
-                                                    <input type="radio" class="rating_item" value="3" name="rating">
-                                                    <input type="radio" class="rating_item" value="4" name="rating">
-                                                    <input type="radio" class="rating_item" value="5" name="rating">
-                                                    <input type="radio" class="rating_item" value="6" name="rating">
-                                                    <input type="radio" class="rating_item" value="7" name="rating">
-                                                    <input type="radio" class="rating_item" value="8" name="rating">
-                                                    <input type="radio" class="rating_item" value="9" name="rating">
-                                                    <input type="radio" class="rating_item" value="10" name="rating">
-                                                </div>
-                                            </div>
-                                            <div class="rating_value">@Revi.Rating</div>
-                                        </div>
-                                    </div>
-                                    <br />
-                                    <textarea class="addreviewste" rows="8" cols="75" name="text">@Revi.Description</textarea>
-                                    <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("EditReviewsModer", "Films", new { IdFilm = Model.MediaID, UserId = Revi.UsersId })><br />
-                                </form>
-                                <a href="#">Выйти</a>
-                            </div>
-                        </div>
-                    }
+                        .message-conteiner {
+                            width: 800px;
+                            min-height: 5px;
+                            float: left;
+                        }
+
+                        .message {
+                            width: 545px;
+                            min-height: 50px;
+                            background-color: #fff;
+                            float: left;
+                            margin-top: 20px;
+                            border: 1px solid lightgray;
+                            position: relative;
+                            padding: 15px;
+                        }
+
+                        .rating1 {
+                            font-size: 20px !important;
+                            display: flex;
+                            align-items: flex-end;
+                            line-height: 0.75;
+                        }
+
+                        .message-width {
+                            width: 795px;
+                        }
+
+                        .message img {
+                            display: block;
+                            width: 100px;
+                            height: 100px;
+                            border-radius: 50%;
+                            float: left;
+                            margin-right: 15px;
+                        }
+
+                        .message img, /*!!!!!!!!*/
+                        .img-enter {
+                            width: 40px;
+                            height: 40px;
+                            margin-right: 10px;
+                            float: left;
+                        }
+
+                        .name {
+                            display: block;
+                            /*color: gray;
+                                font-size: 10px;*/
+                            float: left;
+                            margin-top: 4px;
+                        }
+
+                        .write {
+                            display: block;
+                            margin-left: 5px;
+                            margin-top: 4px;
+                            float: left;
+                            color: gray;
+                            font-size: 10px;
+                        }
+
+                        .message .date {
+                            display: block;
+                            clear: both;
+                            font-size: 10px;
+                            position: absolute;
+                            top: 35px;
+                            left: 65px;
+                            color: gray;
+                        }
+
+                        .message .message-message {
+                            width: 760px;
+                            font-size: 24px;
+                            font-weight: normal;
+                            color: #696969;
+                            clear: left;
+                            overflow-wrap: break-word;
+                        }
+
+                        #editreviews > div > form {
+                            width: 100% !important;
+                        }
+                    </style>
+
+
+                   
                 }
             }
         </div>

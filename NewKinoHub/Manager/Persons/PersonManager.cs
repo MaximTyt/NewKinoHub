@@ -204,5 +204,10 @@ namespace NewKinoHub.Manager.Persons
             }
             return Filtr;
         }
+
+        public string GetPersonName(int IdPerson)
+        {
+            return _context.Persons.FirstOrDefault(st => st.Id == IdPerson).Name;
+        }
     }
 }

@@ -1,0 +1,144 @@
+﻿@model NewKinoHub.Storage.Entity.Users
+<head>
+    <link href="~/css/Profil.css" rel="stylesheet" />
+    @*<link href="~/css/nickname.css" rel="stylesheet" />*@
+</head>
+
+<body>
+    <div class="wrapper">
+        @*--------------------Начало блока с настройками профиля--------------------*@
+        <div id="profil">
+            <a href="#"></a>
+            <div>
+                <center>
+                    <form action="" method="post" enctype="multipart/form-data">
+
+                        <label>Никнейм:<sup>*</sup></label><br />
+                        <input value=@Model.Nickname type="text" name="name" /><br /><br />
+                        <label>Аватарка<sup>*</sup></label><br />
+                        <input type="file" title="Выберите аватарку" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+
+                        <label>Дата рождения<sup>*</sup>: @Model.DateOfBirthday.ToShortDateString()</label><br />
+                        <input type="date" id="DataB" name="DataB" /><br /><br />
+                        <input class="btn" type="submit" value="Подтвердить" formaction="~/User/EditAccount">
+                    </form>
+                    <a class="btn" style="bottom:0%;" href="#">Выйти</a>
+                </center>
+            </div>
+        </div>
+        
+        <div id="password1">
+            <a href="#"></a>
+            <div>
+                <center>
+                    <form asp-action="Profile" asp-controller="User" asp-anti-forgery="true" method="post" enctype="multipart/form-data">
+
+                        <label>Старый пароль:<sup>*</sup></label><br />                        
+                        <input type="password" name="oldPassword" @*pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"*@ required /><br/>                        
+
+                        <label>Новый пароль:<sup>*</sup></label><br />
+                        <input type="password" name="newPassword" @*pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"*@ required/><br /><br />                        
+                        <input class="btn" type="submit" value="Подтвердить" formaction="~/User/EditPassword">
+                    </form>
+                    <a class="btn" style="bottom:0%;" href="#">Выйти</a>
+                </center>
+            </div>
+        </div>
+        @*--------------------Конец блока с настройками профиля--------------------*@
+        <table class="tablestyle">
+            <tbody>
+                <tr>
+                    <td style="position:relative;">
+                        @if (Model.Image != null)
+                        {
+                            <img class="avasize" style="display:block; float: left;" src="data:image/jpeg;base64, @(Convert.ToBase64String(@ViewBag.Image))" /> @*поле с аватаркой пользователя*@
+                        }
+                        else
+                        {
+                            <img class="avasize" style="display:block; float: left; margin: 10px;" src="~/lib/images/2.jpeg" /> @*поле с аватаркой пользователя*@
+                        }
+
+
+                        <h1 style="color: rgb(247,151,30); margin-top: 4%; display: block; float: left; font-weight:bold;">@Model.Nickname </h1>
+
+                        @if (Model.DateOfBirthday.Year != 0001)
+                        {
+                            <div style="position: absolute; left:270px; top: 70px;">
+                                <a class="colortext">Дата рождения: @Model.DateOfBirthday.ToShortDateString()</a>
+                            </div>
+                        }
+                    </td>
+                    @if (ViewBag.OtherUsers)
+                    {
+                        <td>
+                            <div style="margin-top:10px;">
+                                <a class="btn" href="#profil">Редактировать профиль</a>
+                            </div>
+                            <div style="margin-top:10px;">
+                                <a class="btn" href="#password1">Изменить пароль</a>
+                            </div>
+                            <div style="margin-top:10px;">
+                                <a class="btn" href=@Url.Action("Logout", "Account")>Выйти из аккаунта</a>
+                            </div>
+                        </td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+        @if (Model.Favorites != null && Model.Favorites.Medias.Count != 0)
+        {
+            <h2 class="colortext border-top">Избранное :</h2>
+            <div style="margin-top:10px; width:100%;" class="fav_block">
+
+                @*поле с избранными тайтлами*@
+
+                @foreach (var f in Model.Favorites.Medias)
+                {
+                    <div class="item">
+                        <p style="position:relative;" class="hoverImg">
+                            @if (f.Img != null)
+                            {
+                                <a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(f.Img))"></a>
+                            }
+                            else
+                            {
+                                <a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src="/lib/images/trav.gif"></a>
+                            }
+                            <a class="btn_delete" style="position: absolute;font-weight:bold; top: 5px; left: 175px; display: block; min-width: 15px !important; width: 20px;font-size: 15px; color: rgb(247,151,30);" href=@Url.Action("DeleteFavoriteFilms1", "User", new { id = f.MediaID })>X</a>
+                        </p>
+                        <p class="titlenamesize"><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })>@f.Name</a></p>
+                    </div>
+                }
+
+            </div>
+        }
+
+        @if (Model.Viewed != null && Model.Viewed.Medias.Count != 0)
+        {
+            <h2 class="colortext border-top">Просмотренное:</h2>
+            <div style="margin-top:10px; width:100%;" class="fav_block">
+
+                @*поле с просмотренными тайтлами*@
+
+                @foreach (var f in Model.Viewed.Medias)
+                {
+                    <div class="item">
+                        <p style="position:relative;" class="hoverImg">
+                            @if (f.Img != null)
+                            {
+                                <a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(f.Img))"></a>
+                            }
+                            else
+                            {
+                                <a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })><img width="200" class="imagetitle" src="/lib/images/trav.gif"></a>
+                            }
+                            <a class="btn_delete" style="position: absolute;font-weight:bold; top: 5px; left: 175px; display: block; min-width: 15px !important; width: 20px;font-size: 15px; color: rgb(247,151,30);" href=@Url.Action("DeleteViewedFilms1", "User", new { id = f.MediaID })>X</a>
+                        </p>
+                        <p class="titlenamesize"><a href=@Url.Action("Film", "Films", new { IdFilm = f.MediaID })>@f.Name</a></p>
+
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</body>
