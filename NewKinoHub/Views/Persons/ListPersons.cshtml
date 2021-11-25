@@ -5,6 +5,12 @@
 <body>
     <div class="u-clearfix u-sheet u-sheet-1 wrapper">
         <div style="margin-top:50px; margin-bottom:30px; width: 95%;">
+            @if (ViewBag.Role == 1)
+            {
+                <div style="position:absolute; top:5%; left:3%; ">
+                    <a href=@Url.Action("AddPerson", "Persons") class="addfilm">+</a>
+                </div>
+            }
             <table>
                 <tbody>
                     <tr>
@@ -73,7 +79,7 @@
 
                                             </li>
 
-                                        </ulstyle="margin-top:>
+                                        </ul>
                                     </li>
                                 </ul>
 

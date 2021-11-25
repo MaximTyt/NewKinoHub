@@ -627,6 +627,8 @@ namespace KinoHab.Manager
             (List<Media>, List<Media>) Media = (new List<Media>(), new List<Media>());
             (List<Media>, List<Media>) Media1 = (null, null);
             (List<Media>, List<Media>) Media2 = (null, null);
+            Role1 = ReNameRole(Role1);
+            Role2 = ReNameRole(Role2);
             if (Name1 != null)
             {
                 var Person1 = _context.Persons.FirstOrDefault(st => st.Name.ToLower().Contains(Name1.ToLower()));
@@ -689,5 +691,24 @@ namespace KinoHab.Manager
             return Media;
         }
 
+        public string ReNameRole(string Role)
+        {
+            if(Role == "actors" || Role == "actors1")
+            {
+                Role = "Actor";
+                return Role;
+            }
+            if(Role == "directors" || Role == "directors1")
+            {
+                Role = "Director";
+                return Role;
+            }
+            if (Role == "screenwriters" || Role == "screenwriters1")
+            {
+                Role = "ScreenWriter";
+                return Role;
+            }
+            return Role;
+        }
     }
 }
