@@ -77,5 +77,19 @@ namespace NewKinoHub.Controllers
             }
             return View(Filtr);
         }
+
+        public IActionResult AddPerson()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddPersons(string Name, string OriginalName,
+            string IsActor, string IsScreenWriter, string IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+            string PlaceOfDeath, string Spouse, string Awards, string Description)
+        {
+            await _person.AddPerson(Name, OriginalName, IsActor, IsScreenWriter, IsDirector, Height, mainPhoto, DateOfBirthday, DateOfDeath, PlaceOfBirthday,PlaceOfDeath, Spouse, Awards, Description);
+            return RedirectToAction("ListPersons","Persons");
+        }
     }
 }

@@ -22,5 +22,8 @@ namespace NewKinoHub.Manager.Persons
         Task<List<Person>> Filtration(string Actors, string Directors, string ScreenWriter);
         List<Person> SortingFromFiltr(string sort, List<Person> Filtr);
         string GetPersonName(int IdPerson);
+        Task AddPerson(string Name, string OriginalName,
+            string IsActor, string IsScreenWriter, string IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+            string PlaceOfDeath, string Spouse, string Awards, string Description);
     }
 }
