@@ -1,0 +1,82 @@
+﻿<head>
+    <link href="~/css/editadd.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="coloraddtext">Добавление:</h1>
+            <form action="" method="post" enctype="multipart/form-data" style="width:100% !important;">
+                <table class="tablesize" cellpadding="10">
+                    <tbody>
+                        <tr class="trsizea">
+                            <td valign="top" align="left" class="tdstyle">
+                                <label class="colortext">Name:<sup>*</sup></label><br />
+                                <textarea class="namesizeeditadd" type="text" name="Name" required></textarea><br />
+                                <label class="colortext">Фото:<sup>*</sup></label><br />
+                                <input class="colortext" type="file" title="Выберите фото" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                            </td>
+                            <td valign="top" class="tdstyle">
+                                <label class="colortext">Настоящее имя:<sup>*</sup></label><br />
+                                <textarea class="namesizeeditadd" type="text" name="OriginalName" required></textarea><br />
+                            </td>
+                            <td valign="top" class="tdstyle">
+                                <label for="RoleInFilm" class="colortext">Роль в фильме:<sup>*</sup></label><br />
+                                   <ul style="margin-top: 17px;">
+                                       @*что выпадает при наведении на кнопку дата выхода*@
+                                       <li style="width:150px;height: 110px;  font-size: 14px;">
+                                               <label class="colortext">
+                                                   <input type="checkbox" name="IsActor" value="1" style="margin: 5px;  margin-top: 15px;">Актер
+                                               </label>
+                                               <br />
+                                               <label class="colortext">
+                                                   <input type="checkbox" name="IsDirector" value="2" style="margin: 5px;">Режисёр
+                                               </label>
+                                               <br />
+                                               <label class="colortext">
+                                                   <input type="checkbox" name="IsScreenWriter" value="3" style="margin: 5px;">Сценарист
+                                               </label>
+                                               <br />
+                                               <br />
+                                               <br />
+                                       </li>
+                                   </ul>
+                            </td>
+
+                            <td valign="top" class="tdstyle">
+                                <label class="colortext">Награды(необязательно):<sup></sup></label><br />
+                                <input type="text" name="Awards" /><br />
+                            </td>
+                        </tr>
+                        <tr class="trsizeb">
+                            <td valign="top" colspan="2" class="tdstyle">
+                                <label class="colortext">Интересные факты:<sup>*</sup></label><br />
+                                <textarea class="descriptionsize" type="text" name="Description" required> </textarea>
+                            </td>
+                            <td valign="top" align="left" class="tdstyle">
+                                <label class="colortext">Дата рождения:</label><br />
+                                <input type="date" id="DateOfBirthday" name="DateOfBirthday"><br />
+
+                                <label class="colortext">Место рождения(необязательно):<sup></sup></label><br />
+                                <input type="text" name="PlaceOfBirthday"/><br />
+
+                                <label class="colortext">Дата смерти(необязательно):</label><br />
+                                <input type="date" id="DateOfDeath" name="DateOfDeath" /><br />
+                            </td>
+                            <td valign="top" class="tdstyle">
+                                <label class="colortext">Супруг(а):<sup></sup></label><br />
+                                <input type="text" name="Spouse" /><br />
+                                <label class="colortext">Рост:<sup></sup></label><br />                                
+                                <input step="0.01" min=0.49 max=2.5 type="number" name="Height" /><br />
+                                <label class="colortext">Место смерти(необязательно):</label><br />
+                                <input type="text" name="PlaceOfDeath" /><br />
+                            </td>
+                        </tr>
+                        <tr class="trsizec">
+                            <td colspan="3" class="tdstyle">
+                                <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("AddPersons", "Persons")>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+    </div>
+</body>

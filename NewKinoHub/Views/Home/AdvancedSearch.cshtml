@@ -5,93 +5,99 @@
         <link href="~/css/Profil.css" rel="stylesheet" />
     </head>
     <body>
+ 
+        <div style="width: 500px;min-height: 200px; margin: 0 auto; padding: 30px; padding-left: 70px;">
+            <form action="/" method="post">
+                <select id="careers" name="Role1">
+                    <option value="actors">Актёр</option>
+                    <option value="directors">Режиссёр</option>
+                    <option value="screenwriters">Сценарист</option>
+                </select>
 
+                <div id="actors" class="people active">
+                    <input list="actor" name="Name1">
+                    <datalist id="actor">
+                        @foreach (var Person in Model)
+                        {
+                            if (Person.IsActor == true)
+                            {
+                                <option data-value="@Person.Id">@Person.Name</option>
+}
+                        }
+                    </datalist>
+                </div>
+                <div id="directors" class="people">
+                    <input list="director" name="Name1" required>
+                    <datalist id="director">
+                        @foreach (var Person in Model)
+                        {
+                            if (Person.IsDirector == true)
+                            {
+                                <option data-value="@Person.Id">@Person.Name</option>
+}
+                        }
+                    </datalist>
+                </div>
+                <div id="screenwriters" class="people">
+                    <input list="screenwriter" name="Name1">
+                    <datalist id="screenwriter">
+                        @foreach (var Person in Model)
+                        {
+                            if (Person.IsScreenWriter == true)
+                            {
+                                <option data-value="@Person.Id">@Person.Name</option>
+}
+                        }
+                    </datalist>
+                </div><br><br />
 
-        <select id="careers">
-            <option value="actors">Актёр</option>
-            <option value="directors">Режиссёр</option>
-            <option value="screenwriters">Сценарист</option>
-        </select>
+                <select id="careers1" name="Role2">
+                    <option value="actors1">Актёр</option>
+                    <option value="directors1">Режиссёр</option>
+                    <option value="screenwriters1">Сценарист</option>
+                </select>
 
-        <div id="actors" class="people active">
-            <input list="actor" required>
-            <datalist id="actor">
-                @foreach (var Person in Model)
-                {
-                    if (Person.IsActor == true)
-                    {
-                        <option data-value="@Person.Id">@Person.Name</option>
-                    }
-                }
-            </datalist>
+                <div id="actors1" class="people1 active1">
+                    <input list="actor1" name="Name2">
+                    <datalist id="actor1">
+                        @foreach (var Person in Model)
+                        {
+                            if (Person.IsActor == true)
+                            {
+                                <option data-value="@Person.Id">@Person.Name</option>
+}
+                        }
+                    </datalist>
+                </div>
+                <div id="directors1" class="people1">
+                    <input list="director1" name="Name2">
+                    <datalist id="director1">
+                        @foreach (var Person in Model)
+                        {
+                            if (Person.IsDirector == true)
+                            {
+                                <option data-value="@Person.Id">@Person.Name</option>
+}
+                        }
+                    </datalist>
+                </div>
+                <div id="screenwriters1" class="people1">
+                    <input list="screenwriter1" name="Name2">
+                    <datalist id="screenwriter1">
+                        @foreach (var Person in Model)
+                        {
+                            if (Person.IsScreenWriter == true)
+                            {
+                                <option data-value="@Person.Id">@Person.Name</option>
+}
+                        }
+                    </datalist>
+                </div> <br><br />
+
+                <input type="submit" class="submit-accept" name="name" value="Применить" style="width: 120px; height: 30px; background-color: rgb(247,151,30); color: black; font-size: 16px;" formaction="/Films/SelectFilmsForPersons">
+            </form>
         </div>
-        <div id="directors" class="people">
-            <input list="director" required>
-            <datalist id="director">
-                @foreach (var Person in Model)
-                {
-                    if (Person.IsDirector == true)
-                    {
-                        <option data-value="@Person.Id">@Person.Name</option>
-                    }
-                }
-            </datalist>
-        </div>
-        <div id="screenwriters" class="people">
-            <input list="screenwriter" required>
-            <datalist id="screenwriter">
-                @foreach (var Person in Model)
-                {
-                    if (Person.IsScreenWriter == true)
-                    {
-                        <option data-value="@Person.Id">@Person.Name</option>
-                    }
-                }
-            </datalist>
-        </div><br><br />
-
-        <select id="careers1">
-            <option value="actors1">Актёр</option>
-            <option value="directors1">Режиссёр</option>
-            <option value="screenwriters1">Сценарист</option>
-        </select>
-
-        <div id="actors1" class="people1 active1">
-            <input list="actor1" required>
-            <datalist id="actor1">
-                @foreach (var Person in Model)
-                {
-                    if (Person.IsActor == true)
-                    {
-                        <option data-value="@Person.Id">@Person.Name</option>
-                    }
-                }
-            </datalist>
-        </div>
-        <div id="directors1" class="people1">
-            <input list="director1" required>
-            <datalist id="director1">
-                @foreach (var Person in Model)
-                {
-                    if (Person.IsDirector == true)
-                    {
-                        <option data-value="@Person.Id">@Person.Name</option>
-                    }
-                }
-            </datalist>
-        </div>
-        <div id="screenwriters1" class="people1">
-            <input list="screenwriter1" required>
-            <datalist id="screenwriter1">
-                @foreach (var Person in Model)
-                {
-                    if (Person.IsScreenWriter == true)
-                    {
-                        <option data-value="@Person.Id">@Person.Name</option>
-                    }
-                }
-            </datalist>
-        </div> <br><br />
+              
 
         <input type="submit" name="name" value="Применить" formaction="" ; style="width: 120px; height: 30px; background-color: rgb(247,151,30); color: black; font-size: 16px;">      
         <script src="~/js/Checked.js"></script>
