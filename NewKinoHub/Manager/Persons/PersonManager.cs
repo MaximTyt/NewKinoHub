@@ -104,7 +104,7 @@ namespace NewKinoHub.Manager.Persons
             _context.Persons.FirstOrDefault(st => st.Id == personId).IsActor = IsActor;
             _context.Persons.FirstOrDefault(st => st.Id == personId).IsScreenWriter = IsScreenWriter;
             _context.Persons.FirstOrDefault(st => st.Id == personId).IsDirector = IsActor;            
-            if (Height != 0)
+            if (Height > 0)
             {
                 _context.Persons.FirstOrDefault(st => st.Id == personId).Height = Height;
             }
