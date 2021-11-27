@@ -4,123 +4,117 @@
 <body>
     <div class="wrapper">
         <h1 class="coloraddtext">Добавление:</h1>
-            <form action="" method="post" enctype="multipart/form-data" style="width:100% !important;">
-                <table class="tablesize" cellpadding="10">
-                    <tbody>
-                        <tr class="trsizea">
-                            <td valign="top" align="left" class="tdstyle">
-                                <label class="colortext">Название:<sup>*</sup></label><br />
-                                <textarea class="namesizeeditadd" type="text" name="Name" required></textarea><br />
+        <form action="" method="post" enctype="multipart/form-data" style="width:100% !important;">
+            <table class="tablesize" cellpadding="10">
+                <tbody>
+                    <tr class="trsizea">
+                        <td valign="top" align="left" class="tdstyle">
+                            <label class="colortext">Название:<sup>*</sup></label><br />
+                            <textarea class="namesizeeditadd" type="text" name="Name" required></textarea><br />
 
-                                <label class="colortext">Постер:<sup>*</sup></label><br />
-                                <input type="file" title="Выберите постер" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                                            
-                                <label class="colortext">Страна:<sup>*</sup></label><br />
-                                <textarea class="namesizeeditadd" type="text" name="Contry" required></textarea>
-                            </td>
-                            <td valign="top" class="tdstyle">
-                                <label class="colortext">Дата выхода:<sup>*</sup></label><br />
-                                <input type="date" id="Release_Date" name="Release_Date" /><br />                                
+                            <label class="colortext">Постер:<sup>*</sup></label><br />
+                            <input class="colortext" type="file" title="Выберите постер" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
-                                <label class="colortext">Выберите тип:<sup>*</sup></label><br />
-                                <select id="type" name="type">
-                                    <option value="0">Фильм</option>
-                                    <option value="1">Сериал</option>
-                                </select>
+                            <label class="colortext">Страна:<sup>*</sup></label><br />
+                            <textarea class="namesizeeditadd" type="text" name="Contry" required></textarea>
+                        </td>
+                        <td valign="top" class="tdstyle">
+                            <label class="colortext">Дата выхода:<sup>*</sup></label><br />
+                            <input type="date" id="Release_Date" name="Release_Date" /><br />
 
-                                <label for="Genres" class="colortext">Выберите жанры:<sup>*</sup></label><br />
-                                <select multiple id="Genres" name="Genres">
-                                    <option value="Аниме">Аниме</option>
-                                    <option value="Биография">Биография</option>
-                                    <option value="Боевик">Боевик</option>
-                                    <option value="Вестерн">Вестерн</option>
-                                    <option value="Военный">Военный</option>
-                                    <option value="Детектив">Детектив</option>
-                                    <option value="Документальный">Документальный</option>
-                                    <option value="Драма">Драма</option>
-                                    <option value="Комедия">Комедия</option>
-                                    <option value="Криминал">Криминал</option>
-                                    <option value="Мелодрама">Мелодрама</option>
-                                    <option value="Музыка">Музыка</option>
-                                    <option value="Мультфильм">Мультфильм</option>
-                                    <option value="Мюзикл">Мюзикл</option>
-                                    <option value="Приключения">Приключения</option>
-                                    <option value="Семейный">Семейный</option>
-                                    <option value="Триллер">Триллер</option>
-                                    <option value="Ужасы">Ужасы</option>
-                                    <option value="Фантастика">Фантастика</option>
-                                    <option value="Фэнтези">Фэнтези</option>
-                                </select>
+                            <label class="colortext">Выберите тип:<sup>*</sup></label><br />
+                            <select id="type" name="type">
+                                <option value="0">Фильм</option>
+                                <option value="1">Сериал</option>
+                            </select>
 
-                            </td>
-                            <td valign="top" class="tdstyle">
-                                <label for="Age" class="colortext">Выберите возраст:<sup>*</sup></label><br />
-                                <select id="Age" name="Age">
-                                    <option value="0">0+</option>
-                                    <option value="6">6+</option>
-                                    <option value="12">12+</option>
-                                    <option value="16">16+</option>
-                                    <option value="18">18+</option>
-                                </select><br />
-                                <label class="colortext">Время:<sup>*</sup></label><br />
-                                <input type="text" name="RunTime" required /><br />
-                            </td>
-                        </tr>
-                        <tr class="trsizeb" style="margin-left: 15px;">
-                            <td valign="top" align="left" class="tdstyle">
-                                <label class="colortext">Описание:<sup>*</sup></label><br />
-                                <textarea class="descriptionsize" type="text" name="Description" required> </textarea><br />
-                                <label class="colortext">Краткое описание:<sup>*</sup></label><br />
-                                <textarea class="descriptionsize" type="text" name="shortDiscription" required> </textarea>
-                            </td>
-                            <td valign="top" class="tdstyle">
-                                <div id="serial" hidden>
-                                    <label class="colortext">Количество эпизодов(Необязательно):</label><br />
-                                    <input type="number" step="1" min="0" name="NumOfEpisodes"> <br />
-                                    <label class="colortext">Количество сезонов(Необязательно):</label><br />
-                                    <input type="number" step="1" min="0" name="NumOfSeason"> <br />
-                                </div>
-                                <script>
-                                let serial  = document.getElementById("serial");
-                                let select = document.getElementById("type");
-                                    select.addEventListener('change', function () {  
-                                        if (select.value == 0)
-                                            serial.hidden = true;
-                                        else
-                                            serial.hidden = false;
-                                    });                                
-                                </script>
+                            <label for="Genres" class="colortext">Выберите жанры:<sup>*</sup></label><br />
+                            <select multiple id="Genres" name="Genres">
+                                <option value="Аниме">Аниме</option>
+                                <option value="Биография">Биография</option>
+                                <option value="Боевик">Боевик</option>
+                                <option value="Вестерн">Вестерн</option>
+                                <option value="Военный">Военный</option>
+                                <option value="Детектив">Детектив</option>
+                                <option value="Документальный">Документальный</option>
+                                <option value="Драма">Драма</option>
+                                <option value="Комедия">Комедия</option>
+                                <option value="Криминал">Криминал</option>
+                                <option value="Мелодрама">Мелодрама</option>
+                                <option value="Музыка">Музыка</option>
+                                <option value="Мультфильм">Мультфильм</option>
+                                <option value="Мюзикл">Мюзикл</option>
+                                <option value="Приключения">Приключения</option>
+                                <option value="Семейный">Семейный</option>
+                                <option value="Триллер">Триллер</option>
+                                <option value="Ужасы">Ужасы</option>
+                                <option value="Фантастика">Фантастика</option>
+                                <option value="Фэнтези">Фэнтези</option>
+                            </select>
 
-                                <label class="colortext">Рейтинг:<sup>*</sup></label><br />
-                                <input type="text" step="0.001" name="Score" min="0" max="10" required /><br />
+                        </td>
+                        <td valign="top" class="tdstyle">
+                            <label for="Age" class="colortext">Выберите возраст:<sup>*</sup></label><br />
+                            <select id="Age" name="Age">
+                                <option value="0">0+</option>
+                                <option value="6">6+</option>
+                                <option value="12">12+</option>
+                                <option value="16">16+</option>
+                                <option value="18">18+</option>
+                            </select><br />
+                            <label class="colortext">Время:<sup>*</sup></label><br />
+                            <input type="text" name="RunTime" required /><br />
+                        </td>
+                    </tr>
+                    <tr class="trsizeb" style="margin-left: 15px;">
+                        <td valign="top" align="left" class="tdstyle">
+                            <label class="colortext">Описание:<sup>*</sup></label><br />
+                            <textarea class="descriptionsize" type="text" name="Description" required> </textarea><br />
+                            <label class="colortext">Краткое описание:<sup>*</sup></label><br />
+                            <textarea class="descriptionsize" type="text" name="shortDiscription" required> </textarea>
+                        </td>
+                        <td valign="top" class="tdstyle">
+                            <div id="serial" hidden>
+                                <label class="colortext">Количество эпизодов(Необязательно):</label><br />
+                                <input type="number" step="1" min="0" name="NumOfEpisodes"> <br />
+                                <label class="colortext">Количество сезонов(Необязательно):</label><br />
+                                <input type="number" step="1" min="0" name="NumOfSeason"> <br />
+                            </div>                            
 
-                                <label class="colortext">Рейтинг с кинопоиска<sup>*</sup></label><br />
-                                <input type="text" name="ScoreKP" required /><br />
+                            <label class="colortext">Рейтинг:<sup>*</sup></label><br />
+                            <input type="text" step="0.001" name="Score" min="0" max="10" required /><br />
 
-                                <label class="colortext">Ссылка на трейлер(с Ютуба)<sup>*</sup></label><br />
-                                <input type="text" name="Video" required /><br />
+                            <label class="colortext">Рейтинг с кинопоиска<sup>*</sup></label><br />
+                            <input type="text" name="ScoreKP" required /><br />
 
-                                <label class="colortext">Ссылка на музыку(Яндекс музыка)<sup>*</sup></label><br />
-                                <input type="text" name="Music" required /><br />
-                            </td>
-                            <td valign="top" class="tdstyle">
-                                <label class="colortext">Кадр №1<sup>*</sup></label><br />
-                                <input type="file" title="Выберите кадр №1" name="Images1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                                <label class="colortext">Кадр №2<sup>*</sup></label><br />
-                                <input type="file" title="Выберите кадр №2" name="Images2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                                <label class="colortext">Кадр №3<sup>*</sup></label><br />
-                                <input type="file" title="Выберите кадр №3" name="Images3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                                <label class="colortext">Кадр №4<sup>*</sup></label><br />
-                                <input type="file" title="Выберите кадр №4" name="Images4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                            </td>
-                        </tr>
-                        <tr class="trsizec">
-                            <td colspan="3" class="tdstyle">
-                                <input class="btn" type="submit" value="Подтвердить" formaction="~/Films/AddFilms">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
+                            <label class="colortext">Ссылка на трейлер(с Ютуба)<sup>*</sup></label><br />
+                            <input type="text" name="Video" required /><br />
+
+                            <label class="colortext">Ссылка на музыку(Яндекс музыка)<sup>*</sup></label><br />
+                            <input type="text" name="Music" required /><br />
+                        </td>
+                        <td valign="top" class="tdstyle">
+                            <label class="colortext">Кадр №1<sup>*</sup></label><br />
+                            <input class="colortext" type="file" title="Выберите кадр №1" name="Images1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                            <label class="colortext">Кадр №2<sup>*</sup></label><br />
+                            <input class="colortext" type="file" title="Выберите кадр №2" name="Images2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                            <label class="colortext">Кадр №3<sup>*</sup></label><br />
+                            <input class="colortext" type="file" title="Выберите кадр №3" name="Images3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                            <label class="colortext">Кадр №4<sup>*</sup></label><br />
+                            <input class="colortext" type="file" title="Выберите кадр №4" name="Images4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                        </td>
+                    </tr>
+                    <tr class="trsizec">
+                        <td colspan="3" class="tdstyle">
+                            <input class="btn" type="submit" value="Подтвердить" formaction="~/Films/AddFilms">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <script src="~/js/Checked.js"></script>
+        <script type="text/javascript">
+            ChangeType();
+        </script>
     </div>
 </body>

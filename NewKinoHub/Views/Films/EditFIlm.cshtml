@@ -23,9 +23,9 @@
                             }
                             else
                             {
-                                <input type="file" title="Выберите постер" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input class="colortext" type="file" title="Выберите постер" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
                             }
-                                                       
+
 
                             <label class="colortext">Страна:<sup>*</sup></label><br />
                             <textarea class="namesizeeditadd" type="text" name="Contry" required>@Model.Country </textarea><br />
@@ -54,13 +54,15 @@
                                 }
                             </select>
 
-
-                            <label for="Genres" class="colortext">
-                                Выберите жанры<sup>*</sup>:
+                            <select hidden multiple id="NumOfGenres" name="NumOfGenres">
                                 @foreach (var g in Model.Genres)
                                 {
-                                    <a> @g.Genre_Name | </a>
+                                    <option value="@g.NumOfGenre"></option>
                                 }
+                            </select>><br />
+
+                            <label for="Genres" class="colortext">
+                                Выберите жанры<sup>*</sup>
                             </label><br />
                             <select multiple id="Genres" name="Genres">
                                 <option value="Аниме">Аниме</option>
@@ -86,20 +88,6 @@
 
                             </select>
 
-                            <select hidden multiple id="NumOfGenres" name="NumOfGenres">
-                                @foreach (var g in Model.Genres)
-                                {
-                                <option value="@g.NumOfGenre"></option>
-                                }
-                            </select>>
-
-                            <script>
-                                let genre  = document.getElementById("Genres");
-                                let num = document.getElementById("NumOfGenres");
-                                for (let index = 0; index <@Model.Genres.Count(); index++) {
-                                    genre.options[num.options[index].value - 1].selected = true;
-                                }
-                            </script>
 
                         </td>
                         <td valign="top" class="tdstyle">
@@ -157,9 +145,7 @@
                             <label class="colortext">Краткое описание:<sup>*</sup></label><br />
                             <textarea class="descriptionsize" type="text" name="shortDiscription" required> @Model.ShortDescription </textarea>
                         </td>
-                        <td valign="top" class="tdstyle" style="margin-left: 15px;">
-                            <label class="colortext">Рейтинг: @Model.Score <sup>*</sup></label><br />
-                            <input type="number" step="0.001" name="Score" min="0" max="10" /><br />
+                        <td valign="top" class="tdstyle" style="margin-left: 15px;">                            
 
                             <label class="colortext">Рейтинг с кинопоиска<sup>*</sup></label><br />
                             <input value=@Model.ScoreKP type="text" name="ScoreKP" required /><br />
@@ -167,43 +153,34 @@
                             <label class="colortext">Ссылка на трейлер(с Ютуба)<sup>*</sup></label><br />
                             <input value=@Model.Video type="text" name="Video" required /><br />
 
-                            <label class="colortext">Ссылка на музыку(Яндекс музыка)<sup>*</sup></label><br />
+                            <label class="colortext">Ссылка на плейлист<sup>*</sup></label><br />
                             <input value=@Model.SoundTrackUrl type="text" name="Music" required /><br />
                         </td>
                         <td valign="top" class="tdstyle">
-                            
-                                <label class="colortext">Кадр №1<sup>*</sup></label><br />
-                                <input value=@(Convert.ToBase64String(Model.Images[0].MediaImage)) type="file" title="Выберите постер" name="Images1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
-                                <label class="colortext">Кадр №2<sup>*</sup></label><br />
-                                <input value=@(Convert.ToBase64String(Model.Images[1].MediaImage)) type="file" title="Выберите постер" name="Images2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                            <label class="colortext">Кадр №1<sup>*</sup></label><br />
+                            <input class="colortext" value=@(Convert.ToBase64String(Model.Images[0].MediaImage)) type="file" title="Кадр №1" name="Images1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
-                                <label class="colortext">Кадр №3<sup>*</sup></label><br />
-                                <input value=@(Convert.ToBase64String(Model.Images[2].MediaImage)) type="file" title="Выберите постер" name="Images3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                            <label class="colortext">Кадр №2<sup>*</sup></label><br />
+                            <input class="colortext" value=@(Convert.ToBase64String(Model.Images[1].MediaImage)) type="file" title="Кадр №2" id="Images2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
-                                <label class="colortext">Кадр №4<sup>*</sup></label><br />
-                                <input value=@(Convert.ToBase64String(Model.Images[3].MediaImage)) type="file" title="Выберите постер" name="Images4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                           
+                            <label class="colortext">Кадр №3<sup>*</sup></label><br />
+                            <input class="colortext" value=@(Convert.ToBase64String(Model.Images[2].MediaImage)) type="file" title="Кадр №3" name="Images3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+
+                            <label class="colortext">Кадр №4<sup>*</sup></label><br />
+                            <input class="colortext" value=@(Convert.ToBase64String(Model.Images[3].MediaImage)) type="file" title="Кадр №4" name="Images4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+
                             @if ((int)Model.MediaType == 1)
                             {
-                        <div id="serial">
-                            <label class="colortext">Количество эпизодов(Необязательно):</label><br />
-                            <input type="number" step="1" min="0" name="NumOfEpisodes"> <br />
+                                <div id="serial">
+                                    <label class="colortext">Количество эпизодов(Необязательно):</label><br />
+                                    <input type="number" step="1" min="0" name="NumOfEpisodes"> <br />
 
-                            <label class="colortext">Количество сезонов(Необязательно):</label><br />
-                            <input type="number" step="1" min="0" name="NumOfSeason"> <br />
-                        </div>
+                                    <label class="colortext">Количество сезонов(Необязательно):</label><br />
+                                    <input type="number" step="1" min="0" name="NumOfSeason"> <br />
+                                </div>
                             }
-                            <script>
-                                let serial = document.getElementById("serial");
-                                let select = document.getElementById("type");
-                                select.addEventListener('change', function () {
-                                    if (select.value == 0)
-                                        serial.hidden = true;
-                                    else
-                                        serial.hidden = false;
-                                });
-                            </script>
+
                         </td>
                     </tr>
                     <tr class="trsizec">
@@ -214,5 +191,9 @@
                 </tbody>
             </table>
         </form>
-        </div>
+        <script src="~/js/Checked.js"></script>
+        <script type="text/javascript">
+            CheckedEditFilm(@Json.Serialize(Model));
+        </script>
+    </div>    
 </body>

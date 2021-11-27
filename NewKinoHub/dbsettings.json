@@ -10,12 +10,14 @@
       //"DefaultConnection": "Server=DESKTOP-IFVH175;Database=KinoHub1;Trusted_Connection=True; MultipleActiveResultSets=true"
 
 
-    "DefaultConnection": "Server=DESKTOP-4N2MISI;Database=KinoHub72;Trusted_Connection=True; MultipleActiveResultSets=true",
+
+    //"DefaultConnection": "Server=DESKTOP-4N2MISI;Database=KinoHub72;Trusted_Connection=True; MultipleActiveResultSets=true",
+
 
    // "DefaultConnection": "Server=DESKTOP-SGJCKFE;Database=KinoHyb2;Trusted_Connection=True; MultipleActiveResultSets=true"
 
 
-    //"DefaultConnection": "Server=DOM-MAX;Database=KinoHub1;Trusted_Connection=True; MultipleActiveResultSets=true"
+    "DefaultConnection": "Server=DOM-MAX;Database=KinoHub1;Trusted_Connection=True; MultipleActiveResultSets=true"
 
   }
 }
