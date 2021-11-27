@@ -12,43 +12,33 @@
                                 <label class="colortext">Name:<sup>*</sup></label><br />
                                 <textarea class="namesizeeditadd" type="text" name="Name" required></textarea><br />
                                 <label class="colortext">Фото:<sup>*</sup></label><br />
-                                <input type="file" title="Выберите фото" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input class="colortext" type="file" title="Выберите фото" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
                             </td>
                             <td valign="top" class="tdstyle">
                                 <label class="colortext">Настоящее имя:<sup>*</sup></label><br />
                                 <textarea class="namesizeeditadd" type="text" name="OriginalName" required></textarea><br />
-                                <label class="colortext">Персонаж в фильме(необязательно):</label><br />
-                                <input type="text" name="Character" /><br />
                             </td>
                             <td valign="top" class="tdstyle">
-                                <label class="colortext">Роли в киноиндустрии:<sup>*</sup></label><br />
-                                <input type="text" name="RolesInMedia" required /><br />
-
                                 <label for="RoleInFilm" class="colortext">Роль в фильме:<sup>*</sup></label><br />
-                                @*<ul style="position: absolute; left: 700px; top:0px;">*@
-                                    @*<li>*@
-                                        <ul style="margin-top: 17px;">
-                                            @*что выпадает при наведении на кнопку дата выхода*@
-                                            <li style="width:150px;height: 110px;  font-size: 14px;">
-                                                
-                                                    <label>
-                                                        <input type="checkbox" name="IsActor" value="1" style="margin: 5px;  margin-top: 15px;">Актер
-                                                    </label>
-                                                    <br />
-                                                    <label>
-                                                        <input type="checkbox" name="IsDirector" value="2" style="margin: 5px;">Режисёр
-                                                    </label>
-                                                    <br />
-                                                    <label>
-                                                        <input type="checkbox" name="IsScreenWriter" value="3" style="margin: 5px;">Сценарист
-                                                    </label>
-                                                    <br />
-                                                    <br />
-                                                    <br />
-                                            </li>
-                                        </ul>
-                                    <@*/li>*@
-                                @*</ul>*@
+                                   <ul style="margin-top: 17px;">
+                                       @*что выпадает при наведении на кнопку дата выхода*@
+                                       <li style="width:150px;height: 110px;  font-size: 14px;">
+                                               <label class="colortext">
+                                                   <input type="checkbox" name="IsActor" value="1" style="margin: 5px;  margin-top: 15px;">Актер
+                                               </label>
+                                               <br />
+                                               <label class="colortext">
+                                                   <input type="checkbox" name="IsDirector" value="2" style="margin: 5px;">Режисёр
+                                               </label>
+                                               <br />
+                                               <label class="colortext">
+                                                   <input type="checkbox" name="IsScreenWriter" value="3" style="margin: 5px;">Сценарист
+                                               </label>
+                                               <br />
+                                               <br />
+                                               <br />
+                                       </li>
+                                   </ul>
                             </td>
 
                             <td valign="top" class="tdstyle">
