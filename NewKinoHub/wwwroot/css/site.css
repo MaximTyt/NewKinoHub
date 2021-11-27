@@ -321,3 +321,6 @@ img.avareviewssize {
         .genre_st:hover {
             color: rgb(247,151,30);
         }
+        .btn_delete1::after{
+            display: block none;
+        }

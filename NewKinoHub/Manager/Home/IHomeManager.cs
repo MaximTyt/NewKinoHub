@@ -10,6 +10,7 @@ namespace NewKinoHub.Manager.Home
     {
         (List<Media>,List<Media>,List<Media>) GetNewPopularFilms(string Email);
         Task<(List<Media>, List<Media>, List<Person>)> Search(string Name, Users User);
+        Task<ICollection<Person>> AdvancedSearch(Users User);
         List<Media> Recommendation(Users User);
     }
 }

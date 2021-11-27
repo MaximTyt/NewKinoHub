@@ -24,7 +24,7 @@
                             <nav id="menu1" style="margin-left:50px;">
                                 <ul>
                                     <li style="width: 15% !important;">
-                                        <a style="background-color:black !important; color:white !important;">Сортировать: </a>@*кнопка*@
+                                        <p style="color:white !important;margin-bottom: 0px;">Сортировать: </p>@*кнопка*@
                                     </li>
                                     <li style="width: 26% !important;">
                                         <a>По дате выхода</a>
@@ -151,6 +151,22 @@
                     <p>
                         <span style="color: white">Год: @film.Release_Date.Year</span>
                     </p>
+
+                    <p>
+                        <span style="color: white">
+                            Режиссер:@foreach (var director in film.Casts)
+                            {
+                                if ((int)director.RoleInFilm == 0 && director.Person != null)
+                                {
+                                    <a href=@Url.Action("Person", "Persons", new { personId = director.PersonId }) class="genre_st">@director.Person.Name |</a>
+                                }
+                            }
+                        </span>
+                    </p>
+                    <p>
+                        <span style="color: white">Страна: @film.Country</span>
+                    </p>
+
                     <p>
                         @foreach (var genre in film.Genres)
                         {

@@ -28,6 +28,7 @@ namespace KinoHab.Manager
         Task DeleteReviews(int IdFilm, int IdUser);
         Task EditReviews(int idFilm, int IdUser, string text, double rating);
         Task<(List<Media>, List<Media>)> GetFilmsForPerson(string Person, int IdPerson, Users User);
+        Task<(List<Media>, List<Media>)> SearchFilmsForActors(string Role1, string Name1, string Role2, string Name2, Users User);
 
     }
 }

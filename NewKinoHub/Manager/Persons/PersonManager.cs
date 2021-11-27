@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using NewKinoHub.Storage;
 using NewKinoHub.Storage.Entity;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -203,6 +204,38 @@ namespace NewKinoHub.Manager.Persons
                     break;
             }
             return Filtr;
+        }
+
+        public string GetPersonName(int IdPerson)
+        {
+            return _context.Persons.FirstOrDefault(st => st.Id == IdPerson).Name;
+        }
+
+
+        [HttpPost]
+        public async Task AddPerson(string Name, string OriginalName,
+            string IsActor, string IsScreenWriter, string IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+            string PlaceOfDeath, string Spouse, string Awards, string Description)
+        {
+            Person person = new()
+            {
+                Name = Name,
+                OriginalName = OriginalName,
+                IsActor = IsActor != null,
+                IsDirector = IsDirector != null,
+                IsScreenWriter = IsScreenWriter != null,
+                Height = Height,
+                Img = mainPhoto != null ? SaveImage.getByteImage(mainPhoto) : File.ReadAllBytes(@"wwwroot\lib\images\trav1.gif"),
+                DateOfBirthday = DateOfBirthday,
+                DateOfDeath = DateOfDeath,
+                PlaceOfBirthday = PlaceOfBirthday,
+                PlaceOfDeath = PlaceOfDeath,
+                Spouse = Spouse,
+                Awards = Awards,
+                Description = Description
+            };
+            _context.Persons.Add(person);
+            await _context.SaveChangesAsync();
         }
     }
 }

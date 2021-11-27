@@ -23,11 +23,11 @@ namespace NewKinoHub.Controllers
         {
 
             var film = _media.GetNewPopularFilms(User.Identity.Name);
-            if (User.Identity.Name != null && _user.FavoritesNull(User.Identity.Name) == false)
-            {
-                var film2 = _media.Recommendation(await _user.GetUsers(User.Identity.Name));
-                film.Item3 = film2;
-            }
+            //if (User.Identity.Name != null && _user.FavoritesNull(User.Identity.Name) == false)
+            //{
+            //    var film2 = _media.Recommendation(await _user.GetUsers(User.Identity.Name));
+            //    film.Item3 = film2;
+            //}
             return View(film);
         }
         public async Task<IActionResult> Search(string Name)
@@ -37,6 +37,13 @@ namespace NewKinoHub.Controllers
             ViewBag.User = User.Identity.Name;
             var media = await _media.Search(Name,await _film.GetUser(User.Identity.Name));
             return View(media);
+        }
+        public async Task<IActionResult> AdvancedSearch()
+        {
+            ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));            
+            ViewBag.User = User.Identity.Name;
+            var person = await _media.AdvancedSearch(await _film.GetUser(User.Identity.Name));
+            return View(person);
         }
 
     }

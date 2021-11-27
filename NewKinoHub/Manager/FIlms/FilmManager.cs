@@ -563,12 +563,12 @@ namespace KinoHab.Manager
         [HttpPost]
         public async Task EditReviews(int idFilm, int IdUser, string text, double rating)
         {
-            if(rating!=0)
+            if(rating != 0)
             {
                 _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Rating = rating;
-                _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Description = text;
-                _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).DateOfReview = DateTime.Now.ToString();
             }
+            _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).Description = text;
+            _context.Reviews.FirstOrDefault(st => st.MediaId == idFilm && st.UsersId == IdUser).DateOfReview = DateTime.Now.ToString();
             await _context.SaveChangesAsync();
         }
         public void ChangeRaiting(int IdFilm)
@@ -592,10 +592,13 @@ namespace KinoHab.Manager
         {
             var Films = await GetAllFilms();
             var Serials = await GetAllFilms();
+
+            await Task.WhenAll(GetAllFilms());
             if(User != null && (User.Favorites != null || User.Reviews != null))
             {
                 Films = await GetFilms(User);
                 Serials = await GetFilms(User);
+                await Task.WhenAll(GetAllFilms());
             }
 
             (List<Media>, List<Media>) Media = (null, null);
@@ -603,21 +606,109 @@ namespace KinoHab.Manager
             switch (Person)
             {
                 case "Actor":
-                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsActor == true) != null).ToList();
-                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsActor == true) != null).ToList();
+                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.Where(st => st.Person.Id == IdPerson).FirstOrDefault(st=>st.RoleInFilm == RoleInFilm.Актёр) != null).ToList();
+                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.Where(st => st.Person.Id == IdPerson).FirstOrDefault(st=> st.RoleInFilm == RoleInFilm.Актёр) != null).ToList();
                     break;
                 case "Director":
-                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsDirector == true) != null).ToList();
-                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsDirector == true) != null).ToList();
+                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.Where(st => st.Person.Id == IdPerson).FirstOrDefault(st => st.RoleInFilm == RoleInFilm.Режиссёр) != null).ToList();
+                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.Where(st => st.Person.Id == IdPerson).FirstOrDefault(st => st.RoleInFilm == RoleInFilm.Режиссёр) != null).ToList();
                     break;
                 case "ScreenWriter":
-                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsScreenWriter == true) != null).ToList();
-                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.FirstOrDefault(st => st.Person.Id == IdPerson && st.Person.IsScreenWriter == true) != null).ToList();
+                    Films = Films.Where(st => st.MediaType == MediaType.Film && st.Casts.Where(st => st.Person.Id == IdPerson).FirstOrDefault(st => st.RoleInFilm == RoleInFilm.Сценарист) != null).ToList();
+                    Serials = Serials.Where(st => st.MediaType == MediaType.Serial && st.Casts.Where(st => st.Person.Id == IdPerson).FirstOrDefault(st => st.RoleInFilm == RoleInFilm.Сценарист) != null).ToList();
                     break;
             }
             Media = (Films.ToList(), Serials.ToList());
             return Media;
+        }
 
+        public async Task<(List<Media>,List<Media>)> SearchFilmsForActors(string Role1, string Name1,string Role2, string Name2, Users User)
+        {
+            (List<Media>, List<Media>) Media = (new List<Media>(), new List<Media>());
+            (List<Media>, List<Media>) Media1 = (null, null);
+            (List<Media>, List<Media>) Media2 = (null, null);
+            Role1 = ReNameRole(Role1);
+            Role2 = ReNameRole(Role2);
+            if (Name1 != null)
+            {
+                var Person1 = _context.Persons.FirstOrDefault(st => st.Name.ToLower().Contains(Name1.ToLower()));
+                if(Person1 == null)
+                {
+                    return Media;
+                }
+                Media1 = await GetFilmsForPerson(Role1, Person1.Id, User);
+            }
+            if(Name2 != null)
+            {
+                var Person2 = _context.Persons.FirstOrDefault(st => st.Name.ToLower().Contains(Name2.ToLower()));
+                if(Person2 == null)
+                {
+                    return Media;
+                }
+                Media2 = await GetFilmsForPerson(Role2, Person2.Id, User);
+            }
+            if (Name1 != null && Name2 != null)
+            {
+                foreach(var f1 in Media1.Item1)
+                {
+                    foreach(var f2 in Media2.Item1)
+                    {
+                        if(f1.MediaID == f2.MediaID)
+                        {
+                            Media.Item1.Add(f1);
+                            break;
+                        }
+                       }
+                }
+
+                foreach (var f1 in Media1.Item2)
+                {
+                    foreach (var f2 in Media2.Item2)
+                    {
+                        if (f1.MediaID == f2.MediaID)
+                        {
+                            Media.Item2.Add(f1);
+                            break;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if(Name1 != null)
+                {
+                    Media = Media1;
+                    return Media;
+                }
+                if(Name2 != null)
+                {
+                    Media = Media2;
+                    return Media;
+                }
+            }
+
+
+            return Media;
+        }
+
+        public string ReNameRole(string Role)
+        {
+            if(Role == "actors" || Role == "actors1")
+            {
+                Role = "Actor";
+                return Role;
+            }
+            if(Role == "directors" || Role == "directors1")
+            {
+                Role = "Director";
+                return Role;
+            }
+            if (Role == "screenwriters" || Role == "screenwriters1")
+            {
+                Role = "ScreenWriter";
+                return Role;
+            }
+            return Role;
         }
     }
 }
