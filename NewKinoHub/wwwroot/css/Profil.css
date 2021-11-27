@@ -158,3 +158,13 @@ a.btn_register {
 .active1.people1 {
     display: inline-block;
 }
+ .submit-accept {
+    transition: 0.2s;
+    border: 2px solid black !important;
+}
+
+ .submit-accept:hover {
+     transition: 0.2s;
+     background-color: black !important;
+     color: white !important;
+ }
