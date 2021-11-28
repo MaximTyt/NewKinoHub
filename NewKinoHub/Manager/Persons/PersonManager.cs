@@ -91,7 +91,7 @@ namespace NewKinoHub.Manager.Persons
 
         [HttpPost]
         public async Task EditPerson(int personId, string Name, string OriginalName,
-           bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+           bool IsActor, bool IsScreenWriter, bool IsDirector,string Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
            string PlaceOfDeath, string Spouse, string Awards, string Description)
         {
             if(Name != null)
@@ -105,9 +105,9 @@ namespace NewKinoHub.Manager.Persons
             _context.Persons.FirstOrDefault(st => st.Id == personId).IsActor = IsActor;
             _context.Persons.FirstOrDefault(st => st.Id == personId).IsScreenWriter = IsScreenWriter;
             _context.Persons.FirstOrDefault(st => st.Id == personId).IsDirector = IsActor;            
-            if (Height > 0)
+            if (Convert.ToDouble(Height.Replace('.', ',')) > 0)
             {
-                _context.Persons.FirstOrDefault(st => st.Id == personId).Height = Height;
+                _context.Persons.FirstOrDefault(st => st.Id == personId).Height = Convert.ToDouble(Height.Replace('.', ','));
             }
             if (mainPhoto != null)
             {
@@ -214,7 +214,7 @@ namespace NewKinoHub.Manager.Persons
 
         [HttpPost]
         public async Task AddPerson(string Name, string OriginalName,
-            string IsActor, string IsScreenWriter, string IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+            string IsActor, string IsScreenWriter, string IsDirector,string Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
             string PlaceOfDeath, string Spouse, string Awards, string Description)
         {
             Person person = new()
@@ -224,7 +224,7 @@ namespace NewKinoHub.Manager.Persons
                 IsActor = IsActor != null,
                 IsDirector = IsDirector != null,
                 IsScreenWriter = IsScreenWriter != null,
-                Height = Height,
+                Height = Convert.ToDouble(Height.Replace('.', ',')),
                 Img = mainPhoto != null ? SaveImage.getByteImage(mainPhoto) : File.ReadAllBytes(@"wwwroot\lib\images\trav1.gif"),
                 DateOfBirthday = DateOfBirthday,
                 DateOfDeath = DateOfDeath,
