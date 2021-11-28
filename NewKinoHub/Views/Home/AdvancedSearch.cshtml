@@ -5,14 +5,30 @@
         <link href="~/css/Profil.css" rel="stylesheet" />
     </head>
     <body>
- 
-        <div style="width: 500px;min-height: 200px; margin: 0 auto; padding: 30px; padding-left: 70px;">
-            <form action="/" method="post">
-                <select id="careers" name="Role1">
-                    <option value="actors">Актёр</option>
-                    <option value="directors">Режиссёр</option>
-                    <option value="screenwriters">Сценарист</option>
-                </select>
+        <div class="wrapper">
+        <style>
+            .people {
+                display: none;
+            }
+
+            .active.people {
+                display: inline-block;
+            }
+
+            .people1 {
+                display: none;
+            }
+
+            .active1.people1 {
+                display: inline-block;
+            }
+        </style>
+        <form action="/" method="post">
+            <select id="careers" name="Role1">
+                <option value="actors">Актёр</option>
+                <option value="directors">Режиссёр</option>
+                <option value="screenwriters">Сценарист</option>
+            </select>
 
                 <div id="actors" class="people active">
                     <input list="actor" name="Name1">

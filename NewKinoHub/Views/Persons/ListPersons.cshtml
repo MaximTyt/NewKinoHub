@@ -3,14 +3,14 @@
 <html style="font-size: 16px;">
 
 <body>
-    <div class="u-clearfix u-sheet u-sheet-1 wrapper">
+    <div class="wrapper">
+        @if (ViewBag.Role == 1)
+        {
+            <div style="position:absolute; top:200px; left:3%; ">
+                <a href=@Url.Action("AddPerson", "Persons") class="addfilm">+</a>
+            </div>
+        }
         <div style="margin-top:50px; margin-bottom:30px; width: 95%;">
-            @if (ViewBag.Role == 1)
-            {
-                <div style="position:absolute; top:5%; left:3%; ">
-                    <a href=@Url.Action("AddPerson", "Persons") class="addfilm">+</a>
-                </div>
-            }
             <table>
                 <tbody>
                     <tr>
@@ -111,23 +111,23 @@
                         {
                             <p><a href=@Url.Action("Person", "Persons", new { personId = Person.Id })><img width="340" height="470" src="~/lib/images/trav1.gif"></a></p>
                         }
-                    <p>
-                        <span style="font-weight:bold">Карьера:</span>   
-                        @if (Person.IsActor != false)
-                        {<a style="margin-right: -4px;" class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Actor", IdPerson = Person.Id })>Актёр</a>
-                            @if (Person.IsDirector != false || Person.IsScreenWriter != false)
-                            {<a>, </a>}}
-                        @if (Person.IsDirector != false)
-                        {<a style="margin-right: -4px;" class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Director", IdPerson = Person.Id })> Режиссёр</a>
-                            if (Person.IsScreenWriter != false)
-                            {<a>, </a>}
-                        }
-                        @if (Person.IsScreenWriter != false)
-                        {<a class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "ScreenWriter", IdPerson = Person.Id })> Сценарист</a>}
-                    </p>
+                        <p>
+                            <span style="font-weight:bold">Карьера:</span>
+                            @if (Person.IsActor != false)
+                            {<a style="margin-right: -4px;" class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Actor", IdPerson = Person.Id })>Актёр</a>
+                                @if (Person.IsDirector != false || Person.IsScreenWriter != false)
+                                {<a>, </a>}}
+                            @if (Person.IsDirector != false)
+                            {<a style="margin-right: -4px;" class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Director", IdPerson = Person.Id })> Режиссёр</a>
+                                if (Person.IsScreenWriter != false)
+                                {<a>, </a>}
+                            }
+                            @if (Person.IsScreenWriter != false)
+                            {<a class="genre_st" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "ScreenWriter", IdPerson = Person.Id })> Сценарист</a>}
+                        </p>
 
 
-                        
+
                         @if (Person.DateOfBirthday.Year != 0001)
                         {
                             <p>
