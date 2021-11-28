@@ -34,6 +34,7 @@ namespace NewKinoHub
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling=Newtonsoft.Json.ReferenceLoopHandling.Ignore);
             services.AddDbContext<MvcFilmContext>(options => options.UseSqlServer(_confstring.GetConnectionString("DefaultConnection")));
             services.AddTransient<IHomeManager, HomeManager>();
             services.AddTransient<IFilmManager, FilmManager>();

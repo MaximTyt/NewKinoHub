@@ -1,6 +1,7 @@
 ﻿@model NewKinoHub.Storage.Entity.Person
 <head>
     <link href="~/css/editadd.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
     <div class="wrapper">
@@ -16,11 +17,11 @@
                             <label class="colortext">Фото:<sup>*</sup></label><br />
                             @if (Model.Img != null)
                             {
-                                <input value=@(Convert.ToBase64String(Model.Img)) type="file" title="Выберите фото" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input class="colortext" value=@(Convert.ToBase64String(Model.Img)) type="file" title="Выберите фото" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
                             }
                             else
                             {
-                                <input type="file" title="Выберите фото" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input class="colortext" type="file" title="Выберите фото" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
                             }
                         </td>
                         <td valign="top" class="tdstyle">
@@ -28,21 +29,29 @@
                             <textarea class="namesizeeditadd" type="text" name="OriginalName" required>@Model.OriginalName</textarea><br />
                         </td>
                         <td valign="top" class="tdstyle">
-                            <label class="colortext">Роли в киноиндустрии:<sup>*</sup></label><br />
-                            <select multiple id="RolesInMedia" name="RolesInMedia">
-                                <option value="1">Актёр</option>
-                                <option value="1">Режиссёр</option>
-                                <option value="1">Сценарист</option>
-                            </select>  
-                            <script>
-                                let role = document.getElementById("RolesInMedia");
-                                @if(Model.IsActor==true)
-                                {
-                                    
-                                }
-                                
-                            </script>
-                                <br />
+                            <label class="colortext">Роли в киноиндустрии:<sup>*</sup></label>
+                            <ul style="margin-top: 17px;">
+                                @*что выпадает при наведении на кнопку дата выхода*@
+
+                                <li style="width:150px;height: 110px;  font-size: 14px;">
+                                    <label class="colortext">
+                                        <input id="IsActor" type="checkbox" name="IsActor" value="true" style="margin: 5px;  margin-top: 15px;">Актер
+                                    </label>
+                                    <br />
+                                    <label class="colortext">
+                                        <input id="IsDirector" type="checkbox" name="IsDirector" value="true" style="margin: 5px;">Режиссёр
+                                    </label>
+                                    <br />
+                                    <label class="colortext">
+                                        <input id="IsSceenwriter" type="checkbox" name="IsScreenwriter" value="true" style="margin: 5px;">Сценарист
+                                    </label>
+
+
+                                </li>
+
+                            </ul>
+
+                            <br />
                         </td>
 
                         <td valign="top" class="tdstyle">
@@ -59,29 +68,24 @@
 
                         <td valign="top" align="left" class="tdstyle">
 
-                            <label class="colortext">Дата рождения: @Model.DateOfBirthday.ToShortDateString()</label><br />
+                            <label class="colortext">Дата рождения:@if (Model.DateOfBirthday.Year != 0001) { Model.DateOfBirthday.ToShortDateString(); } else { }</label><br />
                             <input type="date" id="DateOfBirthday" name="DateOfBirthday" /><br />
 
                             <label class="colortext">Место рождения(необязательно):<sup></sup></label><br />
                             <textarea class="descriptionsize" type="text" name="PlaceOfBirthday"> @Model.PlaceOfBirthday</textarea>
 
-                            @if (Model.DateOfDeath.Year != 0001)
-                            {
-                                <label class="colortext">Дата смерти: @Model.DateOfDeath.ToShortDateString()</label><br />
-                                <input type="date" id="DateOfDeath" name="DateOfDeath" /><br />
-                            }
-                            else
-                            {
-                                <label class="colortext">Дата смерти(необязательно):</label><br />
-                                <input type="date" id="DateOfDeath" name="DateOfDeath" /><br />
-                            }
+                           
+                        <label class="colortext">Дата смерти: @if (Model.DateOfDeath.Year != 0001) { Model.DateOfDeath.ToShortDateString(); } else { }</label><br />
+                           <input type="date" id="DateOfDeath" name="DateOfDeath" /><br />
+                            
+                        
                         </td>
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Супруг(а):<sup></sup></label><br />
                             <textarea class="descriptionsize" type="text" name="Spouse"> @Model.Spouse</textarea>
 
                             <label class="colortext">Рост:<sup></sup></label><br />
-                            <input value="@Model.Height" step="0.01" min=0.49 max=2.5 type="number" name="Height" /><br />
+                            <input value="@Model.Height" step="0.01" min=0 max=2.5 type="text" name="Height" /> <br />
 
                             @if (@Model.PlaceOfDeath != null)
                             {
@@ -103,6 +107,10 @@
                 </tbody>
             </table>
         </form>
+        <script src="~/js/Checked.js"></script>
+        <script type="text/javascript">
+            CheckedPersonRole(@Json.Serialize(Model));
+        </script>
     </div>
 </body>
 

@@ -198,7 +198,7 @@ namespace NewKinoHub.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Age")
+                    b.Property<int?>("Age")
                         .HasColumnType("int");
 
                     b.Property<string>("Awards")
@@ -213,7 +213,7 @@ namespace NewKinoHub.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Height")
+                    b.Property<double?>("Height")
                         .HasColumnType("float");
 
                     b.Property<byte[]>("Img")
