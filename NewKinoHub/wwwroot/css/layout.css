@@ -175,12 +175,13 @@
                     position: absolute;
                     left: 0;
                     right: 0;
-                    top: 40%;
+                    top: 0;
                     bottom: 0;
                     text-decoration: none;
                     font-weight: 500;
                     font-size: 200%;
                     color: white;
+                    padding-top: 17%;
                 }
 
                     #serialform > div > table > tbody > tr > td > a:hover {
