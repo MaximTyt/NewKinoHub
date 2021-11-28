@@ -22,7 +22,26 @@
                             </td>
                             <td valign="top" class="tdstyle">
                                 <label class="colortext">Роли в киноиндустрии:<sup>*</sup></label><br />
-                                <input type="text" name="RolesInMedia" required /><br />
+                                <ul style="margin-top: 17px;">
+                                    @*что выпадает при наведении на кнопку дата выхода*@
+
+                                    <li style="width:150px;height: 110px;  font-size: 14px;">
+                                        <label class="colortext">
+                                            <input id="IsActor" type="checkbox" name="IsActor" value="true" style="margin: 5px;  margin-top: 15px;">Актер
+                                        </label>
+                                        <br />
+                                        <label class="colortext">
+                                            <input id="IsDirector" type="checkbox" name="IsDirector" value="true" style="margin: 5px;">Режиссёр
+                                        </label>
+                                        <br />
+                                        <label class="colortext">
+                                            <input id="IsSceenwriter" type="checkbox" name="IsScreenwriter" value="true" style="margin: 5px;">Сценарист
+                                        </label>
+
+
+                                    </li>
+
+                                </ul><br />
 
                                 <label for="RoleInFilm" class="colortext">Роль в фильме:<sup>*</sup></label><br />
                                 <select id="RoleInFilm" name="RoleInFilm">
