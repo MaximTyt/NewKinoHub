@@ -19,7 +19,7 @@
                             <label class="colortext">Постер:<sup>*</sup></label><br />
                             @if (Model.Img != null)
                             {
-                                <input value=@(Convert.ToBase64String(Model.Img)) type="file" title="Выберите постер" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
+                                <input class="colortext" value=@(Convert.ToBase64String(Model.Img)) type="file" title="Выберите постер" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
                             }
                             else
                             {
