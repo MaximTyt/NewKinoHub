@@ -159,7 +159,7 @@ namespace NewKinoHub.Manager.Userss
             }
             await _context.SaveChangesAsync();
         }
-        public async Task<Random> SendEmailForChangePassword(string email)
+        public async Task<Random> SendEmailForChangePassword(string email, string nickname)
         {
             SmtpClient SmtpClient = new();
             // set smtp-client with basicAuthentication
@@ -170,7 +170,7 @@ namespace NewKinoHub.Manager.Userss
             SmtpClient.Credentials = new NetworkCredential("kinohubloveyou@gmail.com", "55j-vuM-DUR-kXi");
             // add from,to mailaddresses
             MailAddress from = new("kinohubloveyou@gmail.com", "Поддержка KinoHub");
-            MailAddress to = new("imaximtyt@gmail.com", "Тебе, ёбанный сыр");
+            MailAddress to = new(email, nickname);
             MailMessage myMail = new(from, to);
             // add ReplyTo
             MailAddress replyTo = new("kinohubloveyou@gmail.com");
@@ -189,7 +189,7 @@ namespace NewKinoHub.Manager.Userss
             await SmtpClient.SendMailAsync(myMail);
             return code;
         }
-        public async Task SendEmailAboutChangePassword(string email)
+        public async Task SendEmailAboutChangePassword(string email, string nickname)
         {
             SmtpClient SmtpClient = new();
             // set smtp-client with basicAuthentication
@@ -200,7 +200,7 @@ namespace NewKinoHub.Manager.Userss
             SmtpClient.Credentials = new NetworkCredential("kinohubloveyou@gmail.com", "55j-vuM-DUR-kXi");
             // add from,to mailaddresses
             MailAddress from = new("kinohubloveyou@gmail.com", "Поддержка KinoHub");
-            MailAddress to = new(email, "Тебе, ёбанный сыр");
+            MailAddress to = new(email, nickname);
             MailMessage myMail = new(from, to);
             // add ReplyTo
             MailAddress replyTo = new("kinohubloveyou@gmail.com");
@@ -211,7 +211,7 @@ namespace NewKinoHub.Manager.Userss
             myMail.SubjectEncoding = System.Text.Encoding.UTF8;
 
             // set body-message and encoding            
-            myMail.Body = "<b>Ваш пароль был изменен!</b><b></b>.";
+            myMail.Body = $"<b>{nickname}, Ваш пароль был изменен!</b><b></b>.";
             myMail.BodyEncoding = System.Text.Encoding.UTF8;
             // text or html
             myMail.IsBodyHtml = true;
@@ -222,7 +222,7 @@ namespace NewKinoHub.Manager.Userss
             if (newPassword != null)
             {
                 _context.Users.FirstOrDefault(st => st.Email == Email).Password = newPassword;
-                await SendEmailAboutChangePassword(Email);
+                await SendEmailAboutChangePassword(Email,_context.Users.FirstOrDefault(st => st.Email == Email).Nickname);
             }
             if (newSalt != null)
             {
