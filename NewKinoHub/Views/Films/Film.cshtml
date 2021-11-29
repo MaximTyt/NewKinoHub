@@ -364,7 +364,7 @@
                                     <div>
                                         <form class="addreviewsfo" action="" method="post" enctype="multipart/form-data">
                                             <h4>Редактировать отзыв:</h4>
-                                            <a class="btn_delete1" style="position: absolute;font-weight:bold; top: 5px; left: 175px; display: block; min-width: 15px !important; width: 20px;font-size: 15px; color: rgb(247,151,30)">X</a>
+                                            <a style="font-weight:bold; position:absolute; top:0; left:95%; min-width: 15px !important; width: 20px;font-size: 15px; color: rgb(247,151,30)" href="#">X</a>
                                             <div class="form_item">
                                                 <div class="form_label">Рейтинг:  </div>
                                                 <div class="rating rating_set" style="margin-left: 100px;">
@@ -390,7 +390,6 @@
                                             <textarea class="addreviewste" rows="8" cols="75" name="text">@Revi.Description</textarea>
                                             <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("EditReviewsModer", "Films", new { IdFilm = Model.MediaID, UserId = ViewBag.UserId })><br />
                                         </form>
-                                        <a href="#">Выйти</a>
                                     </div>
                                 </div>
 

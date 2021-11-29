@@ -87,6 +87,36 @@
     overflow-wrap: break-word;
 }
 
+#editreviews {
+    position: absolute;
+    background: rgba(102, 102, 102, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: none;
+    color: white;
+    z-index: 20;
+}
+
+    #editreviews > a {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: block;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 21;
+    }
+
+    #editreviews > a:target {
+        visibility: visible;
+        opacity: 1;
+    }
+
 #editreviews > div > form {
     width: 100% !important;
+    z-index: 22;
 }
