@@ -62,7 +62,7 @@ namespace NewKinoHub.Manager.Casts
 
         [HttpPost]
         public async Task AddCast(int IdFilm, string Character, int RoleInFilm, string Name, string OriginalName,
-            bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath,string PlaceOfBirthday,
+            bool IsActor, bool IsScreenWriter, bool IsDirector, string Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath,string PlaceOfBirthday,
             string PlaceOfDeath,string Spouse,string Awards,string Description)
         {
             Cast Cast = new()
@@ -78,7 +78,7 @@ namespace NewKinoHub.Manager.Casts
                 IsActor = IsActor,
                 IsDirector= IsDirector,
                 IsScreenWriter= IsScreenWriter,
-                Height = Height,
+                Height = Convert.ToDouble(Height.Replace('.', ',')),
                 Img = mainPhoto != null ? SaveImage.getByteImage(mainPhoto) : File.ReadAllBytes(@"wwwroot\lib\images\trav1.gif"),
                 DateOfBirthday = DateOfBirthday,
                 DateOfDeath = DateOfDeath,

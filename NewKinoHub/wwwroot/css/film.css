@@ -1,0 +1,92 @@
+﻿.btnreview2 {
+    display: block;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 0px !important;
+    float: right !important;
+}
+
+.message-conteiner {
+    width: 800px;
+    min-height: 5px;
+    float: left;
+}
+
+.message {
+    width: 545px;
+    min-height: 50px;
+    background-color: #fff;
+    float: left;
+    margin-top: 20px;
+    border: 1px solid lightgray;
+    position: relative;
+    padding: 15px;
+}
+
+.rating1 {
+    font-size: 20px !important;
+    display: flex;
+    align-items: flex-end;
+    line-height: 0.75;
+}
+
+.message-width {
+    width: 795px;
+}
+
+.message img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 15px;
+}
+
+.message img, /*!!!!!!!!*/
+.img-enter {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    float: left;
+}
+
+.name {
+    display: block;
+    /*color: gray;
+                                font-size: 10px;*/
+    float: left;
+    margin-top: 4px;
+}
+
+.write {
+    display: block;
+    margin-left: 5px;
+    margin-top: 8px;
+    float: left;
+    color: gray;
+    font-size: 10px;
+}
+
+.message .date {
+    display: block;
+    clear: both;
+    font-size: 10px;
+    position: absolute;
+    top: 35px;
+    left: 65px;
+    color: gray;
+}
+
+.message .message-message {
+    width: 760px;
+    font-size: 24px;
+    font-weight: normal;
+    color: #696969;
+    clear: left;
+    overflow-wrap: break-word;
+}
+
+#editreviews > div > form {
+    width: 100% !important;
+}
