@@ -14,15 +14,8 @@
                             <label class="colortext">Name:<sup>*</sup></label><br />
                             <textarea class="namesizeeditadd" type="text" name="Name" required>@Model.Name</textarea><br />
 
-                            <label class="colortext">Фото:<sup>*</sup></label><br />
-                            @if (Model.Img != null)
-                            {
-                                <input class="colortext" value=@(Convert.ToBase64String(Model.Img)) type="file" title="Выберите фото" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                            }
-                            else
-                            {
-                                <input class="colortext" type="file" title="Выберите фото" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                            }
+                            <label class="colortext">Фото:<sup>*</sup></label><br />         
+                            <input class="colortext" type="file" title="Выберите фото" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
                         </td>
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Настоящее имя:<sup>*</sup></label><br />
