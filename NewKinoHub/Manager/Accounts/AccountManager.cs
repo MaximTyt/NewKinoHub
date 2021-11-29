@@ -29,7 +29,7 @@ namespace NewKinoHub.Manager
             SmtpClient.Credentials = new NetworkCredential("kinohubloveyou@gmail.com", "55j-vuM-DUR-kXi");
             // add from,to mailaddresses
             MailAddress from = new("kinohubloveyou@gmail.com", "Поддержка KinoHub");
-            MailAddress to = new(email, "Тебе, ёбанный сыр");
+            MailAddress to = new(email, nickname);
             MailMessage myMail = new(from, to);
             // add ReplyTo
             MailAddress replyTo = new("kinohubloveyou@gmail.com");
