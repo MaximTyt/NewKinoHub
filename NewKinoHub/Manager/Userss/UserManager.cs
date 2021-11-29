@@ -182,7 +182,7 @@ namespace NewKinoHub.Manager.Userss
 
             // set body-message and encoding
             Random code = new();
-            myMail.Body = $"<b>Код подтверждения:</b>{code.Next(100000, 999999)}<b></b>.";
+            myMail.Body = $"<b>Код подтверждения:</b>{code.Next(100000, 999999)}<b></b>";
             myMail.BodyEncoding = System.Text.Encoding.UTF8;
             // text or html
             myMail.IsBodyHtml = true;
@@ -211,7 +211,7 @@ namespace NewKinoHub.Manager.Userss
             myMail.SubjectEncoding = System.Text.Encoding.UTF8;
 
             // set body-message and encoding            
-            myMail.Body = $"<b>{nickname}, Ваш пароль был изменен!</b><b></b>.";
+            myMail.Body = $"<b>{nickname}, Ваш пароль был изменен!</b><b></b>";
             myMail.BodyEncoding = System.Text.Encoding.UTF8;
             // text or html
             myMail.IsBodyHtml = true;
