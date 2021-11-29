@@ -7,10 +7,10 @@
 </head>
 
 <body>
-    <div wrapper">
+    <div class="wrapper">
         @if (ViewBag.Role == 1)
         {
-            <div style="position:absolute; top:5%; left:3%; ">
+            <div style="position:absolute; top:200px; left:3%; ">
                 <a href=@Url.Action("AddFilm", "Films") class="addfilm">+</a>
             </div>
         }
@@ -56,26 +56,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li style="width:26% !important;">
-                                        <a>По создателем</a>
-                                        <ul>
-                                            @*что выпадает при наведении на кнопку дата выхода*@
-
-                                            <li>
-                                                <form action="/" method="post">
-                                                    <select style="width:100px; height: 20px; font-size: 14px;">
-                                                        <option value="value" style="font-size: 14px;">Актер</option>
-                                                        <option value="value" style="font-size: 14px;">Режисер</option>
-                                                        <option value="value" style="font-size: 14px;">Сценарист</option>
-                                                    </select>
-                                                    <input type="text" style="width:100px; height: 20px; font-size: 14px;" name="name" value="" />
-                                                    <input type="submit" name="name" value="Применить" / style="width: 100px; height: 20px; background-color: rgb(247,151,30); color: black; font-size: 14px;">
-                                                </form>
-
-                                            </li>
-
-                                        </ul>
-                                    </li>
+                                    
                                     @* здесь можно добавить еще кнопку как дата выхода*@
                                     @*если не работает, позвать меня*@
 
@@ -101,11 +82,11 @@
                             }
                             @if (serial.Score <= 8 && serial.Score > 5)
                             {
-                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
                             }
                             @if (serial.Score > 8)
                             {
-                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @serial.Score</span>
+                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: forestgreen; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @serial.Score</span>
                             }
                         </p>
                     }
@@ -119,11 +100,11 @@
                             }
                             @if (serial.Score <= 8 && serial.Score > 5)
                             {
-                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
                             }
                             @if (serial.Score > 8)
                             {
-                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @serial.Score</span>
+                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: forestgreen; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @serial.Score</span>
                             }
                         </p>
                     }
@@ -139,11 +120,11 @@
                                 }
                                 @if (serial.Score <= 8 && serial.Score > 5)
                                 {
-                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
                                 }
                                 @if (serial.Score > 8)
                                 {
-                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @serial.Score</span>
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: forestgreen; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @serial.Score</span>
                                 }
                             </p>
                         }
@@ -157,11 +138,11 @@
                                 }
                                 @if (serial.Score <= 8 && serial.Score > 5)
                                 {
-                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
                                 }
                                 @if (serial.Score > 8)
                                 {
-                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left:3px; font-size: 15px; color: white; "> @serial.Score</span>
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: forestgreen; border-radius: 5px; padding-left:3px; font-size: 15px; color: white; "> @serial.Score</span>
                                 }
                             </p>
                         }

@@ -3,19 +3,23 @@
 
 
 
-      //"DefaultConnection": "Server=LAPTOP-QA25E0K7;Database=KinoHub4;Trusted_Connection=True; MultipleActiveResultSets=true"
-
-    
-
-      "DefaultConnection": "Server=DESKTOP-IFVH175;Database=KinoHub1;Trusted_Connection=True; MultipleActiveResultSets=true"
+    //  "DefaultConnection": "Server=LAPTOP-QA25E0K7;Database=KinoHub666;Trusted_Connection=True; MultipleActiveResultSets=true"
 
 
-   // "DefaultConnection": "Server=DESKTOP-4N2MISI;Database=KinoHub69;Trusted_Connection=True; MultipleActiveResultSets=true",
 
-   // "DefaultConnection": "Server=DESKTOP-SGJCKFE;Database=KinoHyb2;Trusted_Connection=True; MultipleActiveResultSets=true"
+    //"DefaultConnection": "Server=DESKTOP-IFVH175;Database=KinoHub1;Trusted_Connection=True; MultipleActiveResultSets=true"
 
 
-    //"DefaultConnection": "Server=DOM-MAX;Database=KinoHub1;Trusted_Connection=True; MultipleActiveResultSets=true"
+
+    //"DefaultConnection": "Server=DESKTOP-4N2MISI;Database=KinoHub72;Trusted_Connection=True; MultipleActiveResultSets=true",
+
+
+    //"DefaultConnection": "Server=DESKTOP-SGJCKFE;Database=KinoHyb2;Trusted_Connection=True; MultipleActiveResultSets=true"
+
+
+    //"DefaultConnection": "Server=DOM-MAX;Database=KinoHub3;Trusted_Connection=True; MultipleActiveResultSets=true"
+
+    "DefaultConnection": "Server=tcp:kinohub-server.database.windows.net,1433;Initial Catalog=kinohub;Persist Security Info=False;User ID=kinohub-server-admin;Password=806BK4304GIFI11U$;MultipleActiveResultSets=true;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30"
 
   }
 }

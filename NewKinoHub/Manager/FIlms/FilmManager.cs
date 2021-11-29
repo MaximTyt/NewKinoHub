@@ -492,6 +492,14 @@ namespace KinoHab.Manager
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == Id).MediaType = (MediaType)type;
             }
+            if(NumOfSeason!=0)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).NumOfSeason = NumOfSeason;
+            }
+            if (NumOfEpisodes != 0)
+            {
+                _context.Media.FirstOrDefault(st => st.MediaID == Id).NumOfEpisodes = NumOfEpisodes;
+            }
 
             IFormFile[] Images = new IFormFile[4] { Images1, Images2, Images3, Images4 };
             if (Images!=null)

@@ -5,7 +5,8 @@
 <head>
     <meta charset="utf-8" />
     <link href="~/css/carouseltitle.css" rel="stylesheet" /> @*не переносить в layout*@
-    <link href="~/css/stars.css" rel="stylesheet" />    
+    <link href="~/css/stars.css" rel="stylesheet" />
+    <link href="~/css/film.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -363,7 +364,7 @@
                                     <div>
                                         <form class="addreviewsfo" action="" method="post" enctype="multipart/form-data">
                                             <h4>Редактировать отзыв:</h4>
-                                            <a class="btn_delete1" style="position: absolute;font-weight:bold; top: 5px; left: 175px; display: block; min-width: 15px !important; width: 20px;font-size: 15px; color: rgb(247,151,30)">X</a>
+                                            <a style="font-weight:bold; position:absolute; top:0; left:95%; min-width: 15px !important; width: 20px;font-size: 15px; color: rgb(247,151,30)" href="#">X</a>
                                             <div class="form_item">
                                                 <div class="form_label">Рейтинг:  </div>
                                                 <div class="rating rating_set" style="margin-left: 100px;">
@@ -389,7 +390,6 @@
                                             <textarea class="addreviewste" rows="8" cols="75" name="text">@Revi.Description</textarea>
                                             <input class="btn" type="submit" value="Подтвердить" formaction=@Url.Action("EditReviewsModer", "Films", new { IdFilm = Model.MediaID, UserId = ViewBag.UserId })><br />
                                         </form>
-                                        <a href="#">Выйти</a>
                                     </div>
                                 </div>
 
@@ -426,104 +426,6 @@
                         </div>
                     </div>
 
-
-                    <style>
-                        .btnreview2 {
-                            display: block;
-                            width: 12px !important;
-                            height: 12px !important;
-                            border-radius: 0px !important;
-                            float: right !important;
-                        }
-
-                        .message-conteiner {
-                            width: 800px;
-                            min-height: 5px;
-                            float: left;
-                        }
-
-                        .message {
-                            width: 545px;
-                            min-height: 50px;
-                            background-color: #fff;
-                            float: left;
-                            margin-top: 20px;
-                            border: 1px solid lightgray;
-                            position: relative;
-                            padding: 15px;
-                        }
-
-                        .rating1 {
-                            font-size: 20px !important;
-                            display: flex;
-                            align-items: flex-end;
-                            line-height: 0.75;
-                        }
-
-                        .message-width {
-                            width: 795px;
-                        }
-
-                        .message img {
-                            display: block;
-                            width: 100px;
-                            height: 100px;
-                            border-radius: 50%;
-                            float: left;
-                            margin-right: 15px;
-                        }
-
-                        .message img, /*!!!!!!!!*/
-                        .img-enter {
-                            width: 40px;
-                            height: 40px;
-                            margin-right: 10px;
-                            float: left;
-                        }
-
-                        .name {
-                            display: block;
-                            /*color: gray;
-                                font-size: 10px;*/
-                            float: left;
-                            margin-top: 4px;
-                        }
-
-                        .write {
-                            display: block;
-                            margin-left: 5px;
-                            margin-top: 8px;
-                            float: left;
-                            color: gray;
-                            font-size: 10px;
-                        }
-
-                        .message .date {
-                            display: block;
-                            clear: both;
-                            font-size: 10px;
-                            position: absolute;
-                            top: 35px;
-                            left: 65px;
-                            color: gray;
-                        }
-
-                        .message .message-message {
-                            width: 760px;
-                            font-size: 24px;
-                            font-weight: normal;
-                            color: #696969;
-                            clear: left;
-                            overflow-wrap: break-word;
-                        }
-
-                        #editreviews > div > form {
-                            width: 100% !important;
-                        }
-                    </style>
-
-
-                   
                 }
             }
         </div>

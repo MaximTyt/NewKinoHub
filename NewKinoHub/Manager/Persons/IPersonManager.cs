@@ -16,14 +16,14 @@ namespace NewKinoHub.Manager.Persons
         Task AgeOfPerson(int personId);
         Task AgeOfPerson();
         Task EditPerson(int personId, string Name, string OriginalName,
-           bool IsActor, bool IsScreenWriter, bool IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+           bool IsActor, bool IsScreenWriter, bool IsDirector, string Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
            string PlaceOfDeath, string Spouse, string Awards, string Description);
         Task<ICollection<Person>> AllSorting(string sort);
         Task<List<Person>> Filtration(string Actors, string Directors, string ScreenWriter);
         List<Person> SortingFromFiltr(string sort, List<Person> Filtr);
         string GetPersonName(int IdPerson);
         Task AddPerson(string Name, string OriginalName,
-            string IsActor, string IsScreenWriter, string IsDirector, double Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
+            string IsActor, string IsScreenWriter, string IsDirector, string Height, IFormFile mainPhoto, DateTime DateOfBirthday, DateTime DateOfDeath, string PlaceOfBirthday,
             string PlaceOfDeath, string Spouse, string Awards, string Description);
     }
 }
