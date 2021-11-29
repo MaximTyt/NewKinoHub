@@ -136,7 +136,7 @@ namespace KinoHab.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SelectFilmsForPersons(string Role1, string Name1, string Role2, string Name2, string sort)
+        public async Task<IActionResult> SelectFilmsForPersons(string Role1, string[] Name1, string Role2, string[] Name2, string sort)
         {
             var FilmsActors = await _film.SearchFilmsForActors(Role1,Name1,Role2,Name2, await _film.GetUser(User.Identity.Name));
             ViewBag.User = User.Identity.Name;

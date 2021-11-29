@@ -31,7 +31,7 @@
             </select>
 
             <div id="actors" class="people active">
-                <input list="actor" name="Name1">
+                <input list="actor" name="Name1[0]">
                 <datalist id="actor">
                     @foreach (var Person in Model)
                     {
@@ -43,7 +43,7 @@
                 </datalist>
             </div>
             <div id="directors" class="people">
-                <input list="director" name="Name1" required>
+                <input list="director" name="Name1[1]">
                 <datalist id="director">
                     @foreach (var Person in Model)
                     {
@@ -55,7 +55,7 @@
                 </datalist>
             </div>
             <div id="screenwriters" class="people">
-                <input list="screenwriter" name="Name1">
+                <input list="screenwriter" name="Name1[2]">
                 <datalist id="screenwriter">
                     @foreach (var Person in Model)
                     {
@@ -74,7 +74,7 @@
             </select>
 
             <div id="actors1" class="people1 active1">
-                <input list="actor1" name="Name2">
+                <input list="actor1" name="Name2[0]">
                 <datalist id="actor1">
                     @foreach (var Person in Model)
                     {
@@ -86,7 +86,7 @@
                 </datalist>
             </div>
             <div id="directors1" class="people1">
-                <input list="director1" name="Name2">
+                <input list="director1" name="Name2[1]">
                 <datalist id="director1">
                     @foreach (var Person in Model)
                     {
@@ -98,7 +98,7 @@
                 </datalist>
             </div>
             <div id="screenwriters1" class="people1">
-                <input list="screenwriter1" name="Name2">
+                <input list="screenwriter1" name="Name2[2]">
                 <datalist id="screenwriter1">
                     @foreach (var Person in Model)
                     {   
