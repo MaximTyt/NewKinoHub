@@ -60,18 +60,30 @@
                         </td>
 
                         <td valign="top" align="left" class="tdstyle">
-
-                            <label class="colortext">Дата рождения:@if (Model.DateOfBirthday.Year != 0001) { Model.DateOfBirthday.ToShortDateString(); } else { }</label><br />
+                            @if (Model.DateOfBirthday.Year != 0001)
+                            {
+                                <label class="colortext">Дата рождения:@Model.DateOfBirthday.ToShortDateString()</label><br />
+                            }
+                            else
+                            {
+                                <label class="colortext">Дата рождения:</label><br />
+                            }
                             <input type="date" id="DateOfBirthday" name="DateOfBirthday" /><br />
 
                             <label class="colortext">Место рождения(необязательно):<sup></sup></label><br />
                             <textarea class="descriptionsize" type="text" name="PlaceOfBirthday"> @Model.PlaceOfBirthday</textarea>
 
-                           
-                        <label class="colortext">Дата смерти: @if (Model.DateOfDeath.Year != 0001) { Model.DateOfDeath.ToShortDateString(); } else { }</label><br />
-                           <input type="date" id="DateOfDeath" name="DateOfDeath" /><br />
-                            
-                        
+                            @if (Model.DateOfDeath.Year != 0001)
+                            {
+                                <label class="colortext">Дата смерти:  @Model.DateOfDeath.ToShortDateString()</label><br />
+                            }
+                            else
+                            {
+                                <label class="colortext">Дата смерти:</label><br />
+                            }
+                            <input type="date" id="DateOfDeath" name="DateOfDeath" /><br />
+
+
                         </td>
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Супруг(а):<sup></sup></label><br />
