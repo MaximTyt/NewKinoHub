@@ -227,7 +227,7 @@ namespace NewKinoHub.Manager.Persons
                 IsActor = IsActor != null,
                 IsDirector = IsDirector != null,
                 IsScreenWriter = IsScreenWriter != null,
-                Height = Convert.ToDouble(Height.Replace('.', ',')),
+                Height = Height != null ? Convert.ToDouble(Height.Replace('.', ',')) : null,
                 Img = mainPhoto != null ? SaveImage.getByteImage(mainPhoto) : File.ReadAllBytes(@"wwwroot\lib\images\trav1.gif"),
                 DateOfBirthday = DateOfBirthday,
                 DateOfDeath = DateOfDeath,

@@ -70,15 +70,15 @@ namespace NewKinoHub.Manager.Casts
                 MediaId = IdFilm,
                 Character = Character,
                 RoleInFilm = (RoleInFilm)RoleInFilm 
-            };            
+            };
             Person person = new()
             {
                 Name = Name,
                 OriginalName = OriginalName,
                 IsActor = IsActor,
-                IsDirector= IsDirector,
-                IsScreenWriter= IsScreenWriter,
-                Height = Convert.ToDouble(Height.Replace('.', ',')),
+                IsDirector = IsDirector,
+                IsScreenWriter = IsScreenWriter,
+                Height = Height != null ? Convert.ToDouble(Height.Replace('.', ',')) : null,
                 Img = mainPhoto != null ? SaveImage.getByteImage(mainPhoto) : File.ReadAllBytes(@"wwwroot\lib\images\trav1.gif"),
                 DateOfBirthday = DateOfBirthday,
                 DateOfDeath = DateOfDeath,
