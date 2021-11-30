@@ -264,7 +264,7 @@ namespace KinoHab.Manager
 
 
         [HttpPost]
-        public async Task AddFilm(IFormFile mainPhoto, string Name, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes, int NumOfSeason, int type, 
+        public async Task AddFilm(IFormFile mainPhoto, string Name, string Contry, int Age, string RunTime, string Description, string shortDiscription, string ScoreKP, string Music, string Video, int NumOfEpisodes, int NumOfSeason, int type, 
             IFormFile Images1, IFormFile Images2, IFormFile Images3, IFormFile Images4, string[] genres, DateTime Release_Date)
         {
             Media Film = new Media();
@@ -294,8 +294,7 @@ namespace KinoHab.Manager
             Film.Age = Age;
             Film.Runtime = RunTime;
             Film.Description = Description;
-            Film.ShortDescription = shortDiscription;
-            Film.Score = double.Parse(Score.Replace(',', '.'), new NumberFormatInfo());
+            Film.ShortDescription = shortDiscription;            
             Film.ScoreKP = ScoreKP;
             Film.Video = Video;
             Film.SoundTrackUrl = Music;
@@ -330,7 +329,7 @@ namespace KinoHab.Manager
                 
 
         [HttpPost]
-        public async Task EditFilm(IFormFile mainPhoto, string Name, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, IFormFile Images1, IFormFile Images2, IFormFile Images3, IFormFile Images4, string[] genres, DateTime Release_Date)
+        public async Task EditFilm(IFormFile mainPhoto, string Name, string Contry, int Age, string RunTime, string Description, string shortDiscription, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, IFormFile Images1, IFormFile Images2, IFormFile Images3, IFormFile Images4, string[] genres, DateTime Release_Date)
         {
             if (mainPhoto != null)
             {
@@ -363,12 +362,7 @@ namespace KinoHab.Manager
             if (shortDiscription != null)
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == Id).ShortDescription = shortDiscription;
-            }
-            if (Score != null)
-            {
-
-                _context.Media.FirstOrDefault(st => st.MediaID == Id).Score = double.Parse(Score.Replace(',','.'), new NumberFormatInfo());
-            }
+            }            
             if (ScoreKP != null)
             {
                 _context.Media.FirstOrDefault(st => st.MediaID == Id).ScoreKP = ScoreKP;

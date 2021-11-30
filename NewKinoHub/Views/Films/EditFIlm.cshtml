@@ -10,8 +10,7 @@
                 <tbody>
                     <tr class="trsizea">
                         <td valign="top" align="left" class="tdstyle">
-                            <label class="colortext">Название:<sup>*</sup></label><br />
-                            @*<input value=@Model.Name type="text" name="Name" required /><br />*@
+                            <label class="colortext">Название:<sup>*</sup></label><br />                            
                             <textarea class="namesizeeditadd" type="text" name="Name" required>@Model.Name </textarea><br />
 
 
@@ -64,7 +63,7 @@
                             <label for="Genres" class="colortext">
                                 Выберите жанры<sup>*</sup>
                             </label><br />
-                            <select multiple id="Genres" name="Genres">
+                            <select multiple id="Genres" name="Genres" required>
                                 <option value="Аниме">Аниме</option>
                                 <option value="Биография">Биография</option>
                                 <option value="Боевик">Боевик</option>
@@ -147,27 +146,27 @@
                         </td>
                         <td valign="top" class="tdstyle" style="margin-left: 15px;">                            
 
-                            <label class="colortext">Рейтинг с кинопоиска<sup>*</sup></label><br />
-                            <input value=@Model.ScoreKP type="text" name="ScoreKP" required /><br />
+                            <label class="colortext">Рейтинг с кинопоиска</label><br />
+                            <input value=@Model.ScoreKP type="text" name="ScoreKP" /><br />
 
-                            <label class="colortext">Ссылка на трейлер(с Ютуба)<sup>*</sup></label><br />
-                            <input value=@Model.Video type="text" name="Video" required /><br />
+                            <label class="colortext">Ссылка на трейлер(с Ютуба)</label><br />
+                            <input value=@Model.Video type="text" name="Video" /><br />
 
-                            <label class="colortext">Ссылка на плейлист<sup>*</sup></label><br />
-                            <input value=@Model.SoundTrackUrl type="text" name="Music" required /><br />
+                            <label class="colortext">Ссылка на плейлист</label><br />
+                            <input value=@Model.SoundTrackUrl type="text" name="Music"/><br />
                         </td>
                         <td valign="top" class="tdstyle">
 
-                            <label class="colortext">Кадр №1<sup>*</sup></label><br />
+                            <label class="colortext">Кадр №1</label><br />
                             <input class="colortext" value=@(Convert.ToBase64String(Model.Images[0].MediaImage)) type="file" title="Кадр №1" name="Images1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
-                            <label class="colortext">Кадр №2<sup>*</sup></label><br />
+                            <label class="colortext">Кадр №2</label><br />
                             <input class="colortext" value=@(Convert.ToBase64String(Model.Images[1].MediaImage)) type="file" title="Кадр №2" name="Images2" id="Images2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
-                            <label class="colortext">Кадр №3<sup>*</sup></label><br />
+                            <label class="colortext">Кадр №3</label><br />
                             <input class="colortext" value=@(Convert.ToBase64String(Model.Images[2].MediaImage)) type="file" title="Кадр №3" name="Images3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
-                            <label class="colortext">Кадр №4<sup>*</sup></label><br />
+                            <label class="colortext">Кадр №4</label><br />
                             <input class="colortext" value=@(Convert.ToBase64String(Model.Images[3].MediaImage)) type="file" title="Кадр №4" name="Images4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
 
                             @if ((int)Model.MediaType == 1)

@@ -20,16 +20,16 @@
                         </td>
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Дата выхода:<sup>*</sup></label><br />
-                            <input type="date" id="Release_Date" name="Release_Date" /><br />
+                            <input type="date" id="Release_Date" name="Release_Date" required /><br />
 
                             <label class="colortext">Выберите тип:<sup>*</sup></label><br />
                             <select id="type" name="type">
                                 <option value="0">Фильм</option>
                                 <option value="1">Сериал</option>
-                            </select>
+                            </select><br />
 
                             <label for="Genres" class="colortext">Выберите жанры:<sup>*</sup></label><br />
-                            <select multiple id="Genres" name="Genres">
+                            <select multiple id="Genres" name="Genres" required>
                                 <option value="Аниме">Аниме</option>
                                 <option value="Биография">Биография</option>
                                 <option value="Боевик">Боевик</option>
@@ -80,27 +80,25 @@
                                 <label class="colortext">Количество сезонов(Необязательно):</label><br />
                                 <input type="number" step="1" min="0" name="NumOfSeason"> <br />
                             </div>                            
+                                                        
 
-                            <label class="colortext">Рейтинг:<sup>*</sup></label><br />
-                            <input type="text" step="0.001" name="Score" min="0" max="10" required /><br />
+                            <label class="colortext">Рейтинг с кинопоиска</label><br />
+                            <input type="text" name="ScoreKP" /><br />
 
-                            <label class="colortext">Рейтинг с кинопоиска<sup>*</sup></label><br />
-                            <input type="text" name="ScoreKP" required /><br />
+                            <label class="colortext">Ссылка на трейлер(с Ютуба)</label><br />
+                            <input type="text" name="Video" /><br />
 
-                            <label class="colortext">Ссылка на трейлер(с Ютуба)<sup>*</sup></label><br />
-                            <input type="text" name="Video" required /><br />
-
-                            <label class="colortext">Ссылка на музыку(Яндекс музыка)<sup>*</sup></label><br />
-                            <input type="text" name="Music" required /><br />
+                            <label class="colortext">Ссылка на плейлист</label><br />
+                            <input type="text" name="Music" /><br />
                         </td>
                         <td valign="top" class="tdstyle">
-                            <label class="colortext">Кадр №1<sup>*</sup></label><br />
+                            <label class="colortext">Кадр №1</label><br />
                             <input class="colortext" type="file" title="Выберите кадр №1" name="Images1" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                            <label class="colortext">Кадр №2<sup>*</sup></label><br />
+                            <label class="colortext">Кадр №2</label><br />
                             <input class="colortext" type="file" title="Выберите кадр №2" name="Images2" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                            <label class="colortext">Кадр №3<sup>*</sup></label><br />
+                            <label class="colortext">Кадр №3</label><br />
                             <input class="colortext" type="file" title="Выберите кадр №3" name="Images3" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                            <label class="colortext">Кадр №4<sup>*</sup></label><br />
+                            <label class="colortext">Кадр №4</label><br />
                             <input class="colortext" type="file" title="Выберите кадр №4" name="Images4" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
                         </td>
                     </tr>
