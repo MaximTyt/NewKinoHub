@@ -49,7 +49,7 @@
 
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Награды(необязательно):<sup></sup></label><br />
-                            <textarea class="namesizeeditadd" type="text" name="Awards">@Model.Awards</textarea><br />
+                            <textarea class="descriptionsize" type="text" name="Awards">@Model.Awards</textarea><br />
                         </td>
                     </tr>
 
@@ -75,7 +75,7 @@
                         </td>
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Супруг(а):<sup></sup></label><br />
-                            <textarea class="descriptionsize" type="text" name="Spouse"> @Model.Spouse</textarea>
+                            <input class="namesizeeditadd" type="text" name="Spouse" value="@Model.Spouse"/> <br />
 
                             <label class="colortext">Рост:<sup></sup></label><br />
                             <input value="@Convert.ToString(Model.Height).Replace(',', '.')" step="0.01" min=0 max=2.5 type="number"  name="Height" /> <br />
