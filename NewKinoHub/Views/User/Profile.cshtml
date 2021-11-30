@@ -17,8 +17,14 @@
                         <input value=@Model.Nickname type="text" name="name" /><br /><br />
                         <label>Аватарка<sup>*</sup></label><br />
                         <input class="colortext" type="file" title="Выберите аватарку" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-
-                        <label>Дата рождения<sup>*</sup>: @Model.DateOfBirthday.ToShortDateString()</label><br />
+                        @if (Model.DateOfBirthday.Year != 0001)
+                        {
+                            <label>Дата рождения<sup>*</sup>: @Model.DateOfBirthday.ToShortDateString()</label><br />
+                        }
+                        else
+                        {
+                            <label>Дата рождения<sup>*</sup>:</label><br />
+                        }
                         <input type="date" id="DataB" name="DataB" /><br /><br />
                         <input class="btn" type="submit" value="Подтвердить" formaction="~/User/EditAccount">
                     </form>
