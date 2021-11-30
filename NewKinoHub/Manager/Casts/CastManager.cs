@@ -129,7 +129,7 @@ namespace NewKinoHub.Manager.Casts
             List<Person> person = _context.Persons.ToList();
             if (!String.IsNullOrEmpty(Name) && Name != "")
             {
-                person = person.Where(x => x.Name.Contains(Name)).ToList();
+                person = person.Where(x => x.Name.ToLower().Contains(Name.ToLower())).ToList();                
             }
             return person;
         }
