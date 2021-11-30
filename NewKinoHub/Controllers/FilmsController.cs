@@ -12,7 +12,7 @@ namespace KinoHab.Controllers
     {
         private readonly IFilmManager _film;
         private readonly IUserManager _user;
-        private readonly IPersonManager _person;
+        //private readonly IPersonManager _person;
 
         public FilmsController(IFilmManager filmManager, IUserManager userManager)
         {
@@ -23,13 +23,12 @@ namespace KinoHab.Controllers
 
         public async Task<IActionResult> ListSerials(string sort)
         {
-            var serial = await _film.GetFilms(await _film.GetUser(User.Identity.Name));
+            var serial = await _film.GetAllFilms(1);
             ViewBag.User = User.Identity.Name;
-            ViewBag.Type = _film.TypeFilm("Serial");
             ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
             if (sort != null)
             {
-                var Sort = await _film.AllSorting(sort, await _film.GetUser(User.Identity.Name));
+                var Sort = await _film.AllSorting(sort, await _film.GetUser(User.Identity.Name),1);
                 return View(Sort);
             }
             return View(serial);
@@ -37,13 +36,12 @@ namespace KinoHab.Controllers
 
         public async Task<IActionResult> ListFilms(string sort)
         {
-            var film = await _film.GetFilms(await _film.GetUser(User.Identity.Name));
+            var film = await _film.GetAllFilms(0);
             ViewBag.User = User.Identity.Name;
             ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
-            ViewBag.Type = _film.TypeFilm("Film");
             if (sort != null)
             {
-                var Sort = await _film.AllSorting(sort, await _film.GetUser(User.Identity.Name));
+                var Sort = await _film.AllSorting(sort, await _film.GetUser(User.Identity.Name),0);
                 return View(Sort);
             }
             return View(film);
@@ -67,7 +65,7 @@ namespace KinoHab.Controllers
             ViewBag.type = _film.TypeFilm(type);
             ViewBag.User = User.Identity.Name;
             ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
-            var Filtr = await _film.Filtration(filtr,await _film.GetUser(User.Identity.Name));
+            var Filtr = await _film.Filtration(filtr,await _film.GetUser(User.Identity.Name), (int)_film.TypeFilm(type));
             if (sort != null)
             {
                 var Sort = _film.SortingFromFiltr(sort,Filtr);
@@ -130,7 +128,6 @@ namespace KinoHab.Controllers
         public async Task<IActionResult> SelectFilmsForPerson(string Person, int IdPerson)
         {
             ViewBag.Role = _user.GetRights(await _user.GetUsers(User.Identity.Name));
-            //ViewBag.NamePerson = _person.GetPersonName(IdPerson);
             var Films = await _film.GetFilmsForPerson(Person, IdPerson, await _film.GetUser(User.Identity.Name));
             return View(Films);
         }

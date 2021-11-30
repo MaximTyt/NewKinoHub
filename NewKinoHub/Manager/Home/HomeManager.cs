@@ -38,21 +38,16 @@ namespace NewKinoHub.Manager.Home
         {
             IFilmManager Film = new FilmManager(_context);
             IPersonManager Person = new PersonManager(_context);
-            var films = await Film.GetAllFilms();
-            var serials = await Film.GetAllFilms();
+            var films = await Film.GetAllFilms(0);
+            var serials = await Film.GetAllFilms(1);
             var persons = await Person.GetPersons();
-            if (User != null && (User.Favorites != null || User.Reviews != null))
-            {
-                films = await Film.GetFilms(User);
-                serials = await Film.GetFilms(User);
-            }
             (List<Media>, List<Media>,List<Person>) film = (null, null,null); 
             if (!String.IsNullOrEmpty(Name) && Name!= "")
             {
                 films = films.Where(x => x.Name.ToLower().Contains(Name.ToLower()) && x.MediaType == MediaType.Film).ToList();
                 serials = serials.Where(x => x.Name.ToLower().Contains(Name.ToLower()) && x.MediaType == MediaType.Serial).ToList();
                 persons = persons.Where(x => x.Name.ToLower().Contains(Name.ToLower())).ToList();
-                
+              
                 film = (films.ToList(), serials.ToList(),persons.ToList());
             }
             return film;
