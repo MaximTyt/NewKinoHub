@@ -44,7 +44,7 @@
                                 <p><a href=@Url.Action("Person", "Persons", new { personId = cast.Id })><img width="300" height="400" class="imagetitle" src="~/lib/images/trav1.gif"></a></p>
                             }
                             <p style="margin-left:5px;"><a class="titlenamesize_list" href=@Url.Action("Person", "Persons", new { personId = cast.Id })>@cast.Name</a></p>
-                            <div class="descr">
+                            <div class="descr" style="color:white;">
                                 @if (cast.Img != null)
                                 {
                                     <p><a href=@Url.Action("Person", "Persons", new { personId = cast.Id })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(cast.Img))"></a></p>
@@ -56,11 +56,11 @@
                                 <p>
                                     <span style="font-weight:bold">Карьера:</span>
                                     @if (cast.IsActor != false)
-                                    {<a> Актёр </a>}
+                                    {<a style="color:white;" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Actor", IdPerson = cast.Id })> Актёр </a>}
                                     @if (cast.IsDirector != false)
-                                    {<a> Режиссёр </a>}
+                                    {<a style="color:white;" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Director", IdPerson = cast.Id })> Режиссёр </a>}
                                     @if (cast.IsScreenWriter != false)
-                                    {<a> Сценарист </a>}
+                                    {<a style="color:white;" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "ScreenWriter", IdPerson = cast.Id })> Сценарист </a>}
                                 </p>
                                 @if (cast.DateOfBirthday.Year != 0001)
                                 {
@@ -88,7 +88,7 @@
                                 {
                                     <p> <span style="font-weight:bold">Дата смерти:</span> @cast.DateOfDeath.ToShortDateString()</p>
                                 }
-                                <p><a class="btn" href=@Url.Action("AddSearchPerson", "Cast", new { IdFilm = ViewBag.IdFilm, IdPerson = cast.Id , role = ViewBag.Role})>Добавить</a></p>
+                                <p><a class="btn" style="width:100% !important;" href=@Url.Action("AddSearchPerson", "Cast", new { IdFilm = ViewBag.IdFilm, IdPerson = cast.Id , role = ViewBag.Role})>Добавить</a></p>
                             </div>
                         </div>
                     }
