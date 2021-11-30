@@ -4,39 +4,56 @@
 
 <body>
     <div class="u-clearfix u-sheet u-sheet-1 wrapper">
+        <h1 style="font-weight: bold; color: aliceblue">Актёры</h1>
         <div style="margin-top:10px; width:1100px;" class="fav_block_films">
             @foreach (var cast in Model)
             {
-             <div class="item_films">
-                 @if (cast.Person.Img != null)
-                 {
-                     <p><a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })><img width="300" height="400" class="imagetitle" src="data:image/jpeg;base64,  @(Convert.ToBase64String(cast.Person.Img))"></a></p>
-                 }
-                 else
-                 {
-                     <p><a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })><img width="300" height="400" class="imagetitle" src="~/lib/images/trav1.gif"></a></p>
-                 }
-                 <p style="margin-left:5px;"><a class="titlenamesize_list" href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })>@cast.Person.Name</a></p>
-                 <div class="descr">
-                     @if (cast.Person.Img != null)
-                     {
-                         <p><a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(cast.Person.Img))"></a></p>
-                     }
-                     else
-                     {
-                         <p><a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })><img width="340" height="470" src="~/lib/images/trav1.gif"></a></p>
-                     }
-                     @if ((int)cast.RoleInFilm == 2)
-                     {
-                         <p style="color:white;">
-                             <span style="font-weight:bold; color:white;">Роль в фильме:</span>
+                <div class="item_films">
+                    @if (cast.Person.Img != null)
+                    {
+                        <p><a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })><img width="300" height="400" class="imagetitle" src="data:image/jpeg;base64,  @(Convert.ToBase64String(cast.Person.Img))"></a></p>
+                    }
+                    else
+                    {
+                        <p><a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })><img width="300" height="400" class="imagetitle" src="~/lib/images/trav1.gif"></a></p>
+                    }
+                    <p style="margin-left:5px;"><a class="titlenamesize_list" href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })>@cast.Person.Name</a></p>
+                    <div class="descr">
+                        @if (cast.Person.Img != null)
+                        {
+                            <p>
+                                <a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(cast.Person.Img))"></a>
+                                @if (ViewBag.Role == 1)
+                                {
+                                    <a href=@Url.Action("EditCasts", "Cast", new { IdCast = cast.Id, IdFilm = cast.MediaId })> <img class="btn_delete" style="position: absolute;font-weight:bold; top: 5px; left: 175px; display: block; min-width: 15px !important; width: 20px;font-size: 15px; color: rgb(247,151,30);" src="~/lib/images/Icons/edit.png" /></a>
+                                    <a href=@Url.Action("DeleteCast", "Cast", new { IdCast = cast.Id, IdFilm = cast.MediaId })> <img class="btn_delete" style="position: absolute;font-weight:bold; top: 5px; left: 175px; display: block; min-width: 15px !important; width: 20px;font-size: 15px; color: rgb(247,151,30);" src="~/lib/images/Icons/close.png" /></a>
 
-                             @cast.Character
+                                }
+                            </p>
+                        }
+                        else
+                        {
+                            <p>
+                                <a href=@Url.Action("Person", "Persons", new { personId = cast.PersonId })><img width="340" height="470" src="~/lib/images/trav1.gif"></a>
+                                @if (ViewBag.Role == 1)
+                                {
+                                    <a href=@Url.Action("EditCasts", "Cast", new { IdCast = cast.Id, IdFilm = cast.MediaId })> <img class="btn_delete" style="position: absolute;font-weight:bold; top: 5px; left: 175px; display: block; min-width: 15px !important; width: 20px;font-size: 15px; color: rgb(247,151,30);" src="~/lib/images/Icons/edit.png" /></a>
+                                    <a href=@Url.Action("DeleteCast", "Cast", new { IdCast = cast.Id, IdFilm = cast.MediaId })> <img class="btn_delete" style="position: absolute;font-weight:bold; top: 5px; left: 175px; display: block; min-width: 15px !important; width: 20px;font-size: 15px; color: rgb(247,151,30);" src="~/lib/images/Icons/close.png" /></a>
 
-                         </p>
-                     }
-                 </div>
-             </div>
+                                }
+                            </p>
+                        }
+                        @if ((int)cast.RoleInFilm == 2)
+                        {
+                            <p style="color:white;">
+                                <span style="font-weight:bold; color:white;">Роль в фильме:</span>
+
+                                @cast.Character
+
+                            </p>
+                        }
+                    </div>
+                </div>
             }
         </div>
     </div>
