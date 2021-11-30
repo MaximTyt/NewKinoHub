@@ -38,7 +38,7 @@
                     {<div style="color:white; width:150px; height:30px; padding-bottom:3px !important;">
                             <h3>Фильмы:</h3>
                         </div>
-                    }
+                    
                     <div style="margin-top: 10px; width: 400px; float: left;" class="fav_block_films">
                         @foreach (var film in Model.Item1)
                         {
@@ -152,6 +152,8 @@
                         }
                     </div>
 
+                    }
+
                     @if (Model.Item2.Count != 0)
                     {
                         <div style="color:white;width:150px; height:30px; padding-bottom:3px !important;">
@@ -159,7 +161,7 @@
                             <h3>Сериалы:</h3>
                             <br />
                         </div>
-                    }
+                    
             <div style="margin-top: 10px; width: 400px; float: left;" class="fav_block_films">
                 @foreach (var serial in Model.Item2)
                 {
@@ -273,7 +275,8 @@
                 }
             </div>
                         }
-                    </div>
+                }        
+            </div>
         </div>
     </div>
 </body>
