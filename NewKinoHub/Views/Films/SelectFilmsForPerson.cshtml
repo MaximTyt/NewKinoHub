@@ -38,8 +38,8 @@
                     {<div style="color:white; width:150px; height:30px; padding-bottom:3px !important;">
                             <h3>Фильмы:</h3>
                         </div>
-                    }
-                    <div style="margin-top: 10px; width: 400px; float: left;" class="fav_block_films">
+                    
+                    <div style="margin-top: 10px; width: 1100px;" class="fav_block_films">
                         @foreach (var film in Model.Item1)
                         {
                             <div class="item_films">
@@ -49,15 +49,15 @@
                                         <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="300" height="400" class="imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(film.Img))"></a>
                                         @if (film.Score <= 5)
                                         {
-                                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
                                         }
-                                        @if (film.Score <= 8 && film.Score > 5)
+                                        @if (film.Score < 7 && film.Score > 5)
                                         {
-                                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
                                         }
-                                        @if (film.Score > 8)
+                                        @if (film.Score >= 7)
                                         {
-                                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @film.Score</span>
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
                                         }
                                     </p>
                                 }
@@ -67,15 +67,15 @@
                                         <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="300" height="400" class="imagetitle" src="~/lib/images/netpostera.png"></a>
                                         @if (film.Score <= 5)
                                         {
-                                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
                                         }
-                                        @if (film.Score <= 8 && film.Score > 5)
+                                        @if (film.Score < 7 && film.Score > 5)
                                         {
-                                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
                                         }
-                                        @if (film.Score > 8)
+                                        @if (film.Score >= 7)
                                         {
-                                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @film.Score</span>
+                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
                                         }
                                     </p>
                                 }
@@ -88,16 +88,16 @@
                                             <a href=@Url.Action("Film", "Films", new { IdFilm = film.MediaID })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(film.Img))"></a>
                                             @if (film.Score <= 5)
                                             {
-                                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
                                             }
-                                            @if (film.Score <= 8 && film.Score > 5)
+                                            @if (film.Score < 7 && film.Score > 5)
                                             {
-                                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
                                             }
-                                            @if (film.Score > 8)
+                                            @if (film.Score >= 7)
                                             {
 
-                                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @film.Score</span>
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
 
                                             }
                                         </p>
@@ -109,15 +109,15 @@
                                             @if (film.Score <= 5)
                                             {
 
-                                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
                                             }
-                                            @if (film.Score <= 8 && film.Score > 5)
+                                            @if (film.Score < 7 && film.Score > 5)
                                             {
-                                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @film.Score</span>
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
                                             }
-                                            @if (film.Score > 8)
+                                            @if (film.Score >= 7)
                                             {
-                                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left:3px; font-size: 15px; color: white; "> @film.Score</span>
+                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left:3px; font-size: 15px; color: white; "> @Math.Round(@film.Score, 1)</span>
 
                                             }
                                         </p>
@@ -152,6 +152,8 @@
                         }
                     </div>
 
+                    }
+
                     @if (Model.Item2.Count != 0)
                     {
                         <div style="color:white;width:150px; height:30px; padding-bottom:3px !important;">
@@ -159,8 +161,8 @@
                             <h3>Сериалы:</h3>
                             <br />
                         </div>
-                    }
-            <div style="margin-top: 10px; width: 400px; float: left;" class="fav_block_films">
+                    
+            <div style="margin-top: 10px; width: 1100px;" class="fav_block_films">
                 @foreach (var serial in Model.Item2)
                 {
 
@@ -172,15 +174,15 @@
                                 <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID })><img width="300" height="400" class="imagetitle" src="data:image/jpeg;base64, @(Convert.ToBase64String(serial.Img))"></a>
                                 @if (serial.Score <= 5)
                                 {
-                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@serial.Score, 1)</span>
                                 }
-                                @if (serial.Score <= 8 && serial.Score > 5)
+                                @if (serial.Score < 7 && serial.Score > 5)
                                 {
-                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@serial.Score, 1)</span>
                                 }
-                                @if (serial.Score > 8)
+                                @if (serial.Score >= 7)
                                 {
-                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @serial.Score</span>
+                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @Math.Round(@serial.Score, 1)</span>
                                 }
                             </p>
                         }
@@ -190,15 +192,15 @@
                                 <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID })><img width="300" height="400" class="imagetitle" src="~/lib/images/netpostera.png"></a>
                                 @if (serial.Score <= 5)
                                 {
-                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@serial.Score, 1)</span>
                                 }
-                                @if (serial.Score <= 8 && serial.Score > 5)
+                                @if (serial.Score < 7 && serial.Score > 5)
                                 {
-                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@serial.Score, 1)</span>
                                 }
-                                @if (serial.Score > 8)
+                                @if (serial.Score >= 7)
                                 {
-                                    <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @serial.Score</span>
+                            <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @Math.Round(@serial.Score, 1)</span>
                                 }
                             </p>
                         }
@@ -212,15 +214,15 @@
                                     <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID })><img width="340" height="470" src="data:image/jpeg;base64, @(Convert.ToBase64String(serial.Img))"></a>
                                     @if (serial.Score <= 5)
                                     {
-                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@serial.Score, 1)</span>
                                     }
-                                    @if (serial.Score <= 8 && serial.Score > 5)
+                                    @if (serial.Score < 7 && serial.Score > 5)
                                     {
-                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@serial.Score, 1)</span>
                                     }
-                                    @if (serial.Score > 8)
+                                    @if (serial.Score >= 7)
                                     {
-                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @serial.Score</span>
+                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left: 3px; font-size: 15px; color: white; "> @Math.Round(@serial.Score, 1)</span>
                                     }
                                 </p>
                             }
@@ -230,15 +232,15 @@
                                     <a href=@Url.Action("Film", "Films", new { IdFilm = serial.MediaID })><img width="340" height="470" src="~/lib/images/netpostera.png"></a>
                                     @if (serial.Score <= 5)
                                     {
-                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: red; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@serial.Score, 1)</span>
                                     }
-                                    @if (serial.Score <= 8 && serial.Score > 5)
+                                    @if (serial.Score < 7 && serial.Score > 5)
                                     {
-                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: yellow; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @serial.Score</span>
+                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: dimgrey; border-radius: 5px; padding-left: 6px; font-size: 15px; color: white; "> @Math.Round(@serial.Score, 1)</span>
                                     }
-                                    @if (serial.Score > 8)
+                                    @if (serial.Score >= 7)
                                     {
-                                        <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left:3px; font-size: 15px; color: white; "> @serial.Score</span>
+                                <span style="position: absolute; font-weight: bold; top: 10px; left: 15px; display: block; min-width: 15px !important; width: 25px; background-color: green; border-radius: 5px; padding-left:3px; font-size: 15px; color: white; "> @Math.Round(@serial.Score, 1)</span>
                                     }
                                 </p>
                             }
@@ -273,7 +275,8 @@
                 }
             </div>
                         }
-                    </div>
+                }        
+            </div>
         </div>
     </div>
 </body>

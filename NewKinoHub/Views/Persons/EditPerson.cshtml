@@ -14,15 +14,8 @@
                             <label class="colortext">Name:<sup>*</sup></label><br />
                             <textarea class="namesizeeditadd" type="text" name="Name" required>@Model.Name</textarea><br />
 
-                            <label class="colortext">Фото:<sup>*</sup></label><br />
-                            @if (Model.Img != null)
-                            {
-                                <input class="colortext" value=@(Convert.ToBase64String(Model.Img)) type="file" title="Выберите фото" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                            }
-                            else
-                            {
-                                <input class="colortext" type="file" title="Выберите фото" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
-                            }
+                            <label class="colortext">Фото:<sup>*</sup></label><br />         
+                            <input class="colortext" type="file" title="Выберите фото" name="mainPhoto" accept=".jpg, .jpeg, .png, .bmp, .gif"><br /><br />
                         </td>
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Настоящее имя:<sup>*</sup></label><br />
@@ -43,7 +36,7 @@
                                     </label>
                                     <br />
                                     <label class="colortext">
-                                        <input id="IsSceenwriter" type="checkbox" name="IsScreenwriter" value="true" style="margin: 5px;">Сценарист
+                                        <input id="IsSceenwriter" type="checkbox" name="IsScreenWriter" value="true" style="margin: 5px;">Сценарист
                                     </label>
 
 
@@ -56,7 +49,7 @@
 
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Награды(необязательно):<sup></sup></label><br />
-                            <textarea class="namesizeeditadd" type="text" name="Awards">@Model.Awards</textarea><br />
+                            <textarea class="descriptionsize" type="text" name="Awards">@Model.Awards</textarea><br />
                         </td>
                     </tr>
 
@@ -67,22 +60,34 @@
                         </td>
 
                         <td valign="top" align="left" class="tdstyle">
-
-                            <label class="colortext">Дата рождения:@if (Model.DateOfBirthday.Year != 0001) { Model.DateOfBirthday.ToShortDateString(); } else { }</label><br />
+                            @if (Model.DateOfBirthday.Year != 0001)
+                            {
+                                <label class="colortext">Дата рождения:@Model.DateOfBirthday.ToShortDateString()</label><br />
+                            }
+                            else
+                            {
+                                <label class="colortext">Дата рождения:</label><br />
+                            }
                             <input type="date" id="DateOfBirthday" name="DateOfBirthday" /><br />
 
                             <label class="colortext">Место рождения(необязательно):<sup></sup></label><br />
                             <textarea class="descriptionsize" type="text" name="PlaceOfBirthday"> @Model.PlaceOfBirthday</textarea>
 
-                           
-                        <label class="colortext">Дата смерти: @if (Model.DateOfDeath.Year != 0001) { Model.DateOfDeath.ToShortDateString(); } else { }</label><br />
-                           <input type="date" id="DateOfDeath" name="DateOfDeath" /><br />
-                            
-                        
+                            @if (Model.DateOfDeath.Year != 0001)
+                            {
+                                <label class="colortext">Дата смерти:  @Model.DateOfDeath.ToShortDateString()</label><br />
+                            }
+                            else
+                            {
+                                <label class="colortext">Дата смерти:</label><br />
+                            }
+                            <input type="date" id="DateOfDeath" name="DateOfDeath" /><br />
+
+
                         </td>
                         <td valign="top" class="tdstyle">
                             <label class="colortext">Супруг(а):<sup></sup></label><br />
-                            <textarea class="descriptionsize" type="text" name="Spouse"> @Model.Spouse</textarea>
+                            <input class="namesizeeditadd" type="text" name="Spouse" value="@Model.Spouse"/> <br />
 
                             <label class="colortext">Рост:<sup></sup></label><br />
                             <input value="@Convert.ToString(Model.Height).Replace(',', '.')" step="0.01" min=0 max=2.5 type="number"  name="Height" /> <br />

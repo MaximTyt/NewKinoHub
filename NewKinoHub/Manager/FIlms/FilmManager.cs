@@ -630,13 +630,27 @@ namespace KinoHab.Manager
             return Media;
         }
 
-        public async Task<(List<Media>,List<Media>)> SearchFilmsForActors(string Role1, string Name1,string Role2, string Name2, Users User)
+        public async Task<(List<Media>,List<Media>)> SearchFilmsForActors(string Role1, string[] Name_1,string Role2, string[] Name_2, Users User)
         {
             (List<Media>, List<Media>) Media = (new List<Media>(), new List<Media>());
             (List<Media>, List<Media>) Media1 = (null, null);
             (List<Media>, List<Media>) Media2 = (null, null);
             Role1 = ReNameRole(Role1);
             Role2 = ReNameRole(Role2);
+            int k = 0;
+            string Name1 = null, Name2 = null;
+            while( k < 3)
+            {
+                if(Name_1[k] != null)
+                {
+                    Name1 = Name_1[k];
+                }
+                if(Name_2[k] != null)
+                {
+                    Name2 = Name_2[k];
+                }
+                k++;
+            }
             if (Name1 != null)
             {
                 var Person1 = _context.Persons.FirstOrDefault(st => st.Name.ToLower().Contains(Name1.ToLower()));

@@ -104,10 +104,13 @@ namespace NewKinoHub.Manager.Persons
             }
             _context.Persons.FirstOrDefault(st => st.Id == personId).IsActor = IsActor;
             _context.Persons.FirstOrDefault(st => st.Id == personId).IsScreenWriter = IsScreenWriter;
-            _context.Persons.FirstOrDefault(st => st.Id == personId).IsDirector = IsActor;            
-            if (Convert.ToDouble(Height.Replace('.', ',')) > 0)
+            _context.Persons.FirstOrDefault(st => st.Id == personId).IsDirector = IsDirector;
+            if (Height != null)
             {
-                _context.Persons.FirstOrDefault(st => st.Id == personId).Height = Convert.ToDouble(Height.Replace('.', ','));
+                if (Convert.ToDouble(Height.Replace('.', ',')) > 0)
+                {
+                    _context.Persons.FirstOrDefault(st => st.Id == personId).Height = Convert.ToDouble(Height.Replace('.', ','));
+                }
             }
             if (mainPhoto != null)
             {
