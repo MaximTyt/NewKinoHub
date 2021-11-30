@@ -53,15 +53,20 @@
                                 {
                                     <p><a href=@Url.Action("Person", "Persons", new { personId = cast.Id })><img width="340" height="470" src="~/lib/images/trav1.gif"></a></p>
                                 }
-                                <p>
-                                    <span style="font-weight:bold">Карьера:</span>
-                                    @if (cast.IsActor != false)
-                                    {<a style="color:white;" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Actor", IdPerson = cast.Id })> Актёр </a>}
-                                    @if (cast.IsDirector != false)
-                                    {<a style="color:white;" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Director", IdPerson = cast.Id })> Режиссёр </a>}
-                                    @if (cast.IsScreenWriter != false)
-                                    {<a style="color:white;" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "ScreenWriter", IdPerson = cast.Id })> Сценарист </a>}
-                                </p>
+                            <p>
+                                <span style="font-weight:bold">Карьера:</span>
+                                @if (cast.IsActor != false)
+                                {<a style="color:white;" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Actor", IdPerson = cast.Id })> Актёр </a>
+                                    @if (cast.IsDirector != false || cast.IsScreenWriter != false)
+                                    {<a>, </a>}}
+                                @if (cast.IsDirector != false)
+                                {<a style="color:white;" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "Director", IdPerson = cast.Id })> Режиссёр </a>
+                                    if (cast.IsScreenWriter != false)
+                                    {<a>, </a>}
+                                }
+                                @if (cast.IsScreenWriter != false)
+                                {<a style="color:white;" href=@Url.Action("SelectFilmsForPerson", "Films", new { person = "ScreenWriter", IdPerson = cast.Id })> Сценарист </a>}
+                            </p>
                                 @if (cast.DateOfBirthday.Year != 0001)
                                 {
                                     <p>
