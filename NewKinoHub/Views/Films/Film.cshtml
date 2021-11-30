@@ -331,7 +331,7 @@
             @if (Model.Reviews != null)
             {
 
-                @foreach (var Revi in Model.Reviews)
+                @foreach (var Revi in Model.Reviews.OrderByDescending(st=>st.DateOfReview))
                 {
                     <div class="message-conteiner message-conteiner-margin" style="float:right;margin-right: 30px;">
                         <div class="message message-width">
