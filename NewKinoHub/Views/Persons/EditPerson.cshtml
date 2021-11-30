@@ -90,7 +90,7 @@
                             <input class="namesizeeditadd" type="text" name="Spouse" value="@Model.Spouse"/> <br />
 
                             <label class="colortext">Рост:<sup></sup></label><br />
-                            <input value="@Convert.ToString(Model.Height).Replace(',', '.')" step="0.01" min=0 max=2.5 type="number"  name="Height" /> <br />
+                            <input value="@Convert.ToString(Model.Height).Replace(',', '.')" step="0.01" min=0.45 max=2.5 type="number"  name="Height" /> <br />
 
                             @if (@Model.PlaceOfDeath != null)
                             {

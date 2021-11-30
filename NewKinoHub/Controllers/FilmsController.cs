@@ -81,15 +81,15 @@ namespace KinoHab.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddFilms(IFormFile mainPhoto, string Name, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int NumOfEpisodes,int NumOfSeason, int type, IFormFile Images1, IFormFile Images2, IFormFile Images3, IFormFile Images4, string[] genres, DateTime Release_Date)
+        public async Task<ActionResult> AddFilms(IFormFile mainPhoto, string Name, string Contry, int Age, string RunTime, string Description, string shortDiscription, string ScoreKP, string Music, string Video, int NumOfEpisodes,int NumOfSeason, int type, IFormFile Images1, IFormFile Images2, IFormFile Images3, IFormFile Images4, string[] genres, DateTime Release_Date)
         {
-            await _film.AddFilm(mainPhoto, Name,Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video, NumOfEpisodes, NumOfSeason,type, Images1,Images2, Images3, Images4, genres, Release_Date);
+            await _film.AddFilm(mainPhoto, Name,Contry, Age, RunTime, Description, shortDiscription, ScoreKP, Music, Video, NumOfEpisodes, NumOfSeason,type, Images1,Images2, Images3, Images4, genres, Release_Date);
             return RedirectToAction("ListFilms", "Films");
         }
         [HttpPost]
-        public async Task<ActionResult> EditFilms(IFormFile mainPhoto, string Name, string Contry, int Age, string RunTime, string Description, string shortDiscription, string Score, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, IFormFile Images1, IFormFile Images2, IFormFile Images3, IFormFile Images4, string[] genres, DateTime Release_Date)
+        public async Task<ActionResult> EditFilms(IFormFile mainPhoto, string Name, string Contry, int Age, string RunTime, string Description, string shortDiscription, string ScoreKP, string Music, string Video, int Id, int NumOfEpisodes, int NumOfSeason, int type, IFormFile Images1, IFormFile Images2, IFormFile Images3, IFormFile Images4, string[] genres, DateTime Release_Date)
         {
-            await _film.EditFilm(mainPhoto, Name, Contry, Age, RunTime, Description, shortDiscription, Score, ScoreKP, Music, Video,Id, NumOfEpisodes, NumOfSeason,type, Images1, Images2, Images3, Images4, genres, Release_Date);
+            await _film.EditFilm(mainPhoto, Name, Contry, Age, RunTime, Description, shortDiscription, ScoreKP, Music, Video,Id, NumOfEpisodes, NumOfSeason,type, Images1, Images2, Images3, Images4, genres, Release_Date);
             return RedirectToAction("ListFilms", "Films");
         }
 
